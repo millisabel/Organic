@@ -1,16 +1,18 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
+import HomePage from "../pages/HomePage";
+import AboutPage from "../pages/AboutPage";
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import '../styles/App.css'
+
+const isProd = import.meta.env.PROD;
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={isProd ? "/Organic" : undefined}>
       <nav className="flex gap-4 p-4">
         <Link to="/" className="text-green-600">Home</Link>
         <Link to="/about" className="text-blue-600">About</Link>
