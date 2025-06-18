@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+
+# Build and cache
+dist/
+build/
+.vite/
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# Confidential and local files
+.env
+.env.*.local
+
+# Test and coverage cache
+coverage/
+
+# Files for IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# misc
+.env
+.env.*.local
+.vscode/
+.idea/
+*.log
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
