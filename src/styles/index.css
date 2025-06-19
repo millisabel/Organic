@@ -1,3 +1,33 @@
+/* @type tailwindcss */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+  .h1 {
+    @apply font-roboto text-h1 text-primary;
+  }
+  .text-base {
+    @apply font-opensans text-text-base text-primary;
+  }
+  .section-title {
+    @apply font-roboto text-section-title text-primary;
+  }
+  .section-subtitle {
+    @apply font-yellowtail italic text-section-subtitle text-secondary;
+  }
+  .nav-link {
+    @apply font-roboto text-nav-link text-primary;
+  }
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 0;
+}
