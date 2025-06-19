@@ -43,6 +43,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'jsx-a11y/aria-proptypes': 'off'
     },
     settings: {
       react: {
