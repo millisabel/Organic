@@ -6,11 +6,9 @@ interface ContainerProps {
 const Container = ({ children, className = '' }: ContainerProps) => {
   return (
     <div className={`w-screen ${className}`}>
-      <div className="container mx-auto px-4">
-        {children}
-      </div>
+      <div className="container mx-auto px-4">{children}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Container 
+export default Container;

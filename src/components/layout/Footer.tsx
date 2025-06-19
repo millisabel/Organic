@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import Container from '../shared/Container'
+import { Link } from 'react-router-dom';
+import Container from '../shared/Container';
 
 const Footer = () => {
   return (
@@ -12,7 +12,8 @@ const Footer = () => {
               Organic
             </Link>
             <p className="mt-4 text-text-light">
-              Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing.
+              Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy
+              text of the printing.
             </p>
           </div>
 
@@ -44,21 +45,25 @@ const Footer = () => {
             <div className="space-y-4">
               <div>
                 <p className="font-bold text-text">Email</p>
-                <a href="mailto:needhelp@organic.com" className="text-text-light hover:text-primary transition-colors">
+                <a
+                  href="mailto:needhelp@organic.com"
+                  className="text-text-light hover:text-primary transition-colors"
+                >
                   needhelp@organic.com
                 </a>
               </div>
               <div>
                 <p className="font-bold text-text">Phone</p>
-                <a href="tel:+666888888" className="text-text-light hover:text-primary transition-colors">
+                <a
+                  href="tel:+666888888"
+                  className="text-text-light hover:text-primary transition-colors"
+                >
                   666 888 888
                 </a>
               </div>
               <div>
                 <p className="font-bold text-text">Address</p>
-                <p className="text-text-light">
-                  88 road, Brooklyn street, USA
-                </p>
+                <p className="text-text-light">88 road, Brooklyn street, USA</p>
               </div>
             </div>
           </div>
@@ -72,7 +77,7 @@ const Footer = () => {
         </div>
       </div>
     </Container>
-  )
-}
+  );
+};
 
-export default Footer 
+export default Footer;

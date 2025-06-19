@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 interface NavigationProps {
   isMobile?: boolean;
@@ -10,12 +10,12 @@ const navigationLinks = [
   { path: '/shop', label: 'Shop' },
   { path: '/projects', label: 'Projects' },
   { path: '/news', label: 'News' },
-]
+];
 
 const Navigation = ({ isMobile = false }: NavigationProps) => {
-  const baseClasses = isMobile 
-    ? "flex flex-col space-y-4" 
-    : "hidden md:flex items-center space-x-8"
+  const baseClasses = isMobile
+    ? 'flex flex-col space-y-4'
+    : 'hidden md:flex items-center space-x-8';
 
   return (
     <nav className={baseClasses}>
@@ -29,7 +29,7 @@ const Navigation = ({ isMobile = false }: NavigationProps) => {
         </Link>
       ))}
     </nav>
-  )
-}
+  );
+};
 
-export default Navigation 
+export default Navigation;

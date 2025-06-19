@@ -4,5 +4,10 @@
   "trailingComma": "all",
   "printWidth": 100,
   "tabWidth": 2,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "bracketSpacing": true,
+  "jsxSingleQuote": false,
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "proseWrap": "preserve"
 }

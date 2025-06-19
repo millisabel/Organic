@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "../components/layout/Layout";
-import HomePage from "../pages/HomePage";
-import AboutPage from "../pages/AboutPage";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from '../components/layout/Layout';
+import HomePage from '../pages/HomePage';
+import AboutPage from '../pages/AboutPage';
 
-import '../styles/App.css'
+import '../styles/App.css';
 
 const basename = import.meta.env.VITE_BASENAME || undefined;
 
@@ -21,7 +21,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

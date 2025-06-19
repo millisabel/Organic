@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -32,7 +29,7 @@ export default {
       },
       fontSize: {
         'text-base': ['18px', { lineHeight: '1.65', fontWeight: '400' }],
-        'h1': ['70px', { lineHeight: 'inherit', fontWeight: '800' }],
+        h1: ['70px', { lineHeight: 'inherit', fontWeight: '800' }],
         'section-title': ['50px', { lineHeight: 'inherit', fontWeight: '800' }],
         'section-subtitle': ['36px', { lineHeight: 'inherit', fontWeight: '400' }],
         'nav-link': ['20px', { lineHeight: 'inherit', fontWeight: '600' }],
@@ -40,4 +37,4 @@ export default {
     },
   },
   plugins: [],
-}
+};
