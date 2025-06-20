@@ -3,12 +3,8 @@ interface ContainerProps {
   className?: string;
 }
 
-const Container = ({ children, className = '' }: ContainerProps) => {
-  return (
-    <div className={`w-screen ${className}`}>
-      <div className="container mx-auto px-4">{children}</div>
-    </div>
-  );
+const Container: React.FC<ContainerProps> = ({ children, className }) => {
+  return <div className={`w-full ${className}`}>{children}</div>;
 };
 
 export default Container;

@@ -21,3 +21,7 @@
     @apply font-roboto text-nav-link text-primary;
   }
 }
+
+.hero-section {
+  background-image: var(--bg-image);
+}

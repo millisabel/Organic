@@ -1,10 +1,8 @@
+import heroImage from '@/assets/images/backgrounds/hero_bg_page_blog.webp';
+import Hero from '@/components/shared/Hero';
+
 const ProjectsPage = () => {
-  return (
-    <div>
-      <h1>Projects</h1>
-      <p>This is the projects page. Content will be added soon.</p>
-    </div>
-  );
+  return <Hero variant="banner" title="Projects" backgroundImage={heroImage} />;
 };
 
 export default ProjectsPage;

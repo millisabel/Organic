@@ -1,10 +1,8 @@
+import contactImage from '@/assets/images/backgrounds/hero_bg_page_contact.webp';
+import Hero from '@/components/shared/Hero';
+
 const ContactPage = () => {
-  return (
-    <div>
-      <h1>Contact Us</h1>
-      <p>This is the contact page. Content will be added soon.</p>
-    </div>
-  );
+  return <Hero variant="banner" title="Contact Us" backgroundImage={contactImage} />;
 };
 
 export default ContactPage;

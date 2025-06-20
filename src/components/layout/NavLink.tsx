@@ -1,10 +1,9 @@
+import { clsx } from 'clsx';
 import { useRef, type FC, type ReactNode } from 'react';
 import {
   NavLink as RouterNavLink,
   type NavLinkProps as RouterNavLinkProps,
 } from 'react-router-dom';
-
-import { cn } from '../../utils/helpers';
 
 interface NavLinkProps extends Omit<RouterNavLinkProps, 'className' | 'children'> {
   children: ReactNode;
@@ -15,7 +14,11 @@ const NavLink: FC<NavLinkProps> = ({ to, children, onClick, ...props }) => {
   const spansRef = useRef<(HTMLSpanElement | null)[]>([]);
   const restProps: Omit<RouterNavLinkProps, 'to' | 'children' | 'onClick' | 'className'> = props;
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (event.currentTarget.classList.contains('active')) {
+      return;
+    }
+
     spansRef.current.forEach((span, i) => {
       if (!span) return;
       setTimeout(() => {
@@ -38,10 +41,14 @@ const NavLink: FC<NavLinkProps> = ({ to, children, onClick, ...props }) => {
       to={to}
       onClick={onClick}
       className={({ isActive }) =>
-        cn('font-roboto text-xl font-bold', {
-          'text-accent pointer-events-none': isActive,
-          'text-primary': !isActive,
-        })
+        clsx(
+          'nav-link relative block select-none px-2 py-1 transition-colors duration-300 ease-in-out',
+          'after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:w-0 after:-translate-x-1/2 after:bg-secondary after:transition-all after:duration-300 after:ease-in-out',
+          {
+            'text-accent': isActive,
+            'text-primary': !isActive,
+          },
+        )
       }
       onMouseEnter={handleMouseEnter}
       {...restProps}

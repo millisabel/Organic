@@ -1,10 +1,8 @@
+import heroImage from '@/assets/images/backgrounds/hero_bg_page_schop.webp';
+import Hero from '@/components/shared/Hero';
+
 const ShopPage = () => {
-  return (
-    <div>
-      <h1>Shop</h1>
-      <p>This is the shop page. Content will be added soon.</p>
-    </div>
-  );
+  return <Hero variant="banner" title="Shop" backgroundImage={heroImage} />;
 };
 
 export default ShopPage;
