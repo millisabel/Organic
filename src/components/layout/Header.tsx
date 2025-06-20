@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <Container className="bg-white shadow-sm">
-      <div className="py-6">
+      <header className="py-6">
         <div className="flex items-center justify-between">
           <Logo />
           <Navigation />
@@ -24,7 +24,7 @@ const Header = () => {
           </div>
         </div>
         {isMenuOpen && <Navigation isMobile />}
-      </div>
+      </header>
     </Container>
   );
 };
