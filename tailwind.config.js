@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -7,6 +8,7 @@ export default {
         primary: '#274C5B',
         secondary: '#7EB693',
         accent: '#EFD372',
+        arrowFill: '#335B6B',
         background: '#F9F8F8',
         text: '#274C5B',
         'text-light': '#525C60',

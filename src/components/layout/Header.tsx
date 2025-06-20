@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import Logo from '../ui/Logo';
-import Navigation from './Navigation';
+import Container from '../shared/Container';
+import ArrowIcon from '../ui/ArrowIcon';
+import { Button } from '../ui/Button';
 import CartButton from '../ui/CartButton';
+import Logo from '../ui/Logo';
 import MenuButton from '../ui/MenuButton';
 import SearchButton from '../ui/SearchButton';
-import Container from '../shared/Container';
+import Navigation from './Navigation';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleSearchClick = () => {
-    console.log('Search clicked');
-  };
+  const handleSearchClick = () => {};
 
   return (
     <Container className="bg-white shadow-sm">
@@ -23,6 +23,10 @@ const Header = () => {
             <SearchButton onClick={handleSearchClick} />
             <CartButton itemCount={0} />
             <MenuButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
+
+            <Button variant="default" size="default">
+              Shop Now
+            </Button>
           </div>
         </div>
         {isMenuOpen && <Navigation isMobile />}
