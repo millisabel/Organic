@@ -1,29 +1,46 @@
+import { useMemo } from 'react';
+
+import { useWindowWidth } from '../../hooks/useWindowWidth';
+import { cn } from '../../utils/helpers';
 import NavLink from './NavLink';
 
 interface NavigationProps {
   isMobile?: boolean;
+  onLinkClick?: () => void;
 }
 
-const navigationLinks = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About' },
-  { path: '/shop', label: 'Shop' },
-  { path: '/projects', label: 'Projects' },
-  { path: '/news', label: 'News' },
-];
+const Navigation = ({ isMobile, onLinkClick }: NavigationProps) => {
+  const windowWidth = useWindowWidth();
 
-const Navigation = ({ isMobile = false }: NavigationProps) => {
-  const baseClasses = isMobile
-    ? 'flex flex-col space-y-4'
-    : 'hidden md:flex items-center space-x-8';
+  const links = useMemo(() => {
+    const navLinks = [
+      { href: '/', text: 'Home' },
+      { href: '/about', text: 'About' },
+      { href: '/shop', text: 'Shop' },
+      { href: '/blog', text: 'Blog' },
+      { href: '/contact', text: 'Contact' },
+    ];
+    if (windowWidth < 1024) {
+      navLinks.splice(2, 0, { href: '/services', text: 'Services' });
+    }
+    return navLinks;
+  }, [windowWidth]);
 
   return (
-    <nav className={baseClasses}>
-      {navigationLinks.map(({ path, label }) => (
-        <NavLink key={path} to={path}>
-          {label}
-        </NavLink>
-      ))}
+    <nav>
+      <ul
+        className={cn('flex items-center gap-x-10', {
+          'flex-col gap-y-10 text-3xl': isMobile,
+        })}
+      >
+        {links.map(({ href, text }) => (
+          <li key={href}>
+            <NavLink to={href} onClick={onLinkClick}>
+              {text}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };

@@ -1,28 +1,30 @@
-import { cn } from '@/utils/helpers';
-import { themeColors } from '@/utils/resolved-tailwind-config';
-import { useRef, type ReactNode } from 'react';
-import { NavLink as RouterNavLink, type NavLinkProps } from 'react-router-dom';
+import { useRef, type FC, type ReactNode } from 'react';
+import {
+  NavLink as RouterNavLink,
+  type NavLinkProps as RouterNavLinkProps,
+} from 'react-router-dom';
 
-interface WavyLinkProps extends NavLinkProps {
+import { cn } from '../../utils/helpers';
+
+interface NavLinkProps extends Omit<RouterNavLinkProps, 'className' | 'children'> {
   children: ReactNode;
+  onClick?: () => void;
 }
 
-const NavLink = ({ to, children, ...props }: WavyLinkProps) => {
+const NavLink: FC<NavLinkProps> = ({ to, children, onClick, ...props }) => {
   const spansRef = useRef<(HTMLSpanElement | null)[]>([]);
+  const restProps: Omit<RouterNavLinkProps, 'to' | 'children' | 'onClick' | 'className'> = props;
 
   const handleMouseEnter = () => {
     spansRef.current.forEach((span, i) => {
       if (!span) return;
       setTimeout(() => {
-        span.style.color = themeColors.accent;
-        span.style.transform = 'translateY(-15px)';
-        span.style.transition = 'transform 0.3s ease-out, color 0.3s ease-out';
+        span.classList.add('text-accent', '-translate-y-[15px]');
       }, i * 50);
 
       setTimeout(
         () => {
-          span.style.color = themeColors.primary;
-          span.style.transform = 'translateY(0px)';
+          span.classList.remove('text-accent', '-translate-y-[15px]');
         },
         300 + i * 50,
       );
@@ -34,14 +36,15 @@ const NavLink = ({ to, children, ...props }: WavyLinkProps) => {
   return (
     <RouterNavLink
       to={to}
-      onMouseEnter={handleMouseEnter}
+      onClick={onClick}
       className={({ isActive }) =>
-        cn(
-          'font-roboto text-xl font-bold text-primary',
-          isActive && 'text-accent pointer-events-none',
-        )
+        cn('font-roboto text-xl font-bold', {
+          'text-accent pointer-events-none': isActive,
+          'text-primary': !isActive,
+        })
       }
-      {...props}
+      onMouseEnter={handleMouseEnter}
+      {...restProps}
     >
       {text.split('').map((char, i) => (
         <span
@@ -49,7 +52,7 @@ const NavLink = ({ to, children, ...props }: WavyLinkProps) => {
           ref={(el) => {
             spansRef.current[i] = el;
           }}
-          className="inline-block"
+          className="inline-block transition-all duration-300 ease-in-out"
         >
           {char === ' ' ? '\u00A0' : char}
         </span>

@@ -1,7 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
-import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
+import BlogPage from '../pages/BlogPage';
+import CartPage from '../pages/CartPage';
+import ContactPage from '../pages/ContactPage';
+import HomePage from '../pages/HomePage';
+import ProjectsPage from '../pages/ProjectsPage';
+import ShopPage from '../pages/ShopPage';
 
 import '../styles/App.css';
 
@@ -14,10 +19,11 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="shop" element={<div>Shop Page (Coming Soon)</div>} />
-          <Route path="projects" element={<div>Projects Page (Coming Soon)</div>} />
-          <Route path="news" element={<div>News Page (Coming Soon)</div>} />
-          <Route path="cart" element={<div>Cart Page (Coming Soon)</div>} />
+          <Route path="shop" element={<ShopPage />} />
+          <Route path="projects" element={<ProjectsPage />} />
+          <Route path="blog" element={<BlogPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="cart" element={<CartPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
