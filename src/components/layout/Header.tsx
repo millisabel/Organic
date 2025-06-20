@@ -1,31 +1,41 @@
 import { useState } from 'react';
-import Container from '../shared/Container';
+import { Link } from 'react-router-dom';
+
+import { cn } from '../../utils/helpers';
 import CartButton from '../ui/CartButton';
 import Logo from '../ui/Logo';
 import MenuButton from '../ui/MenuButton';
-import SearchButton from '../ui/SearchButton';
+import SearchInput from '../ui/SearchInput';
 import Navigation from './Navigation';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleSearchClick = () => {};
-
   return (
-    <Container className="bg-white shadow-sm">
-      <header className="py-6">
-        <div className="flex items-center justify-between">
+    <header className={cn('border-b border-border')}>
+      <div className={cn('container mx-auto px-4')}>
+        <div className={cn('flex items-center justify-between py-6')}>
           <Logo />
-          <Navigation />
-          <div className="flex items-center gap-2">
-            <SearchButton onClick={handleSearchClick} />
-            <CartButton itemCount={0} />
+          <div className="hidden lg:flex">
+            <Navigation />
+          </div>
+          <div className="hidden items-center gap-x-8 lg:flex">
+            <SearchInput />
+            <Link to="/cart">
+              <CartButton />
+            </Link>
+          </div>
+          <div className="lg:hidden">
             <MenuButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
           </div>
         </div>
-        {isMenuOpen && <Navigation isMobile />}
-      </header>
-    </Container>
+        {isMenuOpen && (
+          <div className="py-4 lg:hidden">
+            <Navigation isMobile />
+          </div>
+        )}
+      </div>
+    </header>
   );
 };
 

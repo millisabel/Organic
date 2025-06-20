@@ -1,5 +1,6 @@
 import { cn } from '@/utils/helpers';
-import { motion, type Variants } from 'framer-motion';
+import { motion, useAnimation, useInView, type Variants } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import LogoIcon from '../icons/LogoIcon';
 
@@ -12,9 +13,27 @@ interface LogoProps {
   speed?: number;
 }
 
-const Logo = ({ speed = 0.5 }: LogoProps) => {
+const Logo = ({ speed = 1 }: LogoProps) => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const svgControls = useAnimation();
+  const textControls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      svgControls.start('visible');
+      textControls.start('visible');
+    }
+  }, [isInView, svgControls, textControls]);
+
+  const handleMouseEnter = () => {
+    if (isHomePage) return;
+    svgControls.set('hidden');
+    svgControls.start('visible');
+  };
 
   const svgVariants: Variants = {
     hidden: {},
@@ -39,15 +58,25 @@ const Logo = ({ speed = 0.5 }: LogoProps) => {
     },
   };
 
+  const textVariants: Variants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 / speed, delay: (0.8 + 0.7) / speed },
+    },
+  };
+
   return (
     <Link
       to="/"
       className={cn('group flex items-center gap-x-[10px]', isHomePage && 'pointer-events-none')}
+      onMouseEnter={handleMouseEnter}
+      ref={ref}
     >
       <motion.div
+        animate={svgControls}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
         variants={svgVariants}
         className="flex items-center"
       >
@@ -58,10 +87,9 @@ const Logo = ({ speed = 0.5 }: LogoProps) => {
         />
       </motion.div>
       <motion.span
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 / speed, delay: 1.2 / speed }}
+        animate={textControls}
+        initial="hidden"
+        variants={textVariants}
         className="font-roboto text-[38px] font-bold text-primary transition-colors duration-300 group-hover:text-secondary"
       >
         Organic
