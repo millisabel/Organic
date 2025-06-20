@@ -10,11 +10,9 @@ import ShopPage from '../pages/ShopPage';
 
 import '../styles/App.css';
 
-const basename = import.meta.env.VITE_BASENAME || undefined;
-
 function App() {
   return (
-    <BrowserRouter basename={basename}>
+    <BrowserRouter basename="/Organic">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
