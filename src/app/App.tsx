@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import AboutPage from '../pages/AboutPage';
 import BlogPage from '../pages/BlogPage';
@@ -12,7 +12,7 @@ import '../styles/App.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/Organic">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -24,7 +24,7 @@ function App() {
           <Route path="cart" element={<CartPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
