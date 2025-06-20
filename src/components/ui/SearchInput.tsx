@@ -1,9 +1,22 @@
+import { forwardRef } from 'react';
+
+import { cn } from '../../utils/helpers';
 import { Input } from './Input';
 import SearchButton from './SearchButton';
 
-const SearchInput = () => {
+interface SearchInputProps {
+  className?: string;
+}
+
+const SearchInput = forwardRef<HTMLDivElement, SearchInputProps>(({ className }, ref) => {
   return (
-    <div className="group relative h-[66px] w-[376px] rounded-[33px] border border-transparent transition-all duration-300 ease-in-out hover:border-secondary hover:shadow-lg focus-within:border-secondary focus-within:shadow-lg">
+    <div
+      ref={ref}
+      className={cn(
+        'group relative h-[66px] w-[376px] rounded-[33px] border border-transparent transition-all duration-300 ease-in-out hover:border-secondary hover:shadow-lg focus-within:border-secondary focus-within:shadow-lg',
+        className,
+      )}
+    >
       <Input
         type="search"
         placeholder="Search..."
@@ -14,6 +27,6 @@ const SearchInput = () => {
       </div>
     </div>
   );
-};
+});
 
 export default SearchInput;

@@ -90,7 +90,7 @@ const Logo = ({ speed = 1 }: LogoProps) => {
         animate={textControls}
         initial="hidden"
         variants={textVariants}
-        className="font-roboto text-[38px] font-bold text-primary transition-colors duration-300 group-hover:text-secondary"
+        className="hidden font-roboto text-[38px] font-bold text-primary transition-colors duration-300 group-hover:text-secondary lg:inline"
       >
         Organic
       </motion.span>
