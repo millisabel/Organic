@@ -29,9 +29,6 @@ const Layout = () => {
             Default Button <ArrowIcon />
           </Button>
           <Button variant="destructive">Pagination Button</Button>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-4 p-4 bg-white border-t">
           <Button asChild variant="social" size="icon-xl">
             <a href="#" aria-label="Instagram">
               <InstagramIcon />
