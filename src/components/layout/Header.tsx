@@ -19,7 +19,7 @@ const Header = () => {
           <div className="hidden lg:flex">
             <Navigation />
           </div>
-          <div className="hidden items-center gap-x-8 lg:flex">
+          <div className="hidden h-[66px] items-center gap-x-5 lg:flex">
             <SearchInput />
             <CartButton />
           </div>
