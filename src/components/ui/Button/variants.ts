@@ -10,9 +10,9 @@ export const buttonVariants = cva(
           'bg-primary text-white border-2 border-transparent hover:bg-white hover:text-primary hover:border-primary',
         outline:
           'border-2 border-primary bg-background text-primary hover:bg-primary hover:text-white',
-        secondary: 'bg-secondary text-primary hover:bg-secondary/80',
+        secondary: 'bg-secondary text-white hover:bg-primary',
         accent: 'bg-accent text-primary hover:bg-primary hover:text-accent',
-        social: 'bg-social-bg text-primary shadow-none',
+        social: 'bg-social-bg text-primary shadow-none hover:bg-secondary hover:text-white',
       },
       size: {
         default: 'h-20 min-w-[220px] px-4 py-2',

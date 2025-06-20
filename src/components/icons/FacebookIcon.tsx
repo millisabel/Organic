@@ -1,7 +1,15 @@
-const FacebookIcon = () => {
+import { cn } from '../../utils/helpers';
+
+interface Props {
+  className?: string;
+}
+
+const FacebookIcon = ({ className }: Props) => {
   return (
     <svg
-      className="h-5 w-5 transition-transform group-hover:scale-125"
+      className={cn('h-5 w-5 transition-transform duration-300 group-hover:scale-125', className)}
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 22 22"
       fill="currentColor"
     >
