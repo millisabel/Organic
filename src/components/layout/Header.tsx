@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import Container from '../shared/Container';
-import ArrowIcon from '../ui/ArrowIcon';
-import { Button } from '../ui/Button';
 import CartButton from '../ui/CartButton';
 import Logo from '../ui/Logo';
 import MenuButton from '../ui/MenuButton';
@@ -23,10 +21,6 @@ const Header = () => {
             <SearchButton onClick={handleSearchClick} />
             <CartButton itemCount={0} />
             <MenuButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
-
-            <Button variant="default" size="default">
-              Shop Now
-            </Button>
           </div>
         </div>
         {isMenuOpen && <Navigation isMobile />}

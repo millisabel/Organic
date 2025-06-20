@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import NavLink from './NavLink';
 
 interface NavigationProps {
   isMobile?: boolean;
@@ -20,13 +20,9 @@ const Navigation = ({ isMobile = false }: NavigationProps) => {
   return (
     <nav className={baseClasses}>
       {navigationLinks.map(({ path, label }) => (
-        <Link
-          key={path}
-          to={path}
-          className="text-nav-link text-text hover:text-primary transition-colors"
-        >
+        <NavLink key={path} to={path}>
           {label}
-        </Link>
+        </NavLink>
       ))}
     </nav>
   );

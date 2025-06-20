@@ -12,10 +12,12 @@ export const buttonVariants = cva(
           'border-2 border-primary bg-background text-primary hover:bg-primary hover:text-white',
         secondary: 'bg-secondary text-primary hover:bg-secondary/80',
         accent: 'bg-accent text-primary hover:bg-primary hover:text-accent',
+        social: 'bg-social-bg text-primary shadow-none',
       },
       size: {
         default: 'h-20 min-w-[220px] px-4 py-2',
-        'icon-lg': 'h-14 w-14 rounded-full',
+        'icon-lg': 'h-14 w-14 rounded-full flex-shrink-0',
+        'icon-xl': 'h-[60px] w-[60px] rounded-full flex-shrink-0',
       },
     },
     defaultVariants: {
