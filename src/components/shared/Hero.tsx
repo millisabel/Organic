@@ -1,5 +1,5 @@
-import ArrowIcon from '@/components/ui/ArrowIcon';
 import { Button } from '@/components/ui/Button';
+import ArrowIcon from '@components/icons/ArrowIcon';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 
