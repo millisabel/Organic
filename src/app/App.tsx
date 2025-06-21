@@ -10,7 +10,7 @@ import ShopPage from '../pages/ShopPage';
 
 import '../styles/App.css';
 
-const basename = import.meta.env.VITE_BASENAME;
+const basename = import.meta.env.PROD ? import.meta.env.VITE_BASENAME : '/';
 
 function App() {
   return (

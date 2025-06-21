@@ -1,6 +1,7 @@
 import ArrowIcon from '@/components/ui/ArrowIcon';
 import { Button } from '@/components/ui/Button';
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 
 interface HeroProps {
   variant: 'home' | 'banner';
@@ -17,14 +18,26 @@ const Hero = ({
   backgroundImage,
   bgColor = 'bg-background',
 }: HeroProps) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const isHome = variant === 'home';
 
+  useEffect(() => {
+    setIsImageLoaded(false);
+    const img = new Image();
+    img.src = backgroundImage;
+    img.onload = () => {
+      setIsImageLoaded(true);
+    };
+  }, [backgroundImage]);
+
   const sectionClasses = clsx(
-    'hero-section overflow-hidden bg-cover bg-center bg-no-repeat',
+    'hero-section overflow-hidden bg-cover bg-center bg-no-repeat transition-opacity duration-1000',
     bgColor,
     {
       'min-h-[calc(100vh-94px)] flex items-center': isHome,
       'py-[125px] text-center': !isHome,
+      'opacity-100': isImageLoaded,
+      'opacity-0': !isImageLoaded,
     },
   );
 
