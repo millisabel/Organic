@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/Button';
 import ArrowIcon from '@components/icons/ArrowIcon';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface HeroProps {
   variant: 'home' | 'banner';
@@ -58,8 +59,10 @@ const Hero = ({
             >
               {title}
             </h1>
-            <Button className="mt-6">
-              Explore Now <ArrowIcon />
+            <Button asChild className="mt-6">
+              <Link to="/shop">
+                Explore Now <ArrowIcon />
+              </Link>
             </Button>
           </div>
         ) : (
