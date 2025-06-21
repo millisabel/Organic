@@ -45,6 +45,7 @@ const NavLink: FC<NavLinkProps> = ({ to, children, onClick, ...props }) => {
           'nav-link relative block select-none px-2 py-1 transition-colors duration-300 ease-in-out',
           'after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:w-0 after:-translate-x-1/2 after:bg-secondary after:transition-all after:duration-300 after:ease-in-out',
           {
+            active: isActive,
             'text-accent': isActive,
             'text-primary': !isActive,
           },

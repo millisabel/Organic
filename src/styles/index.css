@@ -18,7 +18,7 @@
     @apply font-yellowtail italic text-section-subtitle text-secondary;
   }
   .nav-link {
-    @apply font-roboto text-nav-link text-primary;
+    @apply font-roboto text-nav-link;
   }
 }
 
