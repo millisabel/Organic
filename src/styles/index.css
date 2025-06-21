@@ -12,7 +12,7 @@
     @apply font-opensans text-text-base text-primary;
   }
   .section-title {
-    @apply font-roboto text-section-title text-primary;
+    @apply font-roboto text-section-title;
   }
   .section-subtitle {
     @apply font-yellowtail italic text-section-subtitle text-secondary;

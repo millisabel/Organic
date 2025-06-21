@@ -19,6 +19,8 @@ const SearchInput = forwardRef<HTMLDivElement, SearchInputProps>(({ className },
     >
       <Input
         type="search"
+        id="search-input"
+        name="search"
         placeholder="Search..."
         className="h-full w-full rounded-[33px] border-none bg-[#FAFAFA] pr-[70px] text-lg placeholder:italic"
       />

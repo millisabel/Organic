@@ -16,6 +16,7 @@ const config: Config = {
         border: '#D4D4D4',
         error: '#E74C3C',
         white: '#FFF',
+        'placeholder-text': '#ABABAB',
       },
       screens: {
         xs: '375px',
