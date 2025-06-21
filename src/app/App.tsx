@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import AboutPage from '../pages/AboutPage';
 import BlogPage from '../pages/BlogPage';
@@ -10,9 +10,11 @@ import ShopPage from '../pages/ShopPage';
 
 import '../styles/App.css';
 
+const basename = import.meta.env.VITE_BASENAME;
+
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -24,7 +26,7 @@ function App() {
           <Route path="cart" element={<CartPage />} />
         </Route>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
