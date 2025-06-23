@@ -17,6 +17,7 @@ const config: Config = {
         error: '#E74C3C',
         white: '#FFF',
         'placeholder-text': '#ABABAB',
+        'star-fill': '#FFA858',
       },
       screens: {
         xs: '375px',
@@ -27,7 +28,8 @@ const config: Config = {
         '2xl': '1536px',
       },
       fontFamily: {
-        roboto: ['"Roboto"', 'Arial', 'sans-serif'],
+        sans: ['"Open Sans"', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
         yellowtail: ['"Yellowtail"', 'cursive'],
         opensans: ['"Open Sans"', 'Arial', 'sans-serif'],
       },
@@ -37,6 +39,9 @@ const config: Config = {
         'section-title': ['50px', { lineHeight: 'inherit', fontWeight: '800' }],
         'section-subtitle': ['36px', { lineHeight: 'inherit', fontWeight: '400' }],
         'nav-link': ['20px', { lineHeight: 'inherit', fontWeight: '600' }],
+      },
+      boxShadow: {
+        card: '0px 0px 10px 2px  rgba(0, 0, 0, 0.25)',
       },
     },
   },
