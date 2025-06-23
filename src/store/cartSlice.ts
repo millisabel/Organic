@@ -10,8 +10,17 @@ interface CartState {
   loadingItems: (string | number)[];
 }
 
+const getInitialCart = (): CartItem[] => {
+  try {
+    const data = localStorage.getItem('cart');
+    return data ? JSON.parse(data) : [];
+  } catch {
+    return [];
+  }
+};
+
 const initialState: CartState = {
-  items: [],
+  items: getInitialCart(),
   loadingItems: [],
 };
 
