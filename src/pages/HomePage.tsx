@@ -1,20 +1,13 @@
 import Hero from '@/components/shared/Hero';
 import Newsletter from '@/components/shared/Newsletter';
-import ProductCard, { type IProduct } from '@/components/shared/ProductCard';
+import ProductCard from '@/components/shared/ProductCard';
 
 import hero_bg_page_home from '@/assets/images/backgrounds/hero_bg_page_home.webp';
-import CalabreseBroccoli from '@/assets/images/products/Calabrese_Broccoli.webp';
+import productsData from '@/data/products.json';
+import { getImageUrl } from '@/utils/helpers';
 
 const HomePage = () => {
-  const testProduct: IProduct = {
-    id: 1,
-    category: 'Vegetable',
-    name: 'Calabrese Broccoli',
-    price: 13.0,
-    oldPrice: 20.0,
-    imageUrl: CalabreseBroccoli,
-    rating: 5,
-  };
+  const productsToDisplay = productsData.slice(0, 4);
 
   return (
     <>
@@ -25,7 +18,17 @@ const HomePage = () => {
         backgroundImage={hero_bg_page_home}
       />
       <div className="container py-10">
-        <ProductCard product={testProduct} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {productsToDisplay.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={{
+                ...product,
+                imageUrl: getImageUrl('products', product.imageUrl),
+              }}
+            />
+          ))}
+        </div>
       </div>
       <Newsletter />
     </>

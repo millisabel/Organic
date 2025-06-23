@@ -16,7 +16,7 @@ const Rating: React.FC<IRatingProps> = ({ rating, className }) => {
       {[...Array(totalStars)].map((_, index) => (
         <StarIcon
           key={index}
-          className={index < filledStars ? 'text-[#FFA858]' : 'text-gray-300'}
+          className={index < filledStars ? 'text-star-fill' : 'text-placeholder-text'}
         />
       ))}
     </div>
