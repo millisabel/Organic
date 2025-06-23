@@ -21,10 +21,11 @@
     "id": 3,
     "category": "Fresh",
     "name": "Organic Almonds",
-    "price": 15.0,
-    "oldPrice": 20.0,
+    "price": 25.0,
+    "oldPrice": 30.0,
     "imageUrl": "Organic_Almonds.webp",
-    "rating": 5
+    "rating": 5,
+    "isOutOfStock": true
   },
   {
     "id": 4,
