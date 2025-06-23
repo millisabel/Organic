@@ -1,5 +1,6 @@
 import CartIcon from '@/components/icons/CartIcon';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
+import Hero from '@/components/shared/Hero';
 import { type IProduct } from '@/components/shared/ProductCard';
 import ProductList from '@/components/shared/ProductList';
 import Section from '@/components/shared/Section';
@@ -34,12 +35,11 @@ const ShopSinglePage: React.FC = () => {
 
   return (
     <>
-      <section
-        className="py-24 text-center bg-cover bg-center"
-        style={{ backgroundImage: `url(${getImageUrl('backgrounds', 'page_shop_single.webp')})` }}
-      >
-        <h1 className="text-5xl font-bold text-primary">Shop Single</h1>
-      </section>
+      <Hero
+        variant="banner"
+        title="Shop Single"
+        backgroundImage={getImageUrl('backgrounds', 'page_shop_single.webp')}
+      />
 
       <div className="container py-10 mx-auto">
         <Breadcrumbs items={breadcrumbItems} />
@@ -72,14 +72,16 @@ const ShopSinglePage: React.FC = () => {
               the industry's standard dummy text ever since the 1500s, when an unknown printer took
               a galley.
             </p>
-            <div className="flex items-center gap-4">
-              <p className="text-xl font-bold text-primary">Quantity :</p>
-              <input
-                type="number"
-                defaultValue={1}
-                min={1}
-                className="w-24 text-center border-2 border-primary rounded-xl py-4 px-2 text-xl font-bold"
-              />
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <div className="flex items-center gap-4">
+                <p className="text-xl font-bold text-primary shrink-0">Quantity :</p>
+                <input
+                  type="number"
+                  defaultValue={1}
+                  min={1}
+                  className="w-24 text-center border-2 border-primary rounded-xl py-4 px-2 text-xl font-bold"
+                />
+              </div>
               <Button>
                 Add To Cart <CartIcon className="w-5 h-5 ml-2" />
               </Button>
@@ -89,7 +91,18 @@ const ShopSinglePage: React.FC = () => {
       </Section>
 
       <Section title="Related Products" align="center">
-        <ProductList products={relatedProducts} />
+        {relatedProducts.length > 0 ? (
+          <ProductList products={relatedProducts} />
+        ) : (
+          <p className="text-text-light text-center">
+            There are no matching products, but we plan to have them soon.
+          </p>
+        )}
+        <div className="text-center mt-10">
+          <Button asChild variant="default">
+            <a href="/shop">Go to Shop</a>
+          </Button>
+        </div>
       </Section>
     </>
   );

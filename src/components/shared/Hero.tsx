@@ -36,7 +36,7 @@ const Hero = ({
     bgColor,
     {
       'min-h-[calc(100vh-94px)] flex items-center': isHome,
-      'py-[125px] text-center': !isHome,
+      'py-[185px] text-center': !isHome,
       'opacity-100': isImageLoaded,
       'opacity-0': !isImageLoaded,
     },
