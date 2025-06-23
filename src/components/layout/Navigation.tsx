@@ -29,7 +29,7 @@ const Navigation = ({ isMobile, onLinkClick }: NavigationProps) => {
       >
         {links.map(({ href, text }) => (
           <li key={href}>
-            <NavLink to={href} onClick={onLinkClick}>
+            <NavLink to={href} onClick={onLinkClick} {...(href === '/shop' ? { exact: true } : {})}>
               {text}
             </NavLink>
           </li>

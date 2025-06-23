@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Newsletter from '../shared/Newsletter';
+import FloatingCartButton from '../ui/FloatingCartButton';
 import Footer from './Footer';
 import Header from './Header';
 
@@ -12,6 +13,7 @@ const Layout = () => {
       </main>
       <Newsletter />
       <Footer />
+      <FloatingCartButton />
     </div>
   );
 };
