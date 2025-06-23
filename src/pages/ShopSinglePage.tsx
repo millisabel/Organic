@@ -1,4 +1,6 @@
 import CartIcon from '@/components/icons/CartIcon';
+import CheckIcon from '@/components/icons/CheckIcon';
+import SpinnerIcon from '@/components/icons/SpinnerIcon';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import Hero from '@/components/shared/Hero';
 import { type IProduct } from '@/components/shared/ProductCard';
@@ -7,12 +9,24 @@ import Section from '@/components/shared/Section';
 import { Button } from '@/components/ui/Button';
 import Rating from '@/components/ui/Rating';
 import productsData from '@/data/products.json';
-import { getImageUrl } from '@/utils/helpers';
-import React from 'react';
+import { addItem, startLoading, stopLoading } from '@/store/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { cn, getImageUrl } from '@/utils/helpers';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const ShopSinglePage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
+  const dispatch = useAppDispatch();
+  const { items: cartItems, loadingItems } = useAppSelector((state) => state.cart);
+
+  const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    setQuantity(1);
+    window.scrollTo(0, 0);
+  }, [productId]);
+
   const product = productsData.find((p) => p.id.toString() === productId) as IProduct;
 
   if (!product) {
@@ -22,6 +36,19 @@ const ShopSinglePage: React.FC = () => {
       </Section>
     );
   }
+
+  const isInCart = cartItems.some((item) => item.id === product.id);
+  const isLoading = loadingItems.includes(product.id);
+
+  const handleAddToCart = () => {
+    if (isLoading) return;
+
+    dispatch(startLoading(product.id));
+    setTimeout(() => {
+      dispatch(addItem({ product, quantity }));
+      dispatch(stopLoading(product.id));
+    }, 1500);
+  };
 
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
@@ -78,13 +105,32 @@ const ShopSinglePage: React.FC = () => {
                 <p className="text-xl font-bold text-primary shrink-0">Quantity :</p>
                 <input
                   type="number"
-                  defaultValue={1}
+                  value={quantity}
                   min={1}
+                  onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10)))}
                   className="w-24 text-center border-2 border-primary rounded-xl py-4 px-2 text-xl font-bold"
+                  disabled={isInCart || isLoading}
                 />
               </div>
-              <Button>
-                Add To Cart <CartIcon className="w-5 h-5 ml-2" />
+              <Button
+                onClick={handleAddToCart}
+                disabled={isInCart || isLoading}
+                className={cn({
+                  'cursor-default !bg-green-100 !text-green-700': isInCart,
+                  'cursor-wait !bg-gray-200': isLoading,
+                })}
+              >
+                {isLoading ? (
+                  <SpinnerIcon />
+                ) : isInCart ? (
+                  <>
+                    <CheckIcon className="w-5 h-5 mr-2" /> In Cart
+                  </>
+                ) : (
+                  <>
+                    Add To Cart <CartIcon className="w-5 h-5 ml-2" />
+                  </>
+                )}
               </Button>
             </div>
           </div>

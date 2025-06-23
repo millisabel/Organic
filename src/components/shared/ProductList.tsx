@@ -1,5 +1,6 @@
+import { addItem, startLoading, stopLoading } from '@/store/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { getImageUrl } from '@/utils/helpers';
-import React, { useState } from 'react';
 import ProductCard, { type IProduct } from './ProductCard';
 
 interface IProductListProps {
@@ -7,21 +8,16 @@ interface IProductListProps {
 }
 
 const ProductList: React.FC<IProductListProps> = ({ products }) => {
-  const [cartItems, setCartItems] = useState<number[]>([]);
-  const [loadingItems, setLoadingItems] = useState<number[]>([]);
+  const dispatch = useAppDispatch();
+  const { items: cartItems, loadingItems } = useAppSelector((state) => state.cart);
 
-  const handleAddToCart = (productId: string | number) => {
-    if (
-      typeof productId !== 'number' ||
-      cartItems.includes(productId) ||
-      loadingItems.includes(productId)
-    ) {
-      return;
-    }
-    setLoadingItems((prev) => [...prev, productId]);
+  const handleAddToCart = (product: IProduct) => {
+    if (loadingItems.includes(product.id)) return;
+
+    dispatch(startLoading(product.id));
     setTimeout(() => {
-      setCartItems((prev) => [...prev, productId]);
-      setLoadingItems((prev) => prev.filter((id) => id !== productId));
+      dispatch(addItem({ product, quantity: 1 }));
+      dispatch(stopLoading(product.id));
     }, 1500);
   };
 
@@ -34,9 +30,9 @@ const ProductList: React.FC<IProductListProps> = ({ products }) => {
             ...product,
             imageUrl: getImageUrl('products', product.imageUrl),
           }}
-          isInCart={cartItems.includes(product.id as number)}
-          isLoading={loadingItems.includes(product.id as number)}
-          onAddToCart={() => handleAddToCart(product.id)}
+          isInCart={cartItems.some((item) => item.id === product.id)}
+          isLoading={loadingItems.includes(product.id)}
+          onAddToCart={() => handleAddToCart(product)}
         />
       ))}
     </div>

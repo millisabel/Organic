@@ -24,14 +24,14 @@ interface IProductCardProps {
   product: IProduct;
   isInCart?: boolean;
   isLoading?: boolean;
-  onAddToCart?: (id: string | number) => void;
+  onAddToCart: (product: IProduct) => void;
 }
 
 const ProductCard: React.FC<IProductCardProps> = ({
   product,
   isInCart = false,
   isLoading = false,
-  onAddToCart = () => {},
+  onAddToCart,
 }) => {
   const { id, category, name, price, oldPrice, imageUrl, rating, isOutOfStock } = product;
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    onAddToCart(id);
+    onAddToCart(product);
   };
 
   return (

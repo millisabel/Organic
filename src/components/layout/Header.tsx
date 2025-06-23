@@ -1,12 +1,12 @@
+import CartButton from '@/components/ui/CartButton';
+import Logo from '@/components/ui/Logo';
+import MenuButton from '@/components/ui/MenuButton';
+import SearchButton from '@/components/ui/SearchButton';
+import SearchInput from '@/components/ui/SearchInput';
+import { useOnClickOutside } from '@/hooks/useOnClickOutside';
+import { useAppSelector } from '@/store/hooks';
+import { cn } from '@/utils/helpers';
 import { useEffect, useRef, useState } from 'react';
-
-import { useOnClickOutside } from '../../hooks/useOnClickOutside';
-import { cn } from '../../utils/helpers';
-import CartButton from '../ui/CartButton';
-import Logo from '../ui/Logo';
-import MenuButton from '../ui/MenuButton';
-import SearchButton from '../ui/SearchButton';
-import SearchInput from '../ui/SearchInput';
 import MobileMenu from './MobileMenu';
 import Navigation from './Navigation';
 
@@ -19,6 +19,9 @@ const Header = () => {
 
   const desktopSearchRef = useRef<HTMLDivElement>(null);
   const mobileSearchRef = useRef<HTMLDivElement>(null);
+
+  const cartItems = useAppSelector((state) => state.cart.items);
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   useOnClickOutside(desktopSearchRef, () => setIsDesktopSearchOpen(false));
   useOnClickOutside(mobileSearchRef, () => setIsMobileSearchOpen(false));
@@ -67,7 +70,14 @@ const Header = () => {
                 )}
               </div>
 
-              <CartButton />
+              <div className="relative">
+                <CartButton />
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-green-600 text-xs font-bold text-white">
+                    {totalItems}
+                  </span>
+                )}
+              </div>
 
               {/* Desktop Menu (only when search is open) */}
               {isDesktopSearchOpen && (
