@@ -24,7 +24,7 @@ const Newsletter = () => {
 
   return (
     <>
-      <section className="bg-cover bg-center bg-no-repeat">
+      <div className="bg-cover bg-center bg-no-repeat">
         <div style={sectionStyle} className="container mx-auto px-2 py-24 xs:rounded-3xl lg:px-20">
           <div className="flex flex-col items-center justify-between gap-8 rounded-lg lg:flex-row">
             <h2 className="section-title w-full text-center text-white lg:w-1/3 lg:text-left">
@@ -65,7 +65,7 @@ const Newsletter = () => {
             </Formik>
           </div>
         </div>
-      </section>
+      </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <div className="text-center">

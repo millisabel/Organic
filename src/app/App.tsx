@@ -1,3 +1,4 @@
+import ShopSinglePage from '@/pages/ShopSinglePage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import AboutPage from '../pages/AboutPage';
@@ -20,6 +21,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="shop" element={<ShopPage />} />
+          <Route path="shop/:productId" element={<ShopSinglePage />} />
           <Route path="projects" element={<ProjectsPage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="contact" element={<ContactPage />} />
