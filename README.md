@@ -110,12 +110,6 @@ npm run build
 
 ---
 
-## 📋 Figma Design
-
-[View Figma Design](https://www.figma.com/design/ehUJy3aDqKNraZBxMHNUBi/Organick--Copy-?node-id=2-14373&t=3Nf6cQUcW8npXdYB-0)
-
----
-
 ## 📌 Best Practices
 
 - Clean, modular code (DRY, KISS, SOLID)
