@@ -1,8 +1,8 @@
 # Organic Store
 
-A modern, responsive e-commerce web application for organic products. Built with React, TypeScript, Redux Toolkit, and TailwindCSS. Deployed on GitHub Pages.
+A responsive e-commerce app for organic products, built with React, TypeScript, Redux Toolkit, and Vite.
 
-[Live Demo](https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/)
+🌍 [Live Demo](https://millisabel.github.io/Organic/)
 
 ---
 
