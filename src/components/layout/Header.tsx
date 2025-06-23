@@ -70,14 +70,7 @@ const Header = () => {
                 )}
               </div>
 
-              <div className="relative">
-                <CartButton />
-                {totalItems > 0 && (
-                  <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-green-600 text-xs font-bold text-white">
-                    {totalItems}
-                  </span>
-                )}
-              </div>
+              <CartButton count={totalItems} />
 
               {/* Desktop Menu (only when search is open) */}
               {isDesktopSearchOpen && (

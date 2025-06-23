@@ -1,5 +1,4 @@
 import CartIcon from '@/components/icons/CartIcon';
-import CheckIcon from '@/components/icons/CheckIcon';
 import SpinnerIcon from '@/components/icons/SpinnerIcon';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import Hero from '@/components/shared/Hero';
@@ -66,7 +65,6 @@ const ShopSinglePage: React.FC = () => {
         variant="banner"
         title="Shop Single"
         backgroundImage={getImageUrl('backgrounds', 'page_shop_single.webp')}
-        backgroundPosition="left"
       />
 
       <div className="container py-10 mx-auto">
@@ -109,14 +107,13 @@ const ShopSinglePage: React.FC = () => {
                   min={1}
                   onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10)))}
                   className="w-24 text-center border-2 border-primary rounded-xl py-4 px-2 text-xl font-bold"
-                  disabled={isInCart || isLoading}
+                  disabled={isLoading}
                 />
               </div>
               <Button
                 onClick={handleAddToCart}
-                disabled={isInCart || isLoading}
+                disabled={isLoading}
                 className={cn({
-                  'cursor-default !bg-green-100 !text-green-700': isInCart,
                   'cursor-wait !bg-gray-200': isLoading,
                 })}
               >
@@ -124,7 +121,7 @@ const ShopSinglePage: React.FC = () => {
                   <SpinnerIcon />
                 ) : isInCart ? (
                   <>
-                    <CheckIcon className="w-5 h-5 mr-2" /> In Cart
+                    Add More <CartIcon className="w-5 h-5 ml-2" />
                   </>
                 ) : (
                   <>
