@@ -93,11 +93,7 @@ const ShopSinglePage: React.FC = () => {
               )}
               <p className="text-2xl font-bold text-primary">${product.price.toFixed(2)}</p>
             </div>
-            <p className="text-neutral-500 mb-8">
-              Simply dummy text of the printing and typesetting industry. Lorem had ceased to been
-              the industry's standard dummy text ever since the 1500s, when an unknown printer took
-              a galley.
-            </p>
+            <p className="text-neutral-500 mb-8">{product.description}</p>
             <div className="flex flex-col md:flex-row items-center gap-4">
               <div className="flex items-center gap-4">
                 <p className="text-xl font-bold text-primary shrink-0">Quantity :</p>

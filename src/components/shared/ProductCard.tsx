@@ -18,6 +18,7 @@ export interface IProduct {
   imageUrl: string;
   rating: number; // 0-5
   isOutOfStock?: boolean;
+  description?: string;
 }
 
 interface IProductCardProps {
