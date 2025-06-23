@@ -1,7 +1,6 @@
 import hero_bg_page_home from '@/assets/images/backgrounds/hero_bg_page_home.webp';
 import ArrowIcon from '@/components/icons/ArrowIcon';
 import Hero from '@/components/shared/Hero';
-import Newsletter from '@/components/shared/Newsletter';
 import { type IProduct } from '@/components/shared/ProductCard';
 import ProductList from '@/components/shared/ProductList';
 import Section from '@/components/shared/Section';
@@ -31,9 +30,6 @@ const HomePage = () => {
             Load More <ArrowIcon />
           </Link>
         </Button>
-      </Section>
-      <Section className="!p-0">
-        <Newsletter />
       </Section>
     </>
   );

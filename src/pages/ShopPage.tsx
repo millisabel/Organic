@@ -7,25 +7,49 @@ import ProductList from '@/components/shared/ProductList';
 import Section from '@/components/shared/Section';
 import { Button } from '@/components/ui/Button';
 import productsData from '@/data/products.json';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ITEMS_PER_PAGE = 8;
 
 const ShopPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [displayedProducts, setDisplayedProducts] = useState<IProduct[]>([]);
   const [isPaginationVisible, setIsPaginationVisible] = useState(true);
 
-  const totalPages = Math.ceil(productsData.length / ITEMS_PER_PAGE);
-  const hasMoreProducts = displayedProducts.length < productsData.length;
+  const location = useLocation();
 
-  useEffect(() => {
-    const initialProducts = productsData.slice(0, ITEMS_PER_PAGE);
-    setDisplayedProducts(initialProducts);
+  const productCategories = useMemo(() => {
+    const categories = new Set(productsData.map((p) => p.category));
+    return ['All Categories', ...Array.from(categories)];
   }, []);
 
+  const filteredProducts = useMemo(() => {
+    if (!selectedCategory || selectedCategory === 'All Categories') {
+      return productsData;
+    }
+    return productsData.filter((p) => p.category === selectedCategory);
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const category = params.get('category');
+    if (category && productCategories.includes(category)) {
+      setSelectedCategory(category);
+    } else {
+      setSelectedCategory('All Categories');
+    }
+  }, [location.search, productCategories]);
+
+  useEffect(() => {
+    setDisplayedProducts(filteredProducts.slice(0, ITEMS_PER_PAGE));
+    setCurrentPage(1);
+    setIsPaginationVisible(true);
+  }, [filteredProducts]);
+
   const handleLoadMore = () => {
-    const newProducts = productsData.slice(
+    const newProducts = filteredProducts.slice(
       displayedProducts.length,
       displayedProducts.length + ITEMS_PER_PAGE,
     );
@@ -34,15 +58,22 @@ const ShopPage = () => {
   };
 
   const handlePageChange = (pageNumber: number) => {
-    const startIndex = (pageNumber - 1) * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-    setDisplayedProducts(productsData.slice(startIndex, endIndex));
+    const newProducts = filteredProducts.slice(
+      (pageNumber - 1) * ITEMS_PER_PAGE,
+      pageNumber * ITEMS_PER_PAGE,
+    );
+    setDisplayedProducts(newProducts);
     setCurrentPage(pageNumber);
     setIsPaginationVisible(true);
-    window.scrollTo(0, 0); // Scroll to top on page change
+    window.scrollTo(0, 0);
+  };
+
+  const handleCategorySelect = (categoryName: string | null) => {
+    setSelectedCategory(categoryName);
   };
 
   const breadcrumbItems = [{ label: 'Home', path: '/' }, { label: 'Shop' }];
+  const hasMoreProducts = displayedProducts.length < filteredProducts.length;
 
   return (
     <>
@@ -50,6 +81,22 @@ const ShopPage = () => {
       <div className="container py-10">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
+
+      <Section title="Choose a category" align="center">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {productCategories.map((category) => (
+            <Button
+              key={category}
+              variant={selectedCategory === category ? 'default' : 'outline'}
+              onClick={() => handleCategorySelect(category)}
+              className="!rounded-full !px-6 !py-3"
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
+      </Section>
+
       <Section className="!pt-0">
         <ProductList products={displayedProducts} />
         <div className="mt-12 flex flex-col items-center gap-8">
@@ -58,10 +105,10 @@ const ShopPage = () => {
               Load More
             </Button>
           )}
-          {isPaginationVisible && (
+          {isPaginationVisible && filteredProducts.length > ITEMS_PER_PAGE && (
             <Pagination
               currentPage={currentPage}
-              totalPages={totalPages}
+              totalPages={Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)}
               onPageChange={handlePageChange}
             />
           )}

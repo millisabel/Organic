@@ -51,7 +51,7 @@
   },
   {
     "id": 8,
-    "category": "Other",
+    "category": "Fresh",
     "name": "Eggs",
     "price": 17.0,
     "imageUrl": "Eggs.webp",
@@ -67,7 +67,7 @@
   },
   {
     "id": 2,
-    "category": "Vegetable",
+    "category": "Fresh",
     "name": "Fresh",
     "price": 14.0,
     "oldPrice": 20.0,
@@ -76,7 +76,7 @@
   },
   {
     "id": 3,
-    "category": "Fresh",
+    "category": "Nuts",
     "name": "Organic Almonds",
     "price": 25.0,
     "oldPrice": 30.0,

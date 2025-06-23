@@ -10,6 +10,7 @@ interface HeroProps {
   subtitle?: string;
   backgroundImage: string;
   bgColor?: string;
+  backgroundPosition?: string;
 }
 
 const Hero = ({
@@ -18,6 +19,7 @@ const Hero = ({
   subtitle,
   backgroundImage,
   bgColor = 'bg-background',
+  backgroundPosition = 'center',
 }: HeroProps) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const isHome = variant === 'home';
@@ -32,7 +34,7 @@ const Hero = ({
   }, [backgroundImage]);
 
   const sectionClasses = clsx(
-    'hero-section overflow-hidden bg-cover bg-center bg-no-repeat transition-opacity duration-1000',
+    'hero-section overflow-hidden bg-cover bg-no-repeat transition-opacity duration-1000',
     bgColor,
     {
       'min-h-[calc(100vh-94px)] flex items-center': isHome,
@@ -44,6 +46,7 @@ const Hero = ({
 
   const sectionStyle = {
     '--bg-image': `url(${backgroundImage})`,
+    backgroundPosition: backgroundPosition,
   } as React.CSSProperties;
 
   return (

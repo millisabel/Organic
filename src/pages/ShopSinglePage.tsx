@@ -39,6 +39,7 @@ const ShopSinglePage: React.FC = () => {
         variant="banner"
         title="Shop Single"
         backgroundImage={getImageUrl('backgrounds', 'page_shop_single.webp')}
+        backgroundPosition="left"
       />
 
       <div className="container py-10 mx-auto">

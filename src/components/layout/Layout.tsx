@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-
+import Newsletter from '../shared/Newsletter';
 import Footer from './Footer';
 import Header from './Header';
 
@@ -10,6 +10,7 @@ const Layout = () => {
       <main className="flex-grow">
         <Outlet />
       </main>
+      <Newsletter />
       <Footer />
     </div>
   );

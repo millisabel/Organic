@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import CartIcon from '@/components/icons/CartIcon';
 import CheckIcon from '@/components/icons/CheckIcon';
@@ -34,11 +34,12 @@ const ProductCard: React.FC<IProductCardProps> = ({
   onAddToCart = () => {},
 }) => {
   const { id, category, name, price, oldPrice, imageUrl, rating, isOutOfStock } = product;
+  const navigate = useNavigate();
 
   const handleCategoryClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(`Filter by: ${category}`);
+    navigate(`/shop?category=${category}`);
   };
 
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {

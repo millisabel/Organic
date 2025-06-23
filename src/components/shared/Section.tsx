@@ -26,8 +26,10 @@ const Section: React.FC<ISectionProps> = ({
       <div className="container mx-auto">
         {(title || subtitle) && (
           <div className={headerClasses}>
-            {subtitle && <p className="section-subtitle">{subtitle}</p>}
-            {title && <h2 className="section-title">{title}</h2>}
+            {subtitle && (
+              <p className="section-subtitle font-yellowtail text-secondary">{subtitle}</p>
+            )}
+            {title && <h2 className="section-title font-roboto text-primary">{title}</h2>}
           </div>
         )}
         {children}

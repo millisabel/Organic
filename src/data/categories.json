@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Vegetable",
+    "imageUrl": "Vegetable.webp"
+  },
+  {
+    "id": 2,
+    "name": "Fruits",
+    "imageUrl": "Fruits.webp"
+  },
+  {
+    "id": 3,
+    "name": "Nuts",
+    "imageUrl": "Nuts_Feesd.webp"
+  },
+  {
+    "id": 4,
+    "name": "Spicy",
+    "imageUrl": "Spicy.webp"
+  }
+]
