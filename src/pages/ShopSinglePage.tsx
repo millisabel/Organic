@@ -12,7 +12,7 @@ import { addItem, startLoading, stopLoading } from '@/store/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { cn, getImageUrl } from '@/utils/helpers';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ShopSinglePage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -144,7 +144,7 @@ const ShopSinglePage: React.FC = () => {
         )}
         <div className="text-center mt-10">
           <Button asChild variant="default">
-            <a href="/shop">Go to Shop</a>
+            <Link to="/shop">Go to Shop</Link>
           </Button>
         </div>
       </Section>
