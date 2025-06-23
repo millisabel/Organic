@@ -8,12 +8,14 @@ import ContactPage from '../pages/ContactPage';
 import HomePage from '../pages/HomePage';
 import ProjectsPage from '../pages/ProjectsPage';
 import ShopPage from '../pages/ShopPage';
+import CartPersistence from '../store/CartPersistence';
 
 import '../styles/App.css';
 
 function App() {
   return (
     <HashRouter>
+      <CartPersistence />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
