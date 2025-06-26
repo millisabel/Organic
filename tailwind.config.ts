@@ -39,9 +39,9 @@ const config: Config = {
       },
       fontSize: {
         'text-base': ['18px', { lineHeight: '1.65', fontWeight: '400' }],
-        h1: ['70px', { lineHeight: 'inherit', fontWeight: '800' }],
-        'section-title': ['50px', { lineHeight: 'inherit', fontWeight: '800' }],
-        'section-subtitle': ['36px', { lineHeight: 'inherit', fontWeight: '400' }],
+        h1: ['3.125rem', { lineHeight: 'inherit', fontWeight: '800' }],
+        'section-title': ['2rem', { lineHeight: 'inherit', fontWeight: '800' }],
+        'section-subtitle': ['1.5rem', { lineHeight: 'inherit', fontWeight: '400' }],
         'nav-link': ['20px', { lineHeight: 'inherit', fontWeight: '600' }],
       },
       boxShadow: {

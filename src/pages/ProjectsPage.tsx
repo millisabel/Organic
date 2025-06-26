@@ -1,8 +1,8 @@
 import heroImage from '@/assets/images/backgrounds/hero_bg_page_blog.webp';
-import Hero from '@/components/shared/Hero';
+import HeroSection from '@/components/shared/HeroSection';
 
 const ProjectsPage = () => {
-  return <Hero variant="banner" title="Projects" backgroundImage={heroImage} />;
+  return <HeroSection variant="banner" title="Projects" bgImage={heroImage} />;
 };
 
 export default ProjectsPage;

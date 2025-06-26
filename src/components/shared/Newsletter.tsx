@@ -6,6 +6,7 @@ import Modal from '@components/ui/Modal';
 import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';
 import * as Yup from 'yup';
+import SectionHeader from './SectionHeader';
 
 const NewsletterSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -27,9 +28,12 @@ const Newsletter = () => {
       <div className="bg-cover bg-center bg-no-repeat">
         <div style={sectionStyle} className="container mx-auto px-2 py-24 xs:rounded-3xl lg:px-20">
           <div className="flex flex-col items-center justify-between gap-8 rounded-lg lg:flex-row">
-            <h2 className="section-title w-full text-center text-white lg:w-1/3 lg:text-left">
-              Subscribe to our Newsletter
-            </h2>
+            <SectionHeader
+              title="Subscribe to our Newsletter"
+              titleColor="text-white"
+              titleAlignDesktop="text-left"
+              marginBottom="mb-0"
+            />
             <Formik
               initialValues={{ email: '' }}
               validationSchema={NewsletterSchema}

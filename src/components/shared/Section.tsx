@@ -1,39 +1,55 @@
-import { cn } from '@/utils/helpers';
-import React from 'react';
+import clsx from 'clsx';
+import React, { useEffect, useState } from 'react';
 
 interface ISectionProps {
   children: React.ReactNode;
-  title?: string;
-  subtitle?: string;
-  align?: 'left' | 'center';
+  backgroundColor?: string;
+  backgroundImageUrl?: string;
+  backgroundPosition?: string;
+  paddingY?: string;
   className?: string;
 }
 
 const Section: React.FC<ISectionProps> = ({
   children,
-  title,
-  subtitle,
-  align = 'left',
   className,
+  backgroundColor,
+  backgroundImageUrl,
+  paddingY = 'py-20',
+  backgroundPosition = 'center',
 }) => {
-  const headerClasses = cn('mb-10', {
-    'text-center': align === 'center',
-    'text-left': align === 'left',
-  });
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!backgroundImageUrl) return;
+    setIsImageLoaded(false);
+    const img = new window.Image();
+    img.src = backgroundImageUrl;
+    img.onload = () => setIsImageLoaded(true);
+  }, [backgroundImageUrl]);
+
+  const sectionStyle: React.CSSProperties = {};
+  if (backgroundColor) sectionStyle.backgroundColor = backgroundColor;
+  if (backgroundImageUrl) {
+    sectionStyle.backgroundImage = `url(${backgroundImageUrl})`;
+    sectionStyle.backgroundSize = 'cover';
+    sectionStyle.backgroundRepeat = 'no-repeat';
+    sectionStyle.backgroundPosition = backgroundPosition;
+  }
+
+  const sectionClasses = clsx(
+    'overflow-hidden transition-opacity duration-1000',
+    paddingY ? paddingY : 'py-20',
+    className,
+    {
+      'opacity-100': isImageLoaded || !backgroundImageUrl,
+      'opacity-0': backgroundImageUrl && !isImageLoaded,
+    },
+  );
 
   return (
-    <section className={cn('py-20', className)}>
-      <div className="container mx-auto">
-        {(title || subtitle) && (
-          <div className={headerClasses}>
-            {subtitle && (
-              <p className="section-subtitle font-yellowtail text-secondary">{subtitle}</p>
-            )}
-            {title && <h2 className="section-title font-roboto text-primary">{title}</h2>}
-          </div>
-        )}
-        {children}
-      </div>
+    <section className={sectionClasses} style={sectionStyle}>
+      <div className="container mx-auto">{children}</div>
     </section>
   );
 };

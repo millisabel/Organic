@@ -5,17 +5,8 @@
 @tailwind utilities;
 
 @layer utilities {
-  .h1 {
-    @apply font-roboto text-h1 text-primary;
-  }
   .text-base {
     @apply font-opensans text-text-base text-primary;
-  }
-  .section-title {
-    @apply font-roboto text-section-title;
-  }
-  .section-subtitle {
-    @apply font-yellowtail italic text-section-subtitle text-secondary;
   }
   .nav-link {
     @apply font-roboto text-nav-link;

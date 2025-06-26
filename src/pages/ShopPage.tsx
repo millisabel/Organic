@@ -1,10 +1,11 @@
 import hero_bg_page_shop from '@/assets/images/backgrounds/hero_bg_page_schop.webp';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
-import Hero from '@/components/shared/Hero';
+import HeroSection from '@/components/shared/HeroSection';
 import Pagination from '@/components/shared/Pagination';
 import { type IProduct } from '@/components/shared/ProductCard';
 import ProductList from '@/components/shared/ProductList';
 import Section from '@/components/shared/Section';
+import SectionHeader from '@/components/shared/SectionHeader';
 import { Button } from '@/components/ui/Button';
 import productsData from '@/data/products.json';
 import { useEffect, useMemo, useState } from 'react';
@@ -77,12 +78,13 @@ const ShopPage = () => {
 
   return (
     <>
-      <Hero variant="banner" title="Shop" backgroundImage={hero_bg_page_shop} />
+      <HeroSection variant="banner" title="Shop" bgImage={hero_bg_page_shop} />
       <div className="container py-10">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
 
-      <Section title="Choose a category" align="center">
+      <Section className="text-center">
+        <SectionHeader title="Choose a category" />
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {productCategories.map((category) => (
             <Button

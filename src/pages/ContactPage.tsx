@@ -1,8 +1,8 @@
 import contactImage from '@/assets/images/backgrounds/hero_bg_page_contact.webp';
-import Hero from '@/components/shared/Hero';
+import HeroSection from '@/components/shared/HeroSection';
 
 const ContactPage = () => {
-  return <Hero variant="banner" title="Contact Us" backgroundImage={contactImage} />;
+  return <HeroSection variant="banner" title="Contact Us" bgImage={contactImage} />;
 };
 
 export default ContactPage;

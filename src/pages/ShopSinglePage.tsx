@@ -1,10 +1,11 @@
 import CartIcon from '@/components/icons/CartIcon';
 import SpinnerIcon from '@/components/icons/SpinnerIcon';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
-import Hero from '@/components/shared/Hero';
+import HeroSection from '@/components/shared/HeroSection';
 import { type IProduct } from '@/components/shared/ProductCard';
 import ProductList from '@/components/shared/ProductList';
 import Section from '@/components/shared/Section';
+import SectionHeader from '@/components/shared/SectionHeader';
 import { Button } from '@/components/ui/Button';
 import Rating from '@/components/ui/Rating';
 import productsData from '@/data/products.json';
@@ -61,10 +62,10 @@ const ShopSinglePage: React.FC = () => {
 
   return (
     <>
-      <Hero
+      <HeroSection
         variant="banner"
         title="Shop Single"
-        backgroundImage={getImageUrl('backgrounds', 'page_shop_single.webp')}
+        bgImage={getImageUrl('backgrounds', 'page_shop_single.webp')}
       />
 
       <div className="container py-10 mx-auto">
@@ -130,7 +131,8 @@ const ShopSinglePage: React.FC = () => {
         </div>
       </Section>
 
-      <Section title="Related Products" align="center">
+      <Section>
+        <SectionHeader title="Related Products" />
         {relatedProducts.length > 0 ? (
           <ProductList products={relatedProducts} />
         ) : (
