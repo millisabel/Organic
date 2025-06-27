@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Newsletter from '../shared/Newsletter';
+import Newsletter from '../sections/Newsletter';
 import FloatingCartButton from '../ui/FloatingCartButton';
 import Footer from './Footer';
 import Header from './Header';

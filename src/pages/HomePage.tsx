@@ -1,10 +1,10 @@
 import ArrowIcon from '@/components/icons/ArrowIcon';
-import { AboutSection } from '@/components/sections/AboutSection/AboutSection';
-import HeroSection from '@/components/shared/HeroSection';
+import Section from '@/components/layout/sectionLayouts/Section';
+import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
+import { AboutSection } from '@/components/sections/AboutSection';
+import HeroSection from '@/components/sections/HeroSection';
 import { type IProduct } from '@/components/shared/ProductCard';
-import ProductList from '@/components/shared/ProductList';
-import Section from '@/components/shared/Section';
-import SectionHeader from '@/components/shared/SectionHeader';
+import ProductList from '@/components/sections/ProductList';
 import { Button } from '@/components/ui/Button';
 import productsData from '@/data/products.json';
 import { useWindowWidth } from '@/hooks/useWindowWidth';

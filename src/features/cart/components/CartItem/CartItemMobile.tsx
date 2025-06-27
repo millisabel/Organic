@@ -1,8 +1,8 @@
-import type { CartItem } from '@/types/cart';
+import type { CartItem } from '@/components/ui/Card/cart';
+import CartItemSubtotal from './CartItemSubtotal';
 import CartProductInfo from './CartProductInfo';
 import CartQuantityButtons from './CartQuantityButtons';
 import RemoveButton from './RemoveButton';
-import CartItemSubtotal from './CartItemSubtotal';
 
 interface CartItemMobileProps {
   cartItems: CartItem[];

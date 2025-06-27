@@ -1,4 +1,4 @@
-import type { CartItem } from '@/types/cart';
+import type { CartItem } from '@/components/ui/Card/cart';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { expect, test, vi } from 'vitest';

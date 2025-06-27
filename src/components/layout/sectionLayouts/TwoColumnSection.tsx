@@ -1,4 +1,4 @@
-import Section from '@/components/shared/Section';
+import Section from '@/components/layout/sectionLayouts/Section';
 import ContentBlock from '../contentLayouts/ContentBlock';
 
 interface ITwoColumnSectionProps {

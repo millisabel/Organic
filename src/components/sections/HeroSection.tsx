@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/Button';
 import ArrowIcon from '@components/icons/ArrowIcon';
 import { Link } from 'react-router-dom';
-import Section from './Section';
-import SectionHeader from './SectionHeader';
+import Section from '../layout/sectionLayouts/Section';
+import SectionHeader from '../layout/sectionLayouts/SectionHeader';
 
 interface HeroProps {
   variant: 'home' | 'banner';

@@ -1,4 +1,4 @@
-import SectionHeader from '@/components/shared/SectionHeader';
+import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import { Button } from '@/components/ui/Button';
 
 interface ContentBlockProps {

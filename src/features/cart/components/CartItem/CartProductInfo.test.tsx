@@ -1,8 +1,8 @@
+import type { CartItem } from '@/components/ui/Card/cart';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { expect, test, vi } from 'vitest';
 import CartProductInfo from './CartProductInfo';
-import type { CartItem } from '@/types/cart';
 
 vi.mock('@/utils/helpers', () => ({
   getImageUrl: () => 'mocked-url.png',

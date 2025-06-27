@@ -1,9 +1,9 @@
-import Section from '@/components/shared/Section';
+import Section from '@/components/layout/sectionLayouts/Section';
+import { CartItemDesktop, CartItemMobile } from '@/features/cart/components/CartItem';
+import CartSummary from '@/features/cart/components/CartItem/CartSummary';
+import EmptyCart from '@/features/cart/components/CartItem/EmptyCart';
 import { removeItem, updateQuantity } from '@/store/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { CartItemDesktop, CartItemMobile } from '@/features/cart/components/CartItem';
-import EmptyCart from '@/features/cart/components/CartItem/EmptyCart';
-import CartSummary from '@/features/cart/components/CartItem/CartSummary';
 
 const CartPage = () => {
   const dispatch = useAppDispatch();

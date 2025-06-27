@@ -1,5 +1,5 @@
 // import FeatureCard from '@/components/shared/FeatureCard';
-import TwoColumnSection from '../../layout/sectionLayouts/TwoColumnSection';
+import TwoColumnSection from '../layout/sectionLayouts/TwoColumnSection';
 
 interface AboutSectionProps {
   image: { src: string; alt: string };
