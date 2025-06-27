@@ -8,7 +8,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 
 const Input: FC<InputProps> = ({ wrapperClassName, className, ...props }) => {
   return (
-    <div className={clsx('relative w-full', wrapperClassName)}>
+    <div className={clsx('relative w-full', wrapperClassName)} data-component="Input">
       <input
         className={clsx(
           'w-full rounded-lg border border-border bg-background px-4 py-2 text-text outline-none focus:ring-2 focus:ring-secondary',

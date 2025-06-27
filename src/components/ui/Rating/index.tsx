@@ -12,7 +12,7 @@ const Rating: React.FC<IRatingProps> = ({ rating, className }) => {
   const filledStars = Math.round(rating);
 
   return (
-    <div className={cn('flex items-center gap-1', className)}>
+    <div className={cn('flex items-center gap-1', className)} data-component="Rating">
       {[...Array(totalStars)].map((_, index) => (
         <StarIcon
           key={index}
