@@ -1,4 +1,4 @@
-import type { CartItem } from '@/components/ui/Card/cart';
+import type { CartItem } from '@/features/cart/components/CartItem/cart';
 import { getImageUrl } from '@/utils/helpers';
 import { Link } from 'react-router-dom';
 

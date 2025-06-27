@@ -1,4 +1,4 @@
-import type { CartItem } from '@/components/ui/Card/cart';
+import type { CartItem } from '@/features/cart/components/CartItem/cart';
 import CartItemSubtotal from './CartItemSubtotal';
 import CartProductInfo from './CartProductInfo';
 import CartQuantityButtons from './CartQuantityButtons';

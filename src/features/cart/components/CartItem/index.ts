@@ -7,4 +7,4 @@ export { default as CartSummary } from './CartSummary';
 export { default as EmptyCart } from './EmptyCart';
 export { default as RemoveButton } from './RemoveButton';
 
-export type { CartItem } from '@/components/ui/Card/cart';
+export type { CartItem } from '@/features/cart/components/CartItem/cart';
