@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, type Variants } from 'framer-motion';
 
-import MenuButton from '../ui/MenuButton';
 import Navigation from './Navigation';
+import CloseButton from '../shared/button/CloseButton';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -38,9 +38,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           variants={menuVariants}
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white p-8"
         >
-          <div className="absolute right-8 top-8">
-            <MenuButton isOpen={true} onClick={onClose} />
-          </div>
+          <CloseButton onClick={onClose} />
           <Navigation isMobile onLinkClick={onClose} />
         </motion.div>
       )}

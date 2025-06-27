@@ -1,7 +1,7 @@
-import CloseIcon from '@components/icons/CloseIcon';
 import { useOnClickOutside } from '@hooks/useOnClickOutside';
-import { clsx } from 'clsx';
+import { cn } from '@/utils/helpers';
 import { type FC, type ReactNode, useRef } from 'react';
+import CloseButton from '@/components/shared/button/CloseButton';
 
 interface ModalProps {
   isOpen: boolean;
@@ -21,14 +21,8 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, children, className }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-      <div ref={modalRef} className={clsx('relative rounded-lg bg-white p-8 shadow-xl', className)}>
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
-          aria-label="Close modal"
-        >
-          <CloseIcon />
-        </button>
+      <div ref={modalRef} className={cn('relative rounded-lg bg-white p-8 shadow-xl', className)}>
+        <CloseButton onClick={onClose} />
         {children}
       </div>
     </div>
