@@ -1,5 +1,5 @@
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/utils/helpers';
 import StarIcon from '../../icons/StarIcon';
 
 interface IRatingProps {
@@ -12,7 +12,7 @@ const Rating: React.FC<IRatingProps> = ({ rating, className }) => {
   const filledStars = Math.round(rating);
 
   return (
-    <div className={twMerge('flex items-center gap-1', className)}>
+    <div className={cn('flex items-center gap-1', className)}>
       {[...Array(totalStars)].map((_, index) => (
         <StarIcon
           key={index}
