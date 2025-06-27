@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface SectionHeaderProps {
-  title: string;
+  title?: string;
   subtitle?: string;
   as?: keyof React.JSX.IntrinsicElements; // 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   titleColor?: string;
@@ -23,12 +23,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 }) => {
   const headerTitleClasses = `font-roboto ${as === 'h1' ? 'text-h1' : 'text-section-title'} ${titleColor}`;
   const headerSubtitleClasses = 'font-yellowtail italic text-section-subtitle text-secondary';
-  const TitleTag = React.createElement(as, { className: headerTitleClasses }, title);
+  const TitleTag = React.createElement(as, { className: headerTitleClasses }, title || '');
 
   return (
     <div className={`${marginBottom}  ${className} ${titleAlignMobile}  lg:${titleAlignDesktop}`}>
       {subtitle && <p className={headerSubtitleClasses}>{subtitle}</p>}
-      {TitleTag}
+      {title && TitleTag}
     </div>
   );
 };

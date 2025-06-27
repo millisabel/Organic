@@ -15,7 +15,7 @@ export const buttonVariants = cva(
         social: 'bg-social-bg text-primary shadow-none hover:bg-secondary hover:text-white',
       },
       size: {
-        default: 'h-20 min-w-[220px] px-4 py-2',
+        default: 'h-20 w-max min-w-[220px] px-4 py-2',
         'icon-lg': 'h-14 w-14 rounded-full flex-shrink-0',
         'icon-xl': 'h-[60px] w-[60px] rounded-full flex-shrink-0',
       },
