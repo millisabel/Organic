@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import { cn } from '../../utils/helpers';
 import { Input } from './Input';
-import SearchButton from './SearchButton';
+import SearchButton from '@/components/ui/Button/SearchButton';
 
 interface SearchInputProps {
   className?: string;

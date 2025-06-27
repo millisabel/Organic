@@ -1,7 +1,7 @@
-import CartButton from '@/components/ui/CartButton';
+import CartButton from '@/components/ui/Button/CartButton';
 import Logo from '@/components/ui/Logo';
-import MenuButton from '@/components/ui/MenuButton';
-import SearchButton from '@/components/ui/SearchButton';
+import MenuButton from '@/components/ui/Button/MenuButton';
+import SearchButton from '@/components/ui/Button/SearchButton';
 import SearchInput from '@/components/ui/SearchInput';
 import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import { useAppSelector } from '@/store/hooks';

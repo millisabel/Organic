@@ -1,6 +1,6 @@
-import { Button } from './Button';
+import { Button } from '@/components/ui/Button';
 import MenuIcon from '@/components/icons/MenuIcon';
-import { cn } from '../../utils/helpers';
+import { cn } from '@/utils/helpers';
 
 interface MenuButtonProps {
   isOpen: boolean;

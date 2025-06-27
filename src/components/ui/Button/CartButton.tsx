@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/utils/helpers';
 import { Link } from 'react-router-dom';
-import CartIcon from '../icons/CartIcon';
+import CartIcon from '@/components/icons/CartIcon';
 
 interface CartButtonProps {
   count?: number;
@@ -15,8 +15,8 @@ const CartButton = ({ count = 0, className }: CartButtonProps) => {
       variant="cart"
       size="round"
       aria-label="Open cart"
-      data-component="CartButton"
       className={cn('relative', className)}
+      data-component="CartButton"
     >
       <Link to="/cart">
         <CartIcon viewBox="0 0 27 24" variant="cart" size="md" />

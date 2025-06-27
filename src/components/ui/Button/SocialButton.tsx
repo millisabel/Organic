@@ -1,9 +1,10 @@
+import { Button } from '@/components/ui/Button';
 import InstagramIcon from '@/components/icons/InstagramIcon';
 import FacebookIcon from '@/components/icons/FacebookIcon';
 import TwitterIcon from '@/components/icons/TwitterIcon';
 import PinterestIcon from '@/components/icons/PinterestIcon';
 
-export const socials = [
+const socials = [
   {
     href: 'https://www.instagram.com',
     label: 'Instagram',
@@ -33,3 +34,27 @@ export const socials = [
     ),
   },
 ];
+
+interface SocialButtonProps {
+  href: string;
+  label: string;
+  icon: React.ReactNode;
+}
+
+const SocialButton = ({ href, label, icon }: SocialButtonProps) => (
+  <Button variant="social" size="round" asChild>
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+      {icon}
+    </a>
+  </Button>
+);
+
+export const SocialButtons = socials.map((item) => (
+  <SocialButton
+    key={item.label}
+    href={item.href}
+    label={item.label}
+    icon={item.icon}
+    data-component="SocialButton"
+  />
+));

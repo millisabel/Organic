@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, type Variants } from 'framer-motion';
 
+import CloseButton from '../ui/Button/CloseButton';
 import Navigation from './Navigation';
-import CloseButton from '../shared/button/CloseButton';
 
 interface MobileMenuProps {
   isOpen: boolean;

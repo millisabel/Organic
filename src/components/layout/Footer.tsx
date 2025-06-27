@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom';
 
 import FooterContactLink from '../ui/FooterContactLink';
 import Logo from '../ui/Logo';
-import SocialButton from './socials/SocialButton';
-import { socials } from './socials/socials';
+import { SocialButtons } from '@/components/ui/Button/SocialButton';
 
 const Footer = () => {
   return (
@@ -39,16 +38,7 @@ const Footer = () => {
                 Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy
                 text of the printing.
               </p>
-              <div className="flex items-center gap-4">
-                {socials.map((item) => (
-                  <SocialButton
-                    key={item.label}
-                    href={item.href}
-                    label={item.label}
-                    icon={item.icon}
-                  />
-                ))}
-              </div>
+              <div className="flex items-center gap-4">{SocialButtons}</div>
             </div>
 
             {/* Utility Pages */}

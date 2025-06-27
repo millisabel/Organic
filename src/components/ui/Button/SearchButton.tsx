@@ -1,6 +1,6 @@
-import { cn } from '../../utils/helpers';
-import SearchIcon from '../icons/SearchIcon';
-import { Button } from './Button';
+import { cn } from '@/utils/helpers';
+import SearchIcon from '@/components/icons/SearchIcon';
+import { Button } from '@/components/ui/Button';
 
 type SearchButtonProps = React.ComponentPropsWithoutRef<typeof Button>;
 
@@ -12,8 +12,8 @@ const SearchButton = ({ className, ...props }: SearchButtonProps) => {
       className={cn('hover:translate-y-0', className)}
       aria-label="Search"
       type="button"
-      data-component="SearchButton"
       {...props}
+      data-component="SearchButton"
     >
       <SearchIcon variant="search" size="md" />
     </Button>
