@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import FacebookIcon from '../icons/FacebookIcon';
-import InstagramIcon from '../icons/InstagramIcon';
-import PinterestIcon from '../icons/PinterestIcon';
-import TwitterIcon from '../icons/TwitterIcon';
-import { Button } from '../ui/Button';
 import FooterContactLink from '../ui/FooterContactLink';
 import Logo from '../ui/Logo';
+import SocialButton from './socials/SocialButton';
+import { socials } from './socials/socials';
 
 const Footer = () => {
   return (
@@ -43,46 +40,14 @@ const Footer = () => {
                 text of the printing.
               </p>
               <div className="flex items-center gap-4">
-                <Button variant="social" size="icon-lg" asChild>
-                  <a
-                    href="https://www.instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                  >
-                    <InstagramIcon />
-                  </a>
-                </Button>
-                <Button variant="social" size="icon-lg" asChild>
-                  <a
-                    href="https://www.facebook.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                  >
-                    <FacebookIcon />
-                  </a>
-                </Button>
-                <Button variant="social" size="icon-lg" asChild>
-                  <a
-                    href="https://www.twitter.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Twitter"
-                  >
-                    <TwitterIcon />
-                  </a>
-                </Button>
-                <Button variant="social" size="icon-lg" asChild>
-                  <a
-                    href="https://www.pinterest.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Pinterest"
-                  >
-                    <PinterestIcon />
-                  </a>
-                </Button>
+                {socials.map((item) => (
+                  <SocialButton
+                    key={item.label}
+                    href={item.href}
+                    label={item.label}
+                    icon={item.icon}
+                  />
+                ))}
               </div>
             </div>
 

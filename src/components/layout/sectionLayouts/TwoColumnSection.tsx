@@ -7,7 +7,7 @@ interface ITwoColumnSectionProps {
   description?: string;
   image?: string;
   children?: React.ReactNode;
-  button?: { text: string; onClick?: () => void };
+  button?: { text: string; onClick?: () => void; icon?: React.ReactNode };
   className?: string;
 }
 

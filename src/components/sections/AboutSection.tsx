@@ -6,7 +6,7 @@ interface AboutSectionProps {
   subtitle: string;
   title: string;
   description: string;
-  button?: { text: string; onClick?: () => void };
+  button?: { text: string; onClick?: () => void; icon?: React.ReactNode };
 }
 
 export const AboutSection = ({

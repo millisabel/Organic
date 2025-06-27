@@ -32,14 +32,14 @@ const HomePage = () => {
         title="We Believe in Working Accredited Farmers"
         subtitle="About Us"
         description="Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley."
-        button={{ text: 'Shop Now' }}
+        button={{ text: 'Shop Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
       />
       <Section>
         <SectionHeader title="Our Products" subtitle="Categories" />
         <ProductList products={productsToDisplay as IProduct[]} />
         <Button asChild className="mt-10">
           <Link to="/shop">
-            Load More <ArrowIcon />
+            Load More <ArrowIcon variant="arrow" size="md" />
           </Link>
         </Button>
       </Section>

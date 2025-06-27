@@ -1,7 +1,8 @@
-import type { SVGProps } from 'react';
+import Icon from '@/components/ui/Icon';
+import React from 'react';
 
-const CartIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+const CartIcon = (props: React.ComponentProps<typeof Icon>) => (
+  <Icon {...props} data-component="CartIcon">
     <path
       d="M11.5689 23.0001C12.2439 23.0001 12.7911 22.4529 12.7911 21.7779C12.7911 21.1029 12.2439 20.5557 11.5689 20.5557C10.8939 20.5557 10.3467 21.1029 10.3467 21.7779C10.3467 22.4529 10.8939 23.0001 11.5689 23.0001Z"
       fill="currentColor"
@@ -32,7 +33,7 @@ const CartIcon = (props: SVGProps<SVGSVGElement>) => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-  </svg>
+  </Icon>
 );
 
 export default CartIcon;

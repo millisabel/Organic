@@ -125,7 +125,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
               </>
             ) : (
               <>
-                <CartIcon className="w-5 h-5 mr-2" /> Add to Cart
+                <CartIcon viewBox="0 0 27 24" className="w-5 h-5 mr-2" /> Add to Cart
               </>
             )}
           </Button>

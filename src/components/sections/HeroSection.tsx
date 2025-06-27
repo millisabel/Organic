@@ -31,7 +31,7 @@ const HeroSection = ({
   const sectionButton = isHome ? (
     <Button asChild className="mt-6">
       <Link to="/shop">
-        Explore Now <ArrowIcon />
+        Explore Now <ArrowIcon variant="arrow" size="md" />
       </Link>
     </Button>
   ) : null;

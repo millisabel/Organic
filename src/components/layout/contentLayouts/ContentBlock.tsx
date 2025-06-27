@@ -5,7 +5,7 @@ interface ContentBlockProps {
   title?: string;
   subtitle?: string;
   description?: string;
-  button?: { text: string; onClick?: () => void };
+  button?: { text: string; onClick?: () => void; icon?: React.ReactNode };
   children?: React.ReactNode; // для вложенного контента
   className?: string;
 }
@@ -23,7 +23,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
     {description && <p className="text-base text-gray-600 mb-6">{description}</p>}
     {children}
     {button && (
-      <Button variant="default" onClick={button.onClick} text={button.text} showIcon={true} />
+      <Button variant="default" onClick={button.onClick} text={button.text} icon={button.icon} />
     )}
   </div>
 );

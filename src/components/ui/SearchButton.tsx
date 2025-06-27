@@ -7,12 +7,15 @@ type SearchButtonProps = React.ComponentPropsWithoutRef<typeof Button>;
 const SearchButton = ({ className, ...props }: SearchButtonProps) => {
   return (
     <Button
-      variant="secondary"
-      size="icon-lg"
+      variant="search"
+      size="round"
       className={cn('hover:translate-y-0', className)}
+      aria-label="Search"
+      type="button"
+      data-component="SearchButton"
       {...props}
     >
-      <SearchIcon className="h-5 w-5 transition-transform duration-300 ease-in-out group-hover:scale-125" />
+      <SearchIcon variant="search" size="md" />
     </Button>
   );
 };

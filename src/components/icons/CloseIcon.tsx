@@ -1,17 +1,10 @@
-import { type FC } from 'react';
+import Icon from '@/components/ui/Icon';
 
-const CloseIcon: FC = () => {
+const CloseIcon = (props: React.ComponentProps<typeof Icon>) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="h-6 w-6"
-    >
+    <Icon {...props} data-component="CloseIcon">
       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-    </svg>
+    </Icon>
   );
 };
 

@@ -11,6 +11,7 @@ const LogoIcon = (props: LogoIconProps) => (
     viewBox="0 0 39 56"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    data-component="LogoIcon"
     {...props}
   >
     <motion.path
