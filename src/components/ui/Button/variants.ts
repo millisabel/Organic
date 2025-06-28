@@ -63,10 +63,19 @@ export const buttonVariants = cva(baseClasses, {
         'shadow-none', // Effects
         'hover:bg-accent hover:text-white', // Hover
       ],
+      floatingCart: [
+        'fixed bottom-6 right-6 z-50', // Position
+        'flex items-center gap-4', // Layout
+        'text-white font-bold text-lg', // Text
+        'bg-primary', // Background
+        'shadow-none transition-colors shadow-2xl', // Effects
+        'hover:bg-accent hover:text-primary', // Hover
+      ],
     },
     size: {
       default: 'h-20 w-max min-w-[220px] px-4 py-2',
       round: 'h-14 w-14 rounded-full flex-shrink-0 hover:translate-y-0',
+      floatingCart: 'px-6 py-4 rounded-full',
     },
   },
   defaultVariants: {

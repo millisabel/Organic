@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import CartIcon from '@/components/icons/CartIcon';
-import CheckIcon from '@/components/icons/CheckIcon';
-import SpinnerIcon from '@/components/icons/SpinnerIcon';
 import { Button } from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
+import CartIcon from '@/components/ui/Icon/CartIcon';
+import CheckIcon from '@/components/ui/Icon/CheckIcon';
+import SpinnerIcon from '@/components/ui/Icon/SpinnerIcon';
 import Rating from '@/components/ui/Rating';
 import { cn } from '@/utils/helpers';
 
@@ -118,7 +118,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
             {isOutOfStock ? (
               'Out of Stock'
             ) : isLoading ? (
-              <SpinnerIcon />
+              <SpinnerIcon variant="spinner" />
             ) : isInCart ? (
               <>
                 <CheckIcon className="w-5 h-5 mr-2" /> In Cart

@@ -18,16 +18,6 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, text, children, icon, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
-    const contentArray = [text, children].filter(Boolean);
-
-    const content =
-      contentArray.length > 1 ? (
-        <span className="flex items-center gap-2">{contentArray}</span>
-      ) : (
-        contentArray[0]
-      );
-
-    const shouldWrap = React.Children.count(content) > 1 || (typeof text !== 'undefined' && true);
 
     return (
       <Comp
@@ -36,13 +26,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
         data-component="Button"
       >
-        {shouldWrap ? (
-          <span className="flex items-center gap-2">
-            {content}
-            {icon}
-          </span>
+        {asChild ? (
+          children
         ) : (
-          content
+          <>
+            {icon}
+            {text}
+            {children}
+          </>
         )}
       </Comp>
     );

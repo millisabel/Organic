@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/Button';
+import CartIcon from '@/components/ui/Icon/CartIcon';
+import CartCountBadge from '@/components/ui/Badge/CartCountBadge';
 import { cn } from '@/utils/helpers';
 import { Link } from 'react-router-dom';
-import CartIcon from '@/components/icons/CartIcon';
 
 interface CartButtonProps {
   count?: number;
@@ -20,11 +21,7 @@ const CartButton = ({ count = 0, className }: CartButtonProps) => {
     >
       <Link to="/cart">
         <CartIcon viewBox="0 0 27 24" variant="cart" size="md" />
-        {count > 0 && (
-          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-green-600 text-xs font-bold text-white lg:top-0 lg:right-0">
-            {count}
-          </span>
-        )}
+        {count > 0 && <CartCountBadge count={count} />}
       </Link>
     </Button>
   );

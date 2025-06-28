@@ -1,6 +1,6 @@
-import React from 'react';
 import { cn } from '@/utils/helpers';
-import StarIcon from '../../icons/StarIcon';
+import React from 'react';
+import StarIcon from '../Icon/StarIcon';
 
 interface IRatingProps {
   rating: number;

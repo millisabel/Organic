@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/Button';
-import MenuIcon from '@/components/icons/MenuIcon';
+import MenuIcon from '@/components/ui/Icon/MenuIcon';
 import { cn } from '@/utils/helpers';
 
 interface MenuButtonProps {

@@ -1,12 +1,12 @@
-import CartIcon from '@/components/icons/CartIcon';
-import SpinnerIcon from '@/components/icons/SpinnerIcon';
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import HeroSection from '@/components/sections/HeroSection';
+import ProductList from '@/components/sections/ProductList';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import { type IProduct } from '@/components/shared/ProductCard';
-import ProductList from '@/components/sections/ProductList';
 import { Button } from '@/components/ui/Button';
+import CartIcon from '@/components/ui/Icon/CartIcon';
+import SpinnerIcon from '@/components/ui/Icon/SpinnerIcon';
 import Rating from '@/components/ui/Rating';
 import productsData from '@/data/products.json';
 import { addItem, startLoading, stopLoading } from '@/store/cartSlice';

@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/Button';
-import InstagramIcon from '@/components/icons/InstagramIcon';
-import FacebookIcon from '@/components/icons/FacebookIcon';
-import TwitterIcon from '@/components/icons/TwitterIcon';
-import PinterestIcon from '@/components/icons/PinterestIcon';
+import FacebookIcon from '@/components/ui/Icon/FacebookIcon';
+import InstagramIcon from '@/components/ui/Icon/InstagramIcon';
+import PinterestIcon from '@/components/ui/Icon/PinterestIcon';
+import TwitterIcon from '@/components/ui/Icon/TwitterIcon';
 
 const socials = [
   {

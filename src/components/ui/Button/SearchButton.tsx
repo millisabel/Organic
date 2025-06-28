@@ -1,6 +1,6 @@
-import { cn } from '@/utils/helpers';
-import SearchIcon from '@/components/icons/SearchIcon';
 import { Button } from '@/components/ui/Button';
+import SearchIcon from '@/components/ui/Icon/SearchIcon';
+import { cn } from '@/utils/helpers';
 
 type SearchButtonProps = React.ComponentPropsWithoutRef<typeof Button>;
 

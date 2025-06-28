@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Newsletter from '../sections/Newsletter';
-import FloatingCartButton from '../ui/FloatingCartButton';
+import FloatingCartButton from '../ui/Button/FloatingCartButton';
 import Footer from './Footer';
 import Header from './Header';
 

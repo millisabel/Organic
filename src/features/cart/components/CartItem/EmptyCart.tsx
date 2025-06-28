@@ -1,5 +1,5 @@
-import CartIcon from '@/components/icons/CartIcon';
 import { Button } from '@/components/ui/Button';
+import CartIcon from '@/components/ui/Icon/CartIcon';
 import { Link } from 'react-router-dom';
 
 const EmptyCart = () => (

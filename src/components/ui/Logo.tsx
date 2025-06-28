@@ -2,7 +2,7 @@ import { cn } from '@/utils/helpers';
 import { motion, useAnimation, useInView, type Variants } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import LogoIcon from '../icons/LogoIcon';
+import LogoIcon from './Icon/LogoIcon';
 
 interface LogoProps {
   /**

@@ -1,6 +1,6 @@
-import { type FC } from 'react';
-import CloseIcon from '@/components/icons/CloseIcon';
+import CloseIcon from '@/components/ui/Icon/CloseIcon';
 import { cn } from '@/utils/helpers';
+import { type FC } from 'react';
 
 interface CloseButtonProps {
   onClick: () => void;

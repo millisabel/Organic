@@ -1,11 +1,11 @@
-import ArrowIcon from '@/components/icons/ArrowIcon';
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import { AboutSection } from '@/components/sections/AboutSection';
 import HeroSection from '@/components/sections/HeroSection';
-import { type IProduct } from '@/components/shared/ProductCard';
 import ProductList from '@/components/sections/ProductList';
+import { type IProduct } from '@/components/shared/ProductCard';
 import { Button } from '@/components/ui/Button';
+import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import productsData from '@/data/products.json';
 import { useWindowWidth } from '@/hooks/useWindowWidth';
 import { Link } from 'react-router-dom';

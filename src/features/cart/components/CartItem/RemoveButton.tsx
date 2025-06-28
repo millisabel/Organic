@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/Button';
-import CloseIcon from '@/components/icons/CloseIcon';
+import CloseIcon from '@/components/ui/Icon/CloseIcon';
 
 interface RemoveButtonProps {
   onRemove: () => void;

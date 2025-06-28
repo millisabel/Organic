@@ -7,26 +7,16 @@ export const iconVariants = cva('', {
       social:
         'text-primary group-hover:text-white transition-all duration-500 group-hover:scale-125',
       menu: 'text-primary group-hover:text-primary transition-all duration-500 group-hover:scale-125',
-      cart: 'text-white group-hover:text-primary transition-all duration-500 group-hover:scale-125',
+      cart: 'relative text-white group-hover:text-primary transition-all duration-500 group-hover:scale-125',
       search:
         'text-white group-hover:text-primary transition-all duration-500 group-hover:scale-125',
       arrow: 'p-1 rounded-full bg-arrowFill text-white',
+      spinner: 'text-secondary animate-spin',
     },
     size: {
       md: 'w-6 h-6',
+      lg: 'w-8 h-8',
     },
-    // color: {
-    //   primary: 'text-primary',
-    //   accent: 'text-accent',
-    //   white: 'text-white',
-    // },
-    // background: {
-    //   transparent: 'bg-transparent',
-    // },
-    // effect: {
-    //   none: '',
-    //   hoverSocial: 'group-hover:text-white transition-all duration-500 group-hover:scale-125',
-    // },
   },
   defaultVariants: {
     variant: 'default',
