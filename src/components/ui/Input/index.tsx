@@ -1,22 +1,19 @@
 import { clsx } from 'clsx';
 import * as React from 'react';
 import { type FC } from 'react';
+import { type VariantProps } from 'class-variance-authority';
+import { inputVariants } from './variant';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement>,
+    VariantProps<typeof inputVariants> {
   wrapperClassName?: string;
 }
 
-const Input: FC<InputProps> = ({ wrapperClassName, className, ...props }) => {
+const Input: FC<InputProps> = ({ wrapperClassName, className, variant, inputSize, ...props }) => {
   return (
     <div className={clsx('relative w-full', wrapperClassName)} data-component="Input">
-      <input
-        className={clsx(
-          'w-full rounded-lg border border-border bg-background px-4 py-2 text-text outline-none focus:ring-2 focus:ring-secondary',
-          'placeholder:font-roboto placeholder:italic placeholder:text-placeholder-text',
-          className,
-        )}
-        {...props}
-      />
+      <input className={inputVariants({ variant, inputSize, className })} {...props} />
     </div>
   );
 };

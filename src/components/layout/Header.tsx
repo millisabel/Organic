@@ -1,36 +1,25 @@
+import { Search } from '@/components/shared/Search';
 import CartButton from '@/components/ui/Button/CartButton';
-import Logo from '@/components/ui/Logo';
 import MenuButton from '@/components/ui/Button/MenuButton';
-import SearchButton from '@/components/ui/Button/SearchButton';
-import SearchInput from '@/components/ui/SearchInput';
-import { useOnClickOutside } from '@/hooks/useOnClickOutside';
+import Logo from '@/components/ui/Logo';
 import { useAppSelector } from '@/store/hooks';
 import { cn } from '@/utils/helpers';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import MobileMenu from './MobileMenu';
 import Navigation from './Navigation';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // States for desktop and mobile search
-  const [isDesktopSearchOpen, setIsDesktopSearchOpen] = useState(false);
-  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
-
-  const desktopSearchRef = useRef<HTMLDivElement>(null);
-  const mobileSearchRef = useRef<HTMLDivElement>(null);
+  const [searchValue, setSearchValue] = useState('');
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const cartItems = useAppSelector((state) => state.cart.items);
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
-  useOnClickOutside(desktopSearchRef, () => setIsDesktopSearchOpen(false));
-  useOnClickOutside(mobileSearchRef, () => setIsMobileSearchOpen(false));
-
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setIsDesktopSearchOpen(false);
-        setIsMobileSearchOpen(false);
+        setIsSearchOpen(false);
       }
     };
     document.addEventListener('keydown', handleEscape);
@@ -38,52 +27,31 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={cn('border-b border-border')}>
+    <header className={cn('relative border-b border-border')}>
       <div className={cn('container mx-auto px-4')}>
-        <div className={cn('flex items-center justify-between py-6')}>
-          {/* On mobile, search input replaces the whole header */}
-          {isMobileSearchOpen && (
-            <div className="w-full lg:hidden">
-              <SearchInput ref={mobileSearchRef} className="w-full" />
+        <div className={cn('flex w-full items-center justify-between py-6')}>
+          <div className={isSearchOpen ? 'hidden md:block' : ''}>
+            <Logo />
+          </div>
+          {!isSearchOpen && (
+            <div className="hidden lg:flex">
+              <Navigation />
             </div>
           )}
-
-          {/* Regular header content, hidden on mobile when search is open */}
-          <div
-            className={cn('flex w-full items-center justify-between', {
-              'hidden lg:flex': isMobileSearchOpen,
-            })}
-          >
-            <Logo />
-
-            {/* Desktop Navigation or Search */}
-            <div className="hidden lg:flex">{!isDesktopSearchOpen && <Navigation />}</div>
-
-            {/* Right side icons */}
-            <div className="flex items-center gap-x-2 lg:gap-x-5">
-              {/* Desktop: Search Input or Button */}
-              <div className="hidden lg:block">
-                {isDesktopSearchOpen ? (
-                  <SearchInput ref={desktopSearchRef} />
-                ) : (
-                  <SearchButton onClick={() => setIsDesktopSearchOpen(true)} />
-                )}
-              </div>
-
+          <div className="flex items-center gap-x-2">
+            <Search
+              isOpen={isSearchOpen}
+              onOpen={() => setIsSearchOpen(true)}
+              onClose={() => setIsSearchOpen(false)}
+              value={searchValue}
+              onChange={setSearchValue}
+              handleSearch={() => {}}
+            />
+            <div className={isSearchOpen ? 'hidden md:block' : ''}>
               <CartButton count={totalItems} />
-
-              {/* Desktop Menu (only when search is open) */}
-              {isDesktopSearchOpen && (
-                <div className="hidden lg:block">
-                  <MenuButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
-                </div>
-              )}
-
-              {/* Mobile Icons */}
-              <div className="flex items-center gap-x-2 lg:hidden">
-                <SearchButton onClick={() => setIsMobileSearchOpen(true)} />
-                <MenuButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
-              </div>
+            </div>
+            <div className={`${isSearchOpen ? 'hidden md:block' : ''} flex items-center lg:hidden`}>
+              <MenuButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
             </div>
           </div>
         </div>

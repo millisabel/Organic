@@ -11,9 +11,10 @@ interface LogoProps {
    * @default 1
    */
   speed?: number;
+  className?: string;
 }
 
-const Logo = ({ speed = 1 }: LogoProps) => {
+const Logo = ({ speed = 1, className }: LogoProps) => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
