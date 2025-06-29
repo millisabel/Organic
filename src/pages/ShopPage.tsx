@@ -2,10 +2,10 @@ import hero_bg_page_shop from '@/assets/images/backgrounds/hero_bg_page_schop.we
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import HeroSection from '@/components/sections/HeroSection';
+import ProductList from '@/components/sections/ProductList';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import Pagination from '@/components/shared/Pagination';
 import { type IProduct } from '@/components/shared/ProductCard';
-import ProductList from '@/components/sections/ProductList';
 import { Button } from '@/components/ui/Button';
 import productsData from '@/data/products.json';
 import { useEffect, useMemo, useState } from 'react';
@@ -20,6 +20,8 @@ const ShopPage = () => {
   const [isPaginationVisible, setIsPaginationVisible] = useState(true);
 
   const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const search = params.get('search') || '';
 
   const productCategories = useMemo(() => {
     const categories = new Set(productsData.map((p) => p.category));
@@ -27,11 +29,19 @@ const ShopPage = () => {
   }, []);
 
   const filteredProducts = useMemo(() => {
-    if (!selectedCategory || selectedCategory === 'All Categories') {
-      return productsData;
+    let result = productsData;
+    if (selectedCategory && selectedCategory !== 'All Categories') {
+      result = result.filter((p) => p.category === selectedCategory);
     }
-    return productsData.filter((p) => p.category === selectedCategory);
-  }, [selectedCategory]);
+    if (search) {
+      result = result.filter(
+        (p) =>
+          p.name.toLowerCase().includes(search.toLowerCase()) ||
+          p.category.toLowerCase().includes(search.toLowerCase()),
+      );
+    }
+    return result;
+  }, [selectedCategory, search]);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);

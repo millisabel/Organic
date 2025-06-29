@@ -7,6 +7,7 @@ import { cn } from '@/utils/helpers';
 import { useEffect, useState } from 'react';
 import MobileMenu from './MobileMenu';
 import Navigation from './Navigation';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,6 +27,12 @@ const Header = () => {
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
 
+  const navigate = useNavigate();
+  const handleSearchChange = (value: string) => {
+    setSearchValue(value);
+    navigate(`/shop?search=${encodeURIComponent(value)}`);
+  };
+
   return (
     <header className={cn('relative border-b border-border')}>
       <div className={cn('container mx-auto px-4')}>
@@ -44,7 +51,7 @@ const Header = () => {
               onOpen={() => setIsSearchOpen(true)}
               onClose={() => setIsSearchOpen(false)}
               value={searchValue}
-              onChange={setSearchValue}
+              onChange={handleSearchChange}
               handleSearch={() => {}}
             />
             <div className={isSearchOpen ? 'hidden md:block' : ''}>
