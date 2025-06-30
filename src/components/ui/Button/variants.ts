@@ -106,6 +106,13 @@ export const buttonVariants = cva(baseClasses, {
         'hover:bg-primary hover:text-white', // Hover
         'focus:ring-2 focus:ring-primary', // Focus
       ],
+      badgeProduct: [
+        'bg-primary', // Background
+        'text-white text-[15px] font-semibold font-sans', // Text
+        'shadow-none', // Effects
+        'hover:bg-accent hover:text-primary', // Hover
+        'focus-visible:ring-transparent', // Focus
+      ],
     },
     size: {
       default: 'h-20 w-max min-w-[220px] px-4 py-2',
@@ -113,6 +120,7 @@ export const buttonVariants = cva(baseClasses, {
       trash: 'h-12 w-12 rounded-lg flex-shrink-0 hover:translate-y-0',
       round: 'h-14 w-14 rounded-full flex-shrink-0 hover:translate-y-0',
       floatingCart: 'px-6 py-4 rounded-full',
+      badgeProduct: 'h-[30px] min-w-[100px] rounded-lg',
     },
   },
   defaultVariants: {

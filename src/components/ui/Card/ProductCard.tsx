@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { Button } from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import Rating from '@/components/ui/Rating';
 import { removeItem } from '@/store/cartSlice';
@@ -9,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import AddToCartButton from '../Button/AddToCartButton';
 import TrashButton from '../Button/TrashButton';
 import { cardVariants } from './variants';
+import BadgeButton from '../Badge/BadgeButton';
 
 export interface IProduct {
   id: string | number;
@@ -77,12 +77,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
               </div>
             )}
             <div className="absolute top-5 left-5 z-10">
-              <Button
-                onClick={handleCategoryClick}
-                className="h-[30px] min-w-[100px] !text-[15px] font-semibold !font-sans !bg-primary !text-white !rounded-lg hover:!bg-accent hover:!text-primary focus-visible:ring-transparent"
-              >
-                {category}
-              </Button>
+              <BadgeButton category={category} handleCategoryClick={handleCategoryClick} />
             </div>
             <div className="h-[324px]">
               <img
