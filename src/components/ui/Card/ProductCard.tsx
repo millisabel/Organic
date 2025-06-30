@@ -2,13 +2,14 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Card from '@/components/ui/Card';
+import ProductPrice from '@/components/ui/ProductPrice';
 import Rating from '@/components/ui/Rating';
 import { removeItem } from '@/store/cartSlice';
 import { useDispatch } from 'react-redux';
+import BadgeButton from '../Badge/BadgeButton';
 import AddToCartButton from '../Button/AddToCartButton';
 import TrashButton from '../Button/TrashButton';
 import { cardVariants } from './variants';
-import BadgeButton from '../Badge/BadgeButton';
 
 export interface IProduct {
   id: string | number;
@@ -90,14 +91,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
           <div className="p-5 bg-transparent">
             <h3 className="text-xl font-semibold font-roboto text-primary mb-3.5 h-14">{name}</h3>
             <div className="flex justify-between items-center border-t border-neutral-300 pt-3.5">
-              <div className="flex items-center gap-2">
-                {oldPrice && (
-                  <p className="text-neutral-400 line-through font-semibold text-[15px] font-sans">
-                    ${oldPrice.toFixed(2)}
-                  </p>
-                )}
-                <p className="text-primary font-bold text-lg font-sans">${price.toFixed(2)}</p>
-              </div>
+              <ProductPrice price={price} oldPrice={oldPrice} />
               <Rating rating={rating} />
             </div>
           </div>
