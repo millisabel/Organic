@@ -15,7 +15,7 @@ const SearchButton = ({ className, ...props }: SearchButtonProps) => {
       {...props}
       data-component="SearchButton"
     >
-      <SearchIcon variant="search" size="md" />
+      <SearchIcon size="md" />
     </Button>
   );
 };

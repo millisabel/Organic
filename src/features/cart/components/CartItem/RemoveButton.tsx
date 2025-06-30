@@ -6,7 +6,7 @@ interface RemoveButtonProps {
 }
 
 const RemoveButton = ({ onRemove }: RemoveButtonProps) => (
-  <Button variant="destructive" size="icon-lg" aria-label="Remove item" onClick={onRemove}>
+  <Button variant="destructive" size="round" aria-label="Remove item" onClick={onRemove}>
     <CloseIcon />
   </Button>
 );

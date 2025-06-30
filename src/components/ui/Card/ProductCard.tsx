@@ -7,7 +7,10 @@ import CartIcon from '@/components/ui/Icon/CartIcon';
 import CheckIcon from '@/components/ui/Icon/CheckIcon';
 import SpinnerIcon from '@/components/ui/Icon/SpinnerIcon';
 import Rating from '@/components/ui/Rating';
-import { cn } from '@/utils/helpers';
+import { removeItem } from '@/store/cartSlice';
+import { useDispatch } from 'react-redux';
+import { cardVariants } from './variants';
+import TrashButton from '../Button/TrashButton';
 
 export interface IProduct {
   id: string | number;
@@ -36,6 +39,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
 }) => {
   const { id, category, name, price, oldPrice, imageUrl, rating, isOutOfStock } = product;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleCategoryClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -49,16 +53,21 @@ const ProductCard: React.FC<IProductCardProps> = ({
     onAddToCart(product);
   };
 
+  const handleRemove = () => {
+    dispatch(removeItem(product.id));
+  };
+
+  let variant: 'isInCart' | 'isOutOfStock' | 'product' = 'product';
+  if (isInCart) variant = 'isInCart';
+  else if (isOutOfStock) variant = 'isOutOfStock';
+
   return (
     <Link to={`/shop/${id}`} className="block w-full max-w-[335px] mx-auto">
       <Card
-        className={cn(
-          'font-sans text-left h-[550px] bg-background group flex flex-col justify-between transition-all',
-          {
-            'border-2 border-green-600 shadow-lg': isInCart,
-            'filter grayscale opacity-70 pointer-events-none': isOutOfStock,
-          },
-        )}
+        variant="product"
+        size="product"
+        className={cardVariants({ variant })}
+        data-component="ProductCard"
       >
         <div>
           <div className="relative overflow-hidden">
@@ -101,19 +110,20 @@ const ProductCard: React.FC<IProductCardProps> = ({
           </div>
         </div>
 
-        <div className="px-5 pb-5">
+        <div className="px-5 pb-5 flex items-center gap-2">
           <Button
             onClick={handleAddToCart}
             disabled={isInCart || isLoading || isOutOfStock}
-            variant={isInCart || isLoading || isOutOfStock ? 'default' : 'outline'}
-            className={cn(
-              'w-full !rounded-lg !font-sans !text-[15px] h-12 flex items-center justify-center',
-              {
-                'cursor-default !bg-green-100 !text-green-700': isInCart,
-                'cursor-wait !bg-gray-200': isLoading,
-                'cursor-not-allowed !bg-neutral-200 !text-neutral-500': isOutOfStock,
-              },
-            )}
+            variant={
+              isInCart
+                ? 'productInCart'
+                : isLoading
+                  ? 'productLoading'
+                  : isOutOfStock
+                    ? 'productOutOfStock'
+                    : 'product'
+            }
+            size="product"
           >
             {isOutOfStock ? (
               'Out of Stock'
@@ -129,6 +139,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
               </>
             )}
           </Button>
+          {isInCart && <TrashButton handleRemove={handleRemove} />}
         </div>
       </Card>
     </Link>

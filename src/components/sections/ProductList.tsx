@@ -1,7 +1,7 @@
 import { addItem, startLoading, stopLoading } from '@/store/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { getImageUrl } from '@/utils/helpers';
-import ProductCard, { type IProduct } from '../shared/ProductCard';
+import ProductCard, { type IProduct } from '../ui/Card/ProductCard';
 
 interface IProductListProps {
   products: IProduct[];

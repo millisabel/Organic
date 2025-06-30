@@ -2,7 +2,7 @@ import heroImage from '@/assets/images/backgrounds/hero_bg_page_about.webp';
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import HeroSection from '@/components/sections/HeroSection';
-import CategoryCard, { type ICategory } from '@/components/shared/CategoryCard';
+import CategoryCard, { type ICategory } from '@/components/ui/Card/CategoryCard';
 import categoriesData from '@/data/categories.json';
 import { Link } from 'react-router-dom';
 

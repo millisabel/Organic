@@ -1,21 +1,31 @@
 import { cva } from 'class-variance-authority';
 
-export const iconVariants = cva('', {
+const iconBaseClasses = [
+  'group',
+  'relative', // Position
+  'w-full', // Layout
+  'border-none', // Border
+  'bg-transparent', // Background
+  'text-inherit', // Typography
+  'transition-all duration-500 ease-in-out', // Effects
+  'group-hover:scale-125', // Hover
+  '', // Focus
+].join(' ');
+
+export const iconVariants = cva(iconBaseClasses, {
   variants: {
     variant: {
       default: '',
-      social:
-        'text-primary group-hover:text-white transition-all duration-500 group-hover:scale-125',
-      menu: 'text-primary group-hover:text-primary transition-all duration-500 group-hover:scale-125',
-      cart: 'relative text-white group-hover:text-primary transition-all duration-500 group-hover:scale-125',
-      search:
-        'text-white group-hover:text-primary transition-all duration-500 group-hover:scale-125',
       arrow: 'p-1 rounded-full bg-arrowFill text-white',
       spinner: 'text-secondary animate-spin',
+      local: 'group-hover:scale-none group-hover/local:scale-125',
+      noHover: 'group-hover:scale-none',
     },
     size: {
       md: 'w-6 h-6',
       lg: 'w-8 h-8',
+      xl: 'w-10 h-10',
+      round: 'rounded-full',
     },
   },
   defaultVariants: {

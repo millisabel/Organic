@@ -1,21 +1,17 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
-
-const cardBaseClasses = [
-  'overflow-hidden', // Layout
-  'bg-white', // Background
-  'rounded-[30px]', // Border
-  'transition-shadow duration-300 ease-in-out', // Effects
-  'hover:shadow-card', // Hover
-].join(' ');
+import { cardVariants } from './variants';
+import type { VariantProps } from 'class-variance-authority';
 
 interface ICardProps {
   children: React.ReactNode;
   className?: string;
+  variant?: VariantProps<typeof cardVariants>['variant'];
+  size?: VariantProps<typeof cardVariants>['size'];
 }
 
-const Card: React.FC<ICardProps> = ({ children, className }) => {
-  const cardClasses = twMerge(cardBaseClasses, className);
+const Card: React.FC<ICardProps> = ({ children, className, variant }) => {
+  const cardClasses = twMerge(cardVariants({ variant }), className);
 
   return (
     <div className={cardClasses} data-component="Card">
