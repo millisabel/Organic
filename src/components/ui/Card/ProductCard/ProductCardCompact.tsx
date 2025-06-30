@@ -1,60 +1,23 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import BadgeButton from '../../Badge/BadgeButton';
+import AddToCartButton from '../../Button/AddToCartButton';
+import TrashButton from '../../Button/TrashButton';
+import Card from '../../Card';
+import ProductPrice from '../../ProductPrice';
+import Rating from '../../Rating';
+import { cardVariants } from '../variants';
+import type { ProductCardInternalProps } from './index';
 
-import Card from '@/components/ui/Card';
-import ProductPrice from '@/components/ui/ProductPrice';
-import Rating from '@/components/ui/Rating';
-import { removeItem } from '@/store/cartSlice';
-import { useDispatch } from 'react-redux';
-import BadgeButton from '../Badge/BadgeButton';
-import AddToCartButton from '../Button/AddToCartButton';
-import TrashButton from '../Button/TrashButton';
-import { cardVariants } from './variants';
-
-export interface IProduct {
-  id: string | number;
-  category: string;
-  name: string;
-  price: number;
-  oldPrice?: number;
-  imageUrl: string;
-  rating: number; // 0-5
-  isOutOfStock?: boolean;
-  description?: string;
-}
-
-interface IProductCardProps {
-  product: IProduct;
-  isInCart?: boolean;
-  isLoading?: boolean;
-  onAddToCart: (product: IProduct) => void;
-}
-
-const ProductCard: React.FC<IProductCardProps> = ({
+const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
   product,
-  isInCart = false,
-  isLoading = false,
-  onAddToCart,
+  isInCart,
+  isLoading,
+  isOutOfStock,
+  handleCategoryClick,
+  handleRemove,
+  handleAddToCart,
 }) => {
-  const { id, category, name, price, oldPrice, imageUrl, rating, isOutOfStock } = product;
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleCategoryClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    navigate(`/shop?category=${category}`);
-  };
-
-  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    onAddToCart(product);
-  };
-
-  const handleRemove = () => {
-    dispatch(removeItem(product.id));
-  };
+  const { id, category, name, price, oldPrice, imageUrl, rating } = product;
 
   let variant: 'isInCart' | 'isOutOfStock' | 'product' = 'product';
   if (isInCart) variant = 'isInCart';
@@ -111,4 +74,4 @@ const ProductCard: React.FC<IProductCardProps> = ({
   );
 };
 
-export default ProductCard;
+export default ProductCardCompact;

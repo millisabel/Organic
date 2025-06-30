@@ -12,7 +12,10 @@ const ProductList: React.FC<IProductListProps> = ({ products }) => {
   const { items: cartItems, loadingItems } = useAppSelector((state) => state.cart);
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5 justify-items-center">
+    <div
+      data-component="product-list"
+      className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5 justify-items-center"
+    >
       {products.map((product) => (
         <ProductCard
           key={product.id}
@@ -20,6 +23,7 @@ const ProductList: React.FC<IProductListProps> = ({ products }) => {
             ...product,
             imageUrl: getImageUrl('products', product.imageUrl),
           }}
+          view="compact"
           isInCart={cartItems.some((item) => item.id === product.id)}
           isLoading={loadingItems.includes(product.id)}
           onAddToCart={() => handleAddToCart(product)}
