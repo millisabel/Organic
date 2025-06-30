@@ -3,14 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
-import CartIcon from '@/components/ui/Icon/CartIcon';
-import CheckIcon from '@/components/ui/Icon/CheckIcon';
-import SpinnerIcon from '@/components/ui/Icon/SpinnerIcon';
 import Rating from '@/components/ui/Rating';
 import { removeItem } from '@/store/cartSlice';
 import { useDispatch } from 'react-redux';
-import { cardVariants } from './variants';
+import AddToCartButton from '../Button/AddToCartButton';
 import TrashButton from '../Button/TrashButton';
+import { cardVariants } from './variants';
 
 export interface IProduct {
   id: string | number;
@@ -111,34 +109,12 @@ const ProductCard: React.FC<IProductCardProps> = ({
         </div>
 
         <div className="px-5 pb-5 flex items-center gap-2">
-          <Button
+          <AddToCartButton
+            isInCart={isInCart}
+            isLoading={isLoading}
+            isOutOfStock={!!isOutOfStock}
             onClick={handleAddToCart}
-            disabled={isInCart || isLoading || isOutOfStock}
-            variant={
-              isInCart
-                ? 'productInCart'
-                : isLoading
-                  ? 'productLoading'
-                  : isOutOfStock
-                    ? 'productOutOfStock'
-                    : 'product'
-            }
-            size="product"
-          >
-            {isOutOfStock ? (
-              'Out of Stock'
-            ) : isLoading ? (
-              <SpinnerIcon variant="spinner" />
-            ) : isInCart ? (
-              <>
-                <CheckIcon className="w-5 h-5 mr-2" /> In Cart
-              </>
-            ) : (
-              <>
-                <CartIcon viewBox="0 0 27 24" className="w-5 h-5 mr-2" /> Add to Cart
-              </>
-            )}
-          </Button>
+          />
           {isInCart && <TrashButton handleRemove={handleRemove} />}
         </div>
       </Card>
