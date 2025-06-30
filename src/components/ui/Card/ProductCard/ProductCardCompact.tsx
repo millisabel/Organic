@@ -1,76 +1,55 @@
 import { Link } from 'react-router-dom';
-import BadgeButton from '../../Badge/BadgeButton';
-import AddToCartButton from '../../Button/AddToCartButton';
-import TrashButton from '../../Button/TrashButton';
 import Card from '../../Card';
-import ProductPrice from '../../ProductPrice';
-import Rating from '../../Rating';
 import { cardVariants } from '../variants';
-import type { ProductCardInternalProps } from './index';
+import type { ProductCardInternalProps } from './ProductCard.types';
+import ProductImageBlock from './blocks/ProductImageBlock';
+import ProductContentBlock from './blocks/ProductContentBlock';
+import ProductActionBlock from './blocks/ProductActionBlock';
+import ProductBadgeBlock from './blocks/ProductBadgeBlock';
 
 const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
   product,
   isInCart,
   isLoading,
-  isOutOfStock,
+  variant = 'product',
+  mode = 'shopCompact',
   handleCategoryClick,
   handleRemove,
   handleAddToCart,
 }) => {
   const { id, category, name, price, oldPrice, imageUrl, rating } = product;
-
-  let variant: 'isInCart' | 'isOutOfStock' | 'product' = 'product';
-  if (isInCart) variant = 'isInCart';
-  else if (isOutOfStock) variant = 'isOutOfStock';
+  const isOutOfStock = !!product.isOutOfStock;
 
   return (
-    <Link to={`/shop/${id}`} className="block w-full max-w-[335px] mx-auto">
-      <Card
-        variant="product"
-        size="product"
-        className={cardVariants({ variant })}
-        data-component="ProductCard"
-      >
-        <div>
-          <div className="relative overflow-hidden">
-            {isOutOfStock && (
-              <div className="absolute inset-0 bg-white/50 flex items-center justify-center z-10">
-                <span className="text-primary font-bold text-xl bg-white/70 px-4 py-2 rounded-lg">
-                  Out of Stock
-                </span>
-              </div>
-            )}
-            <div className="absolute top-5 left-5 z-10">
-              <BadgeButton category={category} handleCategoryClick={handleCategoryClick} />
-            </div>
-            <div className="h-[324px]">
-              <img
-                src={imageUrl}
-                alt={name}
-                className="will-change-contents mx-auto h-full object-cover transition-all duration-300 group-hover:scale-110 drop-shadow-xl"
-              />
-            </div>
+    <Card
+      variant={variant}
+      size="product"
+      className={cardVariants({ variant })}
+      data-component="ProductCard"
+    >
+      <Link to={`/shop/${id}`} className="block w-full max-w-[335px] mx-auto">
+        {isOutOfStock && (
+          <div className="absolute inset-0 bg-white/50 flex items-center justify-center z-10">
+            <span className="text-primary font-bold text-xl bg-white/70 px-4 py-2 rounded-lg">
+              Out of Stock
+            </span>
           </div>
-          <div className="p-5 bg-transparent">
-            <h3 className="text-xl font-semibold font-roboto text-primary mb-3.5 h-14">{name}</h3>
-            <div className="flex justify-between items-center border-t border-neutral-300 pt-3.5">
-              <ProductPrice price={price} oldPrice={oldPrice} />
-              <Rating rating={rating} />
-            </div>
-          </div>
-        </div>
-
-        <div className="px-5 pb-5 flex items-center gap-2">
-          <AddToCartButton
-            isInCart={isInCart}
-            isLoading={isLoading}
-            isOutOfStock={!!isOutOfStock}
-            onClick={handleAddToCart}
-          />
-          {isInCart && <TrashButton handleRemove={handleRemove} />}
-        </div>
-      </Card>
-    </Link>
+        )}
+        <ProductBadgeBlock category={category} handleCategoryClick={handleCategoryClick} />
+        <ProductImageBlock imageUrl={imageUrl} name={name} />
+        <ProductContentBlock name={name} price={price} oldPrice={oldPrice} rating={rating} />
+      </Link>
+      <ProductActionBlock
+        mode={mode}
+        quantity={1}
+        setQuantity={() => {}}
+        isInCart={isInCart}
+        isLoading={isLoading}
+        isOutOfStock={isOutOfStock}
+        handleAddToCart={() => handleAddToCart(product, 1)}
+        handleRemove={handleRemove}
+      />
+    </Card>
   );
 };
 

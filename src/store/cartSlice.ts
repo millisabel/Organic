@@ -1,4 +1,4 @@
-import { type IProduct } from '@/components/ui/Card/ProductCard';
+import { type IProduct } from '@/components/ui/Card/ProductCard/ProductCard.types';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 export interface CartItem extends IProduct {

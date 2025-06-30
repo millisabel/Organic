@@ -1,17 +1,18 @@
-import type { IProduct } from '@/components/ui/Card/ProductCard';
+import type { IProduct } from '@/components/ui/Card/ProductCard/ProductCard.types';
 import { addItem, removeItem, startLoading, stopLoading } from '@/store/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { useNavigate } from 'react-router-dom';
 
 export function useCartActions() {
   const dispatch = useAppDispatch();
   const { loadingItems } = useAppSelector((state) => state.cart);
+  const navigate = useNavigate();
 
-  const handleAddToCart = (product: IProduct) => {
+  const handleAddToCart = (product: IProduct, quantity: number = 1) => {
     if (loadingItems.includes(product.id)) return;
-
     dispatch(startLoading(product.id));
     setTimeout(() => {
-      dispatch(addItem({ product, quantity: 1 }));
+      dispatch(addItem({ product, quantity }));
       dispatch(stopLoading(product.id));
     }, 1500);
   };
@@ -20,5 +21,9 @@ export function useCartActions() {
     dispatch(removeItem(product.id));
   };
 
-  return { handleAddToCart, handleRemove };
+  const handleCategoryClick = (category: string) => {
+    navigate(`/shop?category=${category}`);
+  };
+
+  return { handleAddToCart, handleRemove, handleCategoryClick };
 }

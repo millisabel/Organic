@@ -18,10 +18,10 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
 }) => (
   <button
     onClick={onClick}
-    disabled={isInCart || isLoading || isOutOfStock}
+    disabled={isLoading || isOutOfStock}
     className={`
       w-full rounded-lg font-sans text-[15px] h-12 flex items-center justify-center
-      ${isInCart ? 'cursor-default bg-green-100 text-green-700' : ''}
+      ${isInCart ? ' bg-green-100 text-green-700' : ''}
       ${isLoading ? 'cursor-wait bg-gray-200' : ''}
       ${isOutOfStock ? 'cursor-not-allowed bg-neutral-200 text-neutral-500' : ''}
       transition
@@ -42,7 +42,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
       <SpinnerIcon variant="spinner" />
     ) : isInCart ? (
       <>
-        <CheckIcon className="w-5 h-5 mr-2" /> In Cart
+        <CheckIcon className="w-5 h-5 mr-2" /> Add More
       </>
     ) : (
       <>

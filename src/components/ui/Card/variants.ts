@@ -14,6 +14,7 @@ const cardVariants = cva(cardBaseClasses, {
     variant: {
       default: [''],
       product: [
+        'relative overflow-hidden',
         'bg-background',
         'border-2 border-transparent',
         'font-sans text-left',

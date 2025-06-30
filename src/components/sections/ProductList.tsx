@@ -1,14 +1,15 @@
 import { useCartActions } from '@/hooks/useCartActions';
 import { useAppSelector } from '@/store/hooks';
 import { getImageUrl } from '@/utils/helpers';
-import ProductCard, { type IProduct } from '../ui/Card/ProductCard';
+import ProductCard from '../ui/Card/ProductCard';
+import type { IProduct } from '../ui/Card/ProductCard/ProductCard.types';
 
 interface IProductListProps {
   products: IProduct[];
 }
 
 const ProductList: React.FC<IProductListProps> = ({ products }) => {
-  const { handleAddToCart, handleRemove } = useCartActions();
+  const { handleAddToCart, handleRemove, handleCategoryClick } = useCartActions();
   const { items: cartItems, loadingItems } = useAppSelector((state) => state.cart);
 
   return (
@@ -28,6 +29,7 @@ const ProductList: React.FC<IProductListProps> = ({ products }) => {
           isLoading={loadingItems.includes(product.id)}
           onAddToCart={() => handleAddToCart(product)}
           onRemove={() => handleRemove(product)}
+          onCategoryClick={(category) => handleCategoryClick(category)}
         />
       ))}
     </div>
