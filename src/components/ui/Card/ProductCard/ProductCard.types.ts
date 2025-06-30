@@ -8,6 +8,7 @@ export interface IProduct {
   rating: number; // 0-5
   isOutOfStock?: boolean;
   description?: string;
+  isNew?: boolean;
   className?: string;
 }
 
@@ -37,6 +38,7 @@ export interface ProductCardInternalProps
 
 export interface ProductBadgeBlockProps {
   category: string;
+  product: IProduct;
   handleCategoryClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 

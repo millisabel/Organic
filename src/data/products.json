@@ -17,7 +17,8 @@
     "oldPrice": 20.0,
     "imageUrl": "Banana.webp",
     "rating": 5,
-    "description": "Sweet organic bananas, full of potassium and energy. Great for snacks, smoothies, or baking. A favorite for kids and adults alike!"
+    "description": "Sweet organic bananas, full of potassium and energy. Great for snacks, smoothies, or baking. A favorite for kids and adults alike!",
+    "isNew": true
   },
   {
     "id": 15,
@@ -26,7 +27,8 @@
     "price": 18.0,
     "imageUrl": "White_Hazelnut.webp",
     "rating": 5,
-    "description": "Delicate white hazelnuts, perfect for baking or healthy snacking. Enjoy their subtle flavor and crunch in your favorite recipes or as a nutritious snack on the go."
+    "description": "Delicate white hazelnuts, perfect for baking or healthy snacking. Enjoy their subtle flavor and crunch in your favorite recipes or as a nutritious snack on the go.",
+    "isNew": true
   },
   {
     "id": 14,
@@ -53,7 +55,8 @@
     "price": 12.0,
     "imageUrl": "Brown_Hazelnut.webp",
     "rating": 5,
-    "description": "Crunchy brown hazelnuts, a tasty and healthy snack for any time of day. Add them to your granola, desserts, or enjoy straight from the bag."
+    "description": "Crunchy brown hazelnuts, a tasty and healthy snack for any time of day. Add them to your granola, desserts, or enjoy straight from the bag.",
+    "isNew": true
   },
   {
     "id": 8,

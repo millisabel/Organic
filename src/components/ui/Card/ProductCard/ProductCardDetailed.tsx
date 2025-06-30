@@ -17,7 +17,11 @@ const ProductCardDetailed: React.FC<ProductCardInternalProps> = ({
 }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-      <ProductBadgeBlock category={product.category} handleCategoryClick={handleCategoryClick} />
+      <ProductBadgeBlock
+        product={product}
+        category={product.category}
+        handleCategoryClick={handleCategoryClick}
+      />
       <ProductImageBlock
         imageUrl={product.imageUrl}
         name={product.name}

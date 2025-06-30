@@ -35,7 +35,11 @@ const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
             </span>
           </div>
         )}
-        <ProductBadgeBlock category={category} handleCategoryClick={handleCategoryClick} />
+        <ProductBadgeBlock
+          product={product}
+          category={category}
+          handleCategoryClick={handleCategoryClick}
+        />
         <ProductImageBlock imageUrl={imageUrl} name={name} />
         <ProductContentBlock name={name} price={price} oldPrice={oldPrice} rating={rating} />
       </Link>
