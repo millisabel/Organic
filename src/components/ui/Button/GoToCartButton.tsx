@@ -11,9 +11,9 @@ interface GoToCartButtonProps {
 }
 
 const GoToCartButton: React.FC<GoToCartButtonProps> = ({
-  mode = 'shopCompact',
   variant = 'productInCart',
   size = 'fullWidthButton',
+  mode = 'shopCompact',
 }) => {
   return (
     <Button aria-label="Go to cart" tabIndex={0} asChild variant={variant} size={size}>

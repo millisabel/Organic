@@ -4,7 +4,7 @@ import type { ProductBadgeBlockProps } from '../ProductCard.types';
 
 const badgeContainerClasses = {
   compact: '',
-  detailed: 'flex flex-row items-center gap-10 p-2 min-w-max justify-between',
+  detailed: 'flex flex-row items-center lg:gap-10 gap-2 p-2 min-w-max justify-between',
 };
 
 const badgeCategoryClasses = {

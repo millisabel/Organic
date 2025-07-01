@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { BREAKPOINTS } from './src/constants/breakpoints';
 
 const config: Config = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -24,12 +25,12 @@ const config: Config = {
         'star-fill': '#FFA858',
       },
       screens: {
-        xs: '375px',
-        sm: '640px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1280px',
-        '2xl': '1440px',
+        xs: BREAKPOINTS.xs + 'px', // 375px
+        sm: BREAKPOINTS.sm + 'px', // 640px
+        md: BREAKPOINTS.md + 'px', // 768px
+        lg: BREAKPOINTS.lg + 'px', // 1024px
+        xl: BREAKPOINTS.xl + 'px', // 1280px
+        '2xl': BREAKPOINTS['2xl'] + 'px', // 1440px
       },
       fontFamily: {
         sans: ['"Open Sans"', 'sans-serif'],

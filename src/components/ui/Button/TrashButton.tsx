@@ -25,7 +25,7 @@ const TrashButton: React.FC<TrashButtonProps> = ({ handleRemove }) => (
         handleRemove();
       }
     }}
-    style={{ minWidth: 40, minHeight: 40 }}
+    data-component="TrashButton"
   >
     <TrashIcon />
   </Button>
