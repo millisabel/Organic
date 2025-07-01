@@ -3,17 +3,21 @@ import React from 'react';
 import ProductCardCompact from '@/components/ui/Card/ProductCard/ProductCardCompact';
 import ProductCardDetailed from '@/components/ui/Card/ProductCard/ProductCardDetailed';
 import type { IProduct, IProductCardProps } from './ProductCard.types';
+import { getImageUrl } from '@/utils/helpers';
 
 const ProductCard: React.FC<IProductCardProps> = ({
   product,
   isInCart = false,
   isLoading = false,
   view = 'compact',
+  quantity = 1,
   onAddToCart,
   onRemove,
   onCategoryClick,
+  setQuantity,
 }) => {
   const { isOutOfStock } = product;
+  const imgUrl = getImageUrl('products', product.imageUrl);
 
   const handleCategoryClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -41,9 +45,12 @@ const ProductCard: React.FC<IProductCardProps> = ({
     isLoading,
     isOutOfStock,
     variant,
+    quantity,
+    imageUrl: imgUrl,
     handleCategoryClick,
     handleRemove,
     handleAddToCart,
+    setQuantity,
   };
 
   if (view === 'detailed') {

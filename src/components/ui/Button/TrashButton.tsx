@@ -11,8 +11,8 @@ const TrashButton: React.FC<TrashButtonProps> = ({ handleRemove }) => (
     type="button"
     aria-label="Remove from cart"
     tabIndex={0}
-    variant="trash"
-    size="trash"
+    variant="productTrash"
+    size="roundedSquare"
     onClick={(e) => {
       e.preventDefault();
       e.stopPropagation();

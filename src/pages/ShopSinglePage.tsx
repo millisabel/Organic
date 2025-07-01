@@ -11,21 +11,19 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useAppSelector } from '@/store/hooks';
 import { useCartActions } from '@/hooks/useCartActions';
-import ProductCardDetailed from '@/components/ui/Card/ProductCard/ProductCardDetailed';
+import ProductCard from '@/components/ui/Card/ProductCard';
 
 const ShopSinglePage: React.FC = () => {
-  const { productId } = useParams<{ productId: string }>();
+  const { handleAddToCart, handleRemove, handleCategoryClick } = useCartActions();
   const { items: cartItems, loadingItems } = useAppSelector((state) => state.cart);
-  const { handleAddToCart, handleRemove } = useCartActions();
-
+  const { productId } = useParams<{ productId: string }>();
+  const product = productsData.find((p) => p.id.toString() === productId) as IProduct;
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     setQuantity(1);
     window.scrollTo(0, 0);
   }, [productId]);
-
-  const product = productsData.find((p) => p.id.toString() === productId) as IProduct;
 
   if (!product) {
     return (
@@ -47,7 +45,6 @@ const ShopSinglePage: React.FC = () => {
   const relatedProducts = productsData
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
-
   return (
     <>
       <HeroSection
@@ -61,17 +58,17 @@ const ShopSinglePage: React.FC = () => {
       </div>
 
       <Section className="pt-10">
-        <ProductCardDetailed
+        <ProductCard
+          view="detailed"
+          imageUrl={product.imageUrl}
           product={product}
+          quantity={quantity}
           isInCart={isInCart}
           isLoading={isLoading}
-          variant="product"
-          mode="shopSingle"
-          quantity={quantity}
-          handleCategoryClick={() => {}}
+          onAddToCart={(product, quantity) => handleAddToCart(product, quantity)}
+          onRemove={() => handleRemove(product)}
+          onCategoryClick={(category) => handleCategoryClick(category)}
           setQuantity={setQuantity}
-          handleAddToCart={() => handleAddToCart(product, quantity)}
-          handleRemove={() => handleRemove(product)}
         />
       </Section>
 

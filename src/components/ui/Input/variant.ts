@@ -24,12 +24,15 @@ const inputVariants = cva(inputBaseClasses, {
         'text-lg outline-none', // Typography
         'focus:outline-none focus-visible:outline-none', // Focus
       ],
-      quantity: ['text-center border-2 border-primary rounded-xl text-xl font-bold'],
+      quantity: [
+        'text-center border-2 border-primary rounded-xl text-xl font-bold',
+        'focus:outline-gray-300 focus-visible:outline-gray-300 focus:ring-0 focus-visible:ring-1',
+      ],
     },
     inputSize: {
       default: '',
       search: 'h-[56px]',
-      quantity: 'h-[56px] w-24 py-4 px-2',
+      quantity: 'h-12 w-24 py-4 px-2',
     },
   },
   defaultVariants: {

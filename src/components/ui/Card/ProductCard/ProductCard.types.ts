@@ -21,9 +21,12 @@ export interface IProductCardProps {
   isInCart?: boolean;
   isLoading?: boolean;
   view?: view;
+  imageUrl: string;
+  quantity?: number;
   onAddToCart: (product: IProduct, quantity: number) => void;
   onRemove: (product: IProduct) => void;
   onCategoryClick?: (category: string) => void;
+  setQuantity?: (quantity: number) => void;
 }
 
 export interface ProductCardInternalProps
@@ -44,6 +47,7 @@ export interface ProductBadgeBlockProps {
   category: string;
   product: IProduct;
   isInCart: boolean;
+  view?: view;
   handleCategoryClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -65,12 +69,13 @@ export interface ProductContentBlockProps {
 }
 
 export interface ProductActionBlockProps {
+  product: IProduct;
   isInCart: boolean;
   isLoading: boolean;
   isOutOfStock: boolean;
   quantity: number;
   mode: mode;
-  handleAddToCart: () => void;
+  handleAddToCart: (product: IProduct, quantity: number) => void;
   handleRemove: () => void;
   setQuantity: (quantity: number) => void;
 }

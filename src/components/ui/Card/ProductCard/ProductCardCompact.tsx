@@ -12,11 +12,12 @@ const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
   isLoading,
   variant = 'product',
   mode = 'shopCompact',
+  imageUrl,
   handleCategoryClick,
   handleRemove,
   handleAddToCart,
 }) => {
-  const { id, category, name, price, oldPrice, imageUrl, rating } = product;
+  const { id, category, name, price, oldPrice, rating } = product;
   const isOutOfStock = !!product.isOutOfStock;
 
   return (
@@ -32,13 +33,14 @@ const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
         <ProductContentBlock name={name} price={price} oldPrice={oldPrice} rating={rating} />
       </Link>
       <ProductActionBlock
+        product={product}
         mode={mode}
         quantity={1}
         setQuantity={() => {}}
         isInCart={isInCart}
         isLoading={isLoading}
         isOutOfStock={isOutOfStock}
-        handleAddToCart={() => handleAddToCart(product, 1)}
+        handleAddToCart={(product, quantity) => handleAddToCart(product, quantity)}
         handleRemove={handleRemove}
       />
     </Card>

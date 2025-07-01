@@ -7,7 +7,7 @@ interface BadgeButtonProps {
 
 const BadgeButton = ({ category, handleCategoryClick }: BadgeButtonProps) => {
   return (
-    <Button onClick={handleCategoryClick} variant="badgeProduct" size="badgeProduct">
+    <Button onClick={handleCategoryClick} variant="badgeProduct" size="compactButton">
       {category}
     </Button>
   );

@@ -1,8 +1,8 @@
 import { useCartActions } from '@/hooks/useCartActions';
 import { useAppSelector } from '@/store/hooks';
-import { getImageUrl } from '@/utils/helpers';
 import ProductCard from '../ui/Card/ProductCard';
 import type { IProduct } from '../ui/Card/ProductCard/ProductCard.types';
+import { getImageUrl } from '@/utils/helpers';
 
 interface IProductListProps {
   products: IProduct[];
@@ -20,11 +20,9 @@ const ProductList: React.FC<IProductListProps> = ({ products }) => {
       {products.map((product) => (
         <ProductCard
           key={product.id}
-          product={{
-            ...product,
-            imageUrl: getImageUrl('products', product.imageUrl),
-          }}
+          product={product}
           view="compact"
+          imageUrl={getImageUrl('products', product.imageUrl)}
           isInCart={cartItems.some((item) => item.id === product.id)}
           isLoading={loadingItems.includes(product.id)}
           onAddToCart={() => handleAddToCart(product)}

@@ -4,7 +4,7 @@ import { AboutSection } from '@/components/sections/AboutSection';
 import HeroSection from '@/components/sections/HeroSection';
 import ProductList from '@/components/sections/ProductList';
 import { Button } from '@/components/ui/Button';
-import { type IProduct } from '@/components/ui/Card/ProductCard';
+import { type IProduct } from '@/components/ui/Card/ProductCard/ProductCard.types';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import productsData from '@/data/products.json';
 import { useWindowWidth } from '@/hooks/useWindowWidth';

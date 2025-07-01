@@ -29,7 +29,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
             ? 'productOutOfStock'
             : 'product'
     }
-    size="product"
+    size="fullWidthButton"
     aria-label={
       isOutOfStock
         ? 'Out of Stock'

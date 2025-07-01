@@ -12,6 +12,15 @@ const baseClasses = [
   'disabled:pointer-events-none disabled:opacity-50', // Disabled
 ].join(' ');
 
+const baseProductButton = [
+  'bg-background',
+  'border-2',
+  'font-sans text-[15px]',
+  'shadow-none',
+  'hover:shadow-lg hover:-translate-y-0.5',
+  'focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus:ring-2 ',
+];
+
 export const buttonVariants = cva(baseClasses, {
   variants: {
     variant: {
@@ -74,37 +83,40 @@ export const buttonVariants = cva(baseClasses, {
         'hover:bg-accent hover:text-primary', // Hover
       ],
       product: [
-        'font-sans text-[15px] text-primary',
-        'bg-background', // Background
-        'border-2 border-primary', // Border
-        'shadow-none', // Effects
-        'hover:bg-primary hover:text-white', // Hover
-      ],
-      productInCart: [
-        'bg-green-100', // Background
-        'font-sans text-[15px] text-green-700', // Text
-        'shadow-none', // Effects
-        'hover:bg-accent hover:text-primary', // Hover
-      ],
-      productOutOfStock: [
-        'bg-neutral-200', // Background
-        'text-neutral-500', // Text
-        'cursor-not-allowed shadow-none', // Effects
-        'hover:bg-accent hover:text-primary', // Hover
-      ],
-      productLoading: [
-        'bg-gray-200', // Background
-        'text-gray-500', // Text
-        'cursor-wait shadow-none', // Effects
-        'hover:bg-accent hover:text-primary', // Hover
-      ],
-      trash: [
-        'group/local',
-        'bg-background', // Background
+        ...baseProductButton,
+        'border-primary', // Border
         'text-primary', // Text
-        'shadow-none', // Effects
         'hover:bg-primary hover:text-white', // Hover
         'focus:ring-2 focus:ring-primary', // Focus
+      ],
+      productInCart: [
+        ...baseProductButton,
+        'border-green-600', // Border
+        'text-green-600', // Text
+        'hover:bg-accent hover:border-accent hover:text-white', // Hover
+        'focus:ring-green-500', // Focus
+      ],
+      productOutOfStock: [
+        ...baseProductButton,
+        'border-neutral-500', // Border
+        'text-neutral-500', // Text
+        'cursor-not-allowed', // Effects
+        'hover:none', // Hover
+      ],
+      productLoading: [
+        ...baseProductButton,
+        'border-gray-500', // Border
+        'text-gray-500', // Text
+        'cursor-wait', // Effects
+        'hover:bg-accent hover:text-primary', // Hover
+      ],
+      productTrash: [
+        'group/local',
+        ...baseProductButton,
+        'border-red-500', // Border
+        'text-red-500', // Text
+        'hover:bg-red-500 hover:text-white', // Hover
+        'focus:ring-primary', // Focus
       ],
       badgeProduct: [
         'bg-primary', // Background
@@ -116,11 +128,11 @@ export const buttonVariants = cva(baseClasses, {
     },
     size: {
       default: 'h-20 w-max min-w-[220px] px-4 py-2',
-      product: 'h-12 w-full rounded-lg',
-      trash: 'h-12 w-12 rounded-lg flex-shrink-0 hover:translate-y-0',
+      fullWidthButton: 'h-12 w-full rounded-lg',
+      roundedSquare: 'h-12 w-12 rounded-lg flex-shrink-0',
       round: 'h-14 w-14 rounded-full flex-shrink-0 hover:translate-y-0',
-      floatingCart: 'px-6 py-4 rounded-full',
-      badgeProduct: 'h-[30px] min-w-[100px] rounded-lg',
+      pillButton: 'px-6 py-4 rounded-full',
+      compactButton: 'h-[30px] min-w-[100px] rounded-lg',
     },
   },
   defaultVariants: {

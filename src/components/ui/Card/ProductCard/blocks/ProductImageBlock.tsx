@@ -11,9 +11,12 @@ const ProductImageBlock: React.FC<ProductImageBlockProps> = ({
   classNameParent = '',
   classNameImage = '',
 }) => (
-  <div className={cn(defaultClassesParent, classNameParent)}>
-    <img src={imageUrl} alt={name} className={cn(defaultClassesImage, classNameImage)} />
-  </div>
+  console.log(imageUrl),
+  (
+    <div className={cn(defaultClassesParent, classNameParent)}>
+      <img src={imageUrl} alt={name} className={cn(defaultClassesImage, classNameImage)} />
+    </div>
+  )
 );
 
 export default ProductImageBlock;

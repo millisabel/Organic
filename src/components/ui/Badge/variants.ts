@@ -17,10 +17,10 @@ export const badgeVariants = cva(badgeBaseClasses, {
         'text-white', // Text
         'border-2 border-white', // Border
       ],
-      inCart: ['bg-green-100 border-[1px]', 'text-green-600'],
-      outOfStock: ['bg-gray-200', 'text-gray-600'],
-      sale: ['bg-red-200', 'text-red-600'],
-      new: ['bg-gray-200', 'text-primary'],
+      inCart: ['bg-green-100', 'text-green-600', 'shadow-[0_0_2px_0_green]'],
+      outOfStock: ['bg-gray-200', 'text-gray-600', 'shadow-[0_0_2px_0_gray]'],
+      sale: ['bg-red-200', 'text-red-600', 'shadow-[0_0_2px_0_red]'],
+      new: ['bg-gray-200', 'text-primary', 'shadow-[0_0_2px_0_gray]'],
     },
     size: {
       default: 'h-6 w-6',

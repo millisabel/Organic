@@ -2,8 +2,10 @@ import AddToCartButton from '@/components/ui/Button/AddToCartButton';
 import TrashButton from '@/components/ui/Button/TrashButton';
 import type { ProductActionBlockProps } from '../ProductCard.types';
 import { Input } from '@/components/ui/Input';
+import GoToCartButton from '@/components/ui/Button/GoToCartButton';
 
 const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
+  product,
   isInCart,
   isLoading,
   isOutOfStock,
@@ -29,13 +31,27 @@ const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
           />
         </div>
       )}
-      <AddToCartButton
-        isInCart={isInCart}
-        isLoading={isLoading}
-        isOutOfStock={!!isOutOfStock}
-        onClick={() => handleAddToCart()}
-      />
+      {mode === 'shopSingle' && (
+        <AddToCartButton
+          isInCart={isInCart}
+          isLoading={isLoading}
+          isOutOfStock={!!isOutOfStock}
+          onClick={() => handleAddToCart(product, quantity)}
+        />
+      )}
+      {mode !== 'shopSingle' && !isInCart && (
+        <AddToCartButton
+          isInCart={isInCart}
+          isLoading={isLoading}
+          isOutOfStock={!!isOutOfStock}
+          onClick={() => handleAddToCart(product, quantity)}
+        />
+      )}
+      {mode !== 'shopSingle' && isInCart && <GoToCartButton />}
       {isInCart && <TrashButton handleRemove={handleRemove} />}
+      {mode === 'shopSingle' && isInCart && (
+        <GoToCartButton mode={mode} variant="product" size="roundedSquare" />
+      )}
     </div>
   );
 };

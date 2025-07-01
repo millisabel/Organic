@@ -30,14 +30,14 @@ const FloatingCartButton = () => {
   return (
     <Button
       variant="floatingCart"
-      size="floatingCart"
+      size="pillButton"
       aria-label="Open cart"
       data-component="FloatingCartButton"
       asChild
     >
       <Link to="/cart">
         <span className="relative flex items-center justify-center">
-          <CartIcon viewBox="0 0 27 24" size="lg" variant="cart" />
+          <CartIcon viewBox="0 0 27 24" size="lg" />
           <CartCountBadge count={totalCount} />
         </span>
         <span className="hidden sm:inline">${totalPrice.toFixed(2)}</span>
