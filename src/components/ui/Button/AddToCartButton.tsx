@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/Button';
 import CartIcon from '@/components/ui/Icon/CartIcon';
 import CheckIcon from '@/components/ui/Icon/CheckIcon';
 import SpinnerIcon from '@/components/ui/Icon/SpinnerIcon';
@@ -16,16 +17,19 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
   isOutOfStock,
   onClick,
 }) => (
-  <button
+  <Button
     onClick={onClick}
     disabled={isLoading || isOutOfStock}
-    className={`
-      w-full rounded-lg font-sans text-[15px] h-12 flex items-center justify-center
-      ${isInCart ? ' bg-green-100 text-green-700' : ''}
-      ${isLoading ? 'cursor-wait bg-gray-200' : ''}
-      ${isOutOfStock ? 'cursor-not-allowed bg-neutral-200 text-neutral-500' : ''}
-      transition
-    `}
+    variant={
+      isInCart
+        ? 'productInCart'
+        : isLoading
+          ? 'productLoading'
+          : isOutOfStock
+            ? 'productOutOfStock'
+            : 'product'
+    }
+    size="product"
     aria-label={
       isOutOfStock
         ? 'Out of Stock'
@@ -49,7 +53,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
         <CartIcon viewBox="0 0 27 24" className="w-5 h-5 mr-2" /> Add to Cart
       </>
     )}
-  </button>
+  </Button>
 );
 
 export default AddToCartButton;

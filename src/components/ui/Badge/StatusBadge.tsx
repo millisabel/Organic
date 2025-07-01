@@ -1,24 +1,31 @@
 import React from 'react';
+import { badgeVariants } from './variants';
+import { cn } from '@/utils/helpers';
 
 interface StatusBadgeProps {
-  type: 'new' | 'outOfStock' | 'sale';
+  type: 'new' | 'outOfStock' | 'sale' | 'inCart';
+  variant?: 'new' | 'outOfStock' | 'sale' | 'inCart';
+  size?: 'default' | 'lg' | 'xl';
+  className?: string;
+  font?: 'default' | 'lg' | 'xl';
 }
-
-const badgeStyles = {
-  outOfStock: 'bg-gray-400 text-white',
-  sale: 'bg-red-500 text-white',
-  new: 'bg-green-500 text-white',
-};
 
 const badgeText = {
   outOfStock: 'Out of Stock',
   sale: 'Sale',
   new: 'New',
+  inCart: 'In Cart',
 };
 
-const StatusBadge: React.FC<StatusBadgeProps> = ({ type }) => (
+const StatusBadge: React.FC<StatusBadgeProps> = ({
+  type,
+  variant,
+  size = 'xl',
+  className,
+  font = 'default',
+}) => (
   <span
-    className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase shadow ${badgeStyles[type]}`}
+    className={cn(badgeVariants({ variant: variant, size: size, font: font }), className)}
     aria-label={badgeText[type]}
   >
     {badgeText[type]}

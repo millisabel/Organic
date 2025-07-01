@@ -5,6 +5,7 @@ import type { ProductBadgeBlockProps } from '../ProductCard.types';
 const ProductBadgeBlock: React.FC<ProductBadgeBlockProps> = ({
   category,
   handleCategoryClick,
+  isInCart = false,
   product,
 }) => {
   return (
@@ -12,13 +13,16 @@ const ProductBadgeBlock: React.FC<ProductBadgeBlockProps> = ({
       <div className="absolute top-5 left-5 z-10">
         <BadgeButton category={category} handleCategoryClick={handleCategoryClick} />
       </div>
-      <div className="absolute top-5 right-5 z-10 flex items-center gap-2">
+      <div className="absolute top-5 right-5 z-10 flex flex-col items-center gap-1 min-w-max justify-end">
         {product.isOutOfStock ? (
-          <StatusBadge type="outOfStock" />
+          <StatusBadge type="outOfStock" variant="outOfStock" />
         ) : (
           <>
-            {product.isNew && <StatusBadge type="new" />}
-            {product.oldPrice && product.oldPrice > product.price && <StatusBadge type="sale" />}
+            {isInCart && <StatusBadge type="inCart" variant="inCart" />}
+            {product.isNew && <StatusBadge type="new" variant="new" />}
+            {product.oldPrice && product.oldPrice > product.price && (
+              <StatusBadge type="sale" variant="sale" />
+            )}
           </>
         )}
       </div>

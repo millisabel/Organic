@@ -2,6 +2,7 @@ import { cva } from 'class-variance-authority';
 
 const cardBaseClasses = [
   'group',
+  'relative overflow-hidden',
   'flex flex-col justify-between overflow-hidden', // Layout
   'bg-white', // Background
   'rounded-[30px]', // Border
@@ -14,20 +15,19 @@ const cardVariants = cva(cardBaseClasses, {
     variant: {
       default: [''],
       product: [
-        'relative overflow-hidden',
+        'justify-end',
         'bg-background',
         'border-2 border-transparent',
         'font-sans text-left',
         'shadow-md',
-        'transition-all duration-300 ease-in-out',
         'hover:shadow-lg hover:-translate-y-0.5',
       ],
-      isInCart: ['border-2 border-green-600 shadow-lg'],
+      isInCart: ['shadow-md', 'bg-background'],
       isOutOfStock: ['filter grayscale opacity-70 pointer-events-none'],
     },
     size: {
       default: '',
-      product: 'h-[550px]',
+      product: 'h-[550px] w-full h-full max-w-[335px] mx-auto',
     },
   },
   defaultVariants: {

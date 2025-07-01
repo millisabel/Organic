@@ -21,6 +21,7 @@ const ProductCardDetailed: React.FC<ProductCardInternalProps> = ({
         product={product}
         category={product.category}
         handleCategoryClick={handleCategoryClick}
+        isInCart={isInCart}
       />
       <ProductImageBlock
         imageUrl={product.imageUrl}

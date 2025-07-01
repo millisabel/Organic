@@ -1,3 +1,7 @@
+type mode = 'shopCompact' | 'shopSingle';
+type view = 'compact' | 'detailed';
+type variant = 'isInCart' | 'isOutOfStock' | 'product';
+
 export interface IProduct {
   id: string | number;
   category: string;
@@ -16,7 +20,7 @@ export interface IProductCardProps {
   product: IProduct;
   isInCart?: boolean;
   isLoading?: boolean;
-  view?: 'compact' | 'detailed';
+  view?: view;
   onAddToCart: (product: IProduct, quantity: number) => void;
   onRemove: (product: IProduct) => void;
   onCategoryClick?: (category: string) => void;
@@ -27,8 +31,8 @@ export interface ProductCardInternalProps
   isInCart: boolean;
   isLoading: boolean;
   isOutOfStock?: boolean;
-  variant: 'isInCart' | 'isOutOfStock' | 'product';
-  mode?: 'shopSingle' | 'shopCompact';
+  variant: variant;
+  mode?: mode;
   quantity?: number;
   setQuantity?: (quantity: number) => void;
   handleAddToCart: (product: IProduct, quantity: number) => void;
@@ -39,6 +43,7 @@ export interface ProductCardInternalProps
 export interface ProductBadgeBlockProps {
   category: string;
   product: IProduct;
+  isInCart: boolean;
   handleCategoryClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -55,7 +60,8 @@ export interface ProductContentBlockProps {
   oldPrice?: number;
   rating?: number;
   description?: string;
-  mode?: 'shopCompact' | 'shopSingle';
+  mode?: mode;
+  className?: string;
 }
 
 export interface ProductActionBlockProps {
@@ -63,7 +69,7 @@ export interface ProductActionBlockProps {
   isLoading: boolean;
   isOutOfStock: boolean;
   quantity: number;
-  mode: 'shopCompact' | 'shopSingle';
+  mode: mode;
   handleAddToCart: () => void;
   handleRemove: () => void;
   setQuantity: (quantity: number) => void;

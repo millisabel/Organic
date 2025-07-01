@@ -1,5 +1,6 @@
 import ProductPrice from '@/components/ui/Card/ProductCard/blocks/ProductPrice';
 import Rating from '@/components/ui/Rating';
+import { cn } from '@/utils/helpers';
 import type { ProductContentBlockProps } from '../ProductCard.types';
 
 const ProductContentBlock: React.FC<ProductContentBlockProps> = ({
@@ -9,9 +10,10 @@ const ProductContentBlock: React.FC<ProductContentBlockProps> = ({
   rating,
   mode = 'shopCompact',
   description,
+  className,
 }) => {
   return mode === 'shopCompact' ? (
-    <div className="p-5 bg-transparent">
+    <div className={cn('p-5 bg-transparent', className)}>
       <h3 className="text-xl font-semibold font-roboto text-primary mb-3 h-14 border-b border-neutral-300">
         {name}
       </h3>

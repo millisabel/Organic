@@ -10,8 +10,8 @@ interface ICardProps {
   size?: VariantProps<typeof cardVariants>['size'];
 }
 
-const Card: React.FC<ICardProps> = ({ children, className, variant }) => {
-  const cardClasses = twMerge(cardVariants({ variant }), className);
+const Card: React.FC<ICardProps> = ({ children, className, variant, size }) => {
+  const cardClasses = twMerge(cardVariants({ variant, size }), className);
 
   return (
     <div className={cardClasses} data-component="Card">

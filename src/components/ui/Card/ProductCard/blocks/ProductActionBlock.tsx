@@ -1,6 +1,7 @@
 import AddToCartButton from '@/components/ui/Button/AddToCartButton';
 import TrashButton from '@/components/ui/Button/TrashButton';
 import type { ProductActionBlockProps } from '../ProductCard.types';
+import { Input } from '@/components/ui/Input';
 
 const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
   isInCart,
@@ -17,13 +18,14 @@ const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
       {mode === 'shopSingle' && (
         <div className="flex items-center gap-4">
           <p className="text-xl font-bold text-primary shrink-0">Quantity :</p>
-          <input
+          <Input
             type="number"
             value={quantity}
             min={1}
             onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10)))}
-            className="w-24 text-center border-2 border-primary rounded-xl py-4 px-2 text-xl font-bold"
             disabled={isLoading}
+            variant="quantity"
+            inputSize="quantity"
           />
         </div>
       )}

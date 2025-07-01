@@ -83,7 +83,7 @@ export const buttonVariants = cva(baseClasses, {
       productInCart: [
         'bg-green-100', // Background
         'font-sans text-[15px] text-green-700', // Text
-        'cursor-default shadow-none', // Effects
+        'shadow-none', // Effects
         'hover:bg-accent hover:text-primary', // Hover
       ],
       productOutOfStock: [
