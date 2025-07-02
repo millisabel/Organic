@@ -1,5 +1,5 @@
-import { clsx } from 'clsx';
 import { useRef, type FC, type ReactNode } from 'react';
+import { clsx } from 'clsx';
 import {
   NavLink as RouterNavLink,
   useLocation,
@@ -11,6 +11,15 @@ interface NavLinkProps extends Omit<RouterNavLinkProps, 'className' | 'children'
   onClick?: () => void;
   exact?: boolean;
 }
+
+const styles = {
+  navLink:
+    'relative font-roboto text-nav-link block select-none px-2 py-1 transition-colors duration-300 ease-in-out',
+  active:
+    'after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:w-0 after:-translate-x-1/2 after:bg-secondary after:transition-all after:duration-300 after:ease-in-out',
+  textAccent: 'text-accent',
+  textPrimary: 'text-primary',
+};
 
 const NavLink: FC<NavLinkProps> = ({ to, children, onClick, exact = false, ...props }) => {
   const location = useLocation();
@@ -38,8 +47,6 @@ const NavLink: FC<NavLinkProps> = ({ to, children, onClick, exact = false, ...pr
   };
 
   const text = typeof children === 'string' ? children : '';
-
-  // Определяем активность ссылки вручную, если exact=true
   const isActiveOverride = exact && typeof to === 'string' ? location.pathname === to : undefined;
 
   return (
@@ -47,15 +54,11 @@ const NavLink: FC<NavLinkProps> = ({ to, children, onClick, exact = false, ...pr
       to={to}
       onClick={onClick}
       className={({ isActive }) =>
-        clsx(
-          'nav-link relative block select-none px-2 py-1 transition-colors duration-300 ease-in-out',
-          'after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:w-0 after:-translate-x-1/2 after:bg-secondary after:transition-all after:duration-300 after:ease-in-out',
-          {
-            active: isActiveOverride ?? isActive,
-            'text-accent': isActiveOverride ?? isActive,
-            'text-primary': !(isActiveOverride ?? isActive),
-          },
-        )
+        clsx(styles.navLink, styles.active, {
+          active: isActiveOverride ?? isActive,
+          [styles.textAccent]: isActiveOverride ?? isActive,
+          [styles.textPrimary]: !(isActiveOverride ?? isActive),
+        })
       }
       onMouseEnter={handleMouseEnter}
       {...restProps}

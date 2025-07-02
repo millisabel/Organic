@@ -5,7 +5,4 @@
 @tailwind utilities;
 
 @layer utilities {
-  .nav-link {
-    @apply font-roboto text-nav-link;
-  }
 }
