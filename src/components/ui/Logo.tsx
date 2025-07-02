@@ -1,7 +1,9 @@
-import { cn } from '@/utils/helpers';
-import { motion, useAnimation, useInView, type Variants } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import { motion, useAnimation, useInView, type Variants } from 'framer-motion';
+import { useCurrentPage } from '@/hooks/useCurrentPage';
+import { cn } from '@/utils/helpers';
 import LogoIcon from './Icon/LogoIcon';
 
 interface LogoProps {
@@ -11,12 +13,11 @@ interface LogoProps {
    * @default 1
    */
   speed?: number;
-  className?: string;
 }
 
-const Logo = ({ speed = 1, className }: LogoProps) => {
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
+const Logo = ({ speed = 1 }: LogoProps) => {
+  const currentPage = useCurrentPage();
+  const isHomePage = currentPage === 'home';
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -74,6 +75,7 @@ const Logo = ({ speed = 1, className }: LogoProps) => {
       className={cn('group flex items-center gap-x-[10px]', isHomePage && 'pointer-events-none')}
       onMouseEnter={handleMouseEnter}
       ref={ref}
+      aria-label="Logo"
     >
       <motion.div
         animate={svgControls}
