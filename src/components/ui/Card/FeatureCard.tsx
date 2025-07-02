@@ -1,40 +1,64 @@
 import React from 'react';
 import clsx from 'clsx';
+import { PAGE_VARIANT } from '@/constants/pageVariant';
 
 interface FeatureCardProps {
   src: string;
   title: string;
   description: string;
-  iconPosition?: 'left' | 'top';
-  className?: string;
+  pageVariant?: (typeof PAGE_VARIANT)[keyof typeof PAGE_VARIANT];
+  view?: 'column' | 'row';
+  classNameContainer?: string;
+  classNameIcon?: string;
 }
+
+const baseStyles = {
+  container: 'flex',
+  icon: 'flex items-center justify-center w-[100px] h-[100px] p-[25px] rounded-[20px]',
+  title: 'text-2xl text-primary font-roboto font-extrabold',
+  description: 'font-opensans text-base text-text-light',
+};
+
+const columnClass = 'flex-col items-start text-center';
+const rowClass = 'flex-row items-center gap-4';
+
+const variantStyles = {
+  home: {
+    container: clsx(baseStyles.container, rowClass, ''),
+    icon: clsx(baseStyles.icon, 'bg-white'),
+    title: clsx(baseStyles.title, ''),
+    description: clsx(baseStyles.description, ''),
+  },
+  about: {
+    container: clsx(baseStyles.container, rowClass, ''),
+    icon: clsx(baseStyles.icon, 'bg-transparent'),
+    title: clsx(baseStyles.title, ''),
+    description: clsx(baseStyles.description, ''),
+  },
+  default: {
+    container: clsx(baseStyles.container, columnClass, ''),
+    icon: clsx(baseStyles.icon, 'bg-gray-200'),
+    title: clsx(baseStyles.title, ''),
+    description: clsx(baseStyles.description, ''),
+  },
+};
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
   src,
   title,
   description,
-  iconPosition = 'left',
-  className,
+  pageVariant = PAGE_VARIANT.DEFAULT,
 }) => {
-  const iconLeftClass = 'flex-row items-start gap-4';
-  const iconTopClass = 'flex-col items-center text-center';
-  const iconClass =
-    'flex items-center justify-center bg-white w-[100px] h-[100px] p-[25px] rounded-[20px]';
-
-  const containerClass = clsx(
-    'flex',
-    iconPosition === 'top' ? iconTopClass : iconLeftClass,
-    className,
-  );
+  const styles = variantStyles[pageVariant as keyof typeof variantStyles] || variantStyles.default;
 
   return (
-    <div className={containerClass} data-component="FeatureCard">
-      <div className={iconClass}>
+    <div className={styles.container} data-component="FeatureCard">
+      <div className={styles.icon}>
         <img src={src} alt={title} />
       </div>
       <div>
-        <h3 className="text-2xl text-primary font-roboto font-extrabold">{title}</h3>
-        <p className="font-opensans text-base text-text-light">{description}</p>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
       </div>
     </div>
   );

@@ -1,15 +1,33 @@
-import heroImage from '@/assets/images/backgrounds/hero_bg_page_about.webp';
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
+import { AboutSection } from '@/components/sections/AboutSection';
 import HeroSection from '@/components/sections/HeroSection';
 import CategoryCard, { type ICategory } from '@/components/ui/Card/CategoryCard';
+import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import categoriesData from '@/data/categories.json';
 import { Link } from 'react-router-dom';
 
+import heroImage from '@/assets/images/backgrounds/hero_bg_page_about.webp';
+import about_section_image from '@/assets/images/sections_about/about_page_about.webp';
+import { features } from '@/data/featuresAboutAbout.json';
+import { PAGE_VARIANT } from '@/constants/pageVariant';
+
 const AboutPage = () => {
+  const pageVariant = PAGE_VARIANT.ABOUT;
+
   return (
     <>
       <HeroSection variant="banner" title="About Us" bgImage={heroImage} />
+      <AboutSection
+        image={{ src: about_section_image, alt: 'About Section Image' }}
+        title="We do Creative Things for Success"
+        subtitle="About Us"
+        description="Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley."
+        button={{ text: 'Shop Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
+        className="bg-background"
+        features={features}
+        pageVariant={pageVariant}
+      />
 
       <Section className="bg-primary text-white py-[190px]">
         <SectionHeader title="What We Offer for You" subtitle="About Us" titleColor="text-white" />

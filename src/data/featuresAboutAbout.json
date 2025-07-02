@@ -1,0 +1,14 @@
+{
+  "features": [
+    {
+      "icon": "tractor.svg",
+      "title": "Modern Agriculture Equipment",
+      "description": ""
+    },
+    {
+      "icon": "chemical_plant.svg",
+      "title": "No growth hormones are used",
+      "description": ""
+    }
+  ]
+}
