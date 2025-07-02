@@ -9,14 +9,14 @@ interface FeatureCardProps {
 }
 
 const baseStyles = {
-  container: 'flex',
-  icon: 'flex items-center justify-center w-[100px] h-[100px] p-[25px] rounded-[20px]',
-  title: 'text-2xl text-primary font-roboto font-extrabold',
-  description: 'font-opensans text-base text-text-light',
+  container: 'flex mb-6 sm:mb-0 last:sm-0',
+  icon: 'flex items-center justify-center w-[100px] h-[100px] p-[5px] lg:p-[25px] rounded-[20px]',
+  title: 'text-center sm:text-left text-2xl text-primary font-roboto font-extrabold',
+  description: 'text-center sm:text-left font-opensans text-base text-text-light',
 };
 
 const columnClass = 'flex-col items-start text-center';
-const rowClass = 'flex-row items-center gap-4';
+const rowClass = 'flex-col sm:flex-row items-center gap-4';
 
 const variantStyles = {
   home: {

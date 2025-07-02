@@ -126,7 +126,7 @@ export const buttonVariants = cva(baseClasses, {
       ],
     },
     size: {
-      default: 'h-20 w-max min-w-[220px] px-4 py-2',
+      default: 'h-20 w-full sm:w-max sm:min-w-[220px] px-4 py-2 mx-auto lg:mx-0',
       fullWidthButton: 'h-12 w-full rounded-lg',
       roundedSquare: 'h-12 w-12 rounded-lg flex-shrink-0',
       round: 'h-14 w-14 rounded-full flex-shrink-0 hover:translate-y-0',

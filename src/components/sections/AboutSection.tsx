@@ -9,7 +9,7 @@ interface AboutSectionProps {
   image: { src: string; alt: string };
   title: string;
   subtitle: string;
-  description: string;
+  description: string | string[];
   button?: { text: string; onClick?: () => void; icon?: React.ReactNode };
   className?: string;
   features: Feature[];
@@ -31,7 +31,7 @@ export const AboutSection = ({
   features,
 }: AboutSectionProps) => {
   const currentPage = useCurrentPage();
-  const style = currentPage === 'home' ? 'flex-col' : 'flex-row';
+  const style = currentPage === 'home' ? 'flex-col' : 'flex-col lg:flex-row';
 
   return (
     <Section className={className}>
