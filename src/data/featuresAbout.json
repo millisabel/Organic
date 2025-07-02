@@ -1,0 +1,14 @@
+{
+  "features": [
+    {
+      "icon": "about_1.svg",
+      "title": "Organic Foods Only",
+      "description": "Simply dummy text of the printing and typesetting industry. Lorem Ipsum"
+    },
+    {
+      "icon": "about_2.svg",
+      "title": "Quality Standards",
+      "description": "Simply dummy text of the printing and typesetting industry. Lorem Ipsum"
+    }
+  ]
+}

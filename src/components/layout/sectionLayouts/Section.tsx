@@ -48,7 +48,7 @@ const Section: React.FC<ISectionProps> = ({
   );
 
   return (
-    <section className={sectionClasses} style={sectionStyle}>
+    <section className={sectionClasses} style={sectionStyle} data-component="section">
       <div className="container mx-auto">{children}</div>
     </section>
   );

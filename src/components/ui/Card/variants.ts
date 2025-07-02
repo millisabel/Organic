@@ -10,20 +10,21 @@ const cardBaseClasses = [
   'hover:shadow-card', // Hover
 ].join(' ');
 
+const cardProductClasses = [
+  'justify-end',
+  'bg-background',
+  'font-sans text-left',
+  'shadow-md',
+  'hover:shadow-lg hover:-translate-y-0.5',
+];
+
 const cardVariants = cva(cardBaseClasses, {
   variants: {
     variant: {
       default: [''],
-      product: [
-        'justify-end',
-        'bg-background',
-        'border-2 border-transparent',
-        'font-sans text-left',
-        'shadow-md',
-        'hover:shadow-lg hover:-translate-y-0.5',
-      ],
-      isInCart: ['shadow-md', 'bg-background'],
-      isOutOfStock: ['filter grayscale opacity-70 pointer-events-none'],
+      product: [...cardProductClasses],
+      isInCart: [...cardProductClasses],
+      isOutOfStock: [...cardProductClasses, 'filter grayscale opacity-70 pointer-events-none'],
     },
     size: {
       default: '',

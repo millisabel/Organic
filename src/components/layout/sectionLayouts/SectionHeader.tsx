@@ -26,7 +26,10 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   const TitleTag = React.createElement(as, { className: headerTitleClasses }, title || '');
 
   return (
-    <div className={`${marginBottom}  ${className} ${titleAlignMobile}  lg:${titleAlignDesktop}`}>
+    <div
+      className={`${marginBottom}  ${className} ${titleAlignMobile}  lg:${titleAlignDesktop}`}
+      data-component="section-header"
+    >
       {subtitle && <p className={headerSubtitleClasses}>{subtitle}</p>}
       {title && TitleTag}
     </div>

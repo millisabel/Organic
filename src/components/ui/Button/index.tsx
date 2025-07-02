@@ -19,12 +19,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, text, children, icon, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
 
+    const buttonAriaLabel = asChild ? 'link' : 'button';
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
         data-component="Button"
+        aria-label={buttonAriaLabel}
       >
         {asChild ? (
           children

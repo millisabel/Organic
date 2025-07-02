@@ -5,14 +5,7 @@
 @tailwind utilities;
 
 @layer utilities {
-  .text-base {
-    @apply font-opensans text-text-base text-primary;
-  }
   .nav-link {
     @apply font-roboto text-nav-link;
   }
-}
-
-.hero-section {
-  background-image: var(--bg-image);
 }

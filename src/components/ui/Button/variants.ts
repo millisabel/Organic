@@ -94,7 +94,6 @@ export const buttonVariants = cva(baseClasses, {
         'border-green-600', // Border
         'text-green-600', // Text
         'hover:bg-accent hover:border-accent hover:text-white', // Hover
-        'focus:ring-green-500', // Focus
       ],
       productOutOfStock: [
         ...baseProductButton,
