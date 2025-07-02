@@ -1,7 +1,5 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { BREAKPOINTS } from '@/constants/breakpoints';
-import { useWindowWidth } from '@/hooks/useWindowWidth';
 
 /**
  * Merges multiple class values into a single string of class names.
@@ -41,15 +39,4 @@ export function debounce<F extends (...args: unknown[]) => unknown>(func: F, wai
   };
 
   return debounced as (...args: Parameters<F>) => void;
-}
-
-/**
- * Checks if a given width is below a specific breakpoint.
- * @param width - The width to check.
- * @param breakpoint - The breakpoint to check against.
- * @returns True if the width is below the breakpoint, false otherwise.
- */
-export function useIsBelowBreakpoint(breakpoint: keyof typeof BREAKPOINTS): boolean {
-  const width = useWindowWidth();
-  return width < BREAKPOINTS[breakpoint];
 }

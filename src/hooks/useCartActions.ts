@@ -3,6 +3,10 @@ import { addItem, removeItem, startLoading, stopLoading } from '@/store/cartSlic
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * @description Hook for handling cart actions.
+ * @returns An object containing functions for adding items to the cart, removing items, and navigating to the shop page.
+ */
 export function useCartActions() {
   const dispatch = useAppDispatch();
   const { loadingItems } = useAppSelector((state) => state.cart);
