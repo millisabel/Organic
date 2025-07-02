@@ -1,4 +1,3 @@
-import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
 import NavigateButton from '../ui/Button/NavigateButton';
@@ -10,6 +9,7 @@ interface HeroProps {
   bgImage: string;
   bgColor?: string;
   bgPosition?: string;
+  button?: { text: string; onClick?: () => void; icon?: React.ReactNode };
 }
 
 const HeroSection = ({
@@ -19,6 +19,7 @@ const HeroSection = ({
   bgImage = 'none',
   bgColor = 'bg-inherit',
   bgPosition = 'center',
+  button,
 }: HeroProps) => {
   const isHome = variant === 'home';
 
@@ -43,13 +44,7 @@ const HeroSection = ({
         className={` ${sectionTitleWidth} ${sectionTitleAlign}`}
         titleAlignDesktop={sectionTitleAlign}
       />
-      {isHome && (
-        <NavigateButton
-          text="Explore Now"
-          icon={<ArrowIcon variant="arrow" size="md" />}
-          to="/shop"
-        />
-      )}
+      {button && <NavigateButton text={button.text} icon={button.icon} to="/shop" />}
     </Section>
   );
 };

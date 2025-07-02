@@ -1,25 +1,13 @@
-import Section from '@/components/layout/sectionLayouts/Section';
-import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
-import { AboutSection } from '@/components/sections/AboutSection';
-import HeroSection from '@/components/sections/HeroSection';
-import ProductList from '@/components/sections/ProductList';
-import { Button } from '@/components/ui/Button';
-import { type IProduct } from '@/components/ui/Card/ProductCard/ProductCard.types';
-import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
-import { features } from '@/data/featuresAboutHome.json';
-import productsData from '@/data/products.json';
-import { useWindowWidth } from '@/hooks/useWindowWidth';
-import { Link } from 'react-router-dom';
-
 import about_section_image from '@/assets/images/backgrounds/about_home.webp';
 import hero_bg_page_home from '@/assets/images/backgrounds/hero_home.webp';
+import AboutSection from '@/components/sections/AboutSection';
+import BannerSection from '@/components/sections/BannerSection';
+import HeroSection from '@/components/sections/HeroSection';
+import ProductSection from '@/components/sections/ProductSection';
+import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
+import { features } from '@/data/featuresAboutHome.json';
 
 const HomePage = () => {
-  const width = useWindowWidth();
-  const productsToShowCount = width < 1024 ? 4 : 8;
-  const availableProducts = productsData.filter((p) => !p.isOutOfStock);
-  const productsToDisplay = availableProducts.slice(0, productsToShowCount);
-
   return (
     <>
       <HeroSection
@@ -27,6 +15,7 @@ const HomePage = () => {
         subtitle="100% Natural Food"
         title="Choose the best healthier way of life"
         bgImage={hero_bg_page_home}
+        button={{ text: 'Explore Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
       />
       <AboutSection
         image={{ src: about_section_image, alt: 'About Section Image' }}
@@ -37,15 +26,12 @@ const HomePage = () => {
         className="bg-background"
         features={features}
       />
-      <Section>
-        <SectionHeader title="Our Products" subtitle="Categories" />
-        <ProductList products={productsToDisplay as IProduct[]} />
-        <Button asChild className="mt-10">
-          <Link to="/shop">
-            Load More <ArrowIcon variant="arrow" size="md" />
-          </Link>
-        </Button>
-      </Section>
+      <BannerSection />
+      <ProductSection
+        title="Our Products"
+        subtitle="Categories"
+        button={{ text: 'Load More', icon: <ArrowIcon variant="arrow" size="md" /> }}
+      />
     </>
   );
 };

@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 
 const baseClasses = [
   'group',
-  'inline-flex items-center justify-center whitespace-nowrap gap-2.5 rounded-2xl', // Layout
+  'flex items-center justify-center whitespace-nowrap gap-2.5 rounded-2xl', // Layout
   'bg-Transparent', // Background
   'text-primary font-roboto text-xl font-bold', // Typography
   'ring-offset-background', // Ring
@@ -127,6 +127,7 @@ export const buttonVariants = cva(baseClasses, {
     },
     size: {
       default: 'h-20 w-full sm:w-max sm:min-w-[220px] px-4 py-2 mx-auto lg:mx-0',
+      center: 'h-20 mx-auto min-w-[220px] w-max px-4 py-2',
       fullWidthButton: 'h-12 w-full rounded-lg',
       roundedSquare: 'h-12 w-12 rounded-lg flex-shrink-0',
       round: 'h-14 w-14 rounded-full flex-shrink-0 hover:translate-y-0',

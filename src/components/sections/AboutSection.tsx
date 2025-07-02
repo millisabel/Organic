@@ -1,9 +1,9 @@
 import FeatureCard from '@/components/ui/Card/FeatureCard';
+import { useCurrentPage } from '@/hooks/useCurrentPage';
 import { getImageUrl } from '@/utils/helpers';
 import ContentBlock from '../layout/contentLayouts/ContentBlock';
 import TwoColumn from '../layout/contentLayouts/TwoColumn';
 import Section from '../layout/sectionLayouts/Section';
-import { useCurrentPage } from '@/hooks/useCurrentPage';
 
 interface AboutSectionProps {
   image: { src: string; alt: string };
@@ -21,7 +21,7 @@ interface Feature {
   icon: string;
 }
 
-export const AboutSection = ({
+const AboutSection = ({
   image,
   title,
   subtitle,
@@ -52,3 +52,5 @@ export const AboutSection = ({
     </Section>
   );
 };
+
+export default AboutSection;
