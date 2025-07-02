@@ -50,7 +50,7 @@ const ShopSinglePage: React.FC = () => {
       <HeroSection
         variant="banner"
         title="Shop Single"
-        bgImage={getImageUrl('backgrounds', 'page_shop_single.webp')}
+        bgImage={getImageUrl('backgrounds', 'hero_shop_single.webp')}
       />
 
       <div className="container py-10 mx-auto">

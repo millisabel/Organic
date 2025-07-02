@@ -1,4 +1,4 @@
-import contactImage from '@/assets/images/backgrounds/hero_bg_page_contact.webp';
+import contactImage from '@/assets/images/backgrounds/hero_contact.webp';
 import HeroSection from '@/components/sections/HeroSection';
 
 const ContactPage = () => {

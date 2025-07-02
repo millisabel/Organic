@@ -1,4 +1,4 @@
-import newsletterBg from '@assets/images/backgrounds/newslatteer_bg.webp';
+import newsletterBg from '@assets/images/backgrounds/newslatteer.webp';
 
 import { Button } from '@components/ui/Button';
 import { Input } from '@components/ui/Input';

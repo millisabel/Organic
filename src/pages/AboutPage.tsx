@@ -7,8 +7,8 @@ import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import categoriesData from '@/data/categories.json';
 import { Link } from 'react-router-dom';
 
-import heroImage from '@/assets/images/backgrounds/hero_bg_page_about.webp';
-import about_section_image from '@/assets/images/sections_about/about_page_about.webp';
+import heroImage from '@/assets/images/backgrounds/hero_about.webp';
+import about_section_image from '@/assets/images/backgrounds/about_about.webp';
 import { features } from '@/data/featuresAboutAbout.json';
 import { PAGE_VARIANT } from '@/constants/pageVariant';
 

@@ -6,13 +6,13 @@ import ProductList from '@/components/sections/ProductList';
 import { Button } from '@/components/ui/Button';
 import { type IProduct } from '@/components/ui/Card/ProductCard/ProductCard.types';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
+import { features } from '@/data/featuresAboutHome.json';
 import productsData from '@/data/products.json';
 import { useWindowWidth } from '@/hooks/useWindowWidth';
 import { Link } from 'react-router-dom';
-import { features } from '@/data/featuresAboutHome.json';
 
-import hero_bg_page_home from '@/assets/images/backgrounds/hero_bg_page_home.webp';
-import about_section_image from '@/assets/images/sections_about/about_page_home.webp';
+import about_section_image from '@/assets/images/backgrounds/about_home.webp';
+import hero_bg_page_home from '@/assets/images/backgrounds/hero_home.webp';
 import { PAGE_VARIANT } from '@/constants/pageVariant';
 
 const HomePage = () => {
