@@ -13,10 +13,8 @@ import { Link } from 'react-router-dom';
 
 import about_section_image from '@/assets/images/backgrounds/about_home.webp';
 import hero_bg_page_home from '@/assets/images/backgrounds/hero_home.webp';
-import { PAGE_VARIANT } from '@/constants/pageVariant';
 
 const HomePage = () => {
-  const pageVariant = PAGE_VARIANT.DEFAULT;
   const width = useWindowWidth();
   const productsToShowCount = width < 1024 ? 4 : 8;
   const availableProducts = productsData.filter((p) => !p.isOutOfStock);
@@ -38,7 +36,6 @@ const HomePage = () => {
         button={{ text: 'Shop Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
         className="bg-background"
         features={features}
-        pageVariant={pageVariant}
       />
       <Section>
         <SectionHeader title="Our Products" subtitle="Categories" />

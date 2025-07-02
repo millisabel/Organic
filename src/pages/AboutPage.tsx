@@ -10,11 +10,8 @@ import { Link } from 'react-router-dom';
 import heroImage from '@/assets/images/backgrounds/hero_about.webp';
 import about_section_image from '@/assets/images/backgrounds/about_about.webp';
 import { features } from '@/data/featuresAboutAbout.json';
-import { PAGE_VARIANT } from '@/constants/pageVariant';
 
 const AboutPage = () => {
-  const pageVariant = PAGE_VARIANT.ABOUT;
-
   return (
     <>
       <HeroSection variant="banner" title="About Us" bgImage={heroImage} />
@@ -26,7 +23,6 @@ const AboutPage = () => {
         button={{ text: 'Shop Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
         className="bg-background"
         features={features}
-        pageVariant={pageVariant}
       />
 
       <Section className="bg-primary text-white py-[190px]">

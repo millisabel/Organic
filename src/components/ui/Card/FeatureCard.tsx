@@ -1,15 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
-import { PAGE_VARIANT } from '@/constants/pageVariant';
+import { useCurrentPage } from '@/hooks/useCurrentPage';
 
 interface FeatureCardProps {
   src: string;
   title: string;
   description: string;
-  pageVariant?: (typeof PAGE_VARIANT)[keyof typeof PAGE_VARIANT];
-  view?: 'column' | 'row';
-  classNameContainer?: string;
-  classNameIcon?: string;
 }
 
 const baseStyles = {
@@ -43,12 +39,8 @@ const variantStyles = {
   },
 };
 
-const FeatureCard: React.FC<FeatureCardProps> = ({
-  src,
-  title,
-  description,
-  pageVariant = PAGE_VARIANT.DEFAULT,
-}) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ src, title, description }) => {
+  const pageVariant = useCurrentPage();
   const styles = variantStyles[pageVariant as keyof typeof variantStyles] || variantStyles.default;
 
   return (

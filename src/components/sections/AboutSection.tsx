@@ -3,6 +3,7 @@ import { getImageUrl } from '@/utils/helpers';
 import ContentBlock from '../layout/contentLayouts/ContentBlock';
 import TwoColumn from '../layout/contentLayouts/TwoColumn';
 import Section from '../layout/sectionLayouts/Section';
+import { useCurrentPage } from '@/hooks/useCurrentPage';
 
 interface AboutSectionProps {
   image: { src: string; alt: string };
@@ -12,7 +13,6 @@ interface AboutSectionProps {
   button?: { text: string; onClick?: () => void; icon?: React.ReactNode };
   className?: string;
   features: Feature[];
-  pageVariant?: string;
 }
 
 interface Feature {
@@ -29,9 +29,9 @@ export const AboutSection = ({
   button,
   className,
   features,
-  pageVariant,
 }: AboutSectionProps) => {
-  const style = pageVariant === 'home' ? 'flex-col' : 'flex-row';
+  const currentPage = useCurrentPage();
+  const style = currentPage === 'home' ? 'flex-col' : 'flex-row';
 
   return (
     <Section className={className}>
@@ -43,9 +43,7 @@ export const AboutSection = ({
                 key={feature.title}
                 src={getImageUrl('ico', feature.icon)}
                 title={feature.title}
-                view="row"
                 description={feature.description}
-                pageVariant={pageVariant}
               />
             ))}
           </div>
