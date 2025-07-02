@@ -1,13 +1,13 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from '@/store/hooks';
+import { cn } from '@/utils/helpers';
+import MobileMenu from './MobileMenu';
+import Navigation from './Navigation';
+import Logo from '@/components/ui/Logo';
 import { Search } from '@/components/shared/Search';
 import CartButton from '@/components/ui/Button/CartButton';
 import MenuButton from '@/components/ui/Button/MenuButton';
-import Logo from '@/components/ui/Logo';
-import { useAppSelector } from '@/store/hooks';
-import { cn } from '@/utils/helpers';
-import { useEffect, useState } from 'react';
-import MobileMenu from './MobileMenu';
-import Navigation from './Navigation';
-import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

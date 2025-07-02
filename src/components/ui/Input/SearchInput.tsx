@@ -1,5 +1,5 @@
-import { inputVariants } from './variant';
 import React from 'react';
+import { inputVariants } from './variant';
 
 export interface SearchInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   variant?: 'default' | 'search';

@@ -20,7 +20,7 @@ const CartButton = ({ count = 0, className }: CartButtonProps) => {
       data-component="CartButton"
     >
       <Link to="/cart">
-        <CartIcon viewBox="0 0 27 24" variant="cart" size="md" />
+        <CartIcon viewBox="0 0 27 24" variant="default" size="md" />
         {count > 0 && <CartCountBadge count={count} />}
       </Link>
     </Button>

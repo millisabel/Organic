@@ -1,22 +1,31 @@
+import React, { useRef, useState } from 'react';
+import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import SearchButton from '@/components/ui/Button/SearchButton';
 import SearchInput from '@/components/ui/Input/SearchInput';
-import { useOnClickOutside } from '@/hooks/useOnClickOutside';
-import React, { useRef, useState } from 'react';
+import { cn } from '@/utils/helpers';
 
 interface SearchProps {
+  value: string;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
-  value: string;
   onChange: (value: string) => void;
   handleSearch: () => void;
 }
 
+const styles = {
+  container: 'flex items-center transition-[width,background-color] duration-300 ease-in-out',
+  openContainer: 'relative left-1 z-50 w-full md:w-[400px] bg-background rounded-[33px]',
+  closedContainer: 'w-[56px] bg-background rounded-full',
+  focusedContainer: 'border border-secondary',
+  unfocusedContainer: 'border border-transparent',
+};
+
 export const Search: React.FC<SearchProps> = ({
+  value,
   isOpen,
   onOpen,
   onClose,
-  value,
   onChange,
   handleSearch,
 }) => {
@@ -38,16 +47,12 @@ export const Search: React.FC<SearchProps> = ({
   return (
     <div
       ref={searchRef}
-      className={`
-        flex items-center
-        transition-[width,background-color] duration-300 ease-in-out
-        ${
-          isOpen
-            ? 'relative left-1 z-50 w-full md:w-[400px] bg-[#FAFAFA] rounded-[33px]'
-            : 'w-[56px] bg-[#FAFAFA] rounded-full'
-        }
-        ${isFocused ? 'border border-secondary' : 'border border-transparent'}
-      `}
+      className={cn(
+        styles.container,
+        isOpen ? styles.openContainer : styles.closedContainer,
+        isFocused ? styles.focusedContainer : styles.unfocusedContainer,
+      )}
+      data-component="Search"
     >
       <SearchInput
         value={value}

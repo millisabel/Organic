@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/Button';
 import MenuIcon from '@/components/ui/Icon/MenuIcon';
-import { cn } from '@/utils/helpers';
 
 interface MenuButtonProps {
   isOpen: boolean;
@@ -13,13 +12,13 @@ const MenuButton = ({ isOpen, onClick, className }: MenuButtonProps) => {
     <Button
       variant="menu"
       size="round"
-      className={cn('hover:translate-y-0', className)}
       onClick={onClick}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
+      className={className}
       type="button"
       data-component="MenuButton"
     >
-      <MenuIcon variant="menu" size="md" />
+      <MenuIcon variant="default" size="md" />
     </Button>
   );
 };
