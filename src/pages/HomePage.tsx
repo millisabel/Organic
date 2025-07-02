@@ -33,6 +33,7 @@ const HomePage = () => {
         subtitle="About Us"
         description="Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley."
         button={{ text: 'Shop Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
+        className="bg-background"
       />
       <Section>
         <SectionHeader title="Our Products" subtitle="Categories" />

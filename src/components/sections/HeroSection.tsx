@@ -1,8 +1,7 @@
-import { Button } from '@/components/ui/Button';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
-import { Link } from 'react-router-dom';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
+import NavigateButton from '../ui/Button/NavigateButton';
 
 interface HeroProps {
   variant: 'home' | 'banner';
@@ -28,14 +27,6 @@ const HeroSection = ({
   const sectionTitleHeight = isHome ? 'min-h-screen' : 'auto';
   const sectionPaddingY = !isHome ? 'py-[185px]' : 'pt-20';
 
-  const sectionButton = isHome ? (
-    <Button asChild className="mt-6">
-      <Link to="/shop">
-        Explore Now <ArrowIcon variant="arrow" size="md" />
-      </Link>
-    </Button>
-  ) : null;
-
   return (
     <Section
       backgroundImageUrl={bgImage}
@@ -43,6 +34,7 @@ const HeroSection = ({
       backgroundPosition={bgPosition}
       paddingY={sectionPaddingY}
       className={`flex items-center ${sectionPaddingY} ${sectionTitleHeight}`}
+      data-component="hero-section"
     >
       <SectionHeader
         title={title}
@@ -51,7 +43,13 @@ const HeroSection = ({
         className={` ${sectionTitleWidth} ${sectionTitleAlign}`}
         titleAlignDesktop={sectionTitleAlign}
       />
-      {sectionButton}
+      {isHome && (
+        <NavigateButton
+          text="Explore Now"
+          icon={<ArrowIcon variant="arrow" size="md" />}
+          to="/shop"
+        />
+      )}
     </Section>
   );
 };
