@@ -1,6 +1,6 @@
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
-import { AboutSection } from '@/components/sections/AboutSection';
+import AboutSection from '@/components/sections/AboutSection';
 import HeroSection from '@/components/sections/HeroSection';
 import CategoryCard, { type ICategory } from '@/components/ui/Card/CategoryCard';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';

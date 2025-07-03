@@ -22,6 +22,7 @@ export const iconVariants = cva(iconBaseClasses, {
       noHover: 'group-hover:scale-none',
     },
     size: {
+      sm: 'w-5 h-5',
       md: 'w-6 h-6',
       lg: 'w-8 h-8',
       xl: 'w-10 h-10',
