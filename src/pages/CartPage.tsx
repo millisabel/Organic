@@ -4,6 +4,7 @@ import CartSummary from '@/features/cart/components/CartItem/CartSummary';
 import EmptyCart from '@/features/cart/components/CartItem/EmptyCart';
 import { removeItem, updateQuantity } from '@/store/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 
 const CartPage = () => {
   const dispatch = useAppDispatch();
@@ -21,7 +22,8 @@ const CartPage = () => {
   };
 
   return (
-    <Section title="Shopping Cart" align="center">
+    <Section>
+      <SectionHeader title="Shopping Cart" />
       {isEmpty ? (
         <EmptyCart />
       ) : (

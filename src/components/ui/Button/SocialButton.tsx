@@ -8,30 +8,22 @@ const socials = [
   {
     href: 'https://www.instagram.com',
     label: 'Instagram',
-    icon: <InstagramIcon size="md" variant="social" />,
+    icon: <InstagramIcon size="md" />,
   },
   {
     href: 'https://www.facebook.com',
     label: 'Facebook',
-    icon: <FacebookIcon fill="currentColor" stroke="none" size="md" variant="social" />,
+    icon: <FacebookIcon fill="currentColor" stroke="none" size="md" />,
   },
   {
     href: 'https://www.twitter.com',
     label: 'Twitter',
-    icon: <TwitterIcon fill="currentColor" stroke="none" size="md" variant="social" />,
+    icon: <TwitterIcon fill="currentColor" stroke="none" size="md" />,
   },
   {
     href: 'https://www.pinterest.com',
     label: 'Pinterest',
-    icon: (
-      <PinterestIcon
-        viewBox="0 0 20 21"
-        fill="currentColor"
-        stroke="none"
-        size="md"
-        variant="social"
-      />
-    ),
+    icon: <PinterestIcon viewBox="0 0 20 21" fill="currentColor" stroke="none" size="md" />,
   },
 ];
 
