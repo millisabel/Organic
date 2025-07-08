@@ -40,7 +40,7 @@ const banners: BannerCardProps[] = [
 
 const BannerSection = () => {
   return (
-    <Section paddingY="py-[10vw]" data-component="BannerSection">
+    <Section paddingY="py-[10vw]" dataComponent="BannerSection">
       <div className="flex flex-col gap-6 md:flex-row md:gap-8">
         {banners.map((banner) => (
           <BannerCard key={banner.title} {...banner} />

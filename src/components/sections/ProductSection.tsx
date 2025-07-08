@@ -23,7 +23,7 @@ const ProductSection = ({ title, subtitle, button }: IProductSectionProps) => {
   const productsToDisplay = availableProducts.slice(0, productsToShowCount);
 
   return (
-    <Section>
+    <Section dataComponent="ProductSection">
       <SectionHeader title={title} subtitle={subtitle} />
       <ProductList products={productsToDisplay as IProduct[]} />
       {button && (

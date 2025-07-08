@@ -8,6 +8,7 @@ interface ISectionProps {
   backgroundPosition?: string;
   paddingY?: string;
   className?: string;
+  dataComponent?: string;
 }
 
 const Section: React.FC<ISectionProps> = ({
@@ -17,6 +18,7 @@ const Section: React.FC<ISectionProps> = ({
   backgroundImageUrl,
   paddingY = 'py-20',
   backgroundPosition = 'center',
+  dataComponent = 'section',
 }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
@@ -48,7 +50,7 @@ const Section: React.FC<ISectionProps> = ({
   );
 
   return (
-    <section className={sectionClasses} style={sectionStyle} data-component="section">
+    <section className={sectionClasses} style={sectionStyle} data-component={dataComponent}>
       <div className="container mx-auto">{children}</div>
     </section>
   );

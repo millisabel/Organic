@@ -2,6 +2,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
 import BannerSection from '@/components/sections/BannerSection';
 import ProductSection from '@/components/sections/ProductSection';
+import Testimonial from '@/components/sections/Testimonial';
 
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 
@@ -35,6 +36,7 @@ const HomePage = () => {
         subtitle="Categories"
         button={{ text: 'Load More', icon: <ArrowIcon variant="arrow" size="md" /> }}
       />
+      <Testimonial />
     </>
   );
 };

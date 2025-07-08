@@ -34,8 +34,8 @@ const AboutSection = ({
   const style = currentPage === 'home' ? 'flex-col' : 'flex-col lg:flex-row';
 
   return (
-    <Section className={className}>
-      <TwoColumn image={image.src} data-component="about-section" className="bg-background">
+    <Section className={className} dataComponent="AboutSection">
+      <TwoColumn image={image.src} className="bg-background">
         <ContentBlock title={title} subtitle={subtitle} description={description} button={button}>
           <div className={`flex gap-4 mb-6 ${style}`}>
             {features.map((feature) => (

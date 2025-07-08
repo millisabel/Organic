@@ -35,7 +35,7 @@ const HeroSection = ({
       backgroundPosition={bgPosition}
       paddingY={sectionPaddingY}
       className={`flex items-center ${sectionPaddingY} ${sectionTitleHeight}`}
-      data-component="hero-section"
+      dataComponent="HeroSection"
     >
       <SectionHeader
         title={title}
