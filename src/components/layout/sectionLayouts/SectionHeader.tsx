@@ -27,7 +27,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 
   return (
     <div
-      className={`${marginBottom}  ${className} ${titleAlignMobile}  lg:${titleAlignDesktop}`}
+      className={`${marginBottom}  ${className} ${titleAlignMobile}  lg:${titleAlignDesktop} mx-auto lg:mx-0`}
       data-component="section-header"
     >
       {subtitle && <p className={headerSubtitleClasses}>{subtitle}</p>}
