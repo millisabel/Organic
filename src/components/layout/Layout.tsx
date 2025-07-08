@@ -10,8 +10,8 @@ const Layout = () => {
       <Header />
       <main className="flex-grow">
         <Outlet />
+        <Newsletter />
       </main>
-      <Newsletter />
       <Footer />
       <FloatingCartButton />
     </div>
