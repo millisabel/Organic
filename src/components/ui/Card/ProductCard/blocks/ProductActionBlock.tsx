@@ -16,7 +16,7 @@ const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
   handleRemove,
 }) => {
   return (
-    <div className="px-5 pb-5 flex items-center gap-2 lg:flex-row flex-col">
+    <div className="px-5 pb-5 flex items-center gap-2 md:flex-row flex-col">
       {mode === 'shopSingle' && (
         <div className="flex items-center gap-4">
           <p className="text-xl font-bold text-primary shrink-0">Quantity :</p>
@@ -48,7 +48,7 @@ const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
         />
       )}
       {mode !== 'shopSingle' && isInCart && <GoToCartButton />}
-      <div className="flex items-center gap-2 justify-end w-full lg:w-auto">
+      <div className="flex items-center gap-2 justify-end w-full md:w-auto">
         {isInCart && <TrashButton handleRemove={handleRemove} />}
         {mode === 'shopSingle' && isInCart && (
           <GoToCartButton mode={mode} variant="product" size="roundedSquare" />
