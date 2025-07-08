@@ -3,6 +3,7 @@ import FlipBannerCard from '@/components/shared/FlipBannerCard';
 import NavigateButton from '@/components/ui/Button/NavigateButton';
 import { cn } from '@/utils/helpers';
 import CheckIcon from '../Icon/CheckIccon';
+import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 
 export interface BannerCardProps {
   imageUrl: string;
@@ -68,6 +69,7 @@ const BannerCard = ({
           to={`/shop?category=${category}`}
           text="Shop Now"
           aria-label={`Show products in ${category}`}
+          icon={<ArrowIcon />}
         />
       </div>
     );
