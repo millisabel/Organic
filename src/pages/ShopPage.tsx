@@ -9,17 +9,19 @@ import { Button } from '@/components/ui/Button';
 import { type IProduct } from '@/components/ui/Card/ProductCard/ProductCard.types';
 import productsData from '@/data/products.json';
 import { useEffect, useMemo, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const ITEMS_PER_PAGE = 8;
 
 const ShopPage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [displayedProducts, setDisplayedProducts] = useState<IProduct[]>([]);
   const [isPaginationVisible, setIsPaginationVisible] = useState(true);
 
-  const location = useLocation();
   const params = new URLSearchParams(location.search);
   const search = params.get('search') || '';
 
@@ -68,6 +70,21 @@ const ShopPage = () => {
     setIsPaginationVisible(false);
   };
 
+  useEffect(() => {
+    if (search) {
+      const matchedCategory = productCategories.find(
+        (cat) =>
+          cat.toLowerCase() !== 'all categories' &&
+          cat.toLowerCase().includes(search.toLowerCase()),
+      );
+      if (matchedCategory) {
+        setSelectedCategory(matchedCategory);
+      } else {
+        setSelectedCategory('All Categories');
+      }
+    }
+  }, [search, productCategories]);
+
   const handlePageChange = (pageNumber: number) => {
     const newProducts = filteredProducts.slice(
       (pageNumber - 1) * ITEMS_PER_PAGE,
@@ -81,6 +98,11 @@ const ShopPage = () => {
 
   const handleCategorySelect = (categoryName: string | null) => {
     setSelectedCategory(categoryName);
+
+    const params = new URLSearchParams(location.search);
+    params.delete('search');
+    params.set('category', categoryName || 'All Categories');
+    navigate({ search: params.toString() }, { replace: true });
   };
 
   const breadcrumbItems = [{ label: 'Home', path: '/' }, { label: 'Shop' }];
