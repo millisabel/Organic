@@ -43,13 +43,14 @@ const config: Config = {
         'section-title': ['2rem', { lineHeight: 'inherit', fontWeight: '800' }],
         'section-subtitle': ['1.5rem', { lineHeight: 'inherit', fontWeight: '400' }],
         'nav-link': ['20px', { lineHeight: 'inherit', fontWeight: '600' }],
+        small: ['15x', { lineHeight: 'inherit', fontWeight: '400' }],
       },
       boxShadow: {
         card: '0px 0px 10px 2px  rgba(0, 0, 0, 0.25)',
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
   safelist: [],
 };
 

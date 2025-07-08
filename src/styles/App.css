@@ -1,6 +1,33 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/effect-fade';
+
 #root {
+  --swiper-theme-color: #6db193;
+  --swiper-navigation-top-offset: 60px;
+
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   padding: 0;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  transition: transform 0.2s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.2);
+}
+
+.swiper-pagination-bullet:hover {
+  background: #ffa858;
+}
+
+.swiper-pagination-bullet-active {
+  cursor: pointer;
+  pointer-events: none;
 }
