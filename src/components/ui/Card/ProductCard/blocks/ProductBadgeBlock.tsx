@@ -13,7 +13,7 @@ const badgeCategoryClasses = {
 };
 
 const badgeStatusPosition = {
-  compact: 'absolute top-5 right-5 flex flex-col items-center gap-2',
+  compact: 'absolute top-5 right-5 z-10 flex flex-col items-center gap-2',
   detailed: 'flex flex-row items-center gap-2 p-2 min-w-max justify-end',
 };
 

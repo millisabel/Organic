@@ -27,6 +27,7 @@ export interface IProductCardProps {
   onRemove: (product: IProduct) => void;
   onCategoryClick?: (category: string) => void;
   setQuantity?: (quantity: number) => void;
+  hiddenActionBlock?: boolean;
 }
 
 export interface ProductCardInternalProps
@@ -41,6 +42,7 @@ export interface ProductCardInternalProps
   handleAddToCart: (product: IProduct, quantity: number) => void;
   handleRemove: () => void;
   handleCategoryClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  hiddenActionBlock?: boolean;
 }
 
 export interface ProductBadgeBlockProps {
@@ -75,6 +77,7 @@ export interface ProductActionBlockProps {
   isOutOfStock: boolean;
   quantity: number;
   mode: mode;
+  hidden?: boolean;
   handleAddToCart: (product: IProduct, quantity: number) => void;
   handleRemove: () => void;
   setQuantity: (quantity: number) => void;

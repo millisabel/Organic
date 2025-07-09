@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import Section from '../layout/sectionLayouts/Section';
-import { Button } from '../ui/Button';
-import ProductList from './ProductList';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
+import ProductList from '../shared/ProductList';
+import { Button } from '../ui/Button';
 import type { IProduct } from '../ui/Card/ProductCard/ProductCard.types';
 
 import productsData from '@/data/products.json';

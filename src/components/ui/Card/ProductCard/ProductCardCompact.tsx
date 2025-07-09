@@ -16,6 +16,7 @@ const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
   handleCategoryClick,
   handleRemove,
   handleAddToCart,
+  hiddenActionBlock,
 }) => {
   const { id, category, name, price, oldPrice, rating } = product;
   const isOutOfStock = !!product.isOutOfStock;
@@ -42,6 +43,7 @@ const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
         isOutOfStock={isOutOfStock}
         handleAddToCart={(product, quantity) => handleAddToCart(product, quantity)}
         handleRemove={handleRemove}
+        hidden={hiddenActionBlock}
       />
     </Card>
   );

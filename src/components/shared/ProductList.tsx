@@ -6,16 +6,17 @@ import { getImageUrl } from '@/utils/helpers';
 
 interface IProductListProps {
   products: IProduct[];
+  hiddenActionBlock?: boolean;
 }
 
-const ProductList: React.FC<IProductListProps> = ({ products }) => {
+const ProductList: React.FC<IProductListProps> = ({ products, hiddenActionBlock = false }) => {
   const { handleAddToCart, handleRemove, handleCategoryClick } = useCartActions();
   const { items: cartItems, loadingItems } = useAppSelector((state) => state.cart);
 
   return (
     <div
       data-component="product-list"
-      className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5 justify-items-center"
+      className="grid grid-cols-[repeat(auto-fill,minmax(275px,1fr))] gap-5 justify-items-center"
     >
       {products.map((product) => (
         <ProductCard
@@ -28,6 +29,7 @@ const ProductList: React.FC<IProductListProps> = ({ products }) => {
           onAddToCart={() => handleAddToCart(product)}
           onRemove={() => handleRemove(product)}
           onCategoryClick={(category) => handleCategoryClick(category)}
+          hiddenActionBlock={hiddenActionBlock}
         />
       ))}
     </div>

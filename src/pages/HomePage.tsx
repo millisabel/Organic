@@ -3,6 +3,7 @@ import AboutSection from '@/components/sections/AboutSection';
 import BannerSection from '@/components/sections/BannerSection';
 import ProductSection from '@/components/sections/ProductSection';
 import Testimonial from '@/components/sections/Testimonial';
+import OfferSection from '@/components/sections/OfferSection';
 
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 
@@ -37,6 +38,16 @@ const HomePage = () => {
         button={{ text: 'Load More', icon: <ArrowIcon variant="arrow" size="md" /> }}
       />
       <Testimonial />
+      <OfferSection
+        title="We Offer Organic For You"
+        subtitle="Offers"
+        button={{
+          text: 'View All Product',
+          variant: 'accent',
+          icon: <ArrowIcon variant="arrow" size="md" />,
+        }}
+        className="bg-primary"
+      />
     </>
   );
 };

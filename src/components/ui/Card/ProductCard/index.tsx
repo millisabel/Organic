@@ -15,6 +15,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
   onRemove,
   onCategoryClick,
   setQuantity,
+  hiddenActionBlock = false,
 }) => {
   const { isOutOfStock } = product;
   const imgUrl = getImageUrl('products', product.imageUrl);
@@ -56,7 +57,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
   if (view === 'detailed') {
     return <ProductCardDetailed {...sharedProps} />;
   }
-  return <ProductCardCompact {...sharedProps} />;
+  return <ProductCardCompact {...sharedProps} hiddenActionBlock={hiddenActionBlock} />;
 };
 
 export default ProductCard;

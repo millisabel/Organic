@@ -12,7 +12,7 @@ export const badgeVariants = cva(badgeBaseClasses, {
     variant: {
       default: ['bg-primary', 'text-white', 'border-2 border-white'],
       cart: [
-        'absolute -top-2 -right-2', // Position
+        'absolute -top-2 -right-2 z-100', // Position
         'bg-green-600', // Background
         'text-white', // Text
         'border-2 border-white', // Border
