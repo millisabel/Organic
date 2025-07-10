@@ -1,0 +1,243 @@
+[
+  {
+    "id": 1,
+    "date": "2024-11-25",
+    "author": "John Doe",
+    "title": "The Benefits of Vitamin D & How to Get It",
+    "description": "Learn why vitamin D is essential for your health and discover natural ways to increase your daily intake.",
+    "imageUrl": "news_1.webp",
+    "intro": "Vitamin D plays a crucial role in maintaining healthy bones and supporting your immune system. Many people are unaware of how to naturally boost their vitamin D levels.",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Vitamin D is often called the 'sunshine vitamin' because your body can produce it when exposed to sunlight. It helps your body absorb calcium, which is vital for bone health, and also supports your immune system."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Natural Sources of Vitamin D"
+      },
+      {
+        "type": "paragraph",
+        "text": "You can get vitamin D from a variety of sources. Sunlight is the most effective, but you can also find it in foods such as fatty fish, egg yolks, and fortified dairy products."
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Spend time outdoors in sunlight",
+          "Eat fatty fish like salmon and mackerel",
+          "Include egg yolks in your diet",
+          "Choose fortified foods such as milk and cereals"
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "A little sunshine every day can make a big difference in your vitamin D levels and overall health."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "date": "2024-11-11",
+    "author": "Rachi Card",
+    "title": "Our Favorite Summertime Tomato",
+    "description": "Find out what makes summertime tomatoes so special and how to enjoy them in your seasonal recipes.",
+    "imageUrl": "news_2.webp",
+    "intro": "Summertime tomatoes are bursting with flavor and nutrients, making them a staple in many fresh and healthy recipes.",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Tomatoes reach their peak flavor and juiciness during the summer months. They are rich in vitamins, antioxidants, and add a vibrant color to any dish."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "How to Choose the Best Tomatoes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Look for tomatoes that are firm, brightly colored, and free from blemishes. Heirloom varieties often offer unique flavors and textures."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Select tomatoes with a deep, even color",
+          "Store at room temperature for best taste",
+          "Try different varieties for new flavors"
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "The best summer recipes start with the freshest, ripest tomatoes you can find."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "date": "2024-10-14",
+    "author": "John Doe",
+    "title": "Benefits of Vitamin C & How to Get It",
+    "description": "Explore the key roles of vitamin C in your body and the best organic sources to include in your diet.",
+    "imageUrl": "news_3.webp",
+    "intro": "Established fact that a reader will be distracted by the readable content of a page when looking a layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed ",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Uniquely matrix economically sound value through cooperative technology..."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Preferred Form of Vitamin D?"
+      },
+      {
+        "type": "paragraph",
+        "text": "It is a long established fact that a reader will be distracted..."
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Publishing packages and web pageLorem Ipsum as their default",
+          "Content here, content here', making it look like readable",
+          "Packages and web pageLorem Ipsum as their default"
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "The first rule of any organic used in a business is that nature applied to an efficient operation will magnify the efficiency. The second is that organic applied to an inefficient operation will magnify the health."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "date": "2024-09-10",
+    "author": "John Doe",
+    "title": "Research More Organic Foods",
+    "description": "Discover the latest research on organic foods and how they can benefit your health and the environment.",
+    "imageUrl": "news_4.webp",
+    "intro": "Established fact that a reader will be distracted by the readable content...",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Uniquely matrix economically sound value through cooperative technology. Competently parallel task fully researched data and enterprise process improvements. Collaboratively expedite quality manufactured products via client-focused results quickly communicate enabled technology and turnkey leadership skills. Uniquely enable accurate supply chains rather than friction technology."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Preferred Form of Vitamin D?"
+      },
+      {
+        "type": "paragraph",
+        "text": "It is a long established fact that a reader will be distracted by the readable content of a page when looking a layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Publishing packages and web pageLorem Ipsum as their default",
+          "Content here, content here', making it look like readable",
+          "Packages and web pageLorem Ipsum as their default"
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "The first rule of any organic used in a business is that nature applied to an efficient operation will magnify the efficiency. The second is that organic applied to an inefficient operation will magnify the health-"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Make perfect organic product with us"
+      },
+      {
+        "type": "paragraph",
+        "text": "It is a long established fact that a reader will be distracted by the readable content of a page when looking a layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Publishing packages and web pageLorem Ipsum as their default",
+          "Content here, content here', making it look like readable",
+          "Packages and web pageLorem Ipsum as their default"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "date": "2024-08-21",
+    "author": "John Doe",
+    "title": "Everyday Fresh Fruites",
+    "description": "Get tips on choosing and storing fresh fruits to enjoy their full flavor and nutritional value every day.",
+    "imageUrl": "news_5.webp",
+    "intro": "Established fact that a reader will be distracted by the readable content...",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Uniquely matrix economically sound value through cooperative technology..."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Preferred Form of Vitamin D?"
+      },
+      {
+        "type": "paragraph",
+        "text": "It is a long established fact that a reader will be distracted..."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Publishing packages and web pageLorem Ipsum as their default",
+          "Content here, content here', making it look like readable",
+          "Packages and web pageLorem Ipsum as their default"
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "The first rule of any organic used in a business is that nature applied to an efficient operation will magnify the efficiency. The second is that organic applied to an inefficient operation will magnify the health."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "date": "2024-08-12",
+    "author": "John Doe",
+    "title": "Don’t Use Plastic Product! it’s Kill Nature",
+    "description": "Learn about the impact of plastic products on nature and discover eco-friendly alternatives for daily use.",
+    "imageUrl": "news_6.webp",
+    "intro": "Established fact that a reader will be distracted by the readable content...",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Uniquely matrix economically sound value through cooperative technology..."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Preferred Form of Vitamin D?"
+      },
+      {
+        "type": "paragraph",
+        "text": "It is a long established fact that a reader will be distracted..."
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Publishing packages and web pageLorem Ipsum as their default",
+          "Content here, content here', making it look like readable",
+          "Packages and web pageLorem Ipsum as their default"
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "The first rule of any organic used in a business is that nature applied to an efficient operation will magnify the efficiency. The second is that organic applied to an inefficient operation will magnify the health."
+      }
+    ]
+  }
+]

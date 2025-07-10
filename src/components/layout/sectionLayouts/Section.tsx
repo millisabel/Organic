@@ -42,7 +42,7 @@ const Section: React.FC<ISectionProps> = ({
   }
 
   const sectionClasses = clsx(
-    'overflow-hidden transition-opacity duration-1000',
+    'transition-opacity duration-1000',
     paddingY ? paddingY : 'py-20',
     className,
     {

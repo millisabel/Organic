@@ -6,6 +6,7 @@ import ProductSection from '@/components/sections/ProductSection';
 import Testimonial from '@/components/sections/Testimonial';
 import WhoWe from '@/components/sections/WhoWe';
 import Gallery from '@/components/sections/Gallery';
+import NewsSection from '@/components/sections/NewsSection';
 
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 
@@ -62,6 +63,17 @@ const HomePage = () => {
         bgPosition={isBelowLg ? 'top center' : 'top left'}
       />
       <Gallery />
+      <NewsSection
+        title="Discover weekly content about organic food, & more"
+        subtitle="News"
+        button={{
+          text: 'More News',
+          icon: <ArrowIcon variant="arrow" size="md" />,
+          variant: 'outline',
+          to: '/blog',
+        }}
+        count={2}
+      />
     </>
   );
 };
