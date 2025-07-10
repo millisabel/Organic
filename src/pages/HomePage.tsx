@@ -5,6 +5,7 @@ import OfferSection from '@/components/sections/OfferSection';
 import ProductSection from '@/components/sections/ProductSection';
 import Testimonial from '@/components/sections/Testimonial';
 import WhoWe from '@/components/sections/WhoWe';
+import Gallery from '@/components/sections/Gallery';
 
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 
@@ -60,6 +61,7 @@ const HomePage = () => {
         bgSize={isBelowLg ? '100% 100%' : '50% 100%'}
         bgPosition={isBelowLg ? 'top center' : 'top left'}
       />
+      <Gallery />
     </>
   );
 };
