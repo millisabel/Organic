@@ -1,6 +1,3 @@
-import { headerVariants } from '@/components/shared/HeaderContent/HeaderContent.variants';
-import type { VariantProps } from 'class-variance-authority';
-
 export type ParagraphBlock = {
   type: 'paragraph';
   text: string;
@@ -8,7 +5,7 @@ export type ParagraphBlock = {
 
 export type HeadingBlock = {
   type: 'heading';
-  level: VariantProps<typeof headerVariants>['level'];
+  level: 1 | 2 | 3 | 4 | 5 | 6;
   text: string;
 };
 

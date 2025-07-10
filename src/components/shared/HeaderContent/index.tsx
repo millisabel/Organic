@@ -1,7 +1,7 @@
 import { cn } from '@/utils/helpers';
 import type { JSX } from 'react';
-import type { HeaderContentProps } from './HeaderContent.types';
-import { headerVariants } from './HeaderContent.variants';
+import type { HeaderContentProps } from './headerContent.types';
+import { headerVariants } from './headerContent.variants';
 
 const HeaderContent = ({
   text,
@@ -14,7 +14,11 @@ const HeaderContent = ({
 }: HeaderContentProps) => {
   const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
   const classes = headerVariants({ color, indents, font, size });
-  return <HeadingTag className={cn(classes, className)}>{text}</HeadingTag>;
+  return (
+    <HeadingTag className={cn(classes, className)} data-component="HeaderContent">
+      {text}
+    </HeadingTag>
+  );
 };
 
 export default HeaderContent;

@@ -1,6 +1,6 @@
 import { cn } from '@/utils/helpers';
-import type { ListContentProps } from './ListContent.types';
-import { listItemsVariants, listVariants } from './ListContent.variants';
+import type { ListContentProps } from './listContent.types';
+import { listItemsVariants, listVariants } from './listContent.variants';
 
 const ListContent = ({
   items,
@@ -16,7 +16,7 @@ const ListContent = ({
   const listItemsClasses = listItemsVariants({ indentItems });
 
   return (
-    <ListTag className={cn(classes, className)}>
+    <ListTag className={cn(classes, className)} data-component="ListContent">
       {items.map((li: string, idx: number) => (
         <li key={`li-${idx}`} className={listItemsClasses}>
           {li}

@@ -1,14 +1,11 @@
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import HeroSection from '@/components/sections/HeroSection';
-import HeaderContent from '@/components/shared/HeaderContent';
-import ListContent from '@/components/shared/ListContent';
-import ParagraphContent from '@/components/shared/ParagrahpContent';
-import QuoteContent from '@/components/shared/QuoteContent';
+import ArticleContent from '@/components/shared/ArticleContent';
 import newsData from '@/data/news.json';
-import type { HeadingBlock, ListBlock, ParagraphBlock, QuoteBlock } from '@/types/news.types';
 import { getImageUrl } from '@/utils/helpers';
 import { useParams } from 'react-router-dom';
+import type { NewsContentBlock } from '@/types/news.types';
 
 const BlogSinglePage = () => {
   const { postId } = useParams();
@@ -20,6 +17,11 @@ const BlogSinglePage = () => {
     month: 'long',
     year: 'numeric',
   });
+
+  if (!post) {
+    return <div className="text-center text-red-500">Post not found</div>;
+  }
+
   return (
     <>
       <HeroSection variant="single" bgImage={heroImg} />
@@ -32,27 +34,7 @@ const BlogSinglePage = () => {
             <SectionHeader title={post?.title} as="h1" titleAlignDesktop="text-left" />
             <p className="">{post?.description}</p>
           </div>
-          <div className="pt-64 px-60">
-            {post?.content.map((item, idx) => {
-              if (item.type === 'paragraph') {
-                const text = item as ParagraphBlock;
-                return <ParagraphContent key={`p-${idx}`} text={text.text} />;
-              }
-              if (item.type === 'heading') {
-                const heading = item as HeadingBlock;
-                return <HeaderContent key={`h-${idx}`} text={heading.text} level={heading.level} />;
-              }
-              if (item.type === 'list') {
-                const list = item as ListBlock;
-                return <ListContent key={`l-${idx}`} items={list.items} ordered={list.ordered} />;
-              }
-              if (item.type === 'quote') {
-                const quote = item as QuoteBlock;
-                return <QuoteContent key={`q-${idx}`} text={quote.text} border="rounded" />;
-              }
-              return null;
-            })}
-          </div>
+          <ArticleContent content={post.content as NewsContentBlock[]} className="pt-64 px-60" />
         </div>
       </Section>
     </>

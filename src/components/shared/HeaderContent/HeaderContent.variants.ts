@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 export const headerVariants = cva('', {
   variants: {
     size: {
-      h1: 'text-6xl',
+      h1: 'text-4xl md:text-7xl',
       h2: 'text-4xl',
       h3: 'text-3xl',
     },

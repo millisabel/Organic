@@ -1,5 +1,5 @@
 import type { VariantProps } from 'class-variance-authority';
-import type { listItemsVariants, listVariants } from './ListContent.variants';
+import type { listItemsVariants, listVariants } from './listContent.variants';
 
 export interface ListContentProps {
   items: string[];

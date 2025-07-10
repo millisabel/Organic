@@ -1,5 +1,5 @@
 import type { VariantProps } from 'class-variance-authority';
-import type { headerVariants } from './HeaderContent.variants';
+import type { headerVariants } from './headerContent.variants';
 
 export interface HeaderContentProps {
   text: string;

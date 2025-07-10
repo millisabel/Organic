@@ -14,7 +14,11 @@ const QuoteContent = ({
 }: QuoteContentProps) => {
   const classes = quoteVariants({ size, font, border, color, align, bg });
 
-  return <blockquote className={cn(classes, className)}>&quot;{text}&quot;</blockquote>;
+  return (
+    <blockquote className={cn(classes, className)} data-component="QuoteContent">
+      &quot;{text}&quot;
+    </blockquote>
+  );
 };
 
 export default QuoteContent;

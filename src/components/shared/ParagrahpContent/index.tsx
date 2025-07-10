@@ -4,7 +4,11 @@ import { paragraphVariants } from './paragrahpContent.variants';
 
 const ParagrahpContent = ({ text, size, font, align, color, className }: ParagraphProps) => {
   const classes = paragraphVariants({ size, font, align, color });
-  return <p className={cn(classes, className)}>{text}</p>;
+  return (
+    <p className={cn(classes, className)} data-component="ParagrahpContent">
+      {text}
+    </p>
+  );
 };
 
 export default ParagrahpContent;
