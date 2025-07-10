@@ -1,16 +1,14 @@
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import HeroSection from '@/components/sections/HeroSection';
-import QuoteContent from '@/components/shared/QuoteContent';
-import {
-  type ListBlock,
-  type ParagraphBlock,
-  type QuoteBlock,
-} from '@/components/ui/Card/NewsCard';
-import newsData from '@/data/news.json';
-import { cn, getImageUrl } from '@/utils/helpers';
-import { useParams } from 'react-router-dom';
+import HeaderContent from '@/components/shared/HeaderContent';
+import ListContent from '@/components/shared/ListContent';
 import ParagraphContent from '@/components/shared/ParagrahpContent';
+import QuoteContent from '@/components/shared/QuoteContent';
+import newsData from '@/data/news.json';
+import type { HeadingBlock, ListBlock, ParagraphBlock, QuoteBlock } from '@/types/news.types';
+import { getImageUrl } from '@/utils/helpers';
+import { useParams } from 'react-router-dom';
 
 const BlogSinglePage = () => {
   const { postId } = useParams();
@@ -34,7 +32,6 @@ const BlogSinglePage = () => {
             <SectionHeader title={post?.title} as="h1" titleAlignDesktop="text-left" />
             <p className="">{post?.description}</p>
           </div>
-
           <div className="pt-64 px-60">
             {post?.content.map((item, idx) => {
               if (item.type === 'paragraph') {
@@ -42,25 +39,12 @@ const BlogSinglePage = () => {
                 return <ParagraphContent key={`p-${idx}`} text={text.text} />;
               }
               if (item.type === 'heading') {
-                // Можно добавить поддержку разных уровней
-                return (
-                  <h2 key={`h-${idx}`} className="text-2xl font-bold">
-                    {item.text}
-                  </h2>
-                );
+                const heading = item as HeadingBlock;
+                return <HeaderContent key={`h-${idx}`} text={heading.text} level={heading.level} />;
               }
               if (item.type === 'list') {
                 const list = item as ListBlock;
-                return (
-                  <ul
-                    key={`l-${idx}`}
-                    className={cn(list.ordered ? 'list-decimal' : 'list-disc', 'ml-6 my-2')}
-                  >
-                    {list.items.map((li: string, liIdx: number) => (
-                      <li key={`li-${idx}-${liIdx}`}>{li}</li>
-                    ))}
-                  </ul>
-                );
+                return <ListContent key={`l-${idx}`} items={list.items} ordered={list.ordered} />;
               }
               if (item.type === 'quote') {
                 const quote = item as QuoteBlock;

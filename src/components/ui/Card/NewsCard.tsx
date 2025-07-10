@@ -5,37 +5,13 @@ import ArrowIcon from '../Icon/ArrowIcon';
 import UserIcon from '../Icon/UserIcon';
 import { cardVariants } from './variants';
 
-export type ParagraphBlock = {
-  type: 'paragraph';
-  text: string;
-};
-
-type HeadingBlock = {
-  type: 'heading';
-  level: number;
-  text: string;
-};
-
-export type ListBlock = {
-  type: 'list';
-  ordered: boolean;
-  items: string[];
-};
-
-export type QuoteBlock = {
-  type: 'quote';
-  text: string;
-};
-
-export interface NewsCardProps {
+interface NewsCardProps {
   id: number;
   date: string;
   author: string;
   title: string;
   description: string;
   imageUrl: string;
-  intro: string;
-  content: (ParagraphBlock | HeadingBlock | ListBlock | QuoteBlock)[];
   onClick?: () => void;
 }
 

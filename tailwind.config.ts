@@ -48,7 +48,6 @@ const config: Config = {
         'nav-link': ['20px', { lineHeight: 'inherit', fontWeight: '600' }],
         small: ['15x', { lineHeight: 'inherit', fontWeight: '400' }],
         medium: ['18px', { lineHeight: '1.4', fontWeight: '400' }],
-        xl: ['20px', { lineHeight: '1.65', fontWeight: '600' }],
       },
       boxShadow: {
         card: '0px 0px 10px 2px  rgba(0, 0, 0, 0.25)',
