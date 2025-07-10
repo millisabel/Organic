@@ -1,18 +1,23 @@
-import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
 import BannerSection from '@/components/sections/BannerSection';
+import HeroSection from '@/components/sections/HeroSection';
+import OfferSection from '@/components/sections/OfferSection';
 import ProductSection from '@/components/sections/ProductSection';
 import Testimonial from '@/components/sections/Testimonial';
-import OfferSection from '@/components/sections/OfferSection';
+import WhoWe from '@/components/sections/WhoWe';
+
+import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 
 import { features } from '@/data/featuresAboutHome.json';
 
-import about_section_image from '@/assets/images/backgrounds/about_home.webp';
 import hero_bg_page_home from '@/assets/images/backgrounds/hero_home.webp';
+import about_section_image from '@/assets/images/backgrounds/about_home.webp';
+import who_we_image from '@/assets/images/backgrounds/who_we_home.webp';
 
 const HomePage = () => {
+  const isBelowLg = useIsBelowBreakpoint('lg');
   return (
     <>
       <HeroSection
@@ -47,6 +52,13 @@ const HomePage = () => {
           icon: <ArrowIcon variant="arrow" size="md" />,
         }}
         className="bg-primary"
+      />
+      <WhoWe
+        bgImage={who_we_image}
+        title="Econis is a Friendly Organic Store"
+        subtitle="Eco Friendly"
+        bgSize={isBelowLg ? '100% 100%' : '50% 100%'}
+        bgPosition={isBelowLg ? 'top center' : 'top left'}
       />
     </>
   );

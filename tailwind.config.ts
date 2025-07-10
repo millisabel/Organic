@@ -50,7 +50,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [],
   safelist: [],
 };
 

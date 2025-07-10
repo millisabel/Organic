@@ -9,6 +9,7 @@ interface ISectionProps {
   paddingY?: string;
   className?: string;
   dataComponent?: string;
+  backgroundSize?: string;
 }
 
 const Section: React.FC<ISectionProps> = ({
@@ -16,8 +17,9 @@ const Section: React.FC<ISectionProps> = ({
   className,
   backgroundColor,
   backgroundImageUrl,
+  backgroundPosition = 'center center',
+  backgroundSize = 'cover',
   paddingY = 'py-20',
-  backgroundPosition = 'center',
   dataComponent = 'section',
 }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -34,9 +36,9 @@ const Section: React.FC<ISectionProps> = ({
   if (backgroundColor) sectionStyle.backgroundColor = backgroundColor;
   if (backgroundImageUrl) {
     sectionStyle.backgroundImage = `url(${backgroundImageUrl})`;
-    sectionStyle.backgroundSize = 'cover';
-    sectionStyle.backgroundRepeat = 'no-repeat';
+    sectionStyle.backgroundSize = backgroundSize;
     sectionStyle.backgroundPosition = backgroundPosition;
+    sectionStyle.backgroundRepeat = 'no-repeat';
   }
 
   const sectionClasses = clsx(

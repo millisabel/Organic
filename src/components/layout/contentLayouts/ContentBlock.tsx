@@ -5,7 +5,7 @@ import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 interface ContentBlockProps {
   title?: string;
   subtitle?: string;
-  description: string | string[];
+  description?: string | string[];
   button?: { text: string; onClick?: () => void; icon?: React.ReactNode };
   children?: React.ReactNode;
   className?: string;
@@ -23,15 +23,16 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
 }) => (
   <div className={`flex flex-col gap-4 ${className}`} data-component="ContentBlock">
     <SectionHeader title={title} subtitle={subtitle} titleAlignDesktop="text-left" />
-    {Array.isArray(description) ? (
-      description.map((text, idx) => (
-        <p key={idx} className={`${stylesDescription} last:mb-0`}>
-          {text}
-        </p>
-      ))
-    ) : (
-      <p className={stylesDescription}>{description}</p>
-    )}
+    {description &&
+      (Array.isArray(description) ? (
+        description.map((text, idx) => (
+          <p key={idx} className={`${stylesDescription} last:mb-0`}>
+            {text}
+          </p>
+        ))
+      ) : (
+        <p className={stylesDescription}>{description}</p>
+      ))}
     {children}
     {button && (
       <NavigateButton
