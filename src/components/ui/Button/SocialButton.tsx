@@ -4,49 +4,49 @@ import InstagramIcon from '@/components/ui/Icon/InstagramIcon';
 import PinterestIcon from '@/components/ui/Icon/PinterestIcon';
 import TwitterIcon from '@/components/ui/Icon/TwitterIcon';
 
-const socials = [
-  {
-    href: 'https://www.instagram.com',
-    label: 'Instagram',
-    icon: <InstagramIcon size="md" />,
-  },
-  {
-    href: 'https://www.facebook.com',
+const SOCIALS = {
+  facebook: {
     label: 'Facebook',
     icon: <FacebookIcon fill="currentColor" stroke="none" size="md" />,
   },
-  {
-    href: 'https://www.twitter.com',
+  instagram: {
+    label: 'Instagram',
+    icon: <InstagramIcon size="md" />,
+  },
+  twitter: {
     label: 'Twitter',
     icon: <TwitterIcon fill="currentColor" stroke="none" size="md" />,
   },
-  {
-    href: 'https://www.pinterest.com',
+  pinterest: {
     label: 'Pinterest',
     icon: <PinterestIcon viewBox="0 0 20 21" fill="currentColor" stroke="none" size="md" />,
   },
-];
+};
+
+type Socials = Partial<Record<keyof typeof SOCIALS, string>>;
 
 interface SocialButtonProps {
-  href: string;
-  label: string;
-  icon: React.ReactNode;
+  socials: Socials;
+  variant?: 'social' | 'socialNoBg';
 }
 
-const SocialButton = ({ href, label, icon }: SocialButtonProps) => (
-  <Button variant="social" size="round" asChild>
-    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-      {icon}
-    </a>
-  </Button>
+const SocialButtonsList: React.FC<SocialButtonProps> = ({ socials, variant = 'social' }) => (
+  <div className="flex gap-2" data-component="SocialButtons">
+    {Object.entries(SOCIALS).map(([key, { label, icon }]) =>
+      socials[key as keyof Socials] ? (
+        <Button key={key} variant={variant} size="round" asChild data-component="SocialButton">
+          <a
+            href={socials[key as keyof Socials]!}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+          >
+            {icon}
+          </a>
+        </Button>
+      ) : null,
+    )}
+  </div>
 );
 
-export const SocialButtons = socials.map((item) => (
-  <SocialButton
-    key={item.label}
-    href={item.href}
-    label={item.label}
-    icon={item.icon}
-    data-component="SocialButton"
-  />
-));
+export default SocialButtonsList;

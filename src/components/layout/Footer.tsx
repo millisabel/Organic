@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom';
 
+import SocialButtonsList from '@/components/ui/Button/SocialButton';
 import FooterContactLink from '../ui/FooterContactLink';
 import Logo from '../ui/Logo';
-import { SocialButtons } from '@/components/ui/Button/SocialButton';
+
+const SOCIALS_FOOTER = {
+  facebook: 'https://facebook.com/',
+  instagram: 'https://instagram.com/',
+  twitter: 'https://www.twitter.com',
+  pinterest: 'https://www.pinterest.com',
+};
 
 const Footer = () => {
   return (
@@ -38,7 +45,7 @@ const Footer = () => {
                 Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy
                 text of the printing.
               </p>
-              <div className="flex items-center gap-4">{SocialButtons}</div>
+              <SocialButtonsList socials={SOCIALS_FOOTER} />
             </div>
 
             {/* Utility Pages */}
