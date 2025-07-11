@@ -1,20 +1,10 @@
-import { cn, formatDate, getImageUrl, type FormatDateProps } from '@/utils/helpers';
-import React from 'react';
-import NavigateButton from '../Button/NavigateButton';
-import ArrowIcon from '../Icon/ArrowIcon';
-import { cardVariants } from './variants';
 import AuthorDisplay from '@/components/shared/AuthorDisplay';
-
-interface NewsCardProps {
-  id: number;
-  date: string;
-  format?: FormatDateProps['format'];
-  author: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  onClick?: () => void;
-}
+import NavigateButton from '@/components/ui/Button/NavigateButton';
+import { cardVariants } from '@/components/ui/Card/variants';
+import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
+import { cn, formatDate, getImageUrl } from '@/utils/helpers';
+import React from 'react';
+import type { NewsCardProps } from './newsCard.types';
 
 const NewsCard: React.FC<NewsCardProps> = ({
   id,

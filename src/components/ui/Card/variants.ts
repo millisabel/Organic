@@ -41,21 +41,3 @@ export const cardVariants = cva(cardBaseClasses, {
     size: 'default',
   },
 });
-
-export const imageVariants = cva('', {
-  variants: {
-    size: {
-      default: ['w-full h-full object-cover'],
-    },
-    rounded: {
-      default: 'rounded-none',
-      top: 'rounded-t-[30px]',
-      bottom: 'rounded-b-[30px]',
-      full: 'rounded-[30px]',
-    },
-  },
-  defaultVariants: {
-    size: 'default',
-    rounded: 'default',
-  },
-});

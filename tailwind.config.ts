@@ -49,9 +49,6 @@ const config: Config = {
         small: ['15x', { lineHeight: 'inherit', fontWeight: '400' }],
         medium: ['18px', { lineHeight: '1.4', fontWeight: '400' }],
       },
-      boxShadow: {
-        card: '0px 0px 10px 2px  rgba(0, 0, 0, 0.25)',
-      },
     },
   },
   plugins: [],

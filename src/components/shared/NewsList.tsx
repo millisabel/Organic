@@ -1,6 +1,7 @@
+import NewsCard from '@/components/ui/Card/NewsCard';
+import type { NewsCardProps } from '@/components/ui/Card/NewsCard/newsCard.types';
 import newsData from '@/data/news.json';
 import { useMemo } from 'react';
-import NewsCard, { type NewsCardProps } from '../ui/Card/NewsCard';
 
 interface NewsListProps {
   count?: number;
