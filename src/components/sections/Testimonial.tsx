@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade } from 'swiper/modules';
 import ReviewCard from '../ui/Card/ReviewCard';
 import { getImageUrl } from '@/utils/helpers';
-import FastCard from '../ui/Card/FastCard';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
+import FastItem from '../shared/FastItem';
 
 const facts = [
   { id: 1, value: '100%', label: 'Organic' },
@@ -113,7 +113,7 @@ const Testimonial = () => {
           >
             {facts.map((fact) => (
               <SwiperSlide key={fact.id} className="flex justify-center">
-                <FastCard value={fact.value} label={fact.label} />
+                <FastItem value={fact.value} label={fact.label} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -121,7 +121,7 @@ const Testimonial = () => {
           <div className="grid grid-cols-4 gap-6 max-w-7xl mx-auto">
             {facts.map((fact) => (
               <div key={fact.id} className="flex justify-center">
-                <FastCard value={fact.value} label={fact.label} />
+                <FastItem value={fact.value} label={fact.label} />
               </div>
             ))}
           </div>

@@ -1,4 +1,4 @@
-import FeatureCard from '@/components/ui/Card/FeatureCard';
+import FeatureItem from '@/components/shared/FeatureItem';
 import { useCurrentPage } from '@/hooks/useCurrentPage';
 import { getImageUrl } from '@/utils/helpers';
 import ContentBlock from '../layout/contentLayouts/ContentBlock';
@@ -39,7 +39,7 @@ const AboutSection = ({
         <ContentBlock title={title} subtitle={subtitle} description={description} button={button}>
           <div className={`flex gap-4 mb-6 ${style}`}>
             {features.map((feature) => (
-              <FeatureCard
+              <FeatureItem
                 key={feature.title}
                 src={getImageUrl('ico', feature.icon)}
                 title={feature.title}

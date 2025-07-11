@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { useCurrentPage } from '@/hooks/useCurrentPage';
 
-interface FeatureCardProps {
+interface FeatureItemProps {
   src: string;
   title: string;
   description: string;
@@ -39,7 +39,7 @@ const variantStyles = {
   },
 };
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ src, title, description }) => {
+const FeatureItem: React.FC<FeatureItemProps> = ({ src, title, description }) => {
   const pageVariant = useCurrentPage();
   const styles = variantStyles[pageVariant as keyof typeof variantStyles] || variantStyles.default;
 
@@ -56,4 +56,4 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ src, title, description }) =>
   );
 };
 
-export default FeatureCard;
+export default FeatureItem;
