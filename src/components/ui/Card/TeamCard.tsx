@@ -20,15 +20,17 @@ const TeamCard = ({ data }: TeamCardProps) => {
       cardProps={{
         variant: 'team',
         size: 'team',
+        className: '',
       }}
       imgProps={{
         name: data.image,
         folder: 'teams',
         size: 'default',
         rounded: 'top',
+        className: 'min-h-[450px]',
       }}
     >
-      <div className="flex flex-row gap-4 justify-between py-8 px-6 bg-background">
+      <div className="flex flex-row gap-4 justify-between py-8 px-6 bg-background rounded-b-[30px]">
         <div className="self-start flex flex-col gap-1 mb-6">
           <h3 className="text-xl font-bold text-primary">{data.name}</h3>
           <p className="text-sm text-secondary font-yellowtail">{data.role}</p>

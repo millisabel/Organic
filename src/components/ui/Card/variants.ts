@@ -27,13 +27,13 @@ export const cardVariants = cva(cardBaseClasses, {
       isInCart: [...cardProductClasses],
       isOutOfStock: [...cardProductClasses, 'filter grayscale opacity-70 pointer-events-none'],
       news: ['relative rounded-xl group cursor-default'],
-      team: ['flex flex-col gap-4'],
+      team: ['flex flex-col gap-0'],
     },
     size: {
       default: '',
       product: 'h-[550px] w-full h-full max-w-[335px] mx-auto',
       news: 'min-h-[525px] w-full mb-4 md:mb-28',
-      team: 'w-full h-[615px] bg-background',
+      team: 'w-full  h-[615px] bg-background',
     },
   },
   defaultVariants: {

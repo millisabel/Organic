@@ -19,11 +19,13 @@ function CardList<DataType, CardPropsType>({
   itemsDisplay = 'all',
 }: CardListProps<DataType, CardPropsType>) {
   const itemsToDisplay = itemsDisplay === 'all' ? items : items.slice(0, itemsDisplay);
-
+  if (itemsToDisplay.length === 0) return null;
+  const colItems = itemsToDisplay.length;
+  const colClass = `lg:grid-cols-${colItems}`;
   return (
     <div
       className={cn(
-        'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4',
+        `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center grid-center-last-row ${colClass}`,
         className,
       )}
     >
