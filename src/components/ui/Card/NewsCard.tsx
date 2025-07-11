@@ -1,13 +1,15 @@
-import { cn, getImageUrl } from '@/utils/helpers';
+import { cn, formatDate, getImageUrl, type FormatDateProps } from '@/utils/helpers';
 import React from 'react';
 import NavigateButton from '../Button/NavigateButton';
 import ArrowIcon from '../Icon/ArrowIcon';
 import UserIcon from '../Icon/UserIcon';
 import { cardVariants } from './variants';
+import AuthorDisplay from '@/components/shared/AuthorDisplay';
 
 interface NewsCardProps {
   id: number;
   date: string;
+  format?: FormatDateProps['format'];
   author: string;
   title: string;
   description: string;
@@ -24,7 +26,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   imageUrl,
   onClick,
 }) => {
-  const shortDate = new Date(date).toLocaleDateString('en-US', { day: '2-digit', month: 'short' });
+  const shortDate = formatDate({ date, format: 'short' });
 
   return (
     <div
@@ -57,10 +59,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
         transition-all
       "
       >
-        <div className="flex flex-row items-center gap-2 text-small font-roboto text-gray-500 mb-1">
-          <UserIcon className="w-5 h-5 text-yellow-300" aria-hidden="true" />
-          By {author}
-        </div>
+        <AuthorDisplay author={author} iconClassName="text-yellow-300" />
         <div className="font-semibold text-medium mb-1 text-primary">{title}</div>
         <div className="items-end text-sm text-gray-600 mb-4 line-clamp-2">{description}</div>
         <NavigateButton

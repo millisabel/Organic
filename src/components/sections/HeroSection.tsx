@@ -30,7 +30,7 @@ const HeroSection = ({
       ? 'min-h-screen pt-20'
       : variant === 'banner'
         ? 'h-auto py-[185px]'
-        : 'h-[50vh]',
+        : 'h-[30vh] md:h-[50vh]',
   );
 
   const sectionTitleClasses = clsx(

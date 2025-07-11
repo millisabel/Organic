@@ -3,9 +3,9 @@ import { cva } from 'class-variance-authority';
 export const headerVariants = cva('', {
   variants: {
     size: {
-      h1: 'text-4xl md:text-7xl',
-      h2: 'text-4xl',
-      h3: 'text-3xl',
+      h1: 'text-4xl sm:text-5xl lg:text-7xl',
+      h2: 'text-2xl sm:text-3xl lg:text-4xl',
+      h3: 'text-xl sm:text-2xl lg:text-3xl',
     },
     font: {
       default: 'font-roboto font-bold',

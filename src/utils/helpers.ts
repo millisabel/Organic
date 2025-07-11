@@ -40,3 +40,23 @@ export function debounce<F extends (...args: unknown[]) => unknown>(func: F, wai
 
   return debounced as (...args: Parameters<F>) => void;
 }
+
+/**
+ * Formats a date string or Date object into a specific date format.
+ * @param date - The date string or Date object to format.
+ * @param format - The format to use. Can be 'short' or 'long'.
+ * @returns The formatted date string.
+ */
+
+export interface FormatDateProps {
+  date: string | Date;
+  format: 'short' | 'long';
+}
+
+export function formatDate({ date, format = 'long' }: FormatDateProps) {
+  const d = new Date(date);
+  if (format === 'short') {
+    return d.toLocaleDateString('en-US', { day: '2-digit', month: 'short' });
+  }
+  return d.toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' });
+}
