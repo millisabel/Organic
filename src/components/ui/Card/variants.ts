@@ -19,7 +19,7 @@ const cardProductClasses = [
   'hover:shadow-lg hover:-translate-y-0.5',
 ];
 
-const cardVariants = cva(cardBaseClasses, {
+export const cardVariants = cva(cardBaseClasses, {
   variants: {
     variant: {
       default: [''],
@@ -27,11 +27,13 @@ const cardVariants = cva(cardBaseClasses, {
       isInCart: [...cardProductClasses],
       isOutOfStock: [...cardProductClasses, 'filter grayscale opacity-70 pointer-events-none'],
       news: ['relative rounded-xl group cursor-default'],
+      team: ['flex flex-col gap-4'],
     },
     size: {
       default: '',
       product: 'h-[550px] w-full h-full max-w-[335px] mx-auto',
       news: 'min-h-[525px] w-full mb-4 md:mb-28',
+      team: 'w-full h-[615px] bg-background',
     },
   },
   defaultVariants: {
@@ -40,4 +42,20 @@ const cardVariants = cva(cardBaseClasses, {
   },
 });
 
-export { cardVariants };
+export const imageVariants = cva('', {
+  variants: {
+    size: {
+      default: ['w-full h-full object-cover'],
+    },
+    rounded: {
+      default: 'rounded-none',
+      top: 'rounded-t-[30px]',
+      bottom: 'rounded-b-[30px]',
+      full: 'rounded-[30px]',
+    },
+  },
+  defaultVariants: {
+    size: 'default',
+    rounded: 'default',
+  },
+});

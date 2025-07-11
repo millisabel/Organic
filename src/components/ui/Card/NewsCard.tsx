@@ -2,7 +2,6 @@ import { cn, formatDate, getImageUrl, type FormatDateProps } from '@/utils/helpe
 import React from 'react';
 import NavigateButton from '../Button/NavigateButton';
 import ArrowIcon from '../Icon/ArrowIcon';
-import UserIcon from '../Icon/UserIcon';
 import { cardVariants } from './variants';
 import AuthorDisplay from '@/components/shared/AuthorDisplay';
 

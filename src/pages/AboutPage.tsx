@@ -7,9 +7,12 @@ import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import categoriesData from '@/data/categories.json';
 import { Link } from 'react-router-dom';
 
-import heroImage from '@/assets/images/backgrounds/hero_about.webp';
 import about_section_image from '@/assets/images/backgrounds/about_about.webp';
+import heroImage from '@/assets/images/backgrounds/hero_about.webp';
+import CardList from '@/components/shared/CardList';
+import TeamCard from '@/components/ui/Card/TeamCard';
 import { features } from '@/data/featuresAboutAbout.json';
+import teams from '@/data/teams.json';
 
 const AboutPage = () => {
   return (
@@ -26,6 +29,14 @@ const AboutPage = () => {
         button={{ text: 'Shop Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
         className="bg-background"
         features={features}
+      />
+
+      <CardList
+        items={teams}
+        CardComponent={TeamCard}
+        getKey={(_, index) => index}
+        getCardProps={(item) => ({ data: item })}
+        itemsDisplay={3}
       />
 
       <Section className="bg-primary text-white py-[190px]">

@@ -56,6 +56,11 @@ export const buttonVariants = cva(baseClasses, {
         'shadow-none', // Effects
         'hover:bg-secondary hover:text-white', // Hover
       ],
+      socialNoBg: [
+        'bg-transparent', // Background
+        'shadow-none', // Effects
+        'hover:bg-secondary hover:text-white', // Hover
+      ],
       menu: [
         'bg-transparent', // Background
         'border-2', // Border
@@ -130,7 +135,8 @@ export const buttonVariants = cva(baseClasses, {
       center: 'h-20 mx-auto min-w-[220px] w-max px-4 py-2',
       fullWidthButton: 'h-12 w-full rounded-lg',
       roundedSquare: 'h-12 w-12 rounded-lg flex-shrink-0',
-      round: 'h-14 w-14 rounded-full flex-shrink-0 hover:translate-y-0',
+      round: 'h-14 w-14 rounded-full flex-shrink-0 hover:translate-y-0 hover:scale-125',
+      roundSmall: 'h-8 w-8 rounded-full flex-shrink-0 hover:translate-y-0 hover:scale-125',
       pillButton: 'px-6 py-4 rounded-full',
       compactButton: 'h-[30px] min-w-[100px] rounded-lg',
     },

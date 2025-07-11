@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "name": "Giovani Bacardo",
+    "role": "Farmer",
+    "image": "Giovani_Bacardo.webp",
+    "socials": {
+      "facebook": "https://facebook.com/",
+      "twitter": "https://twitter.com/"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Marianne Loreno",
+    "role": "Designer",
+    "image": "Marianne_Loreno.webp",
+    "socials": {
+      "facebook": "https://facebook.com/",
+      "instagram": "https://instagram.com/"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Riga Pelore",
+    "role": "Farmer",
+    "image": "Riga_Pelore.webp",
+    "socials": {
+      "facebook": "https://facebook.com/",
+      "instagram": "https://instagram.com/",
+      "twitter": "https://twitter.com/"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Keira Knightley",
+    "role": "Farmer",
+    "image": "Keira_Knightley.webp",
+    "socials": {
+      "facebook": "https://facebook.com/",
+      "twitter": "https://twitter.com/"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Scott Lawrence",
+    "role": "Designer",
+    "image": "Scott_Lawrence.webp",
+    "socials": {
+      "facebook": "https://facebook.com/",
+      "instagram": "https://instagram.com/"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Karen Allen",
+    "role": "Farmer",
+    "image": "Karen_Allen.webp",
+    "socials": {
+      "facebook": "https://facebook.com/",
+      "instagram": "https://instagram.com/",
+      "twitter": "https://twitter.com/"
+    }
+  }
+]
