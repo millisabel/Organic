@@ -1,7 +1,7 @@
 import gallery_center from '@/assets/images/backgrounds/gallery_center_home.webp';
 import gallery_left from '@/assets/images/backgrounds/gallery_left_home.webp';
 import gallery_right from '@/assets/images/backgrounds/gallery_right_home.webp';
-import GalleryCard from '@/components/ui/Card/GalleryCard';
+import GalleryCard from '@/components/ui/Card/GalleryCard/GalleryCard';
 
 const categories = [
   { title: 'Organic Juice', image: gallery_center },

@@ -1,6 +1,6 @@
 import SocialButtonsList from '@/components/ui/Button/SocialButton';
-import type { CardProps } from '.';
-import Card from '.';
+import type { CardProps } from '..';
+import Card from '..';
 
 export interface TeamMemberData {
   id: number;

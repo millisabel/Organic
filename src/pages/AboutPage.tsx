@@ -3,7 +3,7 @@ import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import AboutSection from '@/components/sections/AboutSection';
 import HeroSection from '@/components/sections/HeroSection';
 import TeamSection from '@/components/sections/TeamSection';
-import CategoryCard, { type ICategory } from '@/components/ui/Card/CategoryCard';
+import CategoryCard, { type ICategory } from '@/components/ui/Card/CategoryCard/CategoryCard';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import categoriesData from '@/data/categories.json';
 import { Link } from 'react-router-dom';

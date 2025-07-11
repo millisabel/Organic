@@ -2,7 +2,7 @@ import teams from '@/data/teams.json';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
 import CardList from '../shared/CardList';
-import TeamCard from '../ui/Card/TeamCard';
+import TeamCard from '../ui/Card/TeamCard/TeamCard';
 
 interface TeamSectionProps {
   title: string;

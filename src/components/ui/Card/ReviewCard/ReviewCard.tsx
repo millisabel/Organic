@@ -1,4 +1,4 @@
-import StarIcon from '../Icon/StarIcon';
+import StarIcon from '../../Icon/StarIcon';
 
 interface ReviewCardProps {
   name: string;
