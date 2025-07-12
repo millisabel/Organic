@@ -1,14 +1,14 @@
 import { cn, getImageUrl } from '@/utils/helpers';
 import React from 'react';
-import type { CardProps } from './card.types';
+import type { CardContentVariantsProps, CardProps, CardVariantsProps } from './card.types';
 import {
   getCardClassNames,
-  getCardImageVariants,
   cardVariants,
-  cardImageVariants,
   cardContentVariants,
   getCardContentVariants,
 } from './card.variats';
+
+export type CardVariants = 'default' | 'product' | 'team' | 'category';
 
 const Card: React.FC<CardProps> = ({
   variant = 'default',
@@ -22,16 +22,18 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const imageUrl = getImageUrl(imgProps?.folder || 'images', imgProps?.name || '');
   const alt = imgProps?.alt || imgProps?.name?.split('.')[0] || '';
-  const cardVariantsObj = getCardClassNames(variant);
-  const cardClasses = cn(cardVariants(cardVariantsObj), className);
-  const imageVariantsObj = getCardImageVariants(variant);
-  const imageClasses = cn(cardImageVariants(imageVariantsObj), imgClassName);
+  const CardVariants = getCardClassNames(variant);
+  const cardClasses = cn(cardVariants(CardVariants as unknown as CardVariantsProps), className);
+  const imageClasses = cn('inline-block w-full h-full object-contain', imgClassName);
   const contentVariantsObj = getCardContentVariants(variant);
-  const contentClasses = cn(cardContentVariants(contentVariantsObj), contentClassName);
+  const contentClasses = cn(
+    cardContentVariants(contentVariantsObj as unknown as CardContentVariantsProps),
+    contentClassName,
+  );
 
   return (
     <div className={cardClasses} aria-label={ariaLabel} tabIndex={tabIndex} data-component="Card">
-      <div className="flex-1">
+      <div className="flex-1 w-full">
         <img
           src={imageUrl}
           alt={alt}

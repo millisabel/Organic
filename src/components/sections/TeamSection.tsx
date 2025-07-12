@@ -16,6 +16,7 @@ const TeamSection = ({ title, subtitle, description }: TeamSectionProps) => {
       <SectionHeader title={title} subtitle={subtitle} />
       <p className="text-center w-full sm:w-1/2 mx-auto mb-10">{description}</p>
       <CardList
+        variant="default"
         items={teams}
         CardComponent={TeamCard}
         getKey={(_, index) => index}

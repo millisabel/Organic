@@ -1,16 +1,12 @@
-import Section from '@/components/layout/sectionLayouts/Section';
-import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import AboutSection from '@/components/sections/AboutSection';
 import HeroSection from '@/components/sections/HeroSection';
 import TeamSection from '@/components/sections/TeamSection';
-import CategoryCard, { type ICategory } from '@/components/ui/Card/CategoryCard/CategoryCard';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
-import categoriesData from '@/data/categories.json';
-import { Link } from 'react-router-dom';
 
 import about_section_image from '@/assets/images/backgrounds/about_about.webp';
 import heroImage from '@/assets/images/backgrounds/hero_about.webp';
 import { features } from '@/data/featuresAboutAbout.json';
+import CategoriesSection from '@/components/sections/CategoriesSection';
 
 const AboutPage = () => {
   return (
@@ -33,17 +29,11 @@ const AboutPage = () => {
         subtitle="About Us"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
-
-      <Section className="bg-primary text-white py-[190px]">
-        <SectionHeader title="What We Offer for You" subtitle="About Us" titleColor="text-white" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {(categoriesData as ICategory[]).map((category) => (
-            <Link key={category.id} to={`/shop?category=${category.name}`}>
-              <CategoryCard category={category} variant="secondary" />
-            </Link>
-          ))}
-        </div>
-      </Section>
+      <CategoriesSection
+        title="What We Offer for You"
+        subtitle="About Us"
+        backgroundColor="bg-primary"
+      />
     </>
   );
 };

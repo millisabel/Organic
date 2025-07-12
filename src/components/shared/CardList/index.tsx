@@ -1,16 +1,9 @@
 import { cn } from '@/utils/helpers';
-import React from 'react';
-
-interface CardListProps<DataType, CardPropsType> {
-  items: DataType[];
-  CardComponent: React.ComponentType<CardPropsType>;
-  getKey: (item: DataType, idx: number) => React.Key;
-  getCardProps: (item: DataType, idx: number) => CardPropsType;
-  itemsDisplay?: number | 'all';
-  className?: string;
-}
+import type { CardListProps } from './types';
+import cardListVariants from './variants';
 
 function CardList<DataType, CardPropsType>({
+  variant = 'default',
   items,
   CardComponent,
   getKey,
@@ -23,12 +16,7 @@ function CardList<DataType, CardPropsType>({
   const colItems = itemsToDisplay.length;
   const colClass = `lg:grid-cols-${colItems}`;
   return (
-    <div
-      className={cn(
-        `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center grid-center-last-row ${colClass}`,
-        className,
-      )}
-    >
+    <div className={cn(cardListVariants({ variant }), colClass, className)}>
       {itemsToDisplay.map((item, idx) => (
         <CardComponent key={getKey(item, idx)} {...getCardProps(item, idx)} />
       ))}

@@ -1,5 +1,6 @@
-import { cn, getImageUrl } from '@/utils/helpers';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Card from '@/components/ui/Card';
 
 export interface ICategory {
   id: number;
@@ -10,39 +11,26 @@ export interface ICategory {
 interface CategoryCardProps {
   category: ICategory;
   variant?: 'primary' | 'secondary';
-  isActive?: boolean;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({
-  category,
-  variant = 'primary',
-  isActive = false,
-}) => {
-  const imageContainerClass =
-    variant === 'primary'
-      ? 'bg-background rounded-full aspect-square'
-      : 'bg-white rounded-3xl aspect-square';
-
-  const cardClasses = cn(
-    'flex flex-col items-center gap-5 text-center transition-transform hover:scale-105',
-    {
-      'scale-105': isActive,
-    },
-  );
-
-  const imageWrapperClasses = cn(
-    'flex items-center justify-center p-8 w-full max-w-[250px] transition-all duration-300',
-    imageContainerClass,
-    { 'border-4 border-secondary shadow-lg': isActive },
-  );
-
+const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
   return (
-    <div className={cardClasses}>
-      <div className={imageWrapperClasses}>
-        <img src={getImageUrl('categories', category.imageUrl)} alt={category.name} />
-      </div>
-      <p className="text-xl font-semibold">{category.name}</p>
-    </div>
+    <Link to={`/shop?category=${category.name}`} data-component="CategoryCard" className="w-full">
+      <Card
+        variant="category"
+        imgClassName="bg-white h-[300px] rounded-[30px] group-hover:rounded-[150px] transition-all duration-1000 will-change-rounded"
+        imgProps={{
+          folder: 'categories',
+          name: category.imageUrl,
+          alt: category.name,
+        }}
+        tabIndex={0}
+      >
+        <p className="text-xl font-semibold group-hover:scale-125 transition-all duration-1000">
+          {category.name}
+        </p>
+      </Card>
+    </Link>
   );
 };
 
