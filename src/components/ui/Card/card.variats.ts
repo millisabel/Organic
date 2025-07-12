@@ -22,6 +22,7 @@ export const cardVariants = cva(cardBaseClasses, {
     size: {
       default: '',
       category: 'min-h-[370px] p-0',
+      gallery: 'min-h-[280px] lg:min-h-[585px]',
     },
     background: {
       default: '',
@@ -71,6 +72,15 @@ const CATEGORY_CARD_VARIANTS = {
   hover: 'shadowNone',
 };
 
+const GALLERY_CARD_VARIANTS = {
+  layout: 'itemsCenter',
+  size: 'gallery',
+  background: 'bgTransparent',
+  border: 'rounded30',
+  effect: 'default',
+  hover: 'shadowNone',
+};
+
 const DEFAULT_CARD_VARIANTS = {
   layout: 'default',
   size: 'default',
@@ -90,6 +100,9 @@ export function getCardClassNames(variant: string) {
   if (variant === 'category') {
     return CATEGORY_CARD_VARIANTS;
   }
+  if (variant === 'gallery') {
+    return GALLERY_CARD_VARIANTS;
+  }
   return DEFAULT_CARD_VARIANTS;
 }
 
@@ -102,6 +115,7 @@ export const cardContentVariants = cva(cardContentBaseClasses, {
     layout: {
       default: '',
       row: 'flex-row',
+      center: 'items-center justify-center',
     },
     size: {
       default: 'p-4',
@@ -119,6 +133,10 @@ const TEAM_CARD_CONTENT_VARIANTS = {
   size: 'team',
 };
 
+const GALLERY_CARD_CONTENT_VARIANTS = {
+  layout: 'center',
+};
+
 const DEFAULT_CARD_CONTENT_VARIANTS = {
   layout: 'default',
   size: 'default',
@@ -127,6 +145,9 @@ const DEFAULT_CARD_CONTENT_VARIANTS = {
 export function getCardContentVariants(variant: string) {
   if (variant === 'team') {
     return TEAM_CARD_CONTENT_VARIANTS;
+  }
+  if (variant === 'gallery') {
+    return GALLERY_CARD_CONTENT_VARIANTS;
   }
   return DEFAULT_CARD_CONTENT_VARIANTS;
 }

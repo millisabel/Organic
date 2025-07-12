@@ -8,6 +8,7 @@ const cardListVariants = cva(defaultCardListVariants, {
     variant: {
       default: '',
       categories: 'gap-8',
+      gallery: 'grid grid-cols-1 md:grid-cols-3 gap-4',
     },
   },
   defaultVariants: {

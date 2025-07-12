@@ -8,7 +8,7 @@ import {
   getCardContentVariants,
 } from './card.variats';
 
-export type CardVariants = 'default' | 'product' | 'team' | 'category';
+export type CardVariants = 'default' | 'product' | 'team' | 'category' | 'gallery';
 
 const Card: React.FC<CardProps> = ({
   variant = 'default',
