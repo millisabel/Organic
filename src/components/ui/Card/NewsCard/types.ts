@@ -3,7 +3,7 @@ import type { CardProps } from '../card.types';
 
 export interface NewsCardData {
   id: number;
-  date: string;
+  date: string | Date;
   format?: FormatDateProps['format'];
   author: string;
   title: string;

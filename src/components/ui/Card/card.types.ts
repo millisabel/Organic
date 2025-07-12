@@ -1,6 +1,7 @@
 import type { VariantProps } from 'class-variance-authority';
 import type { cardContentVariants, cardVariants } from './card.variats';
 import type { CardVariants } from '.';
+import type { ReactNode } from 'react';
 
 export interface CardProps {
   variant?: CardVariants;
@@ -16,6 +17,7 @@ export interface CardProps {
     folder: string;
     loading?: 'lazy' | 'eager';
   };
+  badges?: ReactNode[];
 }
 
 export interface CardVariantsProps {

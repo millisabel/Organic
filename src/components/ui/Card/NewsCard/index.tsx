@@ -2,12 +2,11 @@ import AuthorDisplay from '@/components/shared/AuthorDisplay';
 import NavigateButton from '@/components/ui/Button/NavigateButton';
 import Card from '@/components/ui/Card';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
-// import { formatDate } from '@/utils/helpers';
 import React from 'react';
 import type { NewsCardProps } from './types';
+import DataBadge from '../../Badge/DataBadge';
 
 const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
-  // const shortDate = formatDate({ date, format: 'short' });
   return (
     <Card
       variant="news"
@@ -20,11 +19,8 @@ const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
         name: data.imageUrl,
       }}
       data-component="NewsCard"
+      badges={[<DataBadge date={data.date} format={data.format} />]}
     >
-      {/* <div className="absolute top-4 left-4 flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full font-bold shadow text-primary">
-        <span className="text-2xl">{shortDate.split(' ')[1]}</span>
-        <span className="text-sm">{shortDate.split(' ')[0]}</span>
-      </div> */}
       <>
         <AuthorDisplay author={data.author} iconClassName="text-yellow-300" />
         <div className="font-semibold text-medium mb-1 text-primary">{data.title}</div>

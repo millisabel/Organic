@@ -19,6 +19,7 @@ const Card: React.FC<CardProps> = ({
   className,
   imgClassName,
   contentClassName,
+  badges,
 }) => {
   const imageUrl = getImageUrl(imgProps?.folder || 'images', imgProps?.name || '');
   const alt = imgProps?.alt || imgProps?.name?.split('.')[0] || '';
@@ -33,6 +34,13 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <div className={cardClasses} aria-label={ariaLabel} tabIndex={tabIndex} data-component="Card">
+      {badges && badges.length > 0 && (
+        <>
+          {badges.map((badge, idx) => (
+            <React.Fragment key={idx}>{badge}</React.Fragment>
+          ))}
+        </>
+      )}
       <div className="flex-1 w-full">
         <img
           src={imageUrl}
