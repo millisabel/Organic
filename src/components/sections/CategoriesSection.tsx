@@ -3,7 +3,7 @@ import { cn } from '@/utils/helpers';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
 import CardList from '../shared/CardList';
-import CategoryCard from '../ui/Card/CategoryCard/CategoryCard';
+import CategoryCard from '../ui/Card/CategoryCard';
 
 interface CategoriesSectionProps {
   title: string;

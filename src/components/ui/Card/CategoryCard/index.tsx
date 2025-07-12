@@ -1,17 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from '@/components/ui/Card';
-
-export interface ICategory {
-  id: number;
-  name: string;
-  imageUrl: string;
-}
-
-interface CategoryCardProps {
-  category: ICategory;
-  variant?: 'primary' | 'secondary';
-}
+import type { CategoryCardProps } from './types';
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
   return (
