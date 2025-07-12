@@ -28,6 +28,10 @@ export interface CardVariantsProps {
 }
 
 export interface CardContentVariantsProps {
+  position: VariantProps<typeof cardContentVariants>['position'];
   layout: VariantProps<typeof cardContentVariants>['layout'];
   size: VariantProps<typeof cardContentVariants>['size'];
+  border: VariantProps<typeof cardContentVariants>['border'];
+  background: VariantProps<typeof cardContentVariants>['background'];
+  effect: VariantProps<typeof cardContentVariants>['effect'];
 }

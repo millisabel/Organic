@@ -26,12 +26,10 @@ export const cardVariants = cva(cardBaseClasses, {
       product: [...cardProductClasses],
       isInCart: [...cardProductClasses],
       isOutOfStock: [...cardProductClasses, 'filter grayscale opacity-70 pointer-events-none'],
-      news: ['relative rounded-xl group cursor-default'],
     },
     size: {
       default: '',
       product: 'h-[550px] w-full h-full max-w-[335px] mx-auto',
-      news: 'min-h-[525px] w-full mb-4 md:mb-28',
     },
   },
   defaultVariants: {

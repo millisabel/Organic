@@ -1,22 +1,11 @@
 import GalleryCard from '@/components/ui/Card/GalleryCard';
 import CardList from '../shared/CardList';
+import galleryData from '@/data/gallery.json';
 
-const GALLERY_ITEMS = [
-  { title: 'Organic Juice', image: 'gallery_center.webp' },
-  { title: 'Organic Food', image: 'gallery_left.webp' },
-  { title: 'Nuts Cookies', image: 'gallery_right.webp' },
-];
-
-const GallerySection = () => {
+const GallerySection: React.FC = () => {
   return (
     <section className="w-full py-40 bg-secondary-light">
-      <CardList
-        variant="gallery"
-        items={GALLERY_ITEMS}
-        CardComponent={GalleryCard}
-        getKey={(item) => item.title}
-        getCardProps={(item) => ({ title: item.title, image: item.image })}
-      />
+      <CardList variant="gallery" items={galleryData.items} CardComponent={GalleryCard} />
     </section>
   );
 };

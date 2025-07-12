@@ -1,6 +1,7 @@
 import type { FormatDateProps } from '@/utils/helpers';
+import type { CardProps } from '../card.types';
 
-export interface NewsCardProps {
+export interface NewsCardData {
   id: number;
   date: string;
   format?: FormatDateProps['format'];
@@ -8,5 +9,8 @@ export interface NewsCardProps {
   title: string;
   description: string;
   imageUrl: string;
-  onClick?: () => void;
+}
+
+export interface NewsCardProps extends CardProps {
+  data: NewsCardData;
 }

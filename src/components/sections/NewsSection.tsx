@@ -6,7 +6,13 @@ import type { buttonVariants } from '@/components/ui/Button/variants';
 import type { VariantProps } from 'class-variance-authority';
 
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
-import NewsList from '../shared/NewsList';
+import CardList from '../shared/CardList';
+import NewsCard from '../ui/Card/NewsCard';
+import newsData from '@/data/news.json';
+
+interface NewsSectionProps {
+  count?: number;
+}
 
 interface NewsSectionProps {
   title?: string;
@@ -40,7 +46,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ title, subtitle, button, coun
           />
         )}
       </div>
-      <NewsList count={count} />
+      <CardList variant="news" items={newsData} CardComponent={NewsCard} itemsDisplay={count} />
       {button && isBelowLg && (
         <NavigateButton
           text={button?.text}
