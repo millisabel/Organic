@@ -6,9 +6,10 @@ import NavLink from './NavLink';
 interface NavigationProps {
   isMobile?: boolean;
   onLinkClick?: () => void;
+  className?: string;
 }
 
-const Navigation = ({ isMobile, onLinkClick }: NavigationProps) => {
+const Navigation = ({ isMobile, onLinkClick, className }: NavigationProps) => {
   const links = useMemo(
     () => [
       { href: '/', text: 'Home' },
@@ -21,7 +22,7 @@ const Navigation = ({ isMobile, onLinkClick }: NavigationProps) => {
   );
 
   return (
-    <nav>
+    <nav className={className}>
       <ul
         className={cn('flex items-center gap-x-10', {
           'flex-col gap-y-10 text-3xl': isMobile,
