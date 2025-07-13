@@ -3,7 +3,7 @@ import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
 import ProductList from '../shared/ProductList';
 import { Button } from '../ui/Button';
-import type { IProduct } from '../ui/Card/ProductCard/ProductCard.types';
+import type { IProduct } from '../ui/Card/ProductCard/types';
 
 import productsData from '@/data/products.json';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';

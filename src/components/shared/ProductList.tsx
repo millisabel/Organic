@@ -1,8 +1,8 @@
 import { useCartActions } from '@/hooks/useCartActions';
 import { useAppSelector } from '@/store/hooks';
-import ProductCard from '../ui/Card/ProductCard';
-import type { IProduct } from '../ui/Card/ProductCard/ProductCard.types';
 import { getImageUrl } from '@/utils/helpers';
+import ProductCard from '../ui/Card/ProductCard';
+import type { IProduct } from '../ui/Card/ProductCard/types';
 
 interface IProductListProps {
   products: IProduct[];

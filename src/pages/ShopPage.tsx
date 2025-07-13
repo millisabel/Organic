@@ -6,7 +6,7 @@ import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import Pagination from '@/components/shared/Pagination';
 import ProductList from '@/components/shared/ProductList';
 import { Button } from '@/components/ui/Button';
-import { type IProduct } from '@/components/ui/Card/ProductCard/ProductCard.types';
+import { type IProduct } from '@/components/ui/Card/ProductCard/types';
 import productsData from '@/data/products.json';
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';

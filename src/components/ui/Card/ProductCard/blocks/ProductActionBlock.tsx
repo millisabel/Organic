@@ -1,8 +1,8 @@
 import AddToCartButton from '@/components/ui/Button/AddToCartButton';
-import TrashButton from '@/components/ui/Button/TrashButton';
-import type { ProductActionBlockProps } from '../ProductCard.types';
-import { Input } from '@/components/ui/Input';
 import GoToCartButton from '@/components/ui/Button/GoToCartButton';
+import TrashButton from '@/components/ui/Button/TrashButton';
+import { Input } from '@/components/ui/Input';
+import type { ProductActionBlockProps } from '../types';
 
 const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
   product,
@@ -39,7 +39,7 @@ const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
           isInCart={isInCart}
           isLoading={isLoading}
           isOutOfStock={!!isOutOfStock}
-          onClick={() => handleAddToCart(product, quantity)}
+          onClick={(e) => handleAddToCart(e, product, quantity)}
         />
       )}
       {mode !== 'shopSingle' && !isInCart && (
@@ -47,12 +47,14 @@ const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
           isInCart={isInCart}
           isLoading={isLoading}
           isOutOfStock={!!isOutOfStock}
-          onClick={() => handleAddToCart(product, quantity)}
+          onClick={(e) => handleAddToCart(e, product, quantity)}
         />
       )}
       {mode !== 'shopSingle' && isInCart && <GoToCartButton />}
       <div className={`flex items-center gap-2 justify-end w-auto self-end`}>
-        {isInCart && <TrashButton handleRemove={handleRemove} />}
+        {isInCart && (
+          <TrashButton handleRemove={(e: React.MouseEvent<HTMLButtonElement>) => handleRemove(e)} />
+        )}
         {mode === 'shopSingle' && isInCart && (
           <GoToCartButton mode={mode} variant="product" size="roundedSquare" />
         )}

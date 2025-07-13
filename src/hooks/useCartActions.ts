@@ -1,4 +1,4 @@
-import type { IProduct } from '@/components/ui/Card/ProductCard/ProductCard.types';
+import type { IProduct } from '@/components/ui/Card/ProductCard/types';
 import { addItem, removeItem, startLoading, stopLoading } from '@/store/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { useNavigate } from 'react-router-dom';

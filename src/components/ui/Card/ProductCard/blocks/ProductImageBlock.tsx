@@ -1,5 +1,5 @@
 import { cn } from '@/utils/helpers';
-import type { ProductImageBlockProps } from '../ProductCard.types';
+import type { ProductImageBlockProps } from '../types';
 
 const defaultClassesParent = 'relative overflow-hidden flex items-center justify-center';
 const defaultClassesImage =

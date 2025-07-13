@@ -1,7 +1,7 @@
 import ProductPrice from '@/components/ui/Card/ProductCard/blocks/ProductPrice';
 import Rating from '@/components/ui/Rating';
 import { cn } from '@/utils/helpers';
-import type { ProductContentBlockProps } from '../ProductCard.types';
+import type { ProductContentBlockProps } from '../types';
 
 const ProductContentBlock: React.FC<ProductContentBlockProps> = ({
   name,

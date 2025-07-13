@@ -2,7 +2,7 @@ type mode = 'shopCompact' | 'shopSingle';
 type view = 'compact' | 'detailed';
 type variant = 'isInCart' | 'isOutOfStock' | 'product';
 
-export interface IProduct {
+export interface ProductData {
   id: string | number;
   category: string;
   name: string;
@@ -13,25 +13,24 @@ export interface IProduct {
   isOutOfStock?: boolean;
   description?: string;
   isNew?: boolean;
-  className?: string;
 }
 
-export interface IProductCardProps {
-  product: IProduct;
+export interface ProductCardProps {
+  product: ProductData;
   isInCart?: boolean;
   isLoading?: boolean;
   view?: view;
   imageUrl: string;
   quantity?: number;
-  onAddToCart: (product: IProduct, quantity: number) => void;
-  onRemove: (product: IProduct) => void;
+  onAddToCart: (product: ProductData, quantity: number) => void;
+  onRemove: (product: ProductData) => void;
   onCategoryClick?: (category: string) => void;
   setQuantity?: (quantity: number) => void;
   hiddenActionBlock?: boolean;
 }
 
 export interface ProductCardInternalProps
-  extends Omit<IProductCardProps, 'view' | 'onAddToCart' | 'onRemove'> {
+  extends Omit<ProductCardProps, 'view' | 'onAddToCart' | 'onRemove'> {
   isInCart: boolean;
   isLoading: boolean;
   isOutOfStock?: boolean;
@@ -39,15 +38,20 @@ export interface ProductCardInternalProps
   mode?: mode;
   quantity?: number;
   setQuantity?: (quantity: number) => void;
-  handleAddToCart: (product: IProduct, quantity: number) => void;
-  handleRemove: () => void;
+  handleAddToCart: (
+    e: React.MouseEvent<HTMLButtonElement>,
+    product: ProductData,
+    quantity: number,
+  ) => void;
+  handleRemove: (e: React.MouseEvent<HTMLButtonElement>) => void;
   handleCategoryClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   hiddenActionBlock?: boolean;
+  imageName: string;
 }
 
 export interface ProductBadgeBlockProps {
   category: string;
-  product: IProduct;
+  product: ProductData;
   isInCart: boolean;
   view?: view;
   handleCategoryClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -71,14 +75,18 @@ export interface ProductContentBlockProps {
 }
 
 export interface ProductActionBlockProps {
-  product: IProduct;
+  product: ProductData;
   isInCart: boolean;
   isLoading: boolean;
   isOutOfStock: boolean;
   quantity: number;
   mode: mode;
   hidden?: boolean;
-  handleAddToCart: (product: IProduct, quantity: number) => void;
-  handleRemove: () => void;
+  handleAddToCart: (
+    e: React.MouseEvent<HTMLButtonElement>,
+    product: ProductData,
+    quantity: number,
+  ) => void;
+  handleRemove: (e: React.MouseEvent<HTMLButtonElement>) => void;
   setQuantity: (quantity: number) => void;
 }

@@ -17,7 +17,9 @@ export interface CardProps {
     folder: string;
     loading?: 'lazy' | 'eager';
   };
-  badges?: ReactNode[];
+  badges?: ReactNode | ReactNode[];
+  onClick?: () => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 export interface CardVariantsProps {

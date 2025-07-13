@@ -61,6 +61,7 @@ const PRODUCT_CARD_VARIANTS = {
   layout: 'itemsEnd',
   border: 'roundedFull30',
   effect: 'default',
+  hover: 'shadowNone',
 };
 
 const TEAM_CARD_VARIANTS = {

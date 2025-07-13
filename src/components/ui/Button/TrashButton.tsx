@@ -3,7 +3,7 @@ import React from 'react';
 import TrashIcon from '../Icon/TrashIcon';
 
 interface TrashButtonProps {
-  handleRemove: () => void;
+  handleRemove: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const TrashButton: React.FC<TrashButtonProps> = ({ handleRemove }) => (
@@ -16,13 +16,13 @@ const TrashButton: React.FC<TrashButtonProps> = ({ handleRemove }) => (
     onClick={(e) => {
       e.preventDefault();
       e.stopPropagation();
-      handleRemove();
+      handleRemove(e as React.MouseEvent<HTMLButtonElement>);
     }}
     onKeyDown={(e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         e.stopPropagation();
-        handleRemove();
+        handleRemove(e as unknown as React.MouseEvent<HTMLButtonElement>);
       }
     }}
     data-component="TrashButton"

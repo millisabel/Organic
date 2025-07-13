@@ -5,7 +5,7 @@ import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import ProductList from '@/components/shared/ProductList';
 import { Button } from '@/components/ui/Button';
 import ProductCard from '@/components/ui/Card/ProductCard';
-import { type IProduct } from '@/components/ui/Card/ProductCard/ProductCard.types';
+import { type IProduct } from '@/components/ui/Card/ProductCard/types';
 import productsData from '@/data/products.json';
 import { useCartActions } from '@/hooks/useCartActions';
 import { useAppSelector } from '@/store/hooks';

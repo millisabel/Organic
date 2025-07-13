@@ -1,11 +1,11 @@
+import productsData from '@/data/products.json';
+import type { VariantProps } from 'class-variance-authority';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
-import NavigateButton from '../ui/Button/NavigateButton';
 import ProductList from '../shared/ProductList';
-import productsData from '@/data/products.json';
+import NavigateButton from '../ui/Button/NavigateButton';
 import { buttonVariants } from '../ui/Button/variants';
-import type { VariantProps } from 'class-variance-authority';
-import type { IProduct } from '../ui/Card/ProductCard/ProductCard.types';
+import type { IProduct } from '../ui/Card/ProductCard/types';
 
 interface OfferSectionProps {
   title: string;

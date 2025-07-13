@@ -2,20 +2,20 @@ import React from 'react';
 
 import ProductCardCompact from '@/components/ui/Card/ProductCard/ProductCardCompact';
 import ProductCardDetailed from '@/components/ui/Card/ProductCard/ProductCardDetailed';
-import type { IProduct, IProductCardProps } from './ProductCard.types';
 import { getImageUrl } from '@/utils/helpers';
+import type { ProductData, ProductCardProps } from './types';
 
-const ProductCard: React.FC<IProductCardProps> = ({
+const ProductCard: React.FC<ProductCardProps> = ({
   product,
   isInCart = false,
   isLoading = false,
   view = 'compact',
   quantity = 1,
+  hiddenActionBlock = false,
   onAddToCart,
   onRemove,
   onCategoryClick,
   setQuantity,
-  hiddenActionBlock = false,
 }) => {
   const { isOutOfStock } = product;
   const imgUrl = getImageUrl('products', product.imageUrl);
@@ -28,12 +28,24 @@ const ProductCard: React.FC<IProductCardProps> = ({
     }
   };
 
-  const handleAddToCart = (product: IProduct, quantity: number = 1) => {
-    onAddToCart(product, quantity);
+  const handleAddToCart = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    product: ProductData,
+    quantity: number = 1,
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onAddToCart) {
+      onAddToCart(product, quantity);
+    }
   };
 
-  const handleRemove = () => {
-    onRemove(product);
+  const handleRemove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onRemove) {
+      onRemove(product);
+    }
   };
 
   let variant: 'isInCart' | 'isOutOfStock' | 'product' = 'product';
@@ -52,6 +64,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
     handleRemove,
     handleAddToCart,
     setQuantity,
+    imageName: product.imageUrl,
   };
 
   if (view === 'detailed') {

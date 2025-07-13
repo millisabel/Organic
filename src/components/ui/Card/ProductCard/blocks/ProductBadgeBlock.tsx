@@ -1,6 +1,6 @@
 import BadgeButton from '@/components/ui/Badge/BadgeButton';
 import StatusBadge from '@/components/ui/Badge/StatusBadge';
-import type { ProductBadgeBlockProps } from '../ProductCard.types';
+import type { ProductBadgeBlockProps } from '../types';
 
 const badgeContainerClasses = {
   compact: '',
