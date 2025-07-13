@@ -1,36 +1,36 @@
-import AboutSection from '@/components/sections/AboutSection';
-import BannerSection from '@/components/sections/BannerSection';
-import HeroSection from '@/components/sections/HeroSection';
-import OfferSection from '@/components/sections/OfferSection';
-import ProductSection from '@/components/sections/ProductSection';
-import Testimonial from '@/components/sections/Testimonial';
-import WhoWe from '@/components/sections/WhoWe';
-import GallerySection from '@/components/sections/GallerySection';
-import NewsSection from '@/components/sections/NewsSection';
+// import AboutSection from '@/components/sections/AboutSection';
+// import BannerSection from '@/components/sections/BannerSection';
+// import HeroSection from '@/components/sections/HeroSection';
+// import OfferSection from '@/components/sections/OfferSection';
+// import ProductSection from '@/components/sections/ProductSection';
+// import Testimonial from '@/components/sections/Testimonial';
+// import WhoWe from '@/components/sections/WhoWe';
+// import GallerySection from '@/components/sections/GallerySection';
+// import NewsSection from '@/components/sections/NewsSection';
 
-import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
+// import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 
-import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
+// import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 
-import { features } from '@/data/featuresAboutHome.json';
+// import { features } from '@/data/featuresAboutHome.json';
 
-import hero_bg_page_home from '@/assets/images/backgrounds/hero_home.webp';
-import about_section_image from '@/assets/images/backgrounds/about_home.webp';
-import who_we_image from '@/assets/images/backgrounds/who_we_home.webp';
+// import hero_bg_page_home from '@/assets/images/backgrounds/hero_home.webp';
+// import about_section_image from '@/assets/images/backgrounds/about_home.webp';
+// import who_we_image from '@/assets/images/backgrounds/who_we_home.webp';
 
 const HomePage = () => {
-  const isBelowLg = useIsBelowBreakpoint('lg');
+  // const isBelowLg = useIsBelowBreakpoint('lg');
   return (
     <>
-      <HeroSection
+      {/* <HeroSection
         variant="home"
         subtitle="100% Natural Food"
         title="Choose the best healthier way of life"
         bgImage={hero_bg_page_home}
         button={{ text: 'Explore Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
-      />
-      <BannerSection />
-      <AboutSection
+      /> */}
+      {/* <BannerSection /> */}
+      {/* <AboutSection
         image={{ src: about_section_image, alt: 'About Section Image' }}
         title="We Believe in Working Accredited Farmers"
         subtitle="About Us"
@@ -38,14 +38,14 @@ const HomePage = () => {
         button={{ text: 'Shop Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
         className="bg-background"
         features={features}
-      />
-      <ProductSection
+      /> */}
+      {/* <ProductSection
         title="Our Products"
         subtitle="Categories"
         button={{ text: 'Load More', icon: <ArrowIcon variant="arrow" size="md" /> }}
-      />
-      <Testimonial />
-      <OfferSection
+      /> */}
+      {/* <Testimonial /> */}
+      {/* <OfferSection
         title="We Offer Organic For You"
         subtitle="Offers"
         button={{
@@ -54,16 +54,16 @@ const HomePage = () => {
           icon: <ArrowIcon variant="arrow" size="md" />,
         }}
         className="bg-primary"
-      />
-      <WhoWe
+      /> */}
+      {/* <WhoWe
         bgImage={who_we_image}
         title="Econis is a Friendly Organic Store"
         subtitle="Eco Friendly"
         bgSize={isBelowLg ? '100% 100%' : '50% 100%'}
         bgPosition={isBelowLg ? 'top center' : 'top left'}
-      />
-      <GallerySection />
-      <NewsSection
+      /> */}
+      {/* <GallerySection /> */}
+      {/* <NewsSection
         title="Discover weekly content about organic food, & more"
         subtitle="News"
         button={{
@@ -73,7 +73,7 @@ const HomePage = () => {
           to: '/blog',
         }}
         count={2}
-      />
+      /> */}
     </>
   );
 };

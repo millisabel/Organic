@@ -1,17 +1,17 @@
-import AboutSection from '@/components/sections/AboutSection';
-import HeroSection from '@/components/sections/HeroSection';
-import TeamSection from '@/components/sections/TeamSection';
-import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
+// import AboutSection from '@/components/sections/AboutSection';
+// import HeroSection from '@/components/sections/HeroSection';
+// import TeamSection from '@/components/sections/TeamSection';
+// import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 
-import about_section_image from '@/assets/images/backgrounds/about_about.webp';
-import heroImage from '@/assets/images/backgrounds/hero_about.webp';
-import { features } from '@/data/featuresAboutAbout.json';
-import CategoriesSection from '@/components/sections/CategoriesSection';
+// import about_section_image from '@/assets/images/backgrounds/about_about.webp';
+// import heroImage from '@/assets/images/backgrounds/hero_about.webp';
+// import { features } from '@/data/featuresAboutAbout.json';
+// import CategoriesSection from '@/components/sections/CategoriesSection';
 
 const AboutPage = () => {
   return (
     <>
-      <HeroSection variant="banner" title="About Us" bgImage={heroImage} />
+      {/* <HeroSection variant="banner" title="About Us" bgImage={heroImage} />
       <AboutSection
         image={{ src: about_section_image, alt: 'About Section Image' }}
         title="We do Creative Things for Success"
@@ -33,7 +33,7 @@ const AboutPage = () => {
         title="What We Offer for You"
         subtitle="About Us"
         backgroundColor="bg-primary"
-      />
+      /> */}
     </>
   );
 };

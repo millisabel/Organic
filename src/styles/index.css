@@ -6,7 +6,7 @@
 
 @layer utilities {
   /* For flip-effect */
-  .rotate-y-180 {
+  /* .rotate-y-180 {
     transform: rotateY(180deg);
   }
   .rotate-y--180 {
@@ -23,5 +23,5 @@
   }
   .shadow-left {
     box-shadow: -16px 0 32px -16px rgba(0, 0, 0, 0.1);
-  }
+  } */
 }
