@@ -25,10 +25,12 @@ export const cardVariants = cva(cardBaseClasses, {
       category: 'min-h-[370px] p-0',
       gallery: 'min-h-[280px] lg:min-h-[585px]',
       news: ' mb-20',
+      review: 'max-w-[800px] h-[550px] sm:h-[450px] pb-8 mx-auto',
     },
     background: {
       default: '',
       bgTransparent: 'bg-transparent',
+      white: 'bg-white',
     },
     border: {
       default: 'rounded-none',
@@ -90,6 +92,14 @@ const NEWS_CARD_VARIANTS = {
   border: 'roundedXl',
 };
 
+const REVIEW_CARD_VARIANTS = {
+  size: 'review',
+  layout: 'category',
+  background: 'bgTransparent',
+  effect: 'default',
+  hover: 'shadowNone',
+};
+
 const DEFAULT_CARD_VARIANTS = {
   layout: 'default',
   size: 'default',
@@ -114,6 +124,9 @@ export function getCardClassNames(variant: string) {
   }
   if (variant === 'news') {
     return NEWS_CARD_VARIANTS;
+  }
+  if (variant === 'review') {
+    return REVIEW_CARD_VARIANTS;
   }
   return DEFAULT_CARD_VARIANTS;
 }

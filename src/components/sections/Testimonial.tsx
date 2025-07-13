@@ -1,61 +1,18 @@
 import testimonialBg from '@/assets/images/backgrounds/testimonial_home.webp';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
-import { getImageUrl } from '@/utils/helpers';
 import { A11y, Autoplay, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
 import FastItem from '../shared/FastItem';
-import ReviewCard from '../ui/Card/ReviewCard/ReviewCard';
+import ReviewCard from '../ui/Card/ReviewCard';
+import reviews from '@/data/reviews.json';
 
 const facts = [
   { id: 1, value: '100%', label: 'Organic' },
   { id: 2, value: '285', label: 'Active Product' },
   { id: 3, value: '350+', label: 'Organic Orchads' },
   { id: 4, value: '25+', label: 'Years of Farming' },
-];
-
-const content = [
-  {
-    id: 1,
-    name: 'Sara Taylor',
-    text: 'Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.',
-    image: 'Sara_Taylor.webp',
-    job: 'Consumer',
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: 'Jane Doe',
-    text: 'Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.',
-    image: 'Jane_Doe.webp',
-    job: 'SEO Expert',
-    rating: 4,
-  },
-  {
-    id: 3,
-    name: 'Sarah Johnson',
-    text: 'Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.',
-    image: 'Sarah_Johnson.webp',
-    job: 'Marketing Manager',
-    rating: 2,
-  },
-  {
-    id: 4,
-    name: 'Michael Brown',
-    text: 'Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.',
-    image: 'Michael_Brown.webp',
-    job: 'Product Manager',
-    rating: 3,
-  },
-  {
-    id: 5,
-    name: 'Emily Davis',
-    text: 'Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.',
-    image: 'Emily_Davis.webp',
-    job: 'Software Engineer',
-    rating: 1,
-  },
 ];
 
 const Testimonial = () => {
@@ -81,14 +38,14 @@ const Testimonial = () => {
         className="max-w-[1000px] mb-10 lg:mb-16 pb-10"
         aria-label="Testimonial slider"
       >
-        {content.map((item) => (
+        {reviews.map((item) => (
           <SwiperSlide key={item.id}>
             <ReviewCard
               name={item.name}
               job={item.job}
               text={item.text}
               rating={item.rating}
-              image={getImageUrl('customers', item.image)}
+              image={item.image}
             />
           </SwiperSlide>
         ))}

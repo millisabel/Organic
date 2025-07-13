@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Sara Taylor",
+    "text": "Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.",
+    "image": "Sara_Taylor.webp",
+    "job": "Consumer",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Jane Doe",
+    "text": "Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.",
+    "image": "Jane_Doe.webp",
+    "job": "SEO Expert",
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "name": "Sarah Johnson",
+    "text": "Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.",
+    "image": "Sarah_Johnson.webp",
+    "job": "Marketing Manager",
+    "rating": 2
+  },
+  {
+    "id": 4,
+    "name": "Michael Brown",
+    "text": "Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.",
+    "image": "Michael_Brown.webp",
+    "job": "Product Manager",
+    "rating": 3
+  },
+  {
+    "id": 5,
+    "name": "Emily Davis",
+    "text": "Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.",
+    "image": "Emily_Davis.webp",
+    "job": "Software Engineer",
+    "rating": 5
+  }
+]
