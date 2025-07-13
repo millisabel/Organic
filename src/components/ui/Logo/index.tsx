@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion, useAnimation, useInView, type Variants } from 'framer-motion';
 import { useCurrentPage } from '@/hooks/useCurrentPage';
 import { cn } from '@/utils/helpers';
-import LogoIcon from './Icon/LogoIcon';
+import LogoIcon from '@/components/shared/LogoIcon';
 
 interface LogoProps {
   /**
