@@ -1,6 +1,6 @@
 import SocialButtonsList from '@/components/ui/Button/SocialButton';
 import Card from '@/components/ui/Card';
-import type { TeamCardProps } from './teamCard.types';
+import type { TeamCardProps } from './types';
 
 const TeamCard = ({ data }: TeamCardProps) => {
   return (

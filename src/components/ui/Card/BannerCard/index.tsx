@@ -4,16 +4,7 @@ import NavigateButton from '@/components/ui/Button/NavigateButton';
 import { cn } from '@/utils/helpers';
 import CheckIcon from '@/components/ui/Icon/CheckIccon';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
-
-export interface BannerCardProps {
-  imageUrl: string;
-  accent: string;
-  title: string;
-  bgBackColor?: string;
-  flipDirection?: 'left' | 'right';
-  backFeatures: string[];
-  category?: string;
-}
+import type { BannerCardProps } from './types';
 
 const styles = {
   container: 'w-full h-[370px] rounded-[20px] overflow-hidden',
