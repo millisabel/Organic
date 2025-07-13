@@ -1,5 +1,7 @@
 import { cva } from 'class-variance-authority';
+import type { CardVariants } from './index';
 
+// Base classes for card component
 const cardBaseClasses = [
   'group',
   'relative overflow-hidden',
@@ -13,223 +15,60 @@ const cardBaseClasses = [
 
 export const cardVariants = cva(cardBaseClasses, {
   variants: {
-    layout: {
+    variant: {
       default: '',
-      itemsEnd: 'justify-end',
-      itemsCenter: 'justify-center',
-      overflowVisible: 'overflow-visible',
-      category: 'items-center gap-5 ',
-      row: 'flex-row',
-    },
-    size: {
-      default: '',
-      category: 'min-h-[370px] p-0',
-      gallery: 'min-h-[280px] lg:min-h-[585px]',
-      news: ' mb-20',
-      review: 'max-w-[800px] h-[550px] sm:h-[450px] pb-8 mx-auto',
-    },
-    background: {
-      default: '',
-      bgTransparent: 'bg-transparent',
-      white: 'bg-white',
-    },
-    border: {
-      default: 'rounded-none',
-      rounded30: 'rounded-[30px]',
-      roundedXl: 'rounded-xl',
-      roundedFull: 'rounded-full',
-    },
-    effect: {
-      default: 'shadow-none',
-    },
-    hover: {
-      default: '',
-      translateY1: 'hover:-translate-y-1',
-      shadowNone: 'hover:shadow-none',
-      product: 'cursor-pointer hover:-translate-y-1',
+      product: 'justify-end rounded-[30px] cursor-pointer hover:-translate-y-1',
+      productDetailed: 'flex-row bg-transparent hover:shadow-md',
+      team: 'rounded-[30px] hover:-translate-y-1',
+      category:
+        'items-center gap-5 min-h-[370px] p-0 bg-transparent rounded-none shadow-none hover:shadow-none',
+      gallery:
+        'justify-center min-h-[280px] lg:min-h-[585px] bg-transparent rounded-[30px] shadow-none hover:shadow-none',
+      news: 'overflow-visible mb-20 rounded-xl',
+      review:
+        'max-w-[800px] h-[550px] sm:h-[450px] pb-8 mx-auto justify-center gap-5 bg-transparent shadow-none hover:shadow-none',
     },
   },
   defaultVariants: {
-    layout: 'default',
-    size: 'default',
-    background: 'default',
-    border: 'default',
-    effect: 'default',
-    hover: 'default',
+    variant: 'default',
   },
 });
 
-const PRODUCT_COMPACT_CARD_VARIANTS = {
-  layout: 'itemsEnd',
-  border: 'rounded30',
-  effect: 'default',
-  hover: 'product',
-};
-
-const PRODUCT_DETAILED_CARD_VARIANTS = {
-  layout: 'row',
-  background: 'bgTransparent',
-  hover: 'shadowNone',
-};
-
-const TEAM_CARD_VARIANTS = {
-  border: 'rounded30',
-  hover: 'translateY1',
-};
-
-const CATEGORY_CARD_VARIANTS = {
-  layout: 'category',
-  size: 'category',
-  background: 'bgTransparent',
-  border: 'default',
-  effect: 'default',
-  hover: 'shadowNone',
-};
-
-const GALLERY_CARD_VARIANTS = {
-  layout: 'itemsCenter',
-  size: 'gallery',
-  background: 'bgTransparent',
-  border: 'rounded30',
-  effect: 'default',
-  hover: 'shadowNone',
-};
-
-const NEWS_CARD_VARIANTS = {
-  layout: 'overflowVisible',
-  size: 'news',
-  border: 'roundedXl',
-};
-
-const REVIEW_CARD_VARIANTS = {
-  size: 'review',
-  layout: 'category',
-  background: 'bgTransparent',
-  effect: 'default',
-  hover: 'shadowNone',
-};
-
-const DEFAULT_CARD_VARIANTS = {
-  layout: 'default',
-  size: 'default',
-  background: 'default',
-  border: 'default',
-  effect: 'default',
-  hover: 'default',
-};
-
-export function getCardClassNames(variant: string) {
-  if (variant === 'product') {
-    return PRODUCT_COMPACT_CARD_VARIANTS;
-  }
-  if (variant === 'productDetailed') {
-    return PRODUCT_DETAILED_CARD_VARIANTS;
-  }
-  if (variant === 'team') {
-    return TEAM_CARD_VARIANTS;
-  }
-  if (variant === 'category') {
-    return CATEGORY_CARD_VARIANTS;
-  }
-  if (variant === 'gallery') {
-    return GALLERY_CARD_VARIANTS;
-  }
-  if (variant === 'news') {
-    return NEWS_CARD_VARIANTS;
-  }
-  if (variant === 'review') {
-    return REVIEW_CARD_VARIANTS;
-  }
-  return DEFAULT_CARD_VARIANTS;
-}
-
-// ====================================================
-
+// Base classes for card content
 const cardContentBaseClasses = ['flex flex-col justify-between bg-transparent'].join(' ');
 
 export const cardContentVariants = cva(cardContentBaseClasses, {
   variants: {
-    position: {
-      default: '',
-      gallery: 'absolute inset-0',
-      news: 'absolute md:left-4 md:right-4',
-    },
-    layout: {
-      default: '',
-      row: 'flex-row',
-      news: 'justify-center gap-1',
-    },
-    size: {
+    variant: {
       default: 'p-4',
+      product: 'p-4',
+      productDetailed: 'p-4',
       team: 'py-4 md:py-8 px-6',
-      news: 'min-h-[330px] h-1/2 px-2 pt-6 pb-8 md:px-14 md:pt-11 md:pb-12 bottom-0 md:-bottom-24',
-      full: 'h-full w-full',
-    },
-    border: {
-      default: 'rounded-none',
-      rounded30: 'rounded-[30px]',
-      roundedXl: 'rounded-xl',
-      roundedFull: 'rounded-full',
-      news: 'md:rounded-t-xl md:rounded-r-xl rounded-b-xl',
-    },
-    background: {
-      default: '',
-      bgTransparent: 'bg-transparent',
-      news: 'bg-white/95',
-    },
-    effect: {
-      default: '',
-      shadow: 'shadow-lg',
+      category: 'p-4',
+      gallery: 'absolute inset-0 h-full w-full',
+      news: 'absolute md:left-4 md:right-4 justify-center gap-1 min-h-[330px] h-1/2 px-2 pt-6 pb-8 md:px-14 md:pt-11 md:pb-12 bottom-0 md:-bottom-24 bg-white/95 md:rounded-t-xl md:rounded-r-xl rounded-b-xl shadow-lg',
+      review: 'p-4',
     },
   },
   defaultVariants: {
-    position: 'default',
-    layout: 'default',
-    size: 'default',
-    border: 'default',
-    background: 'default',
-    effect: 'default',
+    variant: 'default',
   },
 });
 
-const TEAM_CARD_CONTENT_VARIANTS = {
-  layout: 'default',
-  size: 'team',
+// Type-safe helper functions
+export const getCardVariants = (variant: CardVariants) => {
+  return { variant };
 };
 
-const GALLERY_CARD_CONTENT_VARIANTS = {
-  position: 'gallery',
-  layout: 'center',
-  size: 'full',
+export const getCardContentVariants = (variant: CardVariants) => {
+  return { variant };
 };
 
-const NEWS_CARD_CONTENT_VARIANTS = {
-  position: 'news',
-  layout: 'news',
-  size: 'news',
-  background: 'news',
-  border: 'news',
-  effect: 'shadow',
-};
-
-const DEFAULT_CARD_CONTENT_VARIANTS = {
-  position: 'default',
-  layout: 'default',
-  size: 'default',
-  background: 'default',
-  border: 'default',
-  effect: 'default',
-};
-
-export function getCardContentVariants(variant: string) {
-  if (variant === 'team') {
-    return TEAM_CARD_CONTENT_VARIANTS;
-  }
-  if (variant === 'gallery') {
-    return GALLERY_CARD_CONTENT_VARIANTS;
-  }
-  if (variant === 'news') {
-    return NEWS_CARD_CONTENT_VARIANTS;
-  }
-  return DEFAULT_CARD_CONTENT_VARIANTS;
+// Legacy functions for backward compatibility (deprecated)
+/**
+ * @deprecated Use getCardVariants instead
+ */
+export function getCardClassNames(variant: string) {
+  console.warn('getCardClassNames is deprecated. Use getCardVariants instead.');
+  return getCardVariants(variant as CardVariants);
 }
