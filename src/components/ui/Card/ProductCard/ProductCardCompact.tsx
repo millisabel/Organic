@@ -7,7 +7,7 @@ import type { ProductCardInternalProps } from './types';
 import { useNavigate } from 'react-router-dom';
 
 const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
-  product,
+  data,
   isInCart,
   isLoading,
   mode = 'shopCompact',
@@ -18,11 +18,11 @@ const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
   hiddenActionBlock,
   imageName,
 }) => {
-  const { category, name, price, oldPrice, rating } = product;
-  const isOutOfStock = !!product.isOutOfStock;
+  const { category, name, price, oldPrice, rating } = data;
+  const isOutOfStock = !!data.isOutOfStock;
   const badges = (
     <ProductBadgeBlock
-      product={product}
+      product={data}
       category={category}
       isInCart={isInCart}
       handleCategoryClick={handleCategoryClick}
@@ -31,14 +31,14 @@ const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
 
   const navigate = useNavigate();
   const handleCardClick = () => {
-    navigate(`/shop/${product.id}`);
+    navigate(`/shop/${data.id}`);
   };
 
-  // const handleKeyDown = (e) => {
-  //   if (e.key === 'Enter' || e.key === ' ') {
-  //     navigate(`/shop/${product.id}`);
-  //   }
-  // };
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      navigate(`/shop/${data.id}`);
+    }
+  };
 
   return (
     <Card
@@ -47,20 +47,12 @@ const ProductCardCompact: React.FC<ProductCardInternalProps> = ({
       data-component="ProductCard"
       badges={badges}
       onClick={handleCardClick}
-      // onKeyDown={handleKeyDown}
+      onKeyDown={handleKeyDown}
+      imgClassName="h-[300px]"
     >
-      {/* <ProductBadgeBlock
-          product={product}
-          category={category}
-          isInCart={isInCart}
-          handleCategoryClick={handleCategoryClick}
-        /> */}
-      {/* <ProductImageBlock imageUrl={imageUrl} name={name} classNameImage="" classNameParent="" /> */}
-      <div className="flex-1 flex flex-col justify-end">
-        <ProductContentBlock name={name} price={price} oldPrice={oldPrice} rating={rating} />
-      </div>
+      <ProductContentBlock name={name} price={price} oldPrice={oldPrice} rating={rating} />
       <ProductActionBlock
-        product={product}
+        product={data}
         mode={mode}
         quantity={1}
         setQuantity={() => {}}

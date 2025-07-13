@@ -16,6 +16,7 @@
     "price": 14.0,
     "oldPrice": 20.0,
     "imageUrl": "Banana.webp",
+    "isOutOfStock": true,
     "rating": 5,
     "description": "Sweet organic bananas, full of potassium and energy. Great for snacks, smoothies, or baking. A favorite for kids and adults alike!",
     "isNew": true

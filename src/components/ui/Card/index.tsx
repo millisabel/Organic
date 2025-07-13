@@ -2,15 +2,16 @@ import { cn, getImageUrl } from '@/utils/helpers';
 import React from 'react';
 import type { CardContentVariantsProps, CardProps, CardVariantsProps } from './card.types';
 import {
-  getCardClassNames,
-  cardVariants,
   cardContentVariants,
+  cardVariants,
+  getCardClassNames,
   getCardContentVariants,
 } from './card.variats';
 
 export type CardVariants =
   | 'default'
   | 'product'
+  | 'productDetailed'
   | 'team'
   | 'category'
   | 'gallery'

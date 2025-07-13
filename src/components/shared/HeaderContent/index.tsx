@@ -1,7 +1,7 @@
 import { cn } from '@/utils/helpers';
 import type { JSX } from 'react';
-import type { HeaderContentProps } from './headerContent.types';
-import { headerVariants } from './headerContent.variants';
+import type { HeaderContentProps } from './types';
+import { headerVariants } from './variants';
 
 const HeaderContent = ({
   text,

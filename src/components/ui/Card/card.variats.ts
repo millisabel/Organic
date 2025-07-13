@@ -19,6 +19,7 @@ export const cardVariants = cva(cardBaseClasses, {
       itemsCenter: 'justify-center',
       overflowVisible: 'overflow-visible',
       category: 'items-center gap-5 ',
+      row: 'flex-row',
     },
     size: {
       default: '',
@@ -45,6 +46,7 @@ export const cardVariants = cva(cardBaseClasses, {
       default: '',
       translateY1: 'hover:-translate-y-1',
       shadowNone: 'hover:shadow-none',
+      product: 'cursor-pointer hover:-translate-y-1',
     },
   },
   defaultVariants: {
@@ -57,10 +59,16 @@ export const cardVariants = cva(cardBaseClasses, {
   },
 });
 
-const PRODUCT_CARD_VARIANTS = {
+const PRODUCT_COMPACT_CARD_VARIANTS = {
   layout: 'itemsEnd',
-  border: 'roundedFull30',
+  border: 'rounded30',
   effect: 'default',
+  hover: 'product',
+};
+
+const PRODUCT_DETAILED_CARD_VARIANTS = {
+  layout: 'row',
+  background: 'bgTransparent',
   hover: 'shadowNone',
 };
 
@@ -112,7 +120,10 @@ const DEFAULT_CARD_VARIANTS = {
 
 export function getCardClassNames(variant: string) {
   if (variant === 'product') {
-    return PRODUCT_CARD_VARIANTS;
+    return PRODUCT_COMPACT_CARD_VARIANTS;
+  }
+  if (variant === 'productDetailed') {
+    return PRODUCT_DETAILED_CARD_VARIANTS;
   }
   if (variant === 'team') {
     return TEAM_CARD_VARIANTS;

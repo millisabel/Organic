@@ -3,10 +3,11 @@ import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import HeroSection from '@/components/sections/HeroSection';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
+import CardList from '@/components/shared/CardList';
 import Pagination from '@/components/shared/Pagination';
-import ProductList from '@/components/shared/ProductList';
 import { Button } from '@/components/ui/Button';
-import { type IProduct } from '@/components/ui/Card/ProductCard/types';
+import ProductCard from '@/components/ui/Card/ProductCard';
+import { type ProductData } from '@/components/ui/Card/ProductCard/types';
 import productsData from '@/data/products.json';
 import { useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -19,7 +20,7 @@ const ShopPage = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [displayedProducts, setDisplayedProducts] = useState<IProduct[]>([]);
+  const [displayedProducts, setDisplayedProducts] = useState<ProductData[]>([]);
   const [isPaginationVisible, setIsPaginationVisible] = useState(true);
 
   const params = new URLSearchParams(location.search);
@@ -132,7 +133,12 @@ const ShopPage = () => {
       </Section>
 
       <Section className="!pt-0">
-        <ProductList products={displayedProducts} />
+        <CardList
+          variant="default"
+          items={productsData}
+          CardComponent={ProductCard}
+          itemsDisplay={4}
+        />
         <div className="mt-12 flex flex-col items-center gap-8">
           {hasMoreProducts && (
             <Button onClick={handleLoadMore} variant="default">

@@ -2,22 +2,22 @@ import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import HeroSection from '@/components/sections/HeroSection';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
-import ProductList from '@/components/shared/ProductList';
+import CardList from '@/components/shared/CardList';
 import { Button } from '@/components/ui/Button';
 import ProductCard from '@/components/ui/Card/ProductCard';
-import { type IProduct } from '@/components/ui/Card/ProductCard/types';
+import { type ProductData } from '@/components/ui/Card/ProductCard/types';
 import productsData from '@/data/products.json';
-import { useCartActions } from '@/hooks/useCartActions';
-import { useAppSelector } from '@/store/hooks';
+// import { useCartActions } from '@/hooks/useCartActions';
+// import { useAppSelector } from '@/store/hooks';
 import { getImageUrl } from '@/utils/helpers';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 const ShopSinglePage: React.FC = () => {
-  const { handleAddToCart, handleRemove, handleCategoryClick } = useCartActions();
-  const { items: cartItems, loadingItems } = useAppSelector((state) => state.cart);
+  // const { handleAddToCart, handleRemove, handleCategoryClick } = useCartActions();
+  // const { items: cartItems, loadingItems } = useAppSelector((state) => state.cart);
   const { productId } = useParams<{ productId: string }>();
-  const product = productsData.find((p) => p.id.toString() === productId) as IProduct;
+  const product = productsData.find((p) => p.id.toString() === productId) as ProductData;
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
@@ -33,8 +33,8 @@ const ShopSinglePage: React.FC = () => {
     );
   }
 
-  const isInCart = cartItems.some((item) => item.id === product.id);
-  const isLoading = loadingItems.includes(product.id);
+  // const isInCart = cartItems.some((item) => item.id === product.id);
+  // const isLoading = loadingItems.includes(product.id);
 
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
@@ -59,23 +59,24 @@ const ShopSinglePage: React.FC = () => {
 
       <Section className="pt-10">
         <ProductCard
-          view="detailed"
-          imageUrl={product.imageUrl}
-          product={product}
-          quantity={quantity}
-          isInCart={isInCart}
-          isLoading={isLoading}
-          onAddToCart={(product, quantity) => handleAddToCart(product, quantity)}
-          onRemove={() => handleRemove(product)}
-          onCategoryClick={(category) => handleCategoryClick(category)}
-          setQuantity={setQuantity}
+          data={product}
+          cardView="detailed"
+          // imageUrl={product.imageUrl}
+          // product={product}
+          // quantity={quantity}
+          // isInCart={isInCart}
+          // isLoading={isLoading}
+          // onAddToCart={(product, quantity) => handleAddToCart(product, quantity)}
+          // onRemove={() => handleRemove(product)}
+          // onCategoryClick={(category) => handleCategoryClick(category)}
+          // setQuantity={setQuantity}
         />
       </Section>
 
       <Section>
         <SectionHeader title="Related Products" />
         {relatedProducts.length > 0 ? (
-          <ProductList products={relatedProducts} />
+          <CardList variant="default" items={relatedProducts} CardComponent={ProductCard} />
         ) : (
           <p className="text-text-light text-center">
             There are no matching products, but we plan to have them soon.

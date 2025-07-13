@@ -1,6 +1,8 @@
+import type { CardProps } from '../card.types';
+
 type mode = 'shopCompact' | 'shopSingle';
-type view = 'compact' | 'detailed';
-type variant = 'isInCart' | 'isOutOfStock' | 'product';
+export type cardView = 'compact' | 'detailed';
+type status = 'default' | 'inCart' | 'outOfStock';
 
 export interface ProductData {
   id: string | number;
@@ -15,18 +17,17 @@ export interface ProductData {
   isNew?: boolean;
 }
 
-export interface ProductCardProps {
-  product: ProductData;
-  isInCart?: boolean;
-  isLoading?: boolean;
-  view?: view;
-  imageUrl: string;
-  quantity?: number;
-  onAddToCart: (product: ProductData, quantity: number) => void;
-  onRemove: (product: ProductData) => void;
-  onCategoryClick?: (category: string) => void;
-  setQuantity?: (quantity: number) => void;
-  hiddenActionBlock?: boolean;
+export interface ProductCardProps extends CardProps {
+  data: ProductData;
+  cardView?: cardView;
+  // isInCart?: boolean;
+  // isLoading?: boolean;
+  // quantity?: number;
+  // onAddToCart: (product: ProductData, quantity: number) => void;
+  // onRemove: (product: ProductData) => void;
+  // onCategoryClick?: (category: string) => void;
+  // setQuantity?: (quantity: number) => void;
+  // hiddenActionBlock?: boolean;
 }
 
 export interface ProductCardInternalProps
@@ -34,7 +35,7 @@ export interface ProductCardInternalProps
   isInCart: boolean;
   isLoading: boolean;
   isOutOfStock?: boolean;
-  variant: variant;
+  status: status;
   mode?: mode;
   quantity?: number;
   setQuantity?: (quantity: number) => void;
@@ -53,25 +54,8 @@ export interface ProductBadgeBlockProps {
   category: string;
   product: ProductData;
   isInCart: boolean;
-  view?: view;
+  view?: cardView;
   handleCategoryClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
-export interface ProductImageBlockProps {
-  imageUrl: string;
-  name: string;
-  classNameParent?: string;
-  classNameImage?: string;
-}
-
-export interface ProductContentBlockProps {
-  name: string;
-  price: number;
-  oldPrice?: number;
-  rating?: number;
-  description?: string;
-  mode?: mode;
-  className?: string;
 }
 
 export interface ProductActionBlockProps {

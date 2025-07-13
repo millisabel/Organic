@@ -33,6 +33,7 @@ const ProductCardDetailed: React.FC<ProductCardInternalProps> = ({
       variant="product"
       imgProps={{ name: imageName, folder: 'products' }}
       badges={badges}
+      data-component="ProductCardDetailed"
     >
       {/* <div className="relative flex flex-col items-center justify-center">
         <ProductImageBlock
@@ -44,13 +45,6 @@ const ProductCardDetailed: React.FC<ProductCardInternalProps> = ({
       </div> */}
 
       <div className="flex flex-col justify-between">
-        {/* <ProductBadgeBlock
-          view="detailed"
-          product={product}
-          category={product.category}
-          handleCategoryClick={handleCategoryClick}
-          isInCart={isInCart}
-        /> */}
         <ProductContentBlock
           name={product.name}
           price={product.price}
