@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
+import NavLink from '@/components/shared/NavLink';
 import { cn } from '../../utils/helpers';
-import NavLink from './NavLink';
 
 interface NavigationProps {
   isMobile?: boolean;
