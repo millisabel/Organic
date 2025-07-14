@@ -11,7 +11,6 @@ let isMobile = false;
 
 export const VisualDesktop = () => (
   <Button
-    asChild
     variant="default"
     size="ellipse"
     aria-label={`Open cart 4 items)`}
@@ -29,7 +28,6 @@ export const VisualDesktop = () => (
 
 export const VisualMobile = () => (
   <Button
-    asChild
     variant="default"
     size="ellipse"
     aria-label={`Open cart 4 items)`}

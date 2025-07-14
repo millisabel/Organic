@@ -8,7 +8,7 @@ const TrashButton: React.FC<TrashButtonProps> = ({ handleRemove }) => (
     type="button"
     aria-label="Remove from cart"
     tabIndex={0}
-    variant="trash"
+    variant="red"
     size="square"
     onClick={(e) => {
       e.preventDefault();

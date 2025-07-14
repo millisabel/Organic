@@ -1,7 +1,5 @@
 import { Outlet } from 'react-router-dom';
-// import Newsletter from '../sections/Newsletter';
-// import FloatingCartButton from '../ui/Button/FloatingCartButton';
-// import Footer from './Footer';
+import FloatingCartButton from '@/features/cart/components/buttons/FloatingCartButton';
 import Header from './Header';
 
 const Layout = () => {
@@ -13,7 +11,9 @@ const Layout = () => {
         {/* <Newsletter /> */}
       </main>
       {/* <Footer /> */}
-      {/* <FloatingCartButton /> */}
+      <div className="w-full h-[200vh]"></div>
+
+      <FloatingCartButton className="fixed bottom-6 right-6 z-50" />
     </div>
   );
 };

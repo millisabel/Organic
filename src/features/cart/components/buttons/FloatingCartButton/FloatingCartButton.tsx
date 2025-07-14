@@ -7,7 +7,7 @@ import { useAppSelector } from '@/store/hooks';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const FloatingCartButton = () => {
+const FloatingCartButton = ({ className }: { className?: string }) => {
   const cartItems = useAppSelector((state) => state.cart.items);
   const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -41,6 +41,7 @@ const FloatingCartButton = () => {
           size="ellipse"
           aria-label={`Open cart (${totalCount} items, $${totalPrice.toFixed(2)})`}
           nameComponent="FloatingCartButton"
+          className={className}
         >
           <motion.a
             href="/cart"
