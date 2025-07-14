@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useOnClickOutside } from '@/hooks/useOnClickOutside';
-import SearchButton from '@/components/ui/Button/SearchButton';
+import SearchButton from '@/features/search/components/SearchButton';
 import SearchInput from '@/components/ui/Input/SearchInput';
 import { cn } from '@/utils/helpers';
 

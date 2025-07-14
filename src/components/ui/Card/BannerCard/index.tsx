@@ -1,9 +1,10 @@
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import FlipBannerCard from '@/components/shared/FlipBannerCard';
-import NavigateButton from '@/components/ui/Button/NavigateButton';
-import { cn } from '@/utils/helpers';
-import CheckIcon from '@/components/ui/Icon/CheckIccon';
+import { Button } from '@/components/ui/Button';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
+import CheckIcon from '@/components/ui/Icon/CheckIcon';
+import { cn } from '@/utils/helpers';
+import { Link } from 'react-router-dom';
 import type { BannerCardProps } from './types';
 
 const styles = {
@@ -56,12 +57,11 @@ const BannerCard = ({
             </li>
           ))}
         </ul>
-        <NavigateButton
-          to={`/shop?category=${category}`}
-          text="Shop Now"
-          aria-label={`Show products in ${category}`}
-          icon={<ArrowIcon />}
-        />
+        <Button asChild aria-label={`Show products in ${category}`}>
+          <Link to={`/shop?category=${category}`}>
+            Shop Now <ArrowIcon className="ml-2" />
+          </Link>
+        </Button>
       </div>
     );
   };

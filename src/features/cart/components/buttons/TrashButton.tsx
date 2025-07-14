@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/Button';
 import React from 'react';
-import TrashIcon from '../Icon/TrashIcon';
+import TrashIcon from '../../../../components/ui/Icon/TrashIcon';
 
 interface TrashButtonProps {
   handleRemove: (e: React.MouseEvent<HTMLButtonElement>) => void;

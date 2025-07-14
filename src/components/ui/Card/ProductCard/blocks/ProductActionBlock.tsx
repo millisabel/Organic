@@ -1,7 +1,7 @@
-import AddToCartButton from '@/components/ui/Button/AddToCartButton';
-import GoToCartButton from '@/components/ui/Button/GoToCartButton';
-import TrashButton from '@/components/ui/Button/TrashButton';
 import { Input } from '@/components/ui/Input';
+import AddToCartButton from '@/features/cart/components/buttons/AddToCartButton';
+import GoToCartButton from '@/features/cart/components/buttons/GoToCartButton';
+import TrashButton from '@/features/cart/components/buttons/TrashButton';
 import type { ProductActionBlockProps } from '../types';
 
 const ProductActionBlock: React.FC<ProductActionBlockProps> = ({

@@ -2,7 +2,7 @@ import CartIcon from '@/components/ui/Icon/CartIcon';
 import { Button } from '@/components/ui/Button';
 import { useAppSelector } from '@/store/hooks';
 import { useEffect, useRef, useState } from 'react';
-import CartCountBadge from '../Badge/CartCountBadge';
+import CartCountBadge from '../../../components/ui/Badge/CartCountBadge';
 import { Link } from 'react-router-dom';
 
 const FloatingCartButton = () => {

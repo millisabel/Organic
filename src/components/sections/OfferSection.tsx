@@ -1,11 +1,12 @@
+import { Button } from '@/components/ui/Button';
 import productsData from '@/data/products.json';
 import type { VariantProps } from 'class-variance-authority';
+import { Link } from 'react-router-dom';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
-import NavigateButton from '../ui/Button/NavigateButton';
+import CardList from '../shared/CardList';
 import { buttonVariants } from '../ui/Button/variants';
 import ProductCard from '../ui/Card/ProductCard';
-import CardList from '../shared/CardList';
 
 interface OfferSectionProps {
   title: string;
@@ -29,7 +30,11 @@ const OfferSection = ({ title, subtitle, button, className }: OfferSectionProps)
           marginBottom="mb-8 lg:mb-0"
           titleAlignDesktop="text-left"
         />
-        <NavigateButton text={button.text} icon={button.icon} to="/shop" variant={button.variant} />
+        <Button asChild variant={button.variant}>
+          <Link to="/shop">
+            {button.text} {button.icon && <span className="ml-2">{button.icon}</span>}
+          </Link>
+        </Button>
       </div>
       <CardList
         variant="default"

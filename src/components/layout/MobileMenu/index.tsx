@@ -1,4 +1,4 @@
-import CloseButton from '@/components/ui/Button/CloseButton';
+import CloseButton from '@/components/shared/Button/CloseButton';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navigation from '../Navigation';
 import type { MobileMenuProps } from './types';

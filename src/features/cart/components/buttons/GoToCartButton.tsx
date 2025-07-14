@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/Button';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
-import CartIcon from '../Icon/CartIcon';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import CartIcon from '../../../../components/ui/Icon/CartIcon';
 
 interface GoToCartButtonProps {
   mode?: 'shopSingle' | 'shopCompact';

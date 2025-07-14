@@ -1,4 +1,4 @@
-import CloseButton from '@/components/ui/Button/CloseButton';
+import CloseButton from '@/components/shared/Button/CloseButton';
 import { cn } from '@/utils/helpers';
 import { useOnClickOutside } from '@hooks/useOnClickOutside';
 import { type FC, type ReactNode, useRef } from 'react';

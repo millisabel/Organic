@@ -1,6 +1,7 @@
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
-import NavigateButton from '@/components/ui/Button/NavigateButton';
+import { Button } from '@/components/ui/Button';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
+import { Link } from 'react-router-dom';
 
 interface ContentBlockProps {
   title?: string;
@@ -35,11 +36,11 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
       ))}
     {children}
     {button && (
-      <NavigateButton
-        text="Explore Now"
-        icon={<ArrowIcon variant="arrow" size="md" />}
-        to="/shop"
-      />
+      <Button asChild>
+        <Link to="/shop">
+          Explore Now <ArrowIcon variant="arrow" size="md" className="ml-2" />
+        </Link>
+      </Button>
     )}
   </div>
 );

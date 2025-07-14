@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { expect, test, vi } from 'vitest';
-import RemoveButton from './RemoveButton';
+import RemoveButton from '../components/buttons/RemoveButton';
 
 test('renders remove button', () => {
   render(<RemoveButton onRemove={vi.fn()} />);

@@ -1,10 +1,11 @@
 import AuthorDisplay from '@/components/shared/AuthorDisplay';
-import NavigateButton from '@/components/ui/Button/NavigateButton';
+import { Button } from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import React from 'react';
-import type { NewsCardProps } from './types';
+import { Link } from 'react-router-dom';
 import DataBadge from '../../Badge/DataBadge';
+import type { NewsCardProps } from './types';
 
 const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
   return (
@@ -25,13 +26,11 @@ const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
         <AuthorDisplay author={data.author} iconClassName="text-yellow-300" />
         <div className="font-semibold text-medium mb-1 text-primary">{data.title}</div>
         <div className="items-end text-sm text-gray-600 mb-4 line-clamp-2">{data.description}</div>
-        <NavigateButton
-          text="Read More"
-          icon={<ArrowIcon variant="arrow" size="md" />}
-          variant="accent"
-          to={`/blog/${data.id}`}
-          className="mt-auto"
-        />
+        <Button asChild variant="accent" className="mt-auto">
+          <Link to={`/blog/${data.id}`}>
+            Read More <ArrowIcon variant="arrow" size="md" className="ml-2" />
+          </Link>
+        </Button>
       </>
     </Card>
   );

@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 const baseClasses = [
   'group',
   'flex items-center justify-center whitespace-nowrap gap-2.5 rounded-2xl', // Layout
-  'bg-Transparent', // Background
+  'bg-transparent', // Background
   'text-primary font-roboto text-xl font-bold', // Typography
   'ring-offset-background', // Ring
   'shadow-md transition-all duration-300', // Effects
@@ -18,7 +18,7 @@ const baseProductButton = [
   'font-sans text-[15px]',
   'shadow-none',
   'hover:shadow-lg hover:-translate-y-0.5',
-  'focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus:ring-2 ',
+  'focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus:ring-2',
 ];
 
 export const buttonVariants = cva(baseClasses, {
@@ -40,11 +40,6 @@ export const buttonVariants = cva(baseClasses, {
         'border-2 border-primary', // Border
         'text-primary', // Text
         'hover:bg-primary hover:text-white', // Hover
-      ],
-      secondary: [
-        'bg-secondary', // Background
-        'text-white', // Text
-        'hover:bg-primary', // Hover
       ],
       accent: [
         'bg-accent', // Background

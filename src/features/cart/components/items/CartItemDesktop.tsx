@@ -1,8 +1,8 @@
-import type { CartItem } from '@/features/cart/components/CartItem/cart';
+import type { CartItem } from '@/features/cart/components/types';
+import RemoveButton from '../buttons/RemoveButton';
 import CartItemSubtotal from './CartItemSubtotal';
 import CartProductInfo from './CartProductInfo';
 import CartQuantityButtons from './CartQuantityButtons';
-import RemoveButton from './RemoveButton';
 
 interface CartItemDesktopProps {
   cartItems: CartItem[];

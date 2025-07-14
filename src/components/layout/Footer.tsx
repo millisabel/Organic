@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import SocialButtonsList from '@/components/ui/Button/SocialButton';
+import SocialButtonsList from '@/components/shared/Button/SocialButton';
 import FooterContactLink from '../ui/FooterContactLink';
 import Logo from '../ui/Logo';
 

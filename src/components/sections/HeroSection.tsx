@@ -1,7 +1,8 @@
+import { Button } from '@/components/ui/Button';
+import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
-import NavigateButton from '../ui/Button/NavigateButton';
-import clsx from 'clsx';
 
 interface HeroProps {
   variant: 'home' | 'banner' | 'single';
@@ -57,7 +58,13 @@ const HeroSection = ({
         className={sectionTitleClasses}
         titleAlignDesktop={sectionTitleAlign}
       />
-      {button && <NavigateButton text={button.text} icon={button.icon} to="/shop" />}
+      {button && (
+        <Button asChild>
+          <Link to="/shop">
+            {button.text} {button.icon && <span className="ml-2">{button.icon}</span>}
+          </Link>
+        </Button>
+      )}
     </Section>
   );
 };
