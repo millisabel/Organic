@@ -6,7 +6,7 @@ const MenuButton = ({ isOpen, onClick, className }: MenuButtonProps) => {
   return (
     <Button
       variant="transparent"
-      size="roundedFull"
+      size="circle"
       onClick={onClick}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
       className={className}

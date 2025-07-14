@@ -8,7 +8,7 @@ const CloseButton: FC<CloseButtonProps> = ({ onClick, className = '', ariaLabel 
   return (
     <Button
       variant="close"
-      size="roundedFull"
+      size="circle"
       onClick={onClick}
       className={cn('absolute top-4 right-4', className)}
       aria-label={ariaLabel}
