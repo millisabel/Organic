@@ -23,12 +23,14 @@ const config: Config = {
         },
         secondary: {
           DEFAULT: '#7EB693',
+          dark: '#026125',
           light: '#F1F8F4',
           surface: '#EFF6F1',
         },
         accent: {
           DEFAULT: '#EFD372',
           star: '#FFA858',
+          red: '#ae0505',
         },
         text: {
           DEFAULT: '#525C60',
