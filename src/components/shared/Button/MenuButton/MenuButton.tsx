@@ -1,22 +1,17 @@
-import { Button } from '@/components/ui/Button';
+import Button from '@/components/ui/Button/Button';
 import MenuIcon from '@/components/ui/Icon/MenuIcon';
-
-interface MenuButtonProps {
-  isOpen: boolean;
-  onClick: () => void;
-  className?: string;
-}
+import { type MenuButtonProps } from '.';
 
 const MenuButton = ({ isOpen, onClick, className }: MenuButtonProps) => {
   return (
     <Button
-      variant="menu"
-      size="round"
+      variant="transparent"
+      size="roundedFull"
       onClick={onClick}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
       className={className}
       type="button"
-      data-component="MenuButton"
+      nameComponent="MenuButton"
     >
       <MenuIcon variant="default" size="md" />
     </Button>
