@@ -59,3 +59,7 @@ dist-ssr
 *.sw?
 .DS_Store
 Thumbs.db
+
+*storybook.log
+storybook-static
+.storybook/
