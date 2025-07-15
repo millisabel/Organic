@@ -1,14 +1,12 @@
 import Button from '@/components/ui/Button/Button';
 import SearchIcon from '@/components/ui/Icon/SearchIcon';
-
-type SearchButtonProps = React.ComponentPropsWithoutRef<typeof Button>;
+import type { SearchButtonProps } from '.';
 
 const SearchButton = ({ onClick, className }: SearchButtonProps) => {
   return (
     <Button
       variant="default"
-      size="squareLarge"
-      rounded="full"
+      size="circle"
       onClick={onClick}
       aria-label="Search"
       className={className}
