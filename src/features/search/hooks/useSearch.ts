@@ -14,12 +14,5 @@ export const useSearch = () => {
     [navigate],
   );
 
-  // const debouncedSearch = useCallback(
-  //   debounce((value: string) => {
-  //     navigate(`/shop?search=${encodeURIComponent(value)}`);
-  //   }, 300),
-  //   [navigate]
-  // );
-
   return { handleSearch, searchValue };
 };

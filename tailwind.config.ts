@@ -32,15 +32,14 @@ const config: Config = {
           star: '#FFA858',
           red: '#ae0505',
           arrow: '#335B6B',
+          cream: '#F1EDEA',
         },
         text: {
           DEFAULT: '#525C60',
           placeholder: '#ABABAB',
+          light: '#D4D4D4',
         },
         background: '#F9F8F8',
-        // arrowFill: '#335B6B',
-        // border: '#D4D4D4',
-        // cream: '#F1EDEA',
       },
       fontFamily: {
         sans: ['"Open Sans"', 'sans-serif'],

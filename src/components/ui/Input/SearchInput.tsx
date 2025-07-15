@@ -7,8 +7,8 @@ export interface SearchInputProps extends React.InputHTMLAttributes<HTMLInputEle
 }
 
 const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
-  ({ variant = 'search', inputSize = 'search', className, ...inputProps }, ref) => {
-    const inputClass = inputVariants({ variant, inputSize, className });
+  ({ variant = 'search', className, ...inputProps }, ref) => {
+    const inputClass = inputVariants({ variant, className });
 
     return (
       <input
