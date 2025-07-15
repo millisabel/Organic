@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/Button';
+import Button from '@/components/ui/Button/Button';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import Section from '../layout/sectionLayouts/Section';

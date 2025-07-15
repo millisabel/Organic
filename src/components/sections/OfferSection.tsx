@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button/Button';
 import productsData from '@/data/products.json';
 import type { VariantProps } from 'class-variance-authority';
 import { Link } from 'react-router-dom';

@@ -3,7 +3,7 @@ import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import HeroSection from '@/components/sections/HeroSection';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import CardList from '@/components/shared/CardList';
-import { Button } from '@/components/ui/Button';
+import Button from '@/components/ui/Button/Button';
 import ProductCard from '@/components/ui/Card/ProductCard';
 import { type ProductData } from '@/components/ui/Card/ProductCard/types';
 import productsData from '@/data/products.json';

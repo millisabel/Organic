@@ -1,7 +1,7 @@
-import { type IProduct } from '@/components/ui/Card/ProductCard/types';
+import { type ProductData } from '@/components/ui/Card/ProductCard/types';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-export interface CartItem extends IProduct {
+export interface CartItem extends ProductData {
   quantity: number;
 }
 
@@ -28,7 +28,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<{ product: IProduct; quantity: number }>) => {
+    addItem: (state, action: PayloadAction<{ product: ProductData; quantity: number }>) => {
       const { product, quantity } = action.payload;
       const existingItem = state.items.find((item) => item.id === product.id);
 

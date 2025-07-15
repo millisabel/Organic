@@ -6,7 +6,7 @@ export const navLinkVariants = cva(
     'relative',
     'block',
     'px-2 py-1',
-    'font-roboto text-navLink',
+    'font-roboto text-medium',
     'transition-colors duration-300 ease-in-out',
     'select-none',
   ],

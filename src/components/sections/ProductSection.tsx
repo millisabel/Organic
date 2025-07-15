@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
 // import ProductList from '../shared/ProductList';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button/Button';
 // import type { ProductData } from '../ui/Card/ProductCard/types';
 
 import productsData from '@/data/products.json';

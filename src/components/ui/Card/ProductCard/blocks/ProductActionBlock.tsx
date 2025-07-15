@@ -1,7 +1,7 @@
 import { Input } from '@/components/ui/Input';
 import AddToCartButton from '@/features/cart/components/buttons/AddToCartButton';
 import GoToCartButton from '@/features/cart/components/buttons/GoToCartButton';
-import TrashButton from '@/features/cart/components/buttons/TrashButton';
+import TrashButton from '@/features/cart/components/buttons/TrashButton/TrashButton';
 import type { ProductActionBlockProps } from '../types';
 
 const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
@@ -55,9 +55,7 @@ const ProductActionBlock: React.FC<ProductActionBlockProps> = ({
         {isInCart && (
           <TrashButton handleRemove={(e: React.MouseEvent<HTMLButtonElement>) => handleRemove(e)} />
         )}
-        {mode === 'shopSingle' && isInCart && (
-          <GoToCartButton mode={mode} variant="product" size="roundedSquare" />
-        )}
+        {mode === 'shopSingle' && isInCart && <GoToCartButton mode={mode} />}
       </div>
     </div>
   );

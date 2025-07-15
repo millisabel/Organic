@@ -1,6 +1,6 @@
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button/Button';
 
 import type { buttonVariants } from '@/components/ui/Button/variants';
 import type { VariantProps } from 'class-variance-authority';

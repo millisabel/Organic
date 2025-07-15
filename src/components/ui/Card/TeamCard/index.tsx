@@ -1,4 +1,4 @@
-import SocialButtonsList from '@/components/shared/Button/SocialButton';
+import SocialButtonsList from '@/components/shared/Button/SocialButton/SocialButton';
 import Card from '@/components/ui/Card';
 import type { TeamCardProps } from './types';
 

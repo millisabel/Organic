@@ -1,4 +1,4 @@
-import CloseButton from '@/components/shared/Button/CloseButton';
+import CloseButton from '@/components/shared/Button/CloseButton/CloseButton';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navigation from '../Navigation';
 import type { MobileMenuProps } from './types';
@@ -15,7 +15,7 @@ const MobileMenu = ({ isOpen, onClose, theme = 'light' }: MobileMenuProps) => {
           variants={mobileMenuVariants}
           className={mobileMenuStyles({ theme })}
         >
-          <CloseButton onClick={onClose} />
+          <CloseButton onClick={onClose} ariaLabel="Close menu" />
           <Navigation isMobile onLinkClick={onClose} />
         </motion.div>
       )}

@@ -1,4 +1,4 @@
-import MenuButton from '@/components/shared/Button/MenuButton';
+import MenuButton from '@/components/shared/Button/MenuButton/MenuButton';
 import Logo from '@/components/ui/Logo';
 import CartButton from '@/features/cart/components/buttons/CartButton';
 import { useCartTotal } from '@/features/cart/hooks/useCartTotal';

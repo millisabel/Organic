@@ -1,5 +1,5 @@
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button/Button';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import { Link } from 'react-router-dom';
 

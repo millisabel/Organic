@@ -1,6 +1,6 @@
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import FlipBannerCard from '@/components/shared/FlipBannerCard';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button/Button';
 import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import CheckIcon from '@/components/ui/Icon/CheckIcon';
 import { cn } from '@/utils/helpers';
