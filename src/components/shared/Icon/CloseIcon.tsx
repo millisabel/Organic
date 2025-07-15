@@ -1,4 +1,4 @@
-import Icon from '@/components/ui/Icon/Icon';
+import { Icon } from '@/components/ui/Icon';
 
 const CloseIcon = (props: React.ComponentProps<typeof Icon>) => {
   return (
