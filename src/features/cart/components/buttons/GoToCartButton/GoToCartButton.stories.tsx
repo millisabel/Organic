@@ -5,7 +5,7 @@ export default {
   title: 'Features/Cart/GoToCartButton',
   component: GoToCartButton,
   decorators: [
-    (Story: any) => (
+    (Story: React.ComponentType) => (
       <MemoryRouter>
         <Story />
       </MemoryRouter>
