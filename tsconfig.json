@@ -13,6 +13,8 @@
     },
     "moduleResolution": "bundler",
     "strict": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   }
 }

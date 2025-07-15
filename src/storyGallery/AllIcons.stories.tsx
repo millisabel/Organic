@@ -14,6 +14,7 @@ import StarIcon from '@/components/shared/Icon/StarIcon';
 import TrashIcon from '@/components/shared/Icon/TrashIcon';
 import UserIcon from '@/components/shared/Icon/UserIcon';
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
+import LogoIcon from '@/components/shared/Icon/LogoIcon';
 
 export default {
   title: 'StoryGallery/AllIcons',
@@ -117,6 +118,10 @@ export const GalleryIcons = () => (
               <li className={styles.itemContainer}>
                 <h5 className={styles.itemTitle}>ArrowIcon</h5>
                 <ArrowIcon />
+              </li>
+              <li className={styles.itemContainer}>
+                <h5 className={styles.itemTitle}>LogoIcon</h5>
+                <LogoIcon />
               </li>
             </ul>
             <h4 className={styles.sectionSubtitle2}>Social</h4>
