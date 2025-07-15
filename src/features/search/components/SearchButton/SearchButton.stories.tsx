@@ -5,4 +5,4 @@ export default {
   component: SearchButton,
 };
 
-export const Default = () => <SearchButton />;
+export const SearchButtonDefault = () => <SearchButton />;

@@ -1,8 +1,8 @@
-import Icon from '@/components/ui/Icon';
+import Icon from '@/components/ui/Icon/Icon';
 import React from 'react';
 
 const SearchIcon = (props: React.ComponentProps<typeof Icon>) => (
-  <Icon {...props} data-component="SearchIcon">
+  <Icon {...props} nameComponent="SearchIcon">
     <path
       strokeLinecap="round"
       strokeLinejoin="round"

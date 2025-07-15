@@ -1,4 +1,4 @@
-import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
+import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import Button from './Button';
 
 export default {
@@ -6,50 +6,50 @@ export default {
   component: Button,
 };
 
-export const Default = () => <Button variant="default">Default Button</Button>;
-export const Disabled = () => (
+export const VariantDefault = () => <Button variant="default">Default Button</Button>;
+export const VariantDisabled = () => (
   <Button disabled state="disabled">
     Disabled Button
   </Button>
 );
-export const Outline = () => <Button variant="outline">Outline Button</Button>;
-export const Accent = () => <Button variant="accent">Accent Button</Button>;
-export const Transparent = () => <Button variant="transparent">Transparent Button</Button>;
-export const Close = () => <Button variant="close">Close Button</Button>;
-export const Red = () => <Button variant="red">Trash Button</Button>;
-export const WithIcon = () => (
+export const VariantOutline = () => <Button variant="outline">Outline Button</Button>;
+export const VariantAccent = () => <Button variant="accent">Accent Button</Button>;
+export const VariantTransparent = () => <Button variant="transparent">Transparent Button</Button>;
+export const VariantClose = () => <Button variant="close">Close Button</Button>;
+export const VariantRed = () => <Button variant="red">Trash Button</Button>;
+export const ButtonWithIcon = () => (
   <Button variant="default">
     Button with ArrowIcon
     <ArrowIcon className="mr-2" />
   </Button>
 );
-export const SizeCompact = () => (
+export const ButtonSizeCompact = () => (
   <Button variant="default" size="compact">
     compact
   </Button>
 );
-export const SizeEllipse = () => (
+export const ButtonSizeEllipse = () => (
   <Button variant="default" size="ellipse">
     ellipse
   </Button>
 );
-export const SizeSquare = () => (
+export const ButtonSizeSquare = () => (
   <Button variant="default" size="square">
     square
   </Button>
 );
-export const SizeCircle = () => (
+export const ButtonSizeCircle = () => (
   <Button variant="default" size="circle">
     circle
   </Button>
 );
 
-export const StateLoading = () => (
+export const ButtonStateLoading = () => (
   <Button variant="default" state="loading">
     loading
   </Button>
 );
-export const StateSuccess = () => (
+export const ButtonStateSuccess = () => (
   <Button variant="default" state="success">
     success
   </Button>

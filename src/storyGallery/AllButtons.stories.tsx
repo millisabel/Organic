@@ -1,14 +1,51 @@
-import MenuButton from '../components/shared/Button/MenuButton/MenuButton';
-import CloseButton from '../components/shared/Button/CloseButton/CloseButton';
-import SocialButton from '../components/shared/Button/SocialButton/SocialButton';
-import Button from '@/components/ui/Button/Button';
-import SearchButton from '@/features/search/components/SearchButton';
-import CartButton from '@/features/cart/components/buttons/CartButton';
 import { MemoryRouter } from 'react-router-dom';
-import AddToCartButton from '@/features/cart/components/buttons/AddToCartButton';
-import GoToCartButton from '@/features/cart/components/buttons/GoToCartButton';
-import TrashButton from '@/features/cart/components/buttons/TrashButton/TrashButton';
 import { styles } from './variants';
+import {
+  VariantDefault,
+  VariantDisabled,
+  VariantOutline,
+  VariantAccent,
+  VariantTransparent,
+  VariantClose,
+  VariantRed,
+  ButtonWithIcon,
+  ButtonSizeEllipse,
+  ButtonSizeSquare,
+  ButtonSizeCircle,
+  ButtonSizeCompact,
+  ButtonStateLoading,
+  ButtonStateSuccess,
+} from '@/components/ui/Button/Button.stories';
+import { MenuClose, MenuOpen } from '@/components/shared/Button/MenuButton/MenuButton.stories';
+import {
+  ButtonFacebook,
+  ButtonFacebookWithCustomClass,
+  ButtonInstagram,
+  ButtonPinterest,
+  ButtonTwitter,
+} from '@/components/shared/Button/SocialButton/SocialButton.stories';
+import {
+  AddToCartButtonDefault,
+  AddToCartButtonInCart,
+  AddToCartButtonLoading,
+  AddToCartButtonOutOfStock,
+} from '@/features/cart/components/buttons/AddToCartButton/AddToCartButton.stories';
+import {
+  CartButtonDefault,
+  CartButtonWithCount,
+} from '@/features/cart/components/buttons/CartButton/CartButton.stories';
+import {
+  GoToCartButtonDefault,
+  GoToCartButtonShopSingle,
+  GoToCartButtonShopCompact,
+} from '@/features/cart/components/buttons/GoToCartButton/GoToCartButton.stories';
+import {
+  FloatingCartButtonVisualDesktop,
+  FloatingCartButtonVisualMobile,
+} from '@/features/cart/components/buttons/FloatingCartButton/FloatingCartButton.stories';
+import { TrashButtonDefault } from '@/features/cart/components/buttons/TrashButton/TrashButton.stories';
+import { SearchButtonDefault } from '@/features/search/components/SearchButton/SearchButton.stories';
+import { CloseButtonDefault } from '@/components/shared/Button/CloseButton/CloseButton.stories';
 
 export default {
   title: 'StoryGallery/AllButtons',
@@ -21,63 +58,112 @@ export default {
   ],
 };
 
-export const Gallery = () => (
+export const ButtonsGallery = () => (
   <main>
     {/* Components */}
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>COMPONENTS/</h2>
-      {/* UI */}
       <article>
-        <h3 className={styles.sectionSubtitle}>UI</h3>
+        <h3 className={styles.sectionSubtitle}>UI/</h3>
         <div>
-          <h4 className={styles.sectionSubtitle2}>Button</h4>
-          <p className={styles.sectionDescription}>Components/ui/Button/variants.ts</p>
-          <div className={styles.contentContainer}>
-            <Button variant="default">Default</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="accent">Accent</Button>
-            <Button variant="transparent">Transparent</Button>
-            <Button variant="close">Close</Button>
-            <Button variant="red">Red</Button>
+          <h4 className={styles.sectionSubtitle2}>Button/</h4>
+          <div>
+            <p className={styles.sectionDescription}>Components/ui/Button/variants.ts</p>
+            <ul className={styles.listRow}>
+              <li className={styles.itemContainer}>
+                <VariantDefault />
+              </li>
+              <li className={styles.itemContainer}>
+                <VariantDisabled />
+              </li>
+              <li className={styles.itemContainer}>
+                <VariantOutline />
+              </li>
+              <li className={styles.itemContainer}>
+                <VariantAccent />
+              </li>
+              <li className={styles.itemContainer}>
+                <VariantTransparent />
+              </li>
+              <li className={styles.itemContainer}>
+                <VariantClose />
+              </li>
+              <li className={styles.itemContainer}>
+                <VariantRed />
+              </li>
+              <li className={styles.itemContainer}>
+                <ButtonWithIcon />
+              </li>
+              <li className={styles.itemContainer}>
+                <ButtonSizeCompact />
+              </li>
+              <li className={styles.itemContainer}>
+                <ButtonSizeEllipse />
+              </li>
+              <li className={styles.itemContainer}>
+                <ButtonSizeSquare />
+              </li>
+              <li className={styles.itemContainer}>
+                <ButtonSizeCircle />
+              </li>
+              <li className={styles.itemContainer}>
+                <ButtonStateLoading />
+              </li>
+              <li className={styles.itemContainer}>
+                <ButtonStateSuccess />
+              </li>
+            </ul>
           </div>
         </div>
       </article>
       {/* Shared */}
       <article>
         <h3 className={styles.sectionSubtitle}>Shared</h3>
-        {/* Social Button */}
         <div>
-          <h4 className={styles.sectionSubtitle2}>Social Button</h4>
-          <p className={styles.sectionDescription}>Components/shared/Button/SocialButton.tsx</p>
-          <div className={styles.contentContainer}>
-            <SocialButton type="facebook" href="https://facebook.com" />
-            <SocialButton type="instagram" href="https://www.instagram.com" />
-            <SocialButton type="twitter" href="https://www.twitter.com" />
-            <SocialButton type="pinterest" href="https://www.pinterest.com" />
-            <SocialButton
-              type="facebook"
-              href="https://www.facebook.com"
-              className="text-red-500 bg-primary"
-            />
-          </div>
-        </div>
-        {/* Menu Button */}
-        <div>
-          <h4 className={styles.sectionSubtitle2}>Menu Button</h4>
-          <p className={styles.sectionDescription}>Components/shared/Button/MenuButton.tsx</p>
-          <div className={styles.contentContainer}>
-            <MenuButton isOpen={false} onClick={() => {}} />
-          </div>
-        </div>
-        {/* Close Button */}
-        <div>
-          <h4 className={styles.sectionSubtitle2}>Close Button</h4>
-          <p className={styles.sectionDescription}>Components/shared/Button/CloseButton.tsx</p>
-          <div
-            className={styles.contentContainer}
-            style={{ position: 'relative', height: '100px' }}
-          >
-            <CloseButton onClick={() => {}} />
+          <h4 className={styles.sectionSubtitle2}>Button/</h4>
+          <p className={styles.sectionDescription}>Components/shared/Button/</p>
+          <ul className={styles.listRow}>
+            <li className={styles.itemContainer}>
+              <ul className={styles.listRow}>
+                <li className={styles.itemContainer}>
+                  <MenuClose />
+                  <p className={styles.itemTitle}>MenuClose</p>
+                </li>
+                <li className={styles.itemContainer}>
+                  <MenuOpen />
+                  <p className={styles.itemTitle}>MenuOpen</p>
+                </li>
+              </ul>
+              <p className={styles.itemTitle}>MenuButton</p>
+            </li>
+            <li className={styles.itemContainer} style={{ position: 'relative' }}>
+              <CloseButtonDefault />
+              <p className={`${styles.itemTitle}`}>CloseButtonDefault</p>
+            </li>
+          </ul>
+          <div>
+            <h5 className={styles.sectionSubtitle3}>Social/</h5>
+            <div>
+              <p className={styles.sectionDescription}>Components/shared/Button/SocialButton</p>
+              <ul className={styles.listRow}>
+                <li className={styles.itemContainer}>
+                  <ButtonFacebook />
+                </li>
+                <li className={styles.itemContainer}>
+                  <ButtonInstagram />
+                </li>
+                <li className={styles.itemContainer}>
+                  <ButtonTwitter />
+                </li>
+                <li className={styles.itemContainer}>
+                  <ButtonPinterest />
+                </li>
+                <li className={styles.itemContainer}>
+                  <ButtonFacebookWithCustomClass />
+                  <p className={styles.itemTitle}>className="text-red-500 bg-primary"</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
@@ -87,85 +173,111 @@ export const Gallery = () => (
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>FEATURES/</h2>
       <article>
-        {/* Cart */}
         <h3 className={styles.sectionSubtitle}>Cart</h3>
-        {/* CartButton */}
         <div>
-          <h4 className={styles.sectionSubtitle2}>CartButton</h4>
-          <p className={styles.sectionDescription}>
-            features/cart/components/buttons/CartButton.tsx
-          </p>
-          <div className={styles.contentContainer}>
-            <CartButton count={0} />
-            <CartButton count={10} />
+          <h4 className={styles.sectionSubtitle2}>Button</h4>
+          <div>
+            <h5 className={styles.sectionSubtitle3}>CartButton</h5>
+            <p className={styles.sectionDescription}>
+              features/cart/components/buttons/CartButton.tsx
+            </p>
+            <ul className={styles.listRow}>
+              <li className={styles.itemContainer}>
+                <CartButtonDefault />
+                <p className={styles.itemTitle}>count={0}</p>
+              </li>
+              <li className={styles.itemContainer}>
+                <CartButtonWithCount />
+                <p className={styles.itemTitle}>count={10}</p>
+              </li>
+            </ul>
           </div>
-        </div>
-        {/* AddToCartButton */}
-        <div>
-          <h4 className={styles.sectionSubtitle2}>AddToCartButton</h4>
-          <p className={styles.sectionDescription}>
-            features/cart/components/buttons/AddToCartButton.tsx
-          </p>
-          <div className={styles.contentContainer}>
-            <AddToCartButton
-              isInCart={false}
-              isLoading={false}
-              isOutOfStock={false}
-              onClick={() => {}}
-            />
-            <AddToCartButton
-              isInCart={true}
-              isLoading={false}
-              isOutOfStock={false}
-              onClick={() => {}}
-            />
-            <AddToCartButton
-              isInCart={false}
-              isLoading={false}
-              isOutOfStock={true}
-              onClick={() => {}}
-            />
-            <AddToCartButton
-              isInCart={false}
-              isLoading={true}
-              isOutOfStock={false}
-              onClick={() => {}}
-            />
+          <div>
+            <h5 className={styles.sectionSubtitle3}>AddToCartButton</h5>
+            <p className={styles.sectionDescription}>
+              features/cart/components/buttons/AddToCartButton.tsx
+            </p>
+            <ul className={styles.listRow}>
+              <li className={styles.itemContainer}>
+                <AddToCartButtonDefault />
+                <p className={styles.itemTitle}>Default</p>
+              </li>
+              <li className={styles.itemContainer}>
+                <AddToCartButtonInCart />
+                <p className={styles.itemTitle}>isInCart="true"</p>
+              </li>
+              <li className={styles.itemContainer}>
+                <AddToCartButtonOutOfStock />
+                <p className={styles.itemTitle}>isOutOfStock="true"</p>
+              </li>
+              <li className={styles.itemContainer}>
+                <AddToCartButtonLoading />
+                <p className={styles.itemTitle}>isLoading="true"</p>
+              </li>
+            </ul>
           </div>
-        </div>
-        {/* GoToCartButton */}
-        <div>
-          <h4 className={styles.sectionSubtitle2}>GoToCartButton</h4>
-          <p className={styles.sectionDescription}>
-            features/cart/components/buttons/GoToCartButton.tsx
-          </p>
-          <div className={styles.contentContainer}>
-            <GoToCartButton mode="shopSingle" />
-            <GoToCartButton mode="shopCompact" />
+          <div>
+            <h5 className={styles.sectionSubtitle3}>GoToCartButton</h5>
+            <p className={styles.sectionDescription}>
+              features/cart/components/buttons/GoToCartButton.tsx
+            </p>
+            <ul className={styles.listRow}>
+              <li className={styles.itemContainer}>
+                <GoToCartButtonDefault />
+                <p className={styles.itemTitle}>Default</p>
+              </li>
+              <li className={styles.itemContainer}>
+                <GoToCartButtonShopSingle />
+                <p className={styles.itemTitle}>mode="shopSingle"</p>
+              </li>
+              <li className={styles.itemContainer}>
+                <GoToCartButtonShopCompact />
+                <p className={styles.itemTitle}>mode="shopCompact"</p>
+              </li>
+            </ul>
           </div>
-        </div>
-        {/* TrashButton */}
-        <div>
-          <h4 className={styles.sectionSubtitle2}>TrashButton</h4>
-          <p className={styles.sectionDescription}>
-            features/cart/components/buttons/TrashButton.tsx
-          </p>
-          <div className={styles.contentContainer}>
-            <TrashButton handleRemove={() => {}} />
+          <div>
+            <h5 className={styles.sectionSubtitle3}>TrashButton</h5>
+            <p className={styles.sectionDescription}>
+              features/cart/components/buttons/TrashButton.tsx
+            </p>
+            <ul className={styles.listRow}>
+              <li className={styles.itemContainer}>
+                <TrashButtonDefault />
+                <p className={styles.itemTitle}>Default</p>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 className={styles.sectionSubtitle3}>FloatingCartButton</h5>
+            <p className={styles.sectionDescription}>
+              features/cart/components/buttons/FloatingCartButton.tsx
+            </p>
+            <ul className={styles.listRow}>
+              <li className={styles.itemContainer}>
+                <FloatingCartButtonVisualDesktop />
+                <p className={styles.itemTitle}>Desktop</p>
+              </li>
+              <li className={styles.itemContainer}>
+                <FloatingCartButtonVisualMobile />
+                <p className={styles.itemTitle}>Mobile</p>
+              </li>
+            </ul>
           </div>
         </div>
       </article>
 
-      {/* Search */}
       <article>
         <h3 className={styles.sectionSubtitle}>Search</h3>
-        {/* SearchButton */}
         <div>
           <h4 className={styles.sectionSubtitle2}>SearchButton</h4>
           <p className={styles.sectionDescription}>features/search/components/SearchButton.tsx</p>
-          <div className={styles.contentContainer}>
-            <SearchButton />
-          </div>
+          <ul className={styles.listRow}>
+            <li className={styles.itemContainer}>
+              <SearchButtonDefault />
+              <p className={styles.itemTitle}>Default</p>
+            </li>
+          </ul>
         </div>
       </article>
     </section>

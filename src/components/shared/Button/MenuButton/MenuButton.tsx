@@ -1,5 +1,5 @@
 import Button from '@/components/ui/Button/Button';
-import MenuIcon from '@/components/ui/Icon/MenuIcon';
+import MenuIcon from '@/components/shared/Icon/MenuIcon';
 import { type MenuButtonProps } from '.';
 
 const MenuButton = ({ isOpen, onClick, className }: MenuButtonProps) => {
@@ -13,7 +13,7 @@ const MenuButton = ({ isOpen, onClick, className }: MenuButtonProps) => {
       type="button"
       nameComponent="MenuButton"
     >
-      <MenuIcon variant="default" size="md" />
+      <MenuIcon />
     </Button>
   );
 };

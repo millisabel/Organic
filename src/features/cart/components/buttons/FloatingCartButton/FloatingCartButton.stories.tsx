@@ -1,6 +1,6 @@
+import CartIcon from '@/components/shared/Icon/CartIcon';
 import CartCountBadge from '@/components/ui/Badge/CartCountBadge';
 import Button from '@/components/ui/Button';
-import CartIcon from '@/components/ui/Icon/CartIcon';
 
 export default {
   title: 'Features/Cart/FloatingCartButton/VisualOnly',
@@ -9,16 +9,16 @@ export default {
 
 let isMobile = false;
 
-export const VisualDesktop = () => (
+export const FloatingCartButtonVisualDesktop = () => (
   <Button
     variant="default"
     size="ellipse"
     aria-label={`Open cart 4 items)`}
     nameComponent="FloatingCartButton"
   >
-    <div>
-      <span className="relative flex items-center justify-center">
-        <CartIcon viewBox="0 0 27 24" size="lg" />
+    <div className="flex flex-row items-center justify-center gap-2">
+      <span className="relative">
+        <CartIcon size="lg" />
         <CartCountBadge count={4} />
       </span>
       {!isMobile && <span className="ml-2">$200.00</span>}
@@ -26,16 +26,16 @@ export const VisualDesktop = () => (
   </Button>
 );
 
-export const VisualMobile = () => (
+export const FloatingCartButtonVisualMobile = () => (
   <Button
     variant="default"
     size="ellipse"
     aria-label={`Open cart 4 items)`}
     nameComponent="FloatingCartButton"
   >
-    <div>
-      <span className="relative flex items-center justify-center">
-        <CartIcon viewBox="0 0 27 24" size="lg" />
+    <div className="flex flex-row items-center justify-center gap-2">
+      <span className="relative">
+        <CartIcon size="lg" />
         <CartCountBadge count={4} />
       </span>
       {isMobile && <span className="ml-2">$200.00</span>}

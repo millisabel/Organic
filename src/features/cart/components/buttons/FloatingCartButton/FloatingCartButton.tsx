@@ -1,6 +1,6 @@
+import CartIcon from '@/components/shared/Icon/CartIcon';
 import CartCountBadge from '@/components/ui/Badge/CartCountBadge';
 import Button from '@/components/ui/Button/Button';
-import CartIcon from '@/components/ui/Icon/CartIcon';
 import { useElementVisibility } from '@/hooks/useElementVisibility';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { useAppSelector } from '@/store/hooks';
@@ -55,7 +55,7 @@ const FloatingCartButton = ({ className }: { className?: string }) => {
             style={{ display: 'flex', alignItems: 'center' }}
           >
             <span className="relative flex items-center justify-center">
-              <CartIcon viewBox="0 0 27 24" size="lg" />
+              <CartIcon size="lg" />
               <motion.div
                 key={totalCount}
                 initial={{ scale: 0.8, opacity: 0 }}

@@ -5,15 +5,15 @@ export default {
   component: AddToCartButton,
 };
 
-export const Default = () => (
+export const AddToCartButtonDefault = () => (
   <AddToCartButton isInCart={false} isLoading={false} isOutOfStock={false} onClick={() => {}} />
 );
-export const InCart = () => (
+export const AddToCartButtonInCart = () => (
   <AddToCartButton isInCart={true} isLoading={false} isOutOfStock={false} onClick={() => {}} />
 );
-export const OutOfStock = () => (
+export const AddToCartButtonOutOfStock = () => (
   <AddToCartButton isInCart={false} isLoading={false} isOutOfStock={true} onClick={() => {}} />
 );
-export const Loading = () => (
+export const AddToCartButtonLoading = () => (
   <AddToCartButton isInCart={false} isLoading={true} isOutOfStock={false} onClick={() => {}} />
 );

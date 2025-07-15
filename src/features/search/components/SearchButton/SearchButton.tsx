@@ -1,5 +1,5 @@
 import Button from '@/components/ui/Button/Button';
-import SearchIcon from '@/components/ui/Icon/SearchIcon';
+import SearchIcon from '@/components/shared/Icon/SearchIcon';
 import type { SearchButtonProps } from '.';
 
 const SearchButton = ({ onClick, className }: SearchButtonProps) => {

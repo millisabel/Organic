@@ -1,6 +1,6 @@
 import { cn } from '@/utils/helpers';
 import type { AuthorDisplayProps } from './authorDisplay.types';
-import UserIcon from '@/components/ui/Icon/UserIcon';
+import UserIcon from '@/components/shared/Icon/UserIcon';
 
 const AuthorDisplay = ({ author, className, iconClassName }: AuthorDisplayProps) => {
   return (

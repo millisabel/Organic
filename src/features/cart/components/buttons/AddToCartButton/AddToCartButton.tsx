@@ -1,5 +1,5 @@
 import Button from '@/components/ui/Button/Button';
-import SpinnerIcon from '@/components/ui/Icon/SpinnerIcon';
+import SpinnerIcon from '@/components/shared/Icon/SpinnerIcon';
 import type { AddToCartButtonProps } from '.';
 
 const AddToCartButton = ({ isInCart, isLoading, isOutOfStock, onClick }: AddToCartButtonProps) => {
@@ -23,7 +23,7 @@ const AddToCartButton = ({ isInCart, isLoading, isOutOfStock, onClick }: AddToCa
       aria-label={buttonText}
       nameComponent="AddToCartButton"
     >
-      {isLoading ? <SpinnerIcon variant="spinner" /> : buttonText}
+      {isLoading ? <SpinnerIcon /> : buttonText}
     </Button>
   );
 };

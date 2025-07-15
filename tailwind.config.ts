@@ -31,6 +31,7 @@ const config: Config = {
           DEFAULT: '#EFD372',
           star: '#FFA858',
           red: '#ae0505',
+          arrow: '#335B6B',
         },
         text: {
           DEFAULT: '#525C60',

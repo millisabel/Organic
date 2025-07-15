@@ -13,6 +13,6 @@ export default {
   ],
 };
 
-export const Default = () => <GoToCartButton />;
-export const ShopSingle = () => <GoToCartButton mode="shopSingle" />;
-export const ShopCompact = () => <GoToCartButton mode="shopCompact" />;
+export const GoToCartButtonDefault = () => <GoToCartButton />;
+export const GoToCartButtonShopSingle = () => <GoToCartButton mode="shopSingle" />;
+export const GoToCartButtonShopCompact = () => <GoToCartButton mode="shopCompact" />;

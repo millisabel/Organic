@@ -5,7 +5,7 @@ export default {
   component: CloseButton,
 };
 
-export const Default = () => (
+export const CloseButtonDefault = () => (
   <div className="relative p-4">
     <CloseButton onClick={() => {}} />
   </div>

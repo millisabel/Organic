@@ -5,4 +5,4 @@ export default {
   component: TrashButton,
 };
 
-export const Default = () => <TrashButton handleRemove={() => {}} />;
+export const TrashButtonDefault = () => <TrashButton handleRemove={() => {}} />;

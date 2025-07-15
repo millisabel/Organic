@@ -1,5 +1,5 @@
-import StarIcon from '../../Icon/StarIcon';
 import Card from '@/components/ui/Card';
+import StarIcon from '../../../shared/Icon/StarIcon';
 import type { ReviewCardProps } from './types';
 
 const ReviewCard = ({ name, job, text, rating, image }: ReviewCardProps) => {

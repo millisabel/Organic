@@ -5,11 +5,17 @@ export default {
   component: SocialButton,
 };
 
-export const facebook = () => <SocialButton type="facebook" href="https://www.facebook.com" />;
-export const instagram = () => <SocialButton type="instagram" href="https://www.instagram.com" />;
-export const twitter = () => <SocialButton type="twitter" href="https://www.twitter.com" />;
-export const pinterest = () => <SocialButton type="pinterest" href="https://www.pinterest.com" />;
-export const facebookWithCustomClass = () => (
+export const ButtonFacebook = () => (
+  <SocialButton type="facebook" href="https://www.facebook.com" />
+);
+export const ButtonInstagram = () => (
+  <SocialButton type="instagram" href="https://www.instagram.com" />
+);
+export const ButtonTwitter = () => <SocialButton type="twitter" href="https://www.twitter.com" />;
+export const ButtonPinterest = () => (
+  <SocialButton type="pinterest" href="https://www.pinterest.com" />
+);
+export const ButtonFacebookWithCustomClass = () => (
   <SocialButton
     type="facebook"
     href="https://www.facebook.com"

@@ -1,6 +1,6 @@
 import Button from '@/components/ui/Button/Button';
 import React from 'react';
-import TrashIcon from '../../../../../components/ui/Icon/TrashIcon';
+import TrashIcon from '../../../../../components/shared/Icon/TrashIcon';
 import type { TrashButtonProps } from './types';
 
 const TrashButton: React.FC<TrashButtonProps> = ({ handleRemove }) => (

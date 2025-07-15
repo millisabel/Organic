@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import Button from '@/components/ui/Button/Button';
-import CloseIcon from '@/components/ui/Icon/CloseIcon';
+import CloseIcon from '@/components/shared/Icon/CloseIcon';
 import { cn } from '@/utils/helpers';
 import type { CloseButtonProps } from '.';
 

@@ -1,8 +1,8 @@
+import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
+import CartIcon from '@/components/shared/Icon/CartIcon';
 import Button from '@/components/ui/Button/Button';
-import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CartIcon from '@/components/ui/Icon/CartIcon';
 import type { GoToCartButtonProps } from '.';
 
 const GoToCartButton: React.FC<GoToCartButtonProps> = ({ mode = 'shopCompact' }) => {
@@ -15,9 +15,7 @@ const GoToCartButton: React.FC<GoToCartButtonProps> = ({ mode = 'shopCompact' })
         }}
       >
         <>
-          {mode === 'shopSingle' && (
-            <CartIcon viewBox="0 0 27 24" className="w-5 h-5 mr-2" variant="default" />
-          )}
+          {mode === 'shopSingle' && <CartIcon />}
           {mode === 'shopCompact' && (
             <>
               <span className="ml-2">Go to Cart</span>

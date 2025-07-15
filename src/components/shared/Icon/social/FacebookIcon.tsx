@@ -1,8 +1,8 @@
-import Icon from '@/components/ui/Icon';
+import Icon from '@/components/ui/Icon/Icon';
 import React from 'react';
 
 const FacebookIcon = (props: React.ComponentProps<typeof Icon>) => (
-  <Icon {...props} data-component="FacebookIcon">
+  <Icon {...props} nameComponent="FacebookIcon">
     <path
       fillRule="evenodd"
       clipRule="evenodd"
