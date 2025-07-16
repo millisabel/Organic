@@ -1,4 +1,4 @@
-import { StatusBadge, type StatusBadgeProps } from '.';
+import StatusBadge, { type StatusBadgeProps } from '.';
 
 export default {
   title: 'Badge/Components/UI/StatusBadge',

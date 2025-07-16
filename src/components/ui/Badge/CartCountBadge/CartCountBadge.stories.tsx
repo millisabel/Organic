@@ -1,4 +1,4 @@
-import { CartCountBadge, type CartCountBadgeProps } from '.';
+import CartCountBadge, { type CartCountBadgeProps } from '.';
 
 export default {
   title: 'Badge/Components/UI/CartCountBadge',

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { cn } from '@/utils/helpers';
-import { Input } from '@/components/ui/Input';
-import { Label } from '@/components/ui/Label';
+import Input from '@/components/ui/Input';
+import Label from '@/components/ui/Label';
 import type { SearchInputProps } from '.';
 
 const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(

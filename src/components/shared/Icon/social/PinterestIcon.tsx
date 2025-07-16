@@ -1,4 +1,4 @@
-import { Icon } from '@/components/ui/Icon';
+import Icon from '@/components/ui/Icon';
 import React from 'react';
 
 const PinterestIcon = (props: React.ComponentProps<typeof Icon>) => (

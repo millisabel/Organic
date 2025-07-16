@@ -1,2 +1,2 @@
-export { default as SearchInput } from './SearchInput';
+export { default } from './SearchInput';
 export type { SearchInputProps } from './types';

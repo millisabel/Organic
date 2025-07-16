@@ -1,7 +1,7 @@
 import newsletterBg from '@assets/images/backgrounds/newslatteer.webp';
 
-import { Button } from '@/components/ui/Button/Button';
-import { Input } from '@components/ui/Input';
+import Button from '@/components/ui/Button';
+import Input from '@components/ui/Input';
 import Modal from '@components/ui/Modal';
 import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';

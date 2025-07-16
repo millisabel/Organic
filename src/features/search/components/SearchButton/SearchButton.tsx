@@ -1,4 +1,4 @@
-import Button from '@/components/ui/Button/Button';
+import Button from '@/components/ui/Button';
 import SearchIcon from '@/components/shared/Icon/SearchIcon';
 import type { SearchButtonProps } from '.';
 

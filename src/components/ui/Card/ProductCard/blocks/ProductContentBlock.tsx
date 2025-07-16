@@ -1,5 +1,5 @@
 import ProductPrice from '@/components/ui/Card/ProductCard/blocks/ProductPrice';
-import { Rating } from '@/components/ui/Rating';
+import Rating from '@/components/ui/Rating';
 import type { cardView } from '@/components/ui/Card/ProductCard/types';
 import HeaderContent from '@/components/shared/HeaderContent';
 

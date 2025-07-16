@@ -1,5 +1,5 @@
 import CartIcon from '@/components/shared/Icon/CartIcon';
-import { CartCountBadge } from '@/components/ui/Badge/CartCountBadge';
+import CartCountBadge from '@/components/ui/Badge/CartCountBadge';
 import Button from '@/components/ui/Button';
 
 export default {

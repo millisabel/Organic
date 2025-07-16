@@ -1,6 +1,6 @@
 import { cn } from '@/utils/helpers';
-import { SearchButton } from '../SearchButton';
-import { SearchInput } from '../SearchInput';
+import SearchButton from '../SearchButton';
+import SearchInput from '../SearchInput';
 import type { SearchBarProps } from '.';
 
 const SearchBar = ({ className, id, ...props }: SearchBarProps) => {

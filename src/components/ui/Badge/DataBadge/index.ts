@@ -1,2 +1,2 @@
-export { default as DataBadge } from './DataBadge';
+export { default } from './DataBadge';
 export type { DataBadgeProps } from './types';

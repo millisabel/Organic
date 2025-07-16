@@ -1,4 +1,4 @@
-import Button from '@/components/ui/Button/Button';
+import Button from '@/components/ui/Button';
 import SpinnerIcon from '@/components/shared/Icon/SpinnerIcon';
 import type { AddToCartButtonProps } from '.';
 

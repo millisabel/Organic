@@ -1,6 +1,6 @@
 import CartIcon from '@/components/shared/Icon/CartIcon';
-import CartCountBadge from '@/components/ui/Badge/CartCountBadge/CartCountBadge';
-import Button from '@/components/ui/Button/Button';
+import CartCountBadge from '@/components/ui/Badge/CartCountBadge';
+import Button from '@/components/ui/Button';
 import { cn } from '@/utils/helpers';
 import { Link } from 'react-router-dom';
 import type { CartButtonProps } from '.';

@@ -3,7 +3,7 @@ import { useOnClickOutside } from '@hooks/useOnClickOutside';
 import type { FC } from 'react';
 import { useRef } from 'react';
 import ModalBody from './components/ModalBody/ModalBody';
-import { ModalWrap } from './components/ModalWrap';
+import ModalWrap from './components/ModalWrap/ModalWrap';
 import type { ModalProps } from './types';
 
 const Modal: FC<ModalProps> = ({

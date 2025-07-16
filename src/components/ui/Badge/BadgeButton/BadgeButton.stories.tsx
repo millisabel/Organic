@@ -1,4 +1,4 @@
-import { BadgeButton, type BadgeButtonProps } from '.';
+import BadgeButton, { type BadgeButtonProps } from '.';
 
 export default {
   title: 'Badge/Components/UI/BadgeButton',

@@ -1,6 +1,6 @@
 import CartIcon from '@/components/shared/Icon/CartIcon';
-import { CartCountBadge } from '@/components/ui/Badge/CartCountBadge';
-import Button from '@/components/ui/Button/Button';
+import CartCountBadge from '@/components/ui/Badge/CartCountBadge';
+import Button from '@/components/ui/Button';
 import { useElementVisibility } from '@/hooks/useElementVisibility';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { useAppSelector } from '@/store/hooks';

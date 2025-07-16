@@ -1,9 +1,9 @@
+import { storyGalleryVariants } from './variants';
 import CartIcon from '@/components/shared/Icon/CartIcon';
 import CheckIcon from '@/components/shared/Icon/CheckIcon';
 import CloseIcon from '@/components/shared/Icon/CloseIcon';
 import FacebookIcon from '@/components/shared/Icon/social/FacebookIcon';
 import Icon from '@/components/ui/Icon/Icon';
-import { storyGalleryVariants } from './variants';
 import InstagramIcon from '@/components/shared/Icon/social/InstagramIcon';
 import PinterestIcon from '@/components/shared/Icon/social/PinterestIcon';
 import TwitterIcon from '@/components/shared/Icon/social/TwitterIcon';

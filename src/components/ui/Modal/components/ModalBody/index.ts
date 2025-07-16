@@ -1,2 +1,2 @@
-export { default as ModalBody } from './ModalBody';
+export { default } from './ModalBody';
 export type { ModalBodyProps } from './types';

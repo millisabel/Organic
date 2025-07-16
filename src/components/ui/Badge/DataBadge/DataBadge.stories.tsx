@@ -1,4 +1,4 @@
-import { DataBadge, type DataBadgeProps } from '.';
+import DataBadge, { type DataBadgeProps } from '.';
 
 export default {
   title: 'Badge/Components/UI/DataBadge',
