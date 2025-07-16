@@ -11,7 +11,7 @@ const iconBaseClasses = [
 export const iconVariants = cva(iconBaseClasses, {
   variants: {
     variant: {
-      default: 'p-1',
+      default: '',
       arrow: 'p-1 rounded-full bg-accent-arrow text-white',
       spinner: 'text-secondary animate-spin',
     },
