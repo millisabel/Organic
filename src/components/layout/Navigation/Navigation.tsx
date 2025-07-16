@@ -1,13 +1,7 @@
+import { NavLink } from '@/components/shared/NavLink';
 import { useMemo } from 'react';
-
-import NavLink from '@/components/shared/NavLink';
-import { cn } from '../../utils/helpers';
-
-interface NavigationProps {
-  isMobile?: boolean;
-  onLinkClick?: () => void;
-  className?: string;
-}
+import { cn } from '../../../utils/helpers';
+import type { NavigationProps } from './types';
 
 const Navigation = ({ isMobile, onLinkClick, className }: NavigationProps) => {
   const links = useMemo(

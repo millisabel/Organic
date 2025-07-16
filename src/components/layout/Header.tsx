@@ -3,8 +3,8 @@ import Logo from '@/components/ui/Logo';
 import CartButton from '@/features/cart/components/buttons/CartButton';
 import { useCartTotal } from '@/features/cart/hooks/useCartTotal';
 import { useCallback, useState } from 'react';
-import MobileMenu from './MobileMenu';
-import Navigation from './Navigation';
+import { MobileMenu } from './MobileMenu';
+import Navigation from './Navigation/Navigation';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

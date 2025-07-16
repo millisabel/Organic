@@ -17,7 +17,7 @@ const CartButton = ({ count = 0, className }: CartButtonProps) => {
     >
       <Link to="/cart">
         <CartIcon />
-        {count > 0 && <CartCountBadge count={count} />}
+        {count > 0 && <CartCountBadge count={count} className="w-7 h-7" />}
       </Link>
     </Button>
   );
