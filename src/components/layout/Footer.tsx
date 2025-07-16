@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
 
-import SocialButtonsList from '@/components/shared/Button/SocialButton/SocialButton';
-import FooterContactLink from '../ui/FooterContactLink';
-import Logo from '../ui/Logo';
+// import SocialButtonsList from '@/components/shared/Button/SocialButton/SocialButton';
+// import Logo from '../ui/Logo';
 
-const SOCIALS_FOOTER = {
-  facebook: 'https://facebook.com/',
-  instagram: 'https://instagram.com/',
-  twitter: 'https://www.twitter.com',
-  pinterest: 'https://www.pinterest.com',
-};
+// const SOCIALS_FOOTER = {
+//   facebook: 'https://facebook.com/',
+//   instagram: 'https://instagram.com/',
+//   twitter: 'https://www.twitter.com',
+//   pinterest: 'https://www.pinterest.com',
+// };
 
 const Footer = () => {
   return (
@@ -23,13 +22,13 @@ const Footer = () => {
               <div className="space-y-5">
                 <div>
                   <p className="font-bold text-text-light">Email</p>
-                  <FooterContactLink href="mailto:needhelp@organia.com">
+                  {/* <FooterContactLink href="mailto:needhelp@organia.com">
                     needhelp@organia.com
-                  </FooterContactLink>
+                  </FooterContactLink> */}
                 </div>
                 <div>
                   <p className="font-bold text-text-light">Phone</p>
-                  <FooterContactLink href="tel:666888888">666 888 888</FooterContactLink>
+                  {/* <FooterContactLink href="tel:666888888">666 888 888</FooterContactLink> */}
                 </div>
                 <div>
                   <p className="font-bold text-text-light">Address</p>
@@ -39,14 +38,14 @@ const Footer = () => {
             </div>
 
             {/* Company Info & Socials */}
-            <div className="flex flex-col items-center border-x-0 border-b-2 border-t-2 border-border px-8 py-8 lg:border-x-2 lg:border-y-0 lg:py-0">
+            {/* <div className="flex flex-col items-center border-x-0 border-b-2 border-t-2 border-border px-8 py-8 lg:border-x-2 lg:border-y-0 lg:py-0">
               <Logo />
               <p className="my-6 text-center text-text-light">
                 Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy
                 text of the printing.
               </p>
               <SocialButtonsList socials={SOCIALS_FOOTER} />
-            </div>
+            </div> */}
 
             {/* Utility Pages */}
             <div>
