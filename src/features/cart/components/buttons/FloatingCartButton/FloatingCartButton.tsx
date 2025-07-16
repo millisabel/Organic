@@ -1,9 +1,10 @@
 import CartIcon from '@/components/shared/Icon/CartIcon';
-import CartCountBadge from '@/components/ui/Badge/CartCountBadge';
+import { CartCountBadge } from '@/components/ui/Badge/CartCountBadge';
 import Button from '@/components/ui/Button/Button';
 import { useElementVisibility } from '@/hooks/useElementVisibility';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { useAppSelector } from '@/store/hooks';
+import { cn } from '@/utils/helpers';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
@@ -41,7 +42,7 @@ const FloatingCartButton = ({ className }: { className?: string }) => {
           size="ellipse"
           aria-label={`Open cart (${totalCount} items, $${totalPrice.toFixed(2)})`}
           nameComponent="FloatingCartButton"
-          className={className}
+          className={cn('relative', className)}
         >
           <motion.a
             href="/cart"
@@ -55,7 +56,6 @@ const FloatingCartButton = ({ className }: { className?: string }) => {
             style={{ display: 'flex', alignItems: 'center' }}
           >
             <span className="relative flex items-center justify-center">
-              <CartIcon size="lg" />
               <motion.div
                 key={totalCount}
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -64,6 +64,7 @@ const FloatingCartButton = ({ className }: { className?: string }) => {
               >
                 <CartCountBadge count={totalCount} />
               </motion.div>
+              <CartIcon size="lg" />
             </span>
             {!isMobile && <span className="ml-2">${totalPrice.toFixed(2)}</span>}
           </motion.a>

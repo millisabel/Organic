@@ -1,5 +1,5 @@
 import CartIcon from '@/components/shared/Icon/CartIcon';
-import CartCountBadge from '@/components/ui/Badge/CartCountBadge';
+import { CartCountBadge } from '@/components/ui/Badge/CartCountBadge';
 import Button from '@/components/ui/Button';
 
 export default {
@@ -15,12 +15,11 @@ export const FloatingCartButtonVisualDesktop = () => (
     size="ellipse"
     aria-label={`Open cart 4 items)`}
     nameComponent="FloatingCartButton"
+    className="relative"
   >
     <div className="flex flex-row items-center justify-center gap-2">
-      <span className="relative">
-        <CartIcon size="lg" />
-        <CartCountBadge count={4} />
-      </span>
+      <CartIcon size="lg" />
+      <CartCountBadge count={4} />
       {!isMobile && <span className="ml-2">$200.00</span>}
     </div>
   </Button>
@@ -32,12 +31,11 @@ export const FloatingCartButtonVisualMobile = () => (
     size="ellipse"
     aria-label={`Open cart 4 items)`}
     nameComponent="FloatingCartButton"
+    className="relative"
   >
-    <div className="flex flex-row items-center justify-center gap-2">
-      <span className="relative">
-        <CartIcon size="lg" />
-        <CartCountBadge count={4} />
-      </span>
+    <div className=" flex flex-row items-center justify-center gap-2">
+      <CartIcon size="lg" />
+      <CartCountBadge count={4} />
       {isMobile && <span className="ml-2">$200.00</span>}
     </div>
   </Button>
