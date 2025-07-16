@@ -1,7 +1,7 @@
 import AddToCartButton from './AddToCartButton';
 
 export default {
-  title: 'Features/Cart/Buttons/AddToCartButton',
+  title: 'Button/Features/Cart/Buttons/AddToCartButton',
   component: AddToCartButton,
 };
 

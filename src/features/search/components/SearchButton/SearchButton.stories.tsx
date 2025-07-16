@@ -1,7 +1,7 @@
 import SearchButton from './SearchButton';
 
 export default {
-  title: 'Features/Search/SearchButton',
+  title: 'Button/Features/Search/SearchButton',
   component: SearchButton,
 };
 

@@ -1,4 +1,4 @@
 export interface BadgeButtonProps {
-  category: string;
+  text: string;
   handleCategoryClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }

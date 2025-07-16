@@ -1,7 +1,7 @@
 import SearchBar from './SearchBar';
 
 export default {
-  title: 'Features/Search/SearchBar',
+  title: 'Form/Features/Search/SearchBar',
   component: SearchBar,
 };
 

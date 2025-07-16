@@ -3,7 +3,7 @@ import { CartCountBadge } from '@/components/ui/Badge/CartCountBadge';
 import Button from '@/components/ui/Button';
 
 export default {
-  title: 'Features/Cart/FloatingCartButton/VisualOnly',
+  title: 'Button/Features/Cart/Buttons/FloatingCartButton',
   component: Button,
 };
 

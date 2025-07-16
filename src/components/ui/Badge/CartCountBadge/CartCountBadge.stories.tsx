@@ -1,8 +1,18 @@
-import { CartCountBadge } from '.';
+import { CartCountBadge, type CartCountBadgeProps } from '.';
 
 export default {
-  title: 'UI/Badge/CartCountBadge',
+  title: 'Badge/Components/UI/CartCountBadge',
   component: CartCountBadge,
+  argTypes: {
+    count: { control: 'number' },
+  },
+};
+
+const Template = (args: CartCountBadgeProps) => <CartCountBadge {...args} />;
+export const Interactive = Template.bind({});
+// @ts-expect-error: Storybook adds args dynamically
+Interactive.args = {
+  count: 5,
 };
 
 export const CartCountBadgeDefault = () => {

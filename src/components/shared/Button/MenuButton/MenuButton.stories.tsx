@@ -1,7 +1,7 @@
 import MenuButton from './MenuButton';
 
 export default {
-  title: 'Shared/Button/MenuButton',
+  title: 'Button/Components/Shared/Button/MenuButton',
   component: MenuButton,
 };
 

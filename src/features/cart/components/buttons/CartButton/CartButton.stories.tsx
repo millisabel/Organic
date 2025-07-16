@@ -2,7 +2,7 @@ import { MemoryRouter } from 'react-router-dom';
 import CartButton from './CartButton';
 
 export default {
-  title: 'Features/Cart/Buttons/CartButton',
+  title: 'Button/Features/Cart/Buttons/CartButton',
   component: CartButton,
   decorators: [
     (Story: React.ComponentType) => (

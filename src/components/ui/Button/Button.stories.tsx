@@ -2,7 +2,7 @@ import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import Button from './Button';
 
 export default {
-  title: 'UI/Button',
+  title: 'Button/Components/UI/Button',
   component: Button,
 };
 

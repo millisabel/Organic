@@ -1,7 +1,7 @@
 import SocialButton from './SocialButton';
 
 export default {
-  title: 'Shared/Button/SocialButton',
+  title: 'Button/Components/Shared/Button/SocialButton',
   component: SocialButton,
 };
 

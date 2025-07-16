@@ -8,6 +8,7 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({ variant = 'default', classNam
     <span
       className={cn(statusBadgeVariants({ variant }), className)}
       aria-label={`${variant} badge`}
+      role="status"
     >
       {`${variant?.replace(/([A-Z])/g, ' $1').trim()}`}
     </span>

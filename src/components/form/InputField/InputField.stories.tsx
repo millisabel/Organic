@@ -1,7 +1,7 @@
 import InputField from './InputField';
 
 export default {
-  title: 'Form/InputField',
+  title: 'Form/Components/Form/InputField',
   component: InputField,
 };
 

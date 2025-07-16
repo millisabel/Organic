@@ -1,7 +1,7 @@
 import CloseButton from '@/components/shared/Button/CloseButton/CloseButton';
 
 export default {
-  title: 'Shared/Button/CloseButton',
+  title: 'Button/Components/Shared/Button/CloseButton',
   component: CloseButton,
 };
 
