@@ -11,8 +11,6 @@ const Layout = () => {
         {/* <Newsletter /> */}
       </main>
       {/* <Footer /> */}
-      <div className="w-full h-[200vh]"></div>
-
       <FloatingCartButton className="fixed bottom-6 right-6 z-50" />
     </div>
   );

@@ -1,5 +1,5 @@
 import HeaderContent from '@/components/shared/HeaderContent';
-import ParagraphContent from '@/components/shared/ParagrahpContent';
+import { Paragraph } from '@/components/ui/Typography';
 import { cn } from '@/utils/helpers';
 import PostMetaInfo from '../postMetaInfo';
 import type { IntroContentProps } from './introContent.types';
@@ -15,7 +15,7 @@ const IntroContent = ({ post, className }: IntroContentProps) => {
     >
       <PostMetaInfo author={post?.author} date={post?.date} />
       <HeaderContent text={post?.title} level={1} size="h1" className="mb-10" />
-      <ParagraphContent text={post?.description} className="lg:w-1/2" />
+      <Paragraph text={post?.description} className="lg:w-1/2" />
     </div>
   );
 };
