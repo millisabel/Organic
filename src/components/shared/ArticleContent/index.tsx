@@ -1,7 +1,7 @@
+import QuoteContent from '../../ui/Typography/Quote';
 import HeaderContent from '../HeaderContent';
 import ListContent from '../ListContent';
 import ParagraphContent from '../ParagrahpContent';
-import QuoteContent from '../QuoteContent';
 import type { ArticleContentProps, ContentBlockType } from './articleContent.types';
 
 const ArticleContent = ({ content, className }: ArticleContentProps) => (

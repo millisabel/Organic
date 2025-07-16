@@ -1,6 +1,6 @@
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
-import { Button } from '@/components/ui/Button/Button';
+import Button from '@/components/ui/Button';
 import { Link } from 'react-router-dom';
 
 interface ContentBlockProps {

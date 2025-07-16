@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 
 interface ISectionProps {
+  id?: string;
   children: React.ReactNode;
   backgroundColor?: string;
   backgroundImageUrl?: string;
@@ -13,6 +14,7 @@ interface ISectionProps {
 }
 
 const Section: React.FC<ISectionProps> = ({
+  id,
   children,
   className,
   backgroundColor,
@@ -26,10 +28,19 @@ const Section: React.FC<ISectionProps> = ({
 
   useEffect(() => {
     if (!backgroundImageUrl) return;
+
+    let isMounted = true;
     setIsImageLoaded(false);
+
     const img = new window.Image();
     img.src = backgroundImageUrl;
-    img.onload = () => setIsImageLoaded(true);
+    img.onload = () => {
+      if (isMounted) setIsImageLoaded(true);
+    };
+
+    return () => {
+      isMounted = false;
+    };
   }, [backgroundImageUrl]);
 
   const sectionStyle: React.CSSProperties = {};
@@ -52,7 +63,7 @@ const Section: React.FC<ISectionProps> = ({
   );
 
   return (
-    <section className={sectionClasses} style={sectionStyle} data-component={dataComponent}>
+    <section id={id} className={sectionClasses} style={sectionStyle} data-component={dataComponent}>
       <div className="container mx-auto">{children}</div>
     </section>
   );
