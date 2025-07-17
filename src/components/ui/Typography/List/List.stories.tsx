@@ -1,7 +1,7 @@
 import List from '.';
 
 export default {
-  title: 'Typography/List',
+  title: 'Typography/Components/UI/List',
   component: List,
 };
 

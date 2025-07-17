@@ -2,7 +2,7 @@ import Quote from './Quote';
 import type { QuoteProps } from './types';
 
 export default {
-  title: 'Typography/Quote',
+  title: 'Typography/Components/UI/Quote',
   component: Quote,
   argTypes: {
     text: { control: 'text' },

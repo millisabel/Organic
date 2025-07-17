@@ -2,7 +2,7 @@ import Paragraph from './Paragrahp';
 import type { ParagraphProps } from './types';
 
 export default {
-  title: 'Typography/Paragraph',
+  title: 'Typography/Components/UI/Paragraph',
   component: Paragraph,
   argTypes: {
     text: { control: 'text' },
