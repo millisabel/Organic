@@ -53,6 +53,7 @@ const config: Config = {
         h1: ['3.125rem', { lineHeight: '1.2', fontWeight: '800' }],
         h2: ['2rem', { lineHeight: '1.3', fontWeight: '800' }],
         h3: ['1.5rem', { lineHeight: '1.4', fontWeight: '700' }],
+        sub: ['5rem', { lineHeight: '1.4', fontWeight: '600' }],
       },
     },
   },

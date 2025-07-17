@@ -1,20 +1,19 @@
-import HeaderContent from '../HeaderContent';
+import { Paragraph, Quote, Title } from '@/components/ui/Typography';
 import ListContent from '../ListContent';
 import type { ArticleContentProps, ContentBlockType } from './articleContent.types';
-import { Paragraph, Quote } from '@/components/ui/Typography';
 
 const ArticleContent = ({ content, className }: ArticleContentProps) => (
   <div className={className} data-component="ArticleContent">
     {content.map((item: ContentBlockType, idx: number) => {
       switch (item.type) {
         case 'paragraph':
-          return <Paragraph key={`p-${idx}`} text={item.text} />;
+          return <Paragraph key={`p-${idx}`}>{item.text}</Paragraph>;
         case 'heading':
-          return <HeaderContent key={`h-${idx}`} text={item.text} level={item.level} />;
+          return <Title key={`h-${idx}`}>{item.text}</Title>;
         case 'list':
           return <ListContent key={`l-${idx}`} items={item.items} ordered={item.ordered} />;
         case 'quote':
-          return <Quote key={`q-${idx}`} text={item.text} variant="default" />;
+          return <Quote key={`q-${idx}`}>{item.text}</Quote>;
         default:
           return null;
       }

@@ -1,7 +1,7 @@
 import ProductPrice from '@/components/ui/Card/ProductCard/blocks/ProductPrice';
 import Rating from '@/components/ui/Rating';
 import type { cardView } from '@/components/ui/Card/ProductCard/types';
-import HeaderContent from '@/components/shared/HeaderContent';
+import { Title } from '@/components/ui/Typography/Title';
 
 export interface ProductContentBlockProps {
   cardView?: cardView;
@@ -30,13 +30,7 @@ const ProductContentBlock: React.FC<ProductContentBlockProps> = ({
   const contentClass = contentStylesVariants[cardView];
   return (
     <>
-      <HeaderContent
-        text={name}
-        level={cardView === 'detailed' ? 2 : 3}
-        size={cardView === 'detailed' ? 'h2' : 'h5'}
-        font={cardView === 'compact' ? 'semibold' : 'default'}
-        border={cardView === 'compact' ? 'bottom' : 'default'}
-      />
+      <Title level={cardView === 'detailed' ? 2 : 3}>{name}</Title>
       <div className={contentClass}>
         {rating && (
           <Rating rating={rating} className={cardView === 'detailed' ? 'mb-4' : 'order-last'} />
