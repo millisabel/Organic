@@ -1,11 +1,11 @@
 import Section from '@/components/layout/sectionLayouts/Section';
 import HeroSection from '@/components/sections/HeroSection';
-import ArticleContent from '@/components/shared/Article';
+import ArticleContent from '@/components/shared/Post/Article';
 import newsData from '@/data/news.json';
 import { getImageUrl } from '@/utils/helpers';
 import { useParams } from 'react-router-dom';
-import type { NewsContentBlock } from '@/types/news.types';
 import IntroContent from '@/components/shared/IntroContent';
+import type { ContentTypeComponent } from '@/components/shared/Post/Article/types';
 
 const BlogSinglePage = () => {
   const { postId } = useParams();
@@ -23,7 +23,7 @@ const BlogSinglePage = () => {
         <div className="relative">
           <IntroContent post={post} className="sm:p-4 md:p-14 lg:p-20" />
           <ArticleContent
-            content={post.content as NewsContentBlock[]}
+            content={post.content as ContentTypeComponent[]}
             className="md:pt-64 sm:px-4 md:px-14 lg:px-60"
           />
         </div>
