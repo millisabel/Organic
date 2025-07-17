@@ -1,5 +1,5 @@
-import AuthorDisplay from '@/components/shared/AuthorDisplay';
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
+import AuthorDisplay from '@/components/shared/Post/AuthorDisplay';
 import Button from '@/components/ui/Button/Button';
 import Card from '@/components/ui/Card';
 import React from 'react';

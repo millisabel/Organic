@@ -1,6 +1,6 @@
 import { Paragraph, Title } from '@/components/ui/Typography';
 import { cn } from '@/utils/helpers';
-import PostMetaInfo from '../postMetaInfo';
+import PostMetaInfo from '../Post/postMetaInfo';
 import type { IntroContentProps } from './introContent.types';
 
 const IntroContent = ({ post, className }: IntroContentProps) => {
