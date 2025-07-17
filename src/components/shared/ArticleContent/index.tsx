@@ -1,5 +1,5 @@
 import { Paragraph, Quote, Title } from '@/components/ui/Typography';
-import ListContent from '../ListContent';
+import List from '@/components/ui/Typography/List';
 import type { ArticleContentProps, ContentBlockType } from './articleContent.types';
 
 const ArticleContent = ({ content, className }: ArticleContentProps) => (
@@ -11,7 +11,7 @@ const ArticleContent = ({ content, className }: ArticleContentProps) => (
         case 'heading':
           return <Title key={`h-${idx}`}>{item.text}</Title>;
         case 'list':
-          return <ListContent key={`l-${idx}`} items={item.items} ordered={item.ordered} />;
+          return <List key={`l-${idx}`} items={item.items} as={item.ordered ? 'ol' : 'ul'} />;
         case 'quote':
           return <Quote key={`q-${idx}`}>{item.text}</Quote>;
         default:
