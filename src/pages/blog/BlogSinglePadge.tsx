@@ -1,6 +1,6 @@
 import Section from '@/components/layout/sectionLayouts/Section';
 import HeroSection from '@/components/sections/HeroSection';
-import ArticleContent from '@/components/shared/ArticleContent';
+import ArticleContent from '@/components/shared/Article';
 import newsData from '@/data/news.json';
 import { getImageUrl } from '@/utils/helpers';
 import { useParams } from 'react-router-dom';
