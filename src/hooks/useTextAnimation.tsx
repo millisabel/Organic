@@ -1,4 +1,4 @@
-import { navLinkHoverStyles } from '@/components/shared/NavLink/variants';
+import { navLinkHoverStyles } from '@/components/shared/Navigation/NavLink/variants';
 import { useCallback, useRef } from 'react';
 
 export const useTextAnimation = () => {

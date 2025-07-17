@@ -1,4 +1,4 @@
-import { NavLink } from '@/components/shared/NavLink';
+import { NavLink } from '@/components/shared/Navigation/NavLink';
 import { useMemo } from 'react';
 import { cn } from '../../../utils/helpers';
 import type { NavigationProps } from './types';
