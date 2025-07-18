@@ -43,7 +43,11 @@ export const ButtonSizeCircle = () => (
     circle
   </Button>
 );
-
+export const ButtonStateLight = () => (
+  <Button variant="light" state="default">
+    light
+  </Button>
+);
 export const ButtonStateLoading = () => (
   <Button variant="default" state="loading">
     loading
@@ -52,5 +56,10 @@ export const ButtonStateLoading = () => (
 export const ButtonStateSuccess = () => (
   <Button variant="default" state="success">
     success
+  </Button>
+);
+export const ButtonStateNotActive = () => (
+  <Button variant="light" state="notActive">
+    notActive
   </Button>
 );

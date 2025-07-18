@@ -15,6 +15,8 @@ import {
   ButtonSizeCompact,
   ButtonStateLoading,
   ButtonStateSuccess,
+  ButtonStateLight,
+  ButtonStateNotActive,
 } from '@/components/ui/Button/Button.stories';
 import { MenuClose, MenuOpen } from '@/components/shared/Button/MenuButton/MenuButton.stories';
 import {
@@ -97,6 +99,10 @@ export const ButtonsGallery = () => (
           <p className={storyGalleryVariants.itemTitle}>{'<Button variant="default" />'}</p>
         </li>
         <li className={storyGalleryVariants.item}>
+          <ButtonStateLight />
+          <p className={storyGalleryVariants.itemTitle}>{'<Button variant="light" />'}</p>
+        </li>
+        <li className={storyGalleryVariants.item}>
           <ButtonSizeCompact />
           <p className={storyGalleryVariants.itemTitle}>{'<Button size="compact" />'}</p>
         </li>
@@ -119,6 +125,12 @@ export const ButtonsGallery = () => (
         <li className={storyGalleryVariants.item}>
           <ButtonStateSuccess />
           <p className={storyGalleryVariants.itemTitle}>{'<Button state="success" />'}</p>
+        </li>
+        <li className={storyGalleryVariants.item}>
+          <ButtonStateNotActive />
+          <p className={storyGalleryVariants.itemTitle}>
+            {'<Button variant="light" state="notActive" />'}
+          </p>
         </li>
       </ul>
     </article>

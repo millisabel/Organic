@@ -30,6 +30,7 @@ export const buttonVariants = cva(baseClasses, {
         'border-accent-red',
         'hover:bg-red-500 hover:text-white',
       ],
+      light: ['bg-gray-200 text-primary hover:bg-accent'],
     },
 
     size: {
@@ -40,6 +41,7 @@ export const buttonVariants = cva(baseClasses, {
       square: 'h-14 w-14 rounded-lg p-4',
     },
     state: {
+      default: '',
       loading: [
         'cursor-wait',
         'bg-background',
@@ -60,6 +62,7 @@ export const buttonVariants = cva(baseClasses, {
         'border-neutral-500',
         'text-neutral-500',
       ],
+      notActive: ['pointer-events-none'],
     },
   },
 
