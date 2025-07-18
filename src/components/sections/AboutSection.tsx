@@ -1,4 +1,4 @@
-import FeatureItem from '@/components/shared/FeatureItem';
+import FeatureItem from '@/components/shared/ContentBlocks/InfoBlock/InfoBlock';
 import { useCurrentPage } from '@/hooks/useCurrentPage';
 import { getImageUrl } from '@/utils/helpers';
 import ContentBlock from '../layout/contentLayouts/ContentBlock';
@@ -41,7 +41,7 @@ const AboutSection = ({
             {features.map((feature) => (
               <FeatureItem
                 key={feature.title}
-                src={getImageUrl('ico', feature.icon)}
+                iconSrc={getImageUrl('ico', feature.icon)}
                 title={feature.title}
                 description={feature.description}
               />
