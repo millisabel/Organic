@@ -1,5 +1,7 @@
 import { cva } from 'class-variance-authority';
 
+export const badgeVariantOptions = ['default', 'meta', 'data'];
+
 export const badgeVariants = cva('flex items-center justify-center', {
   variants: {
     variant: {
