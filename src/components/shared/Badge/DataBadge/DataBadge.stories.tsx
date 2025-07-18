@@ -1,8 +1,15 @@
 import DataBadge from './DataBadge';
 
 export default {
-  title: 'Badge/Components/Shared/Badge/DataBadge',
+  title: 'Components/Badge/DataBadge',
   component: DataBadge,
+  parameters: {
+    docs: {
+      description: {
+        component: 'src/components/shared/Badge/DataBadge/DataBadge.tsx',
+      },
+    },
+  },
 };
 
 export const Default = () => <DataBadge date={new Date()} />;
