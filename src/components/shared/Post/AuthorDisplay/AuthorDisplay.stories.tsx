@@ -2,7 +2,7 @@ import UserIcon from '@/components/shared/Icon/UserIcon';
 import AuthorDisplay from './AuthorDisplay';
 
 export default {
-  title: 'Typography/Components/Shared/AuthorDisplay',
+  title: 'Typography/Components/Shared/Post/AuthorDisplay',
   component: AuthorDisplay,
 };
 
