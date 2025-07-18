@@ -4,7 +4,7 @@ import ArticleContent from '@/components/shared/Post/Article';
 import newsData from '@/data/news.json';
 import { getImageUrl } from '@/utils/helpers';
 import { useParams } from 'react-router-dom';
-import IntroContent from '@/components/shared/IntroContent';
+import IntroContent from '@/components/shared/Post/Intro';
 import type { ContentTypeComponent } from '@/components/shared/Post/Article/types';
 
 const BlogSinglePage = () => {
@@ -21,7 +21,10 @@ const BlogSinglePage = () => {
       <HeroSection variant="single" bgImage={heroImg} />
       <Section>
         <div className="relative">
-          <IntroContent post={post} className="sm:p-4 md:p-14 lg:p-20" />
+          <IntroContent
+            post={post}
+            className="absolute top-0 left-0 sm:p-4 md:p-14 lg:p-20 md:rounded-2xl md:shadow-lg"
+          />
           <ArticleContent
             content={post.content as ContentTypeComponent[]}
             className="md:pt-64 sm:px-4 md:px-14 lg:px-60"

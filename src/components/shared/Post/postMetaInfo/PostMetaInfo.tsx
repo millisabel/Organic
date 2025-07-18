@@ -8,7 +8,7 @@ const PostMetaInfo = ({ author, date, className, format = 'long' }: PostMetaInfo
   return (
     <div
       className={cn(
-        'flex flex-col md:flex-row items-start md:items-center gap-2 text-gray-500 text-sm mb-10',
+        'flex flex-col md:flex-row items-start md:items-center gap-2 text-gray-500 text-sm',
         className,
       )}
       data-component="PostMetaInfo"
