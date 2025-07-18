@@ -1,7 +1,7 @@
 import BadgeButton, { type BadgeButtonProps } from '.';
 
 export default {
-  title: 'Badge/Components/UI/BadgeButton',
+  title: 'Badge/Components/UI/Card/ProductCard/blocks/BadgeButton',
   component: BadgeButton,
   argTypes: {
     text: { control: 'text' },

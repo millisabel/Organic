@@ -1,6 +1,6 @@
 import CartIcon from '@/components/shared/Icon/CartIcon';
-import CartCountBadge from '@/components/ui/Badge/CartCountBadge';
 import Button from '@/components/ui/Button';
+import CartCountBadge from '@/features/cart/components/items/CartCountBadge';
 
 export default {
   title: 'Button/Features/Cart/Buttons/FloatingCartButton',

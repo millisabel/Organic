@@ -1,7 +1,4 @@
-interface FastItemProps {
-  value: string;
-  label: string;
-}
+import type { FastItemProps } from './types';
 
 const FastItem = ({ value, label }: FastItemProps) => {
   return (

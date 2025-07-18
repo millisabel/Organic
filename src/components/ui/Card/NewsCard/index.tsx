@@ -4,7 +4,7 @@ import Button from '@/components/ui/Button/Button';
 import Card from '@/components/ui/Card';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DataBadge from '../../Badge/DataBadge';
+import DataBadge from '@/components/shared/Badge/DataBadge/DataBadge';
 import type { NewsCardProps } from './types';
 
 const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
@@ -20,10 +20,10 @@ const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
         name: data.imageUrl,
       }}
       data-component="NewsCard"
-      badges={[<DataBadge date={data.date} format={data.format} />]}
+      badges={[<DataBadge date={data.date} />]}
     >
       <>
-        <AuthorDisplay author={data.author} iconClassName="text-yellow-300" />
+        <AuthorDisplay author={data.author} className="text-yellow-300" />
         <div className="font-semibold text-medium mb-1 text-primary">{data.title}</div>
         <div className="items-end text-sm text-gray-600 mb-4 line-clamp-2">{data.description}</div>
         <Button asChild variant="accent" className="mt-auto">

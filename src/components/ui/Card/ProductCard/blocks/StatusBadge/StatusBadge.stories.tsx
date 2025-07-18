@@ -1,7 +1,7 @@
 import StatusBadge, { type StatusBadgeProps } from '.';
 
 export default {
-  title: 'Badge/Components/UI/StatusBadge',
+  title: 'Badge/Components/UI/Card/ProductCard/blocks/StatusBadge',
   component: StatusBadge,
   argTypes: {
     variant: {
