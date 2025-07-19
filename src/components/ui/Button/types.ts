@@ -6,6 +6,6 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   children?: React.ReactNode;
-  className?: string;
   nameComponent?: string;
+  className?: string;
 }

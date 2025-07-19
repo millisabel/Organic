@@ -1,5 +1,17 @@
 import { cva } from 'class-variance-authority';
 
+export const buttonVariantOptions = [
+  'default',
+  'outline',
+  'accent',
+  'transparent',
+  'close',
+  'red',
+  'light',
+];
+export const buttonSizeOptions = ['default', 'compact', 'circle', 'ellipse', 'square'];
+export const buttonStateOptions = ['default', 'loading', 'success', 'disabled', 'notActive'];
+
 const baseClasses = [
   'group inline-flex',
   'flex items-center justify-center whitespace-nowrap gap-2.5',

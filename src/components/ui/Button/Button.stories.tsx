@@ -1,9 +1,90 @@
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import Button from './Button';
+import type { ButtonProps } from './types';
+import { buttonSizeOptions, buttonStateOptions, buttonVariantOptions } from './variants';
 
 export default {
-  title: 'Button/Components/UI/Button',
+  title: 'Components/Button/UI',
   component: Button,
+  parameters: {
+    docs: {
+      description: {
+        component: 'src/components/ui/Button/Button.tsx',
+      },
+      toc: true,
+    },
+  },
+  argTypes: {
+    asChild: {
+      control: false,
+      table: {
+        type: { summary: 'boolean' },
+        category: 'System',
+      },
+    },
+    children: {
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'Default Button' },
+        category: 'Content',
+      },
+    },
+    nameComponent: {
+      control: false,
+      table: {
+        type: { summary: 'string' },
+        category: 'System',
+      },
+    },
+    className: {
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        category: 'Appearance',
+      },
+    },
+    variant: {
+      control: 'select',
+      options: buttonVariantOptions,
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' },
+        category: 'Appearance',
+      },
+    },
+    size: {
+      control: 'select',
+      options: buttonSizeOptions,
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' },
+        category: 'Appearance',
+      },
+    },
+    state: {
+      control: 'select',
+      options: buttonStateOptions,
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'default' },
+        category: 'Appearance',
+      },
+    },
+    type: {
+      control: false,
+      table: {
+        label: 'Type',
+        type: { summary: 'string' },
+        category: 'System',
+      },
+    },
+  },
+};
+
+export const Default = (args: ButtonProps) => <Button {...args} />;
+Default.args = {
+  children: 'Default Button',
 };
 
 export const VariantDefault = () => <Button variant="default">Default Button</Button>;

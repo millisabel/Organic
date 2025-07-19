@@ -1,18 +1,18 @@
 import Button from '@/components/ui/Button/Button';
-import { cn } from '@/utils/helpers';
-import { ICONS } from './icons';
 import type { SocialButtonProps } from '.';
+import { ICONS } from './icons';
 
-const SocialButton = ({ type, href, className }: SocialButtonProps) => {
-  const Icon = ICONS[type];
+const SocialButton = ({ socialType, href, ...buttonProps }: SocialButtonProps) => {
+  const Icon = ICONS[socialType];
+
   return (
     <Button
       variant="transparent"
       size="circle"
       asChild
-      className={cn(className)}
       nameComponent="SocialButton"
-      aria-label={`${type} button`}
+      aria-label={`${socialType} button`}
+      {...buttonProps}
     >
       <a href={href} target="_blank" rel="noopener noreferrer">
         <Icon />
