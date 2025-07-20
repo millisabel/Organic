@@ -1,43 +1,56 @@
+import { getStoryDescription } from '@/utils/storiesHelpers';
 import Article from '.';
 import type { ContentTypeComponent } from './types';
 
 export default {
   title: 'Shared/Post/Article',
   component: Article,
+  parameters: {
+    docs: {
+      description: {
+        component: getStoryDescription({
+          source: 'src/components/shared/Post/Article/Article.stories.tsx',
+        }),
+      },
+    },
+  },
 };
 
 const content: ContentTypeComponent[] = [
   {
     type: 'paragraph',
-    children: 'Это параграф',
+    children: 'Es ist ein Paragraph',
+    className: 'my-4 text-center',
   },
   {
     type: 'heading',
-    children: 'Это заголовок',
+    children: 'Es ist ein Heading',
     level: 2,
     variant: 'sectionTitle',
+    className: 'my-4',
   },
   {
     type: 'list',
-    items: ['Элемент 1', 'Элемент 2'],
+    items: ['Element 1', 'Element 2'],
     as: 'ul',
     variant: 'default',
+    className: 'my-4',
   },
   {
     type: 'quote',
-    children: 'Это цитата',
+    children: 'Es ist ein Zitat',
     variant: 'default',
     className: 'my-4',
   },
   {
     type: 'paragraph',
-    children: 'Это параграф',
+    children: 'Es ist ein Paragraph',
     variant: 'default',
     className: 'my-4',
   },
   {
     type: 'list',
-    items: ['Элемент 1', 'Элемент 2'],
+    items: ['Element 1', 'Element 2'],
     as: 'ol',
     variant: 'default',
   },

@@ -1,8 +1,18 @@
+import { getStoryDescription } from '@/utils/storiesHelpers';
 import Intro from './Intro';
 
 export default {
   title: 'Shared/Post/Intro',
   component: Intro,
+  parameters: {
+    docs: {
+      description: {
+        component: getStoryDescription({
+          source: 'src/components/shared/Post/Intro/Intro.stories.tsx',
+        }),
+      },
+    },
+  },
 };
 
 const post = {
