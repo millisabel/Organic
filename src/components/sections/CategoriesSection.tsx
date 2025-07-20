@@ -2,7 +2,7 @@ import categoriesData from '@/data/categories.json';
 import { cn } from '@/utils/helpers';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
-import CardList from '../shared/CardList';
+import UiList from '../patterns/UiList';
 import CategoryCard from '../ui/Card/CategoryCard';
 
 interface CategoriesSectionProps {
@@ -15,12 +15,10 @@ const CategoriesSection = ({ title, subtitle, backgroundColor }: CategoriesSecti
   return (
     <Section className={cn(backgroundColor, 'text-white py-[190px]')}>
       <SectionHeader title={title} subtitle={subtitle} titleColor="text-white" />
-      <CardList
-        variant="categories"
+      <UiList
+        variant="grid"
         items={categoriesData}
-        CardComponent={CategoryCard}
-        getKey={(_, index) => index}
-        getCardProps={(item) => ({ category: item })}
+        renderItem={(item, idx) => <CategoryCard key={idx} category={item} />}
         itemsDisplay={4}
       />
     </Section>

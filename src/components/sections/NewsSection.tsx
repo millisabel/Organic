@@ -1,6 +1,6 @@
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
-import { Button } from '@/components/ui/Button/Button';
+import Button from '@/components/ui/Button/Button';
 
 import type { buttonVariants } from '@/components/ui/Button/variants';
 import type { VariantProps } from 'class-variance-authority';
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 import newsData from '@/data/news.json';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
-import CardList from '../shared/CardList';
+import UiList from '../patterns/UiList';
 import NewsCard from '../ui/Card/NewsCard';
 
 interface NewsSectionProps {
@@ -46,7 +46,12 @@ const NewsSection: React.FC<NewsSectionProps> = ({ title, subtitle, button, coun
           </Button>
         )}
       </div>
-      <CardList variant="news" items={newsData} CardComponent={NewsCard} itemsDisplay={count} />
+      <UiList
+        variant="default"
+        items={newsData}
+        renderItem={(item, idx) => <NewsCard key={idx} data={item} />}
+        itemsDisplay={count}
+      />
       {button && isBelowLg && (
         <Button asChild variant={button?.variant} className="mt-10">
           <Link to={button?.to}>

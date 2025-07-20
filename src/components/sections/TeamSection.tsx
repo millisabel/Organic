@@ -1,7 +1,7 @@
 import teams from '@/data/teams.json';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
-import CardList from '../shared/CardList';
+import UiList from '../patterns/UiList';
 import TeamCard from '../ui/Card/TeamCard';
 
 interface TeamSectionProps {
@@ -15,7 +15,12 @@ const TeamSection = ({ title, subtitle, description }: TeamSectionProps) => {
     <Section>
       <SectionHeader title={title} subtitle={subtitle} />
       <p className="text-center w-full sm:w-1/2 mx-auto mb-10">{description}</p>
-      <CardList variant="default" items={teams} CardComponent={TeamCard} itemsDisplay={3} />
+      <UiList
+        variant="grid"
+        items={teams}
+        renderItem={(item, idx) => <TeamCard key={idx} data={item} />}
+        itemsDisplay={3}
+      />
     </Section>
   );
 };

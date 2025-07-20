@@ -1,8 +1,8 @@
 import Section from '@/components/layout/sectionLayouts/Section';
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
+import UiList from '@/components/patterns/UiList';
 import HeroSection from '@/components/sections/HeroSection';
 import Breadcrumbs from '@/components/shared/Navigation/Breadcrumbs/Breadcrumbs';
-import CardList from '@/components/shared/CardList';
 import Button from '@/components/ui/Button/Button';
 import ProductCard from '@/components/ui/Card/ProductCard';
 import { type ProductData } from '@/components/ui/Card/ProductCard/types';
@@ -76,7 +76,11 @@ const ShopSinglePage: React.FC = () => {
       <Section>
         <SectionHeader title="Related Products" />
         {relatedProducts.length > 0 ? (
-          <CardList variant="default" items={relatedProducts} CardComponent={ProductCard} />
+          <UiList
+            variant="grid"
+            items={relatedProducts}
+            renderItem={(item, idx) => <ProductCard key={idx} data={item} />}
+          />
         ) : (
           <p className="text-text-light text-center">
             There are no matching products, but we plan to have them soon.

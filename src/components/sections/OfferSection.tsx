@@ -1,10 +1,10 @@
-import { Button } from '@/components/ui/Button/Button';
+import Button from '@/components/ui/Button/Button';
 import productsData from '@/data/products.json';
 import type { VariantProps } from 'class-variance-authority';
 import { Link } from 'react-router-dom';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
-import CardList from '../shared/CardList';
+import UiList from '../patterns/UiList';
 import { buttonVariants } from '../ui/Button/variants';
 import ProductCard from '../ui/Card/ProductCard';
 
@@ -36,10 +36,10 @@ const OfferSection = ({ title, subtitle, button, className }: OfferSectionProps)
           </Link>
         </Button>
       </div>
-      <CardList
-        variant="default"
+      <UiList
+        variant="grid"
         items={productsData}
-        CardComponent={ProductCard}
+        renderItem={(item, idx) => <ProductCard key={idx} data={item} />}
         itemsDisplay={4}
       />
     </Section>

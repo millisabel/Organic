@@ -1,11 +1,15 @@
 import GalleryCard from '@/components/ui/Card/GalleryCard';
-import CardList from '../shared/CardList';
 import galleryData from '@/data/gallery.json';
+import UiList from '../patterns/UiList';
 
 const GallerySection: React.FC = () => {
   return (
     <section className="w-full py-40 bg-secondary-light">
-      <CardList variant="gallery" items={galleryData.items} CardComponent={GalleryCard} />
+      <UiList
+        variant="grid"
+        items={galleryData.items}
+        renderItem={(item, idx) => <GalleryCard key={idx} data={item} />}
+      />
     </section>
   );
 };

@@ -1,19 +1,29 @@
 import PostMetaInfo from '@/components/shared/Post/postMetaInfo';
-import { getStoryDescription } from '@/utils/storiesHelpers';
-import UiList from './UiList';
+import { createArgTypesFromArray, getStoryDescription } from '@/utils/storiesHelpers';
+import UiList from '.';
+import { uiListOptions } from './variants';
+
+const customProps = createArgTypesFromArray([
+  {
+    name: 'variant',
+    control: 'select',
+    options: uiListOptions,
+  },
+]);
 
 export default {
-  title: 'Ui/UiList',
+  title: 'Patterns/UiList',
   component: UiList,
   parameters: {
     docs: {
       description: {
         component: getStoryDescription({
-          source: 'src/components/ui/UiList/UiList.stories.tsx',
+          source: 'src/components/patterns/UiList/UiList.stories.tsx',
         }),
       },
     },
   },
+  argTypes: customProps,
 };
 
 const sampleData = [
@@ -35,28 +45,3 @@ Template.argTypes = {
     control: false,
   },
 };
-
-export const SimpleList = () => (
-  <UiList
-    items={['Item 1', 'Item 2', 'Item 3']}
-    renderItem={(item: string, idx: number) => (
-      <div key={idx} className="p-2 border rounded">
-        {item}
-      </div>
-    )}
-    as="div"
-  />
-);
-
-export const UnorderedList = () => (
-  <UiList
-    items={['First item', 'Second item', 'Third item']}
-    renderItem={(item: string, idx: number) => (
-      <li key={idx} className="p-1">
-        {item}
-      </li>
-    )}
-    as="ul"
-    className="list-disc list-inside"
-  />
-);
