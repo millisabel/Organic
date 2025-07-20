@@ -1,8 +1,8 @@
 import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
-import FlipBannerCard from '@/components/shared/FlipBannerCard';
+import FlipBannerCard from '@/components/shared/Card/FlipBannerCard';
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import CheckIcon from '@/components/shared/Icon/CheckIcon';
-import { Button } from '@/components/ui/Button/Button';
+import Button from '@/components/ui/Button/Button';
 import { cn } from '@/utils/helpers';
 import { Link } from 'react-router-dom';
 import type { BannerCardProps } from './types';

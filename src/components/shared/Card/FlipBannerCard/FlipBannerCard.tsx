@@ -1,12 +1,6 @@
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import React, { useState } from 'react';
-
-interface FlipBannerCardProps {
-  front: React.ReactNode;
-  back: React.ReactNode;
-  flipDirection?: 'left' | 'right';
-  className?: string;
-}
+import type { FlipBannerCardProps } from './types';
 
 const FlipBannerCard: React.FC<FlipBannerCardProps> = ({
   front,
