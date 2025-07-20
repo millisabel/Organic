@@ -1,3 +1,4 @@
+import { getStoryDescription } from '@/utils/storiesHelpers';
 import Image from './Image';
 
 export default {
@@ -5,6 +6,13 @@ export default {
   component: Image,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: getStoryDescription({
+          source: 'src/components/ui/Image/Image.stories.tsx',
+        }),
+      },
+    },
   },
 };
 
@@ -13,7 +21,6 @@ export const Icon = () => (
     <Image
       src="tractor.svg"
       folder="ico"
-      alt="Tractor icon"
       className="w-full h-full object-contain"
       aria-hidden={true}
     />

@@ -1,4 +1,5 @@
 // Импортируем все иконки
+import { getStoryDescription } from '@/utils/storiesHelpers';
 import ArrowIcon from './ArrowIcon';
 import CartIcon from './CartIcon';
 import CheckIcon from './CheckIcon';
@@ -37,7 +38,10 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'src/components/shared/Icon/',
+        component: getStoryDescription({
+          inheritFrom: 'Icon',
+          source: 'src/components/shared/Icon/IconGallery.stories.tsx',
+        }),
       },
       toc: true,
     },
