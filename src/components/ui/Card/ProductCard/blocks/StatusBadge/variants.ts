@@ -1,17 +1,10 @@
 import { cva } from 'class-variance-authority';
 
-const badgeBaseClasses = [
-  'flex  items-center justify-center rounded-lg',
-  'w-[100px] px-2 py-1',
-  'bg-primary',
-  'text-center text-white text-[10px] uppercase',
-  'ring-1 ring-white ring-offset-1',
-  'shadow-xl',
-].join(' ');
+export const badgeStateOptions = ['default', 'new', 'sale', 'inCart', 'outOfStock'];
 
-export const statusBadgeVariants = cva(badgeBaseClasses, {
+export const statusBadgeVariants = cva('', {
   variants: {
-    variant: {
+    state: {
       default: ['bg-primary', 'text-white', 'ring-primary'],
       new: [
         'bg-blue-200',

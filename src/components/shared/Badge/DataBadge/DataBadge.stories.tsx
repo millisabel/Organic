@@ -1,23 +1,30 @@
+import { createArgTypesFromArray, getStoryDescription } from '@/utils/storiesHelpers';
 import DataBadge from './DataBadge';
 import type { DataBadgeProps } from './types';
 
+const customProps = createArgTypesFromArray([
+  {
+    name: 'date',
+    control: 'date',
+    type: 'Date | string',
+    category: 'Overriding children',
+  },
+]);
+
 export default {
-  title: 'Components/Badge/Shared/DataBadge',
+  title: 'Components/Badge/Extended/DataBadge',
   component: DataBadge,
   parameters: {
     docs: {
       description: {
-        component: 'src/components/shared/Badge/DataBadge/DataBadge.tsx',
+        component: getStoryDescription({
+          inheritFrom: 'Badge',
+          source: 'src/components/shared/Badge/DataBadge/DataBadge.tsx',
+        }),
       },
-      toc: true,
     },
   },
-  argTypes: {
-    date: {
-      control: 'date',
-      description: 'The date to display in the badge.',
-    },
-  },
+  argTypes: customProps,
 };
 
 export const Template = (args: DataBadgeProps) => <DataBadge {...args} />;

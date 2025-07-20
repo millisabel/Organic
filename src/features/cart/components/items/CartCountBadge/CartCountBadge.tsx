@@ -1,21 +1,13 @@
-import { cn } from '@/utils/helpers';
+import Badge from '@/components/ui/Badge';
 import type { CartCountBadgeProps } from '.';
 
-const badgeBaseClasses = [
-  'flex items-center justify-center',
-  'absolute -top-2 -right-2 z-100',
-  'h-5 w-5 ',
-  'rounded-full',
-  'bg-green-600',
-  'text-white text-[10px] text-center uppercase',
-  'border-2 border-white',
-].join(' ');
+const CartCountBadge = ({ count = 0, ...props }: CartCountBadgeProps) => {
+  const displayCount = Math.max(0, count);
 
-const CartCountBadge = ({ count = 0, className }: CartCountBadgeProps) => {
   return (
-    <span className={cn(badgeBaseClasses, className)} data-component="CartCountBadge">
-      {count}
-    </span>
+    <Badge variant="cartCount" data-component="CartCountBadge" {...props}>
+      {displayCount}
+    </Badge>
   );
 };
 

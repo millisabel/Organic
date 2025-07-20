@@ -1,24 +1,37 @@
+import { createArgTypesFromArray, getStoryDescription } from '@/utils/storiesHelpers';
 import CartCountBadge, { type CartCountBadgeProps } from '.';
 
-export default {
-  title: 'Components/Badge/CartCountBadge',
-  component: CartCountBadge,
-  argTypes: {
-    count: { control: 'number' },
+const customProps = createArgTypesFromArray([
+  {
+    name: 'count',
+    control: 'number',
+    type: 'number',
+    defaultValue: 0,
   },
+]);
+
+export default {
+  title: 'Components/Badge/Extended/CartCountBadge',
+  component: CartCountBadge,
+  parameters: {
+    docs: {
+      description: {
+        component: getStoryDescription({
+          inheritFrom: 'Badge',
+          source: 'src/features/cart/components/items/CartCountBadge/CartCountBadge.tsx',
+        }),
+      },
+    },
+  },
+  argTypes: customProps,
 };
 
-const Template = (args: CartCountBadgeProps) => <CartCountBadge {...args} />;
-export const Interactive = Template.bind({});
-// @ts-expect-error: Storybook adds args dynamically
-Interactive.args = {
+export const Template = (args: CartCountBadgeProps) => <CartCountBadge {...args} />;
+Template.args = {
   count: 5,
 };
 
-export const CartCountBadgeDefault = () => {
-  return (
-    <div className="relative w-10 h-10 bg-gray-200">
-      <CartCountBadge count={5} />
-    </div>
-  );
-};
+export const Default = () => <CartCountBadge count={0} />;
+export const SmallNumber = () => <CartCountBadge count={3} />;
+export const LargeNumber = () => <CartCountBadge count={99} />;
+export const WithCustomClass = () => <CartCountBadge count={5} className="bg-red-500" />;

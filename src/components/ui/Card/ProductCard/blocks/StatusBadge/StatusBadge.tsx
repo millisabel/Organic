@@ -1,17 +1,19 @@
+import Badge from '@/components/ui/Badge/Badge';
 import React from 'react';
-import { cn } from '@/utils/helpers';
 import type { StatusBadgeProps } from '.';
 import { statusBadgeVariants } from './variants';
 
-const StatusBadge: React.FC<StatusBadgeProps> = ({ variant = 'default', className }) => {
+const StatusBadge: React.FC<StatusBadgeProps> = ({ text, state, ...props }) => {
   return (
-    <span
-      className={cn(statusBadgeVariants({ variant }), className)}
-      aria-label={`${variant} badge`}
+    <Badge
+      aria-label={`badge ${text}`}
       role="status"
+      variant="status"
+      className={statusBadgeVariants({ state })}
+      {...props}
     >
-      {`${variant?.replace(/([A-Z])/g, ' $1').trim()}`}
-    </span>
+      {text ? `${text?.replace(/([A-Z])/g, ' $1').trim()}` : 'button'}
+    </Badge>
   );
 };
 

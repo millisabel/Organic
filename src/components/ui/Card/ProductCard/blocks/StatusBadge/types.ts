@@ -1,7 +1,8 @@
+import type { BadgeProps } from '@/components/ui/Badge/types';
 import type { VariantProps } from 'class-variance-authority';
 import type { statusBadgeVariants } from './variants';
 
-export interface StatusBadgeProps {
-  variant?: VariantProps<typeof statusBadgeVariants>['variant'];
-  className?: string;
+export interface StatusBadgeProps extends Omit<BadgeProps, 'children'> {
+  state?: VariantProps<typeof statusBadgeVariants>['state'];
+  text?: string;
 }

@@ -49,7 +49,7 @@ export default {
     className: {
       control: 'text',
       table: {
-        type: { summary: 'string' },
+        type: { summary: 'string', description: 'The class name of the button' },
         category: 'Custom Props',
       },
     },
