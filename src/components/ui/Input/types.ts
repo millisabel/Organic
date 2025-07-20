@@ -3,7 +3,4 @@ import { inputVariants } from './variant';
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof inputVariants> {
-  id: string;
-  type?: string;
-}
+    VariantProps<typeof inputVariants> {}

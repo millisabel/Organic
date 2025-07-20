@@ -3,7 +3,7 @@ import type { InputProps } from './types';
 import { inputVariants } from './variant';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ variant, type = 'text', className, placeholder, id, ...props }, ref) => {
+  ({ variant = 'default', type = 'text', className, placeholder, id, ...props }, ref) => {
     return (
       <input
         id={id}

@@ -1,9 +1,19 @@
+import { getStoryDescription } from '@/utils/storiesHelpers';
 import Title from './Title';
 import type { TitleProps } from './types';
 
 export default {
   title: 'Typography/Header',
   component: Title,
+  parameters: {
+    docs: {
+      description: {
+        component: getStoryDescription({
+          source: 'src/components/ui/Typography/Title/Title.stories.tsx',
+        }),
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',
@@ -13,13 +23,10 @@ export default {
   },
 };
 
-const Template = (args: TitleProps) => <Title {...args} />;
-
-export const Interactive = Template.bind({});
-// @ts-expect-error: Storybook adds args dynamically
-Interactive.args = {
+export const Template = (args: TitleProps) => <Title {...args} />;
+Template.args = {
   children: 'Default Header',
-  variant: 'h1',
+  variant: 'default',
 };
 
 export const HeaderDefault = () => {

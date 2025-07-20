@@ -1,16 +1,24 @@
+import { getStoryDescription } from '@/utils/storiesHelpers';
 import Rating, { type RatingProps } from '.';
 
 export default {
-  title: 'Components/Rating',
+  title: 'Components/Rating/UI',
   component: Rating,
+  parameters: {
+    docs: {
+      description: {
+        component: getStoryDescription({
+          source: 'src/components/ui/Rating/Rating.stories.tsx',
+        }),
+      },
+    },
+  },
   argTypes: {
     rating: { control: 'number' },
   },
 };
 
-const Template = (args: RatingProps) => <Rating {...args} />;
-export const Interactive = Template.bind({});
-// @ts-expect-error: Storybook adds args dynamically
-Interactive.args = {
+export const Template = (args: RatingProps) => <Rating {...args} />;
+Template.args = {
   rating: 4,
 };

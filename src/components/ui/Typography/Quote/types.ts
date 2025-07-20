@@ -2,7 +2,7 @@ import { type VariantProps } from 'class-variance-authority';
 import type { ReactNode } from 'react';
 import { quoteVariants } from './variants';
 
-export interface QuoteProps {
+export interface QuoteProps extends React.HTMLAttributes<HTMLQuoteElement> {
   children: ReactNode;
   variant?: VariantProps<typeof quoteVariants>['variant'];
   className?: string;
