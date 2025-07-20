@@ -3,7 +3,6 @@ import type { NavLinkProps as RouterNavLinkProps } from 'react-router-dom';
 
 export interface NavLinkProps extends Omit<RouterNavLinkProps, 'className' | 'children'> {
   children: ReactNode;
-  onClick?: () => void;
   exact?: boolean;
 }
 

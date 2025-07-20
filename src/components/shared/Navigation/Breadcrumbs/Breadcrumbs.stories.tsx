@@ -1,10 +1,20 @@
 import { MemoryRouter } from 'react-router-dom';
 import Breadcrumbs from './Breadcrumbs';
 import type { ComponentType } from 'react';
+import { getStoryDescription } from '@/utils/storiesHelpers';
 
 export default {
   title: 'Shared/Navigation/Breadcrumbs',
   component: Breadcrumbs,
+  parameters: {
+    docs: {
+      description: {
+        component: getStoryDescription({
+          source: 'src/components/shared/Navigation/Breadcrumbs/Breadcrumbs.stories.tsx',
+        }),
+      },
+    },
+  },
   decorators: [
     (Story: ComponentType) => (
       <MemoryRouter>
@@ -20,4 +30,7 @@ const items = [
   { label: 'Product' },
 ];
 
-export const Default = () => <Breadcrumbs items={items} />;
+export const Template = (arg: React.ComponentProps<typeof Breadcrumbs>) => <Breadcrumbs {...arg} />;
+Template.args = {
+  items: items,
+};
