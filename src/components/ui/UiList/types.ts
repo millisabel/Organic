@@ -1,9 +1,11 @@
 import type { ReactNode } from 'react';
+import type { VariantProps } from 'class-variance-authority';
+import type { uiListVariants } from './variants';
 
 export interface UiListProps<T> {
   items: T[];
   as?: 'ul' | 'ol' | 'div';
   renderItem: (item: T, idx: number) => ReactNode;
-  variant?: 'default' | 'news' | 'product' | 'category' | 'social';
+  variant?: VariantProps<typeof uiListVariants>['variant'];
   className?: string;
 }
