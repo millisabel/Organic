@@ -1,7 +1,7 @@
 import FastItem from './FastItem';
 
 export default {
-  title: 'Blocks/Components/FastItem',
+  title: 'Shared/ContentBlocks/FastItem',
   component: FastItem,
 };
 

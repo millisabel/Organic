@@ -1,7 +1,7 @@
 import Image from './Image';
 
 export default {
-  title: 'Other/Components/UI/Image',
+  title: 'Components/Image/UI',
   component: Image,
   parameters: {
     layout: 'centered',

@@ -1,13 +1,19 @@
 import CloseButton from '@/components/shared/Button/CloseButton/CloseButton';
 import type { CloseButtonProps } from './types';
+import {
+  buttonSizeOptions,
+  buttonStateOptions,
+  buttonVariantOptions,
+} from '@/components/ui/Button/variants';
 
 export default {
-  title: 'Components/Button/Shared/CloseButton',
+  title: 'Components/Button/Extended/CloseButton',
   component: CloseButton,
   parameters: {
     docs: {
       description: {
         component: 'src/components/shared/Button/CloseButton/CloseButton.tsx',
+        story: 'Inherited from Button',
       },
       toc: true,
     },
@@ -17,15 +23,37 @@ export default {
       action: false,
       table: {
         type: { summary: 'function' },
-        category: 'Handlers',
       },
     },
     ariaLabel: {
       control: false,
       table: {
         type: { summary: 'string' },
-        category: 'System',
         defaultValue: { summary: 'Close' },
+      },
+    },
+    variant: {
+      control: 'select',
+      options: buttonVariantOptions,
+      table: {
+        type: { summary: 'string' },
+        category: 'Parent Props',
+      },
+    },
+    size: {
+      control: 'select',
+      options: buttonSizeOptions,
+      table: {
+        type: { summary: 'string' },
+        category: 'Parent Props',
+      },
+    },
+    state: {
+      control: 'select',
+      options: buttonStateOptions,
+      table: {
+        type: { summary: 'string' },
+        category: 'Parent Props',
       },
     },
     children: {
@@ -33,7 +61,7 @@ export default {
       table: {
         type: { summary: 'string' },
         detail: 'Icon Close',
-        category: 'Content',
+        category: 'Parent Props',
         defaultValue: { summary: 'Icon Close' },
       },
     },
@@ -41,7 +69,7 @@ export default {
       control: false,
       table: {
         type: { summary: 'boolean' },
-        category: 'System',
+        category: 'Parent Props',
         defaultValue: { summary: 'false' },
       },
     },
@@ -49,7 +77,7 @@ export default {
       control: false,
       table: {
         type: { summary: 'string' },
-        category: 'System',
+        category: 'Parent Props',
         defaultValue: { summary: 'CloseButton' },
       },
     },
@@ -57,17 +85,13 @@ export default {
       control: 'text',
       table: {
         type: { summary: 'string' },
-        category: 'Appearance',
+        category: 'Parent Props',
       },
     },
   },
 };
 
-export const Default = (args: CloseButtonProps) => (
-  <div className="relative p-4">
-    <CloseButton {...args} />
-  </div>
-);
+export const Default = (args: CloseButtonProps) => <CloseButton {...args} />;
 Default.args = {
   children: 'Close',
 };

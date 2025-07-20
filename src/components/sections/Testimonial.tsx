@@ -4,7 +4,7 @@ import { A11y, Autoplay, EffectFade, Navigation, Pagination, Scrollbar } from 's
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
-import FastItem from '../FastItem/FastItem';
+import FastItem from '../shared/ContentBlocks/FastItem/FastItem';
 import ReviewCard from '../ui/Card/ReviewCard';
 import reviews from '@/data/reviews.json';
 

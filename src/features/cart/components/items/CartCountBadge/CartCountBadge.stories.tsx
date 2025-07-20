@@ -1,7 +1,7 @@
 import CartCountBadge, { type CartCountBadgeProps } from '.';
 
 export default {
-  title: 'Badge/Components/UI/CartCountBadge',
+  title: 'Components/Badge/CartCountBadge',
   component: CartCountBadge,
   argTypes: {
     count: { control: 'number' },

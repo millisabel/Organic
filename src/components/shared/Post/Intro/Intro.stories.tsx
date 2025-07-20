@@ -1,7 +1,7 @@
 import Intro from './Intro';
 
 export default {
-  title: 'Typography/Components/Shared/Post/Intro',
+  title: 'Shared/Post/Intro',
   component: Intro,
 };
 

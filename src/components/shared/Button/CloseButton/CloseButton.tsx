@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button/Button';
 import CloseIcon from '@/components/shared/Icon/CloseIcon';
 import type { CloseButtonProps } from '.';
 
-const CloseButton: FC<CloseButtonProps> = ({ onClick, ariaLabel = 'Close' }) => {
+const CloseButton: FC<CloseButtonProps> = ({ onClick, ariaLabel = 'Close', ...props }) => {
   return (
     <Button
       variant="close"
@@ -11,6 +11,7 @@ const CloseButton: FC<CloseButtonProps> = ({ onClick, ariaLabel = 'Close' }) => 
       onClick={onClick}
       aria-label={ariaLabel}
       nameComponent="CloseButton"
+      {...props}
     >
       <CloseIcon />
     </Button>

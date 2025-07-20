@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import NavLink from './NavLink';
 
 export default {
-  title: 'Typography/Components/Shared/Navigation/NavLink',
+  title: 'Shared/Navigation/NavLink',
   component: NavLink,
   decorators: [
     (Story: ComponentType) => (

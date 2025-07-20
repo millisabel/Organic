@@ -1,3 +1,3 @@
-import Button from '@/components/ui/Button/Button';
+import type { ButtonProps } from '@/components/ui/Button/types';
 
-export type SearchButtonProps = React.ComponentPropsWithoutRef<typeof Button>;
+export interface SearchButtonProps extends ButtonProps {}

@@ -3,7 +3,7 @@ import Breadcrumbs from './Breadcrumbs';
 import type { ComponentType } from 'react';
 
 export default {
-  title: 'Typography/Components/Shared/Navigation/Breadcrumbs',
+  title: 'Shared/Navigation/Breadcrumbs',
   component: Breadcrumbs,
   decorators: [
     (Story: ComponentType) => (

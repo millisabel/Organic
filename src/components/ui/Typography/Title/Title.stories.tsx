@@ -2,7 +2,7 @@ import Title from './Title';
 import type { TitleProps } from './types';
 
 export default {
-  title: 'Typography/Components/UI/Header',
+  title: 'Typography/Header',
   component: Title,
   argTypes: {
     variant: {

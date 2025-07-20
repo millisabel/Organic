@@ -2,7 +2,7 @@ import Article from '.';
 import type { ContentTypeComponent } from './types';
 
 export default {
-  title: 'Typography/Components/Shared/Post/Article',
+  title: 'Shared/Post/Article',
   component: Article,
 };
 

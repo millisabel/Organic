@@ -1,7 +1,7 @@
 import TrashButton from './TrashButton';
 
 export default {
-  title: 'Button/Features/Cart/Buttons/TrashButton',
+  title: 'Components/Button/Extended/TrashButton',
   component: TrashButton,
 };
 

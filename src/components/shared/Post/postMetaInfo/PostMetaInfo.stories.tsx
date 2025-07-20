@@ -1,7 +1,7 @@
 import PostMetaInfo from './PostMetaInfo';
 
 export default {
-  title: 'Typography/Components/Shared/Post/PostMetaInfo',
+  title: 'Shared/Post/PostMetaInfo',
   component: PostMetaInfo,
 };
 

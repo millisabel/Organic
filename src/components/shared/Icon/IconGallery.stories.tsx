@@ -33,7 +33,7 @@ const icons = {
 };
 
 export default {
-  title: 'Components/IconGallery',
+  title: 'Components/Icon/IconGallery',
   parameters: {
     docs: {
       description: {

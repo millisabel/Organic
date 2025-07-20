@@ -1,7 +1,7 @@
-import { Rating, type RatingProps } from '.';
+import Rating, { type RatingProps } from '.';
 
 export default {
-  title: 'Other/Components/UI/Rating',
+  title: 'Components/Rating',
   component: Rating,
   argTypes: {
     rating: { control: 'number' },

@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import InfoBlock from './InfoBlock';
 
 export default {
-  title: 'Blocks/Components/Shared/ContentBlocks/InfoBlock',
+  title: 'Shared/ContentBlocks/InfoBlock',
   component: InfoBlock,
   decorators: [
     (Story: ComponentType) => (

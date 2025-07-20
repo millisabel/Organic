@@ -11,46 +11,18 @@ export default {
       description: {
         component: 'src/components/ui/Button/Button.tsx',
       },
-      toc: true,
     },
   },
   argTypes: {
-    asChild: {
-      control: false,
-      table: {
-        type: { summary: 'boolean' },
-        category: 'System',
-      },
-    },
-    children: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'Default Button' },
-        category: 'Content',
-      },
-    },
-    nameComponent: {
-      control: false,
-      table: {
-        type: { summary: 'string' },
-        category: 'System',
-      },
-    },
-    className: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        category: 'Appearance',
-      },
-    },
+    // Variant Props (from class-variance-authority)
     variant: {
       control: 'select',
       options: buttonVariantOptions,
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'default' },
-        category: 'Appearance',
+        category: 'Custom Props',
+        subcategory: 'Variant',
       },
     },
     size: {
@@ -59,7 +31,8 @@ export default {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'default' },
-        category: 'Appearance',
+        category: 'Custom Props',
+        subcategory: 'Variant',
       },
     },
     state: {
@@ -68,15 +41,81 @@ export default {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'default' },
-        category: 'Appearance',
+        category: 'Custom Props',
+        subcategory: 'Variant',
+      },
+    },
+    // Custom Props
+    className: {
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        category: 'Custom Props',
+      },
+    },
+    asChild: {
+      control: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Custom Props',
+      },
+    },
+    nameComponent: {
+      control: false,
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'Button' },
+        category: 'Custom Props',
+      },
+    },
+    children: {
+      control: 'text',
+      table: {
+        type: { summary: 'React.ReactNode' },
+        defaultValue: { summary: 'Default Button' },
+        category: 'Custom Props',
+      },
+    },
+    // React.forwardRef Props
+    ref: {
+      control: false,
+      table: {
+        type: { summary: 'React.Ref<HTMLButtonElement>' },
+        defaultValue: { summary: 'null' },
+        category: 'React.forwardRef',
+      },
+    },
+    // Inherited HTML Props
+    onClick: {
+      action: 'clicked',
+      table: {
+        type: { summary: '(event: React.MouseEvent<HTMLButtonElement>) => void' },
+        category: 'Inherited from HTMLButtonElement',
       },
     },
     type: {
       control: false,
       table: {
-        label: 'Type',
+        defaultValue: { summary: 'button' },
+        category: 'Inherited from HTMLButtonElement',
+      },
+    },
+    disabled: {
+      control: 'boolean',
+      defaultValue: false,
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+        category: 'Inherited from HTMLButtonElement',
+      },
+    },
+    'aria-label': {
+      control: false,
+      defaultValue: null,
+      table: {
         type: { summary: 'string' },
-        category: 'System',
+        category: 'Inherited from HTMLButtonElement',
       },
     },
   },

@@ -3,7 +3,7 @@ import Pagination from './Pagination';
 import type { ComponentType } from 'react';
 
 export default {
-  title: 'Typography/Components/Shared/Navigation/Pagination',
+  title: 'Shared/Navigation/Pagination',
   component: Pagination,
   decorators: [
     (Story: ComponentType) => (

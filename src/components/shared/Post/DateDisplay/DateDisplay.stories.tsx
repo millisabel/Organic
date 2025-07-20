@@ -1,7 +1,7 @@
 import DateDisplay from './DateDisplay';
 
 export default {
-  title: 'Other/Components/Shared/Post/DateDisplay',
+  title: 'Shared/Post/DateDisplay',
   component: DateDisplay,
 };
 

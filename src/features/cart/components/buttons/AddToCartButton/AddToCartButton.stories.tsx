@@ -1,8 +1,15 @@
 import AddToCartButton from './AddToCartButton';
 
 export default {
-  title: 'Button/Features/Cart/Buttons/AddToCartButton',
+  title: 'Components/Button/Extended/AddToCartButton',
   component: AddToCartButton,
+  parameters: {
+    docs: {
+      description: {
+        component: 'src/features/cart/components/buttons/AddToCartButton/AddToCartButton.tsx',
+      },
+    },
+  },
 };
 
 export const AddToCartButtonDefault = () => (

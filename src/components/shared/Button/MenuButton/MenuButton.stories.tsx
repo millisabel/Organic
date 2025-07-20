@@ -2,7 +2,7 @@ import MenuButton from './MenuButton';
 import type { MenuButtonProps } from './types';
 
 export default {
-  title: 'Components/Button/Shared/MenuButton',
+  title: 'Components/Button/Extended/MenuButton',
   component: MenuButton,
   parameters: {
     docs: {

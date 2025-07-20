@@ -27,7 +27,7 @@ export const buttonVariants = cva(baseClasses, {
   variants: {
     variant: {
       default: ['bg-primary text-white', 'hover:bg-accent hover:text-primary'],
-      outline: ['bg-background', 'border-2 border-primary', 'hover:bg-primary hover:text-white'],
+      outline: ['bg-background', 'ring-2 ring-primary', 'hover:bg-primary hover:text-white'],
       accent: ['bg-accent', 'hover:bg-primary hover:text-accent'],
       transparent: ['bg-transparent', 'shadow-none', 'hover:bg-secondary hover:text-white'],
       close: [
@@ -38,8 +38,8 @@ export const buttonVariants = cva(baseClasses, {
       red: [
         'text-accent-red',
         'bg-background',
-        'border-2 border-primary',
-        'border-accent-red',
+        'ring-2 ring-primary',
+        'ring-accent-red',
         'hover:bg-red-500 hover:text-white',
       ],
       light: ['bg-gray-200 text-primary hover:bg-accent'],
@@ -57,13 +57,13 @@ export const buttonVariants = cva(baseClasses, {
       loading: [
         'cursor-wait',
         'bg-background',
-        'border-2 border-background',
+        'ring-2 ring-background',
         'text-gray-500',
         'shadow-none',
         'hover:shadow-none hover:bg-background hover:text-gray-500',
       ],
       success: [
-        'bg-transparent border-2 border-secondary-dark',
+        'bg-transparent ring-2 ring-secondary-dark',
         'text-secondary-dark',
         'hover:border-bg-green-600 hover:bg-green-600 hover:secondary-dark hover:text-white',
       ],
@@ -71,7 +71,7 @@ export const buttonVariants = cva(baseClasses, {
         'pointer-events-none',
         'bg-background',
         'opacity-50',
-        'border-neutral-500',
+        'ring-2 ring-neutral-500',
         'text-neutral-500',
       ],
       notActive: ['pointer-events-none'],

@@ -2,7 +2,7 @@ import SocialButton from './SocialButton';
 import type { SocialButtonProps } from './types';
 
 export default {
-  title: 'Components/Button/Shared/SocialButton',
+  title: 'Components/Button/Extended/SocialButton',
   component: SocialButton,
   parameters: {
     docs: {
