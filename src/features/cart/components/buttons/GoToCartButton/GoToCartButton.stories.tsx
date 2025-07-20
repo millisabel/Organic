@@ -1,5 +1,7 @@
 import { MemoryRouter } from 'react-router-dom';
 import GoToCartButton from './GoToCartButton';
+import { getStoryDescription } from '@/utils/storiesHelpers';
+import type { GoToCartButtonProps } from './types';
 
 export default {
   title: 'Components/Button/Extended/GoToCartButton',
@@ -11,8 +13,20 @@ export default {
       </MemoryRouter>
     ),
   ],
+  parameters: {
+    docs: {
+      description: {
+        component: getStoryDescription({
+          inheritFrom: 'Button',
+          source: 'src/features/cart/components/buttons/GoToCartButton/GoToCartButton.tsx',
+        }),
+      },
+    },
+  },
 };
 
-export const GoToCartButtonDefault = () => <GoToCartButton />;
-export const GoToCartButtonShopSingle = () => <GoToCartButton mode="shopSingle" />;
-export const GoToCartButtonShopCompact = () => <GoToCartButton mode="shopCompact" />;
+export const Template = (args: GoToCartButtonProps) => <GoToCartButton {...args} />;
+
+Template.args = {
+  mode: 'shopCompact',
+};

@@ -1,5 +1,67 @@
+import { createArgTypesFromArray, getStoryDescription } from '@/utils/storiesHelpers';
 import MenuButton from './MenuButton';
 import type { MenuButtonProps } from './types';
+import {
+  buttonSizeOptions,
+  buttonStateOptions,
+  buttonVariantOptions,
+} from '@/components/ui/Button/variants';
+
+const customProps = createArgTypesFromArray([
+  {
+    name: 'isOpen',
+    type: 'boolean',
+    defaultValue: 'false',
+    control: 'boolean',
+  },
+  {
+    name: 'nameComponent',
+    type: 'string',
+    defaultValue: 'MenuButton',
+    control: false,
+    category: 'Parent Props',
+  },
+  {
+    name: 'className',
+    type: 'string',
+    control: 'text',
+    category: 'Parent Props',
+  },
+  {
+    name: 'children',
+    type: 'React.ReactNode',
+    defaultValue: 'Icon Menu',
+    control: false,
+    category: 'Parent Props',
+  },
+  {
+    name: 'variant',
+    type: 'string',
+    defaultValue: 'transparent',
+    control: 'select',
+    options: buttonVariantOptions,
+    category: 'Parent Props',
+    subcategory: 'Variant',
+  },
+  {
+    name: 'size',
+    type: 'string',
+    defaultValue: 'circle',
+    control: 'select',
+    options: buttonSizeOptions,
+    category: 'Parent Props',
+    subcategory: 'Variant',
+  },
+  {
+    name: 'state',
+    type: 'string',
+    defaultValue: 'default',
+    control: 'select',
+    options: buttonStateOptions,
+    category: 'Parent Props',
+    subcategory: 'Variant',
+  },
+]);
 
 export default {
   title: 'Components/Button/Extended/MenuButton',
@@ -7,68 +69,20 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'src/components/shared/Button/MenuButton/MenuButton.tsx',
+        component: getStoryDescription({
+          inheritFrom: 'Button',
+          source: 'src/components/shared/Button/MenuButton/MenuButton.tsx',
+        }),
       },
-      toc: true,
+    },
+    controls: {
+      exclude: ['asChild'],
     },
   },
-  argTypes: {
-    isOpen: {
-      control: 'boolean',
-      table: {
-        type: { summary: 'boolean' },
-        category: 'System',
-        defaultValue: { summary: 'false' },
-      },
-    },
-    onClick: {
-      action: 'clicked',
-      table: {
-        type: { summary: 'function' },
-        category: 'Handlers',
-      },
-    },
-    className: {
-      control: 'text',
-      table: {
-        type: { summary: 'string' },
-        category: 'Appearance',
-      },
-    },
-    children: {
-      control: false,
-      table: {
-        type: { summary: 'string' },
-        category: 'Content',
-        detail: 'Icon Menu',
-        defaultValue: { summary: 'Icon Menu' },
-      },
-    },
-    asChild: {
-      control: false,
-      table: {
-        type: { summary: 'boolean' },
-        category: 'System',
-        defaultValue: { summary: 'false' },
-      },
-    },
-    nameComponent: {
-      control: false,
-      table: {
-        type: { summary: 'string' },
-        category: 'System',
-        defaultValue: { summary: 'MenuButton' },
-      },
-    },
-  },
+  argTypes: customProps,
 };
 
-export const Default = (args: MenuButtonProps) => <MenuButton {...args} />;
-Default.args = {
+export const Template = (args: MenuButtonProps) => <MenuButton {...args} />;
+Template.args = {
   isOpen: false,
-  onClick: () => {},
 };
-
-export const MenuClose = () => <MenuButton isOpen={false} onClick={() => {}} />;
-
-export const MenuOpen = () => <MenuButton isOpen={true} onClick={() => {}} />;

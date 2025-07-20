@@ -1,25 +1,22 @@
+import { getStoryDescription } from '@/utils/storiesHelpers';
 import SearchButton from './SearchButton';
-import type { SearchButtonProps } from './types';
 
 export default {
   title: 'Components/Button/Extended/SearchButton',
   component: SearchButton,
   parameters: {
+    controls: {
+      exclude: ['nameComponent', 'asChild', 'className', 'children'],
+    },
     docs: {
       description: {
-        component: 'features/search/components/SearchButton/SearchButton.tsx',
-        story: 'inherited from Button',
+        component: getStoryDescription({
+          inheritFrom: 'Button',
+          source: 'src/features/search/components/SearchButton/SearchButton.tsx',
+        }),
       },
     },
   },
 };
 
-export const Template = (args: SearchButtonProps) => <SearchButton {...args} />;
-
-Template.args = {
-  // eslint-disable-next-line no-console
-  onClick: () => console.log('Search clicked'),
-  'aria-label': 'Search',
-  variant: 'default',
-  size: 'circle',
-};
+export const Template = () => <SearchButton />;

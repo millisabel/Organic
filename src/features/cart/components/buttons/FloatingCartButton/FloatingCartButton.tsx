@@ -1,48 +1,36 @@
 import CartIcon from '@/components/shared/Icon/CartIcon';
-import Button from '@/components/ui/Button';
 import CartCountBadge from '@/features/cart/components/items/CartCountBadge';
-import { useElementVisibility } from '@/hooks/useElementVisibility';
-import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
-import { useAppSelector } from '@/store/hooks';
-import { cn } from '@/utils/helpers';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import type { FloatingCartButtonProps } from './types';
+import Button from '@/components/ui/Button';
 
-const FloatingCartButton = ({ className }: { className?: string }) => {
-  const cartItems = useAppSelector((state) => state.cart.items);
-  const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-  // Use new hooks for better code organization
-  const headerVisible = useElementVisibility({ selector: 'header' });
-  const isMobile = useIsBelowBreakpoint('sm');
-
+const FloatingCartButton = ({ count, price, isVisible, ...props }: FloatingCartButtonProps) => {
   // Track when items are added to cart for pulse animation
   const [justAdded, setJustAdded] = useState(false);
-  const [prevCount, setPrevCount] = useState(totalCount);
+  const [prevCount, setPrevCount] = useState(count);
 
   // Trigger pulse animation when count increases
   useEffect(() => {
-    if (totalCount > prevCount) {
+    if (count > prevCount) {
       setJustAdded(true);
       const timer = setTimeout(() => setJustAdded(false), 600);
       return () => clearTimeout(timer);
     }
-    setPrevCount(totalCount);
-  }, [totalCount, prevCount]);
-
-  const shouldShow = totalCount > 0 && !headerVisible;
+    setPrevCount(count);
+  }, [count, prevCount]);
 
   return (
     <AnimatePresence>
-      {shouldShow && (
+      {isVisible && (
         <Button
           asChild
           variant="default"
           size="ellipse"
-          aria-label={`Open cart (${totalCount} items, $${totalPrice.toFixed(2)})`}
+          aria-label={`Open cart (${count} items, $${price.toFixed(2)})`}
           nameComponent="FloatingCartButton"
-          className={cn('relative', className)}
+          className="relative w-max"
+          {...props}
         >
           <motion.a
             href="/cart"
@@ -57,16 +45,17 @@ const FloatingCartButton = ({ className }: { className?: string }) => {
           >
             <span className="relative flex items-center justify-center">
               <motion.div
-                key={totalCount}
+                className="absolute -top-2 -right-2"
+                key={count}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
-                <CartCountBadge count={totalCount} />
+                <CartCountBadge count={count} className="w-5 h-5" />
               </motion.div>
               <CartIcon size="lg" />
             </span>
-            {!isMobile && <span className="ml-2">${totalPrice.toFixed(2)}</span>}
+            <span className="ml-2">${price.toFixed(2)}</span>
           </motion.a>
         </Button>
       )}

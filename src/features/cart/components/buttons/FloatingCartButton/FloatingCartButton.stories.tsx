@@ -1,42 +1,48 @@
-import CartIcon from '@/components/shared/Icon/CartIcon';
-import Button from '@/components/ui/Button';
-import CartCountBadge from '@/features/cart/components/items/CartCountBadge';
+import { getStoryDescription } from '@/utils/storiesHelpers';
+import FloatingCartButton from './FloatingCartButton';
+import type { FloatingCartButtonProps } from './types';
 
 export default {
   title: 'Components/Button/Extended/FloatingCartButton',
-  component: Button,
+  component: FloatingCartButton,
+  parameters: {
+    docs: {
+      description: {
+        component: getStoryDescription({
+          inheritFrom: 'Button',
+          source: 'src/features/cart/components/buttons/FloatingCartButton/FloatingCartButton.tsx',
+        }),
+      },
+    },
+  },
 };
 
-let isMobile = false;
-
-export const FloatingCartButtonVisualDesktop = () => (
-  <Button
-    variant="default"
-    size="ellipse"
-    aria-label={`Open cart 4 items)`}
-    nameComponent="FloatingCartButton"
-    className="relative"
-  >
-    <div className="flex flex-row items-center justify-center gap-2">
-      <CartIcon size="lg" />
-      <CartCountBadge count={4} />
-      {!isMobile && <span className="ml-2">$200.00</span>}
-    </div>
-  </Button>
+export const Template = (args: FloatingCartButtonProps) => (
+  <div className="p-8">
+    <FloatingCartButton {...args} />
+  </div>
 );
 
-export const FloatingCartButtonVisualMobile = () => (
-  <Button
-    variant="default"
-    size="ellipse"
-    aria-label={`Open cart 4 items)`}
-    nameComponent="FloatingCartButton"
-    className="relative"
-  >
-    <div className=" flex flex-row items-center justify-center gap-2">
-      <CartIcon size="lg" />
-      <CartCountBadge count={4} />
-      {isMobile && <span className="ml-2">$200.00</span>}
-    </div>
-  </Button>
+Template.args = {
+  count: 3,
+  price: 77.97,
+  isVisible: true,
+};
+
+export const Visible = () => (
+  <div className="p-8">
+    <FloatingCartButton count={5} price={125.5} isVisible={true} />
+  </div>
+);
+
+export const Hidden = () => (
+  <div className="p-8">
+    <FloatingCartButton count={0} price={0} isVisible={false} />
+  </div>
+);
+
+export const EmptyCart = () => (
+  <div className="p-8">
+    <FloatingCartButton count={0} price={0} isVisible={true} />
+  </div>
 );

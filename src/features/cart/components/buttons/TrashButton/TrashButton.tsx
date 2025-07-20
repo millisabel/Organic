@@ -3,26 +3,14 @@ import React from 'react';
 import TrashIcon from '../../../../../components/shared/Icon/TrashIcon';
 import type { TrashButtonProps } from './types';
 
-const TrashButton: React.FC<TrashButtonProps> = ({ handleRemove }) => (
+const TrashButton: React.FC<TrashButtonProps> = ({ ...props }) => (
   <Button
-    type="button"
     aria-label="Remove from cart"
-    tabIndex={0}
+    type="button"
     variant="red"
     size="square"
-    onClick={(e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      handleRemove(e as React.MouseEvent<HTMLButtonElement>);
-    }}
-    onKeyDown={(e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        e.stopPropagation();
-        handleRemove(e as unknown as React.MouseEvent<HTMLButtonElement>);
-      }
-    }}
-    data-component="TrashButton"
+    nameComponent="TrashButton"
+    {...props}
   >
     <TrashIcon />
   </Button>

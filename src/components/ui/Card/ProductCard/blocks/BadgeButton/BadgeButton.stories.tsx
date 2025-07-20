@@ -1,3 +1,4 @@
+import { getStoryDescription } from '@/utils/storiesHelpers';
 import BadgeButton, { type BadgeButtonProps } from '.';
 
 export default {
@@ -6,7 +7,10 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'src/components/ui/Card/ProductCard/blocks/BadgeButton/BadgeButton.tsx',
+        component: getStoryDescription({
+          inheritFrom: 'Button',
+          source: 'src/components/ui/Card/ProductCard/blocks/BadgeButton/BadgeButton.tsx',
+        }),
       },
     },
   },
@@ -15,11 +19,8 @@ export default {
   },
 };
 
-const Template = (args: BadgeButtonProps) => <BadgeButton {...args} />;
+export const Template = (args: BadgeButtonProps) => <BadgeButton {...args} />;
 Template.args = {
   text: 'Category',
+  handleCategoryClick: () => {},
 };
-
-export const BadgeButtonDefault = () => (
-  <BadgeButton text="Category" handleCategoryClick={() => {}} />
-);

@@ -2,6 +2,91 @@ import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import Button from './Button';
 import type { ButtonProps } from './types';
 import { buttonSizeOptions, buttonStateOptions, buttonVariantOptions } from './variants';
+import { createArgTypesFromArray, getStoryDescription } from '@/utils/storiesHelpers';
+
+const customProps = createArgTypesFromArray([
+  {
+    name: 'variant',
+    options: buttonVariantOptions,
+    control: 'select',
+    type: 'string',
+    defaultValue: 'default',
+    subcategory: 'Variant',
+  },
+  {
+    name: 'size',
+    control: 'select',
+    options: buttonSizeOptions,
+    type: 'string',
+    defaultValue: 'default',
+    subcategory: 'Variant',
+  },
+  {
+    name: 'state',
+    control: 'select',
+    options: buttonStateOptions,
+    type: 'string',
+    defaultValue: 'default',
+    subcategory: 'Variant',
+  },
+  {
+    name: 'nameComponent',
+    control: false,
+    type: 'string',
+    defaultValue: 'Button',
+  },
+  {
+    name: 'children',
+    control: 'text',
+    type: 'string',
+    defaultValue: 'Default Button',
+  },
+  {
+    name: 'className',
+    control: 'text',
+    type: 'string',
+    defaultValue: 'Default Button',
+  },
+  {
+    name: 'disabled',
+    control: 'boolean',
+    type: 'boolean',
+    defaultValue: false,
+    category: 'Inherited from HTMLButtonElement',
+  },
+  {
+    name: 'asChild',
+    control: false,
+    type: 'boolean',
+    defaultValue: 'false',
+  },
+  {
+    name: 'type',
+    control: false,
+    defaultValue: 'button',
+    category: 'Inherited from HTMLButtonElement',
+  },
+  {
+    name: 'onClick',
+    control: false,
+    type: 'event: React.MouseEvent<HTMLButtonElement>',
+    category: 'Inherited from HTMLButtonElement',
+  },
+  {
+    name: 'aria-label',
+    control: false,
+    type: 'string',
+    defaultValue: 'Button',
+    category: 'Inherited from HTMLButtonElement',
+  },
+  {
+    name: 'ref',
+    control: false,
+    type: 'boolean',
+    defaultValue: 'false',
+    category: 'React.forwardRef',
+  },
+]);
 
 export default {
   title: 'Components/Button/UI',
@@ -9,116 +94,13 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'src/components/ui/Button/Button.tsx',
+        component: getStoryDescription({
+          source: 'src/components/ui/Button/Button.tsx',
+        }),
       },
     },
   },
-  argTypes: {
-    // Variant Props (from class-variance-authority)
-    variant: {
-      control: 'select',
-      options: buttonVariantOptions,
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'default' },
-        category: 'Custom Props',
-        subcategory: 'Variant',
-      },
-    },
-    size: {
-      control: 'select',
-      options: buttonSizeOptions,
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'default' },
-        category: 'Custom Props',
-        subcategory: 'Variant',
-      },
-    },
-    state: {
-      control: 'select',
-      options: buttonStateOptions,
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'default' },
-        category: 'Custom Props',
-        subcategory: 'Variant',
-      },
-    },
-    // Custom Props
-    className: {
-      control: 'text',
-      table: {
-        type: { summary: 'string', description: 'The class name of the button' },
-        category: 'Custom Props',
-      },
-    },
-    asChild: {
-      control: false,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Custom Props',
-      },
-    },
-    nameComponent: {
-      control: false,
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'Button' },
-        category: 'Custom Props',
-      },
-    },
-    children: {
-      control: 'text',
-      table: {
-        type: { summary: 'React.ReactNode' },
-        defaultValue: { summary: 'Default Button' },
-        category: 'Custom Props',
-      },
-    },
-    // React.forwardRef Props
-    ref: {
-      control: false,
-      table: {
-        type: { summary: 'React.Ref<HTMLButtonElement>' },
-        defaultValue: { summary: 'null' },
-        category: 'React.forwardRef',
-      },
-    },
-    // Inherited HTML Props
-    onClick: {
-      action: 'clicked',
-      table: {
-        type: { summary: '(event: React.MouseEvent<HTMLButtonElement>) => void' },
-        category: 'Inherited from HTMLButtonElement',
-      },
-    },
-    type: {
-      control: false,
-      table: {
-        defaultValue: { summary: 'button' },
-        category: 'Inherited from HTMLButtonElement',
-      },
-    },
-    disabled: {
-      control: 'boolean',
-      defaultValue: false,
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-        category: 'Inherited from HTMLButtonElement',
-      },
-    },
-    'aria-label': {
-      control: false,
-      defaultValue: null,
-      table: {
-        type: { summary: 'string' },
-        category: 'Inherited from HTMLButtonElement',
-      },
-    },
-  },
+  argTypes: customProps,
 };
 
 export const Default = (args: ButtonProps) => <Button {...args} />;

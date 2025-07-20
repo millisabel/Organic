@@ -35,7 +35,7 @@ interface ArgTypeTable {
 
 interface ArgTypeItem {
   name: string;
-  control?: string;
+  control?: string | boolean;
   options?: unknown[];
   description?: string;
   defaultValue?: unknown;
@@ -53,8 +53,9 @@ export const createArgTypesFromArray = (array: Array<ArgTypeItem>) => {
 
   array.forEach((item) => {
     const { name, ...rest } = item;
+
     result[name] = {
-      control: rest.control || 'text',
+      control: rest.control || rest.control === false ? rest.control : 'text',
       options: rest.options || null,
       description: rest.description || null,
       table: {

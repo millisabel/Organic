@@ -5,9 +5,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import type { GoToCartButtonProps } from '.';
 
-const GoToCartButton: React.FC<GoToCartButtonProps> = ({ mode = 'shopCompact' }) => {
+const GoToCartButton: React.FC<GoToCartButtonProps> = ({ mode = 'shopCompact', ...props }) => {
   return (
-    <Button aria-label="Go to cart" tabIndex={0} asChild variant="outline" state="success">
+    <Button
+      aria-label="Go to cart"
+      tabIndex={0}
+      asChild
+      variant="outline"
+      state="success"
+      nameComponent="GoToCartButton"
+      {...props}
+    >
       <Link
         to="/cart"
         onClick={(e) => {

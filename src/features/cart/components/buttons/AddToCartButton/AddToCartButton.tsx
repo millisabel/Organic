@@ -2,8 +2,7 @@ import Button from '@/components/ui/Button';
 import SpinnerIcon from '@/components/shared/Icon/SpinnerIcon';
 import type { AddToCartButtonProps } from '.';
 
-const AddToCartButton = ({ isInCart, isLoading, isOutOfStock, onClick }: AddToCartButtonProps) => {
-  // Determine button state based on conditions
+const AddToCartButton = ({ isInCart, isLoading, isOutOfStock, ...props }: AddToCartButtonProps) => {
   const buttonState = isLoading
     ? 'loading'
     : isOutOfStock
@@ -18,10 +17,10 @@ const AddToCartButton = ({ isInCart, isLoading, isOutOfStock, onClick }: AddToCa
     <Button
       variant="outline"
       state={buttonState}
-      onClick={onClick}
       disabled={isOutOfStock}
       aria-label={buttonText}
       nameComponent="AddToCartButton"
+      {...props}
     >
       {isLoading ? <SpinnerIcon /> : buttonText}
     </Button>
