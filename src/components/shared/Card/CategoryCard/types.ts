@@ -1,4 +1,4 @@
-import type { CardProps } from '../types';
+import type { CardProps } from '../../../ui/Card/types';
 
 export interface CategoryDataProps extends CardProps {
   id: number;
@@ -7,5 +7,5 @@ export interface CategoryDataProps extends CardProps {
 }
 
 export interface CategoryCardProps {
-  category: CategoryDataProps;
+  data: CategoryDataProps;
 }

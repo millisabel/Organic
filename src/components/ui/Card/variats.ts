@@ -1,5 +1,5 @@
 import { cva } from 'class-variance-authority';
-import type { CardVariants } from './index';
+import type { CardVariants } from './types';
 
 // Base classes for card component
 const cardBaseClasses = [

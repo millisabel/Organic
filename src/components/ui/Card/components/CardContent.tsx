@@ -1,7 +1,7 @@
 import { cn } from '@/utils/helpers';
 import type { CardProps } from '../types';
 
-const cardContentClasses = ['flex flex-col'];
+const cardContentClasses = ['flex flex-col justify-center items-center'];
 
 const CardContent = ({ children, className }: CardProps) => {
   return (

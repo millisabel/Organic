@@ -26,6 +26,7 @@ export const cardVariants = cva(cardBaseClasses, {
   variants: {
     variant: {
       default: [''],
+      notShadow: ['shadow-none hover:shadow-none'],
       // product: [...cardProductClasses],
       // isInCart: [...cardProductClasses],
       // isOutOfStock: [...cardProductClasses, 'filter grayscale opacity-70 pointer-events-none'],
