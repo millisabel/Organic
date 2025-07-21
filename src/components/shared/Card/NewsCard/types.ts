@@ -1,5 +1,6 @@
 import type { FormatDateProps } from '@/utils/helpers';
-import type { CardProps } from '../types';
+import type { ReactNode } from 'react';
+import type { CardProps } from '../../../ui/Card/types';
 
 export interface NewsCardData {
   id: number;
@@ -11,6 +12,13 @@ export interface NewsCardData {
   imageUrl: string;
 }
 
+export interface NewsCardSlots {
+  badge?: ReactNode;
+  button?: ReactNode;
+  author?: ReactNode;
+}
+
 export interface NewsCardProps extends CardProps {
   data: NewsCardData;
+  slots?: NewsCardSlots;
 }

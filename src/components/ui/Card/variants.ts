@@ -3,7 +3,6 @@ import { cva } from 'class-variance-authority';
 export const cardVariantsOptions = ['default', 'small'];
 
 const cardBaseClasses = [
-  'group',
   'relative overflow-hidden',
   'flex flex-col justify-between', // Layout
   'min-h-[300px] min-w-[200px]',

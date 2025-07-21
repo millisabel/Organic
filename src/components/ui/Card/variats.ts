@@ -1,9 +1,8 @@
 import { cva } from 'class-variance-authority';
-import type { CardVariants } from './types';
+import type { cardVariants } from './variants';
 
 // Base classes for card component
 const cardBaseClasses = [
-  'group',
   'relative overflow-hidden',
   'flex flex-col justify-between gap-0', // Layout
   'w-full min-h-[500px]', // Size

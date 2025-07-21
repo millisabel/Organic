@@ -1,7 +1,6 @@
 import { cva } from 'class-variance-authority';
 
 const iconBaseClasses = [
-  'group',
   'w-full h-full', // Layout
   'border-none', // Border
   'bg-transparent', // Background

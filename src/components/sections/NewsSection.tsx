@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import newsData from '@/data/news.json';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import UiList from '../patterns/UiList';
-import NewsCard from '../ui/Card/NewsCard';
+import NewsCard from '../shared/Card/NewsCard';
 
 interface NewsSectionProps {
   count?: number;

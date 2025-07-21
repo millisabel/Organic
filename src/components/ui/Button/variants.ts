@@ -16,7 +16,6 @@ const baseClasses = [
   'group inline-flex',
   'flex items-center justify-center whitespace-nowrap gap-2.5',
   'px-4 py-2',
-  'mx-auto',
   'text-primary font-roboto font-bold',
   'shadow-md',
   'hover:shadow-xl transition-all duration-300',
@@ -30,6 +29,13 @@ export const buttonVariants = cva(baseClasses, {
       outline: ['bg-background', 'ring-2 ring-primary', 'hover:bg-primary hover:text-white'],
       accent: ['bg-accent', 'hover:bg-primary hover:text-accent'],
       transparent: ['bg-transparent', 'shadow-none', 'hover:bg-secondary hover:text-white'],
+      transparentFull: [
+        'justify-start',
+        'px-0',
+        'bg-transparent',
+        'shadow-none',
+        'hover:shadow-none hover:text-secondary',
+      ],
       close: [
         'bg-transparent',
         'shadow-none',
