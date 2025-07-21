@@ -1,5 +1,5 @@
-import BadgeButton from '@/components/ui/Card/ProductCard/blocks/BadgeButton';
-import StatusBadge from '@/components/ui/Card/ProductCard/blocks/StatusBadge';
+import BadgeButton from '@/components/shared/Card/ProductCard/components/BadgeButton';
+import StatusBadge from '@/components/shared/Card/ProductCard/components/StatusBadge';
 import type { ProductBadgeBlockProps } from '../types';
 
 const badgeContainerClasses = {
@@ -19,7 +19,6 @@ const badgeStatusPosition = {
 
 const ProductBadgeBlock: React.FC<ProductBadgeBlockProps> = ({
   category,
-  handleCategoryClick,
   isInCart = false,
   product,
   view = 'compact',
@@ -27,16 +26,18 @@ const ProductBadgeBlock: React.FC<ProductBadgeBlockProps> = ({
   return (
     <div className={`${badgeContainerClasses[view]}`}>
       <div className={`${badgeCategoryClasses[view]} z-10`}>
-        <BadgeButton text={category} handleCategoryClick={handleCategoryClick} />
+        <BadgeButton children={category} />
       </div>
       <div className={`${badgeStatusPosition[view]}`}>
         {product.isOutOfStock ? (
-          <StatusBadge variant="outOfStock" />
+          <StatusBadge variant="status" />
         ) : (
           <>
-            {isInCart && <StatusBadge variant="inCart" />}
-            {product.isNew && <StatusBadge variant="new" />}
-            {product.oldPrice && product.oldPrice > product.price && <StatusBadge variant="sale" />}
+            {isInCart && <StatusBadge variant="status" state="inCart" />}
+            {product.isNew && <StatusBadge variant="status" state="new" />}
+            {product.oldPrice && product.oldPrice > product.price && (
+              <StatusBadge variant="status" state="sale" />
+            )}
           </>
         )}
       </div>
