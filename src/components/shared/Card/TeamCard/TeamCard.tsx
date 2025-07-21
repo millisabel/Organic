@@ -3,7 +3,7 @@ import type { AdditionalProps } from '@/components/patterns/UiList/types';
 import SocialButton, { type SocialType } from '@/components/shared/Button/SocialButton';
 import Card from '@/components/ui/Card';
 import CardContent from '@/components/ui/Card/components/CardContent';
-import CardFooter from '@/components/ui/Card/components/CardFoorer';
+import CardFooter from '@/components/ui/Card/components/CardFooter';
 import CardHeader from '@/components/ui/Card/components/CardHeader';
 import Image from '@/components/ui/Image';
 import Title from '@/components/ui/Typography/Title';

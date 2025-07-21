@@ -1,12 +1,12 @@
 import testimonialBg from '@/assets/images/backgrounds/testimonial_home.webp';
+import reviews from '@/data/reviews.json';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { A11y, Autoplay, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
+import ReviewCard from '../shared/Card/ReviewCard';
 import FastItem from '../shared/ContentBlocks/FastItem/FastItem';
-import ReviewCard from '../ui/Card/ReviewCard';
-import reviews from '@/data/reviews.json';
 
 const facts = [
   { id: 1, value: '100%', label: 'Organic' },

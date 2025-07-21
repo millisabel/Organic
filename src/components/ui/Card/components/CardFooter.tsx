@@ -5,7 +5,7 @@ export interface CardFooterProps {
   children?: React.ReactNode;
 }
 
-const cardFooterClasses = ['flex flex-col'];
+const cardFooterClasses = ['flex flex-col items-center justify-center gap-2'];
 
 const CardFooter = ({ children, className }: CardFooterProps) => {
   return (
