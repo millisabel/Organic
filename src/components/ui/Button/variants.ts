@@ -27,6 +27,7 @@ export const buttonVariants = cva(baseClasses, {
     variant: {
       default: ['bg-primary text-white', 'hover:bg-accent hover:text-primary'],
       outline: ['bg-background', 'ring-2 ring-primary', 'hover:bg-primary hover:text-white'],
+      social: ['bg-secondary/10', 'hover:bg-primary hover:text-white'],
       accent: ['bg-accent', 'hover:bg-primary hover:text-accent'],
       transparent: ['bg-transparent', 'shadow-none', 'hover:bg-secondary hover:text-white'],
       transparentFull: [

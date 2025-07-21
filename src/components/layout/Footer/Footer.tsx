@@ -1,3 +1,4 @@
+import CompanyInfo from './complnens/CompanyInfo';
 import Copyright from './complnens/Copyright';
 import Links from './complnens/Links';
 
@@ -46,35 +47,18 @@ const CONTACTS = [
   },
 ];
 
-// import SocialButtonsList from '@/components/shared/Button/SocialButton/SocialButton';
-// import Logo from '../ui/Logo';
-
-// const SOCIALS_FOOTER = {
-//   facebook: 'https://facebook.com/',
-//   instagram: 'https://instagram.com/',
-//   twitter: 'https://www.twitter.com',
-//   pinterest: 'https://www.pinterest.com',
-// };
-
 const Footer = () => {
   return (
     <footer className="bg-background-secondary">
       <div className="border-b border-border mb-6">
         <div className="container grid grid-cols-1 gap-12 text-center lg:grid-cols-3 lg:gap-8 lg:text-left py-24">
-          <Links title="Contact Us" data={CONTACTS} className="lg:justify-self-end lg:text-right" />
-          <Links title="Pages" data={PAGES} className="lg:justify-self-center" />
-          {/*  
-
-            <div className="flex flex-col items-center border-x-0 border-b-2 border-t-2 border-border px-8 py-8 lg:border-x-2 lg:border-y-0 lg:py-0">
-              <Logo />
-              <p className="my-6 text-center text-text-light">
-                Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy
-                text of the printing.
-              </p>
-              <SocialButtonsList socials={SOCIALS_FOOTER} />
-            </div>
-
-           */}
+          <Links
+            title="Contact Us"
+            data={CONTACTS}
+            className="lg:pr-12 lg:justify-self-end lg:text-right"
+          />
+          <CompanyInfo className="flex flex-col items-center gap-8 border-b-2 border-t-2 lg:border-b-0 lg:border-t-0 lg:border-l-2 lg:border-r-2 py-8 lg:py-0 lg:px-12" />
+          <Links title="Pages" data={PAGES} className="lg:pl-12" />
         </div>
       </div>
       <div className="m-auto p-4">
