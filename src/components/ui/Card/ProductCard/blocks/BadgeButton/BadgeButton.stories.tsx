@@ -15,12 +15,11 @@ export default {
     },
   },
   argTypes: {
-    text: { control: 'text' },
+    children: { control: 'text' },
   },
 };
 
 export const Template = (args: BadgeButtonProps) => <BadgeButton {...args} />;
 Template.args = {
-  text: 'Category',
-  handleCategoryClick: () => {},
+  children: 'Template',
 };
