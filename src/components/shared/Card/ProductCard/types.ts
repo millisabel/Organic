@@ -1,6 +1,7 @@
 import type { CardProps } from '@/components/ui/Card/types';
 
 export interface ProductCardData {
+  id: string;
   title: string;
   description: string;
   image: string;

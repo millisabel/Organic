@@ -6,7 +6,8 @@ import Section from '../layout/sectionLayouts/Section';
 import SectionHeader from '../layout/sectionLayouts/SectionHeader';
 import UiList from '../patterns/UiList';
 import { buttonVariants } from '../ui/Button/variants';
-import ProductCard from '../ui/Card/ProductCard';
+import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
+import type { ProductCardData } from '../shared/Card/ProductCard/types';
 
 interface OfferSectionProps {
   title: string;
@@ -39,7 +40,9 @@ const OfferSection = ({ title, subtitle, button, className }: OfferSectionProps)
       <UiList
         variant="grid"
         items={productsData}
-        renderItem={(item, idx) => <ProductCard key={idx} data={item} />}
+        renderItem={(item, idx) => (
+          <ProductCard key={idx} data={item as unknown as ProductCardData} />
+        )}
         itemsDisplay={4}
       />
     </Section>

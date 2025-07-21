@@ -4,24 +4,26 @@ import UiList from '@/components/patterns/UiList';
 import HeroSection from '@/components/sections/HeroSection';
 import Breadcrumbs from '@/components/shared/Navigation/Breadcrumbs/Breadcrumbs';
 import Button from '@/components/ui/Button/Button';
-import ProductCard from '@/components/ui/Card/ProductCard';
-import { type ProductData } from '@/components/ui/Card/ProductCard/types';
+import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import productsData from '@/data/products.json';
 // import { useCartActions } from '@/hooks/useCartActions';
 // import { useAppSelector } from '@/store/hooks';
 import { getImageUrl } from '@/utils/helpers';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 
 const ShopSinglePage: React.FC = () => {
   // const { handleAddToCart, handleRemove, handleCategoryClick } = useCartActions();
   // const { items: cartItems, loadingItems } = useAppSelector((state) => state.cart);
   const { productId } = useParams<{ productId: string }>();
-  const product = productsData.find((p) => p.id.toString() === productId) as ProductData;
-  const [quantity, setQuantity] = useState(1);
+  const product = productsData.find(
+    (p) => p.id.toString() === productId,
+  ) as unknown as ProductCardData;
+  // const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    setQuantity(1);
+    // setQuantity(1);
     window.scrollTo(0, 0);
   }, [productId]);
 
@@ -39,12 +41,12 @@ const ShopSinglePage: React.FC = () => {
   const breadcrumbItems = [
     { label: 'Home', path: '/' },
     { label: 'Shop', path: '/shop' },
-    { label: product.name },
+    // { label: product.name },
   ];
 
-  const relatedProducts = productsData
-    .filter((p) => p.category === product.category && p.id !== product.id)
-    .slice(0, 4);
+  const relatedProducts = productsData;
+  // .filter((p) => p.category === product.category && p.id !== product.id)
+  // .slice(0, 4);
   return (
     <>
       <HeroSection
@@ -60,7 +62,7 @@ const ShopSinglePage: React.FC = () => {
       <Section className="pt-10">
         <ProductCard
           data={product}
-          cardView="detailed"
+          // cardView="detailed"
           // imageUrl={product.imageUrl}
           // product={product}
           // quantity={quantity}
@@ -79,7 +81,9 @@ const ShopSinglePage: React.FC = () => {
           <UiList
             variant="grid"
             items={relatedProducts}
-            renderItem={(item, idx) => <ProductCard key={idx} data={item} />}
+            renderItem={(item, idx) => (
+              <ProductCard key={idx} data={item as unknown as ProductCardData} />
+            )}
           />
         ) : (
           <p className="text-text-light text-center">

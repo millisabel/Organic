@@ -5,7 +5,8 @@ import Button from '../ui/Button/Button';
 
 import productsData from '@/data/products.json';
 import UiList from '../patterns/UiList';
-import ProductCard from '../ui/Card/ProductCard';
+import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
+import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 
 interface IProductSectionProps {
   title: string;
@@ -21,7 +22,9 @@ const ProductSection = ({ title, subtitle, button }: IProductSectionProps) => {
       <UiList
         variant="grid"
         items={productsData}
-        renderItem={(item, idx) => <ProductCard key={idx} data={item} />}
+        renderItem={(item, idx) => (
+          <ProductCard key={idx} data={item as unknown as ProductCardData} />
+        )}
         itemsDisplay={8}
       />
 
