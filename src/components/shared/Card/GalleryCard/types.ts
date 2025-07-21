@@ -1,4 +1,4 @@
-import type { CardProps } from '../types';
+import type { CardProps } from '../../../ui/Card/types';
 
 export interface GalleryCardData {
   id: number;

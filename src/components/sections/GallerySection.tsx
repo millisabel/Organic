@@ -1,4 +1,4 @@
-import GalleryCard from '@/components/ui/Card/GalleryCard';
+import GalleryCard from '@/components/shared/Card/GalleryCard';
 import galleryData from '@/data/gallery.json';
 import UiList from '../patterns/UiList';
 
