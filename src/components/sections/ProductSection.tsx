@@ -1,23 +1,43 @@
 import { Link } from 'react-router-dom';
-import Section from '../layout/sectionLayouts/Section';
-import SectionHeader from '../layout/sectionLayouts/SectionHeader';
+import Section from '../layout/Section/Section';
+import SectionHeader from '../layout/Section/SectionHeader';
+import Badge from '../ui/Badge/Badge';
 import Button from '../ui/Button/Button';
 
-import productsData from '@/data/products.json';
-import UiList from '../patterns/UiList';
 import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+import productsData from '@/data/products.json';
+import UiList from '../patterns/UiList';
 
 interface IProductSectionProps {
   title: string;
   subtitle: string;
   button?: { text: string; onClick?: () => void; icon?: React.ReactNode };
+  useSlots?: boolean; // New prop to demonstrate slots
 }
 
-const ProductSection = ({ title, subtitle, button }: IProductSectionProps) => {
+const ProductSection = ({ title, subtitle, button, useSlots = false }: IProductSectionProps) => {
   return (
     <Section dataComponent="ProductSection">
-      <SectionHeader title={title} subtitle={subtitle} />
+      {useSlots ? (
+        // Example with slots
+        <SectionHeader
+          slots={{
+            title: <h2 className="text-4xl font-bold text-blue-600 order-2">🍎 {title}</h2>,
+            subtitle: (
+              <div className="order-1">
+                <Badge variant="default" className="mb-2 bg-yellow-500">
+                  Featured
+                </Badge>
+                <h3 className="text-xl text-gray-600">{subtitle}</h3>
+              </div>
+            ),
+          }}
+        />
+      ) : (
+        // Default usage
+        <SectionHeader title={title} subtitle={subtitle} />
+      )}
 
       <UiList
         variant="grid"

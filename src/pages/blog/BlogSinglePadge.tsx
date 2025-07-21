@@ -1,11 +1,11 @@
-import Section from '@/components/layout/sectionLayouts/Section';
+import Section from '@/components/layout/Section/Section';
 import HeroSection from '@/components/sections/HeroSection';
 import ArticleContent from '@/components/shared/Post/Article';
+import type { ContentTypeComponent } from '@/components/shared/Post/Article/types';
+import IntroContent from '@/components/shared/Post/Intro';
 import newsData from '@/data/news.json';
 import { getImageUrl } from '@/utils/helpers';
 import { useParams } from 'react-router-dom';
-import IntroContent from '@/components/shared/Post/Intro';
-import type { ContentTypeComponent } from '@/components/shared/Post/Article/types';
 
 const BlogSinglePage = () => {
   const { postId } = useParams();

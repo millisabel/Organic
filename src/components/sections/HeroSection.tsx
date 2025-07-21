@@ -1,8 +1,8 @@
 import Button from '@/components/ui/Button/Button';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import Section from '../layout/sectionLayouts/Section';
-import SectionHeader from '../layout/sectionLayouts/SectionHeader';
+import Section from '../layout/Section/Section';
+import SectionHeader from '../layout/Section/SectionHeader';
 
 interface HeroProps {
   variant: 'home' | 'banner' | 'single';

@@ -1,7 +1,7 @@
 import categoriesData from '@/data/categories.json';
 import { cn } from '@/utils/helpers';
-import Section from '../layout/sectionLayouts/Section';
-import SectionHeader from '../layout/sectionLayouts/SectionHeader';
+import Section from '../layout/Section/Section';
+import SectionHeader from '../layout/Section/SectionHeader';
 import UiList from '../patterns/UiList';
 import CategoryCard from '../shared/Card/CategoryCard';
 

@@ -1,17 +1,17 @@
-import Section from '@/components/layout/sectionLayouts/Section';
-import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
+import Section from '@/components/layout/Section/Section';
+import SectionHeader from '@/components/layout/Section/SectionHeader';
 import UiList from '@/components/patterns/UiList';
 import HeroSection from '@/components/sections/HeroSection';
+import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import Breadcrumbs from '@/components/shared/Navigation/Breadcrumbs/Breadcrumbs';
 import Button from '@/components/ui/Button/Button';
-import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import productsData from '@/data/products.json';
 // import { useCartActions } from '@/hooks/useCartActions';
 // import { useAppSelector } from '@/store/hooks';
+import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 import { getImageUrl } from '@/utils/helpers';
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 
 const ShopSinglePage: React.FC = () => {
   // const { handleAddToCart, handleRemove, handleCategoryClick } = useCartActions();

@@ -3,8 +3,8 @@ import reviews from '@/data/reviews.json';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { A11y, Autoplay, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Section from '../layout/sectionLayouts/Section';
-import SectionHeader from '../layout/sectionLayouts/SectionHeader';
+import Section from '../layout/Section/Section';
+import SectionHeader from '../layout/Section/SectionHeader';
 import ReviewCard from '../shared/Card/ReviewCard';
 import FastItem from '../shared/ContentBlocks/FastItem/FastItem';
 

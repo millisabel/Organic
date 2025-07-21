@@ -1,13 +1,13 @@
+import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import Button from '@/components/ui/Button/Button';
 import productsData from '@/data/products.json';
 import type { VariantProps } from 'class-variance-authority';
 import { Link } from 'react-router-dom';
-import Section from '../layout/sectionLayouts/Section';
-import SectionHeader from '../layout/sectionLayouts/SectionHeader';
+import Section from '../layout/Section/Section';
+import SectionHeader from '../layout/Section/SectionHeader';
 import UiList from '../patterns/UiList';
-import { buttonVariants } from '../ui/Button/variants';
-import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import type { ProductCardData } from '../shared/Card/ProductCard/types';
+import { buttonVariants } from '../ui/Button/variants';
 
 interface OfferSectionProps {
   title: string;

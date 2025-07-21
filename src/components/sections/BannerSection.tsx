@@ -1,6 +1,6 @@
-import type { BannerCardProps } from '@/components/shared/Card/BannerCard/types';
 import BannerCard from '@/components/shared/Card/BannerCard';
-import Section from '../layout/sectionLayouts/Section';
+import type { BannerCardProps } from '@/components/shared/Card/BannerCard/types';
+import Section from '../layout/Section/Section';
 
 import bannerRight from '@/assets/images/banner/banner_1.webp';
 import bannerLeft from '@/assets/images/banner/banner_2.webp';

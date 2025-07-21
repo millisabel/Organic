@@ -1,6 +1,6 @@
 import teams from '@/data/teams.json';
-import Section from '../layout/sectionLayouts/Section';
-import SectionHeader from '../layout/sectionLayouts/SectionHeader';
+import Section from '../layout/Section/Section';
+import SectionHeader from '../layout/Section/SectionHeader';
 import UiList from '../patterns/UiList';
 import TeamCard from '../shared/Card/TeamCard';
 

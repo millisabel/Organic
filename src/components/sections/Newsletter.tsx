@@ -6,7 +6,7 @@ import Modal from '@components/ui/Modal';
 import { Field, Form, Formik } from 'formik';
 import { useState } from 'react';
 import * as Yup from 'yup';
-import SectionHeader from '../layout/sectionLayouts/SectionHeader';
+import SectionHeader from '../layout/Section/SectionHeader';
 
 const NewsletterSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),

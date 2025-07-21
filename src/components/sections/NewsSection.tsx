@@ -1,5 +1,5 @@
-import Section from '@/components/layout/sectionLayouts/Section';
-import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
+import Section from '@/components/layout/Section/Section';
+import SectionHeader from '@/components/layout/Section/SectionHeader';
 import Button from '@/components/ui/Button/Button';
 
 import type { buttonVariants } from '@/components/ui/Button/variants';

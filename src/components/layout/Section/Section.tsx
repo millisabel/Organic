@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 
-interface ISectionProps {
+interface SectionProps {
   id?: string;
   children: React.ReactNode;
   backgroundColor?: string;
@@ -9,11 +9,10 @@ interface ISectionProps {
   backgroundPosition?: string;
   paddingY?: string;
   className?: string;
-  dataComponent?: string;
   backgroundSize?: string;
 }
 
-const Section: React.FC<ISectionProps> = ({
+const Section: React.FC<SectionProps> = ({
   id,
   children,
   className,
@@ -22,7 +21,6 @@ const Section: React.FC<ISectionProps> = ({
   backgroundPosition = 'center center',
   backgroundSize = 'cover',
   paddingY = 'py-20',
-  dataComponent = 'section',
 }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
@@ -52,18 +50,13 @@ const Section: React.FC<ISectionProps> = ({
     sectionStyle.backgroundRepeat = 'no-repeat';
   }
 
-  const sectionClasses = clsx(
-    'transition-opacity duration-1000',
-    paddingY ? paddingY : 'py-20',
-    className,
-    {
-      'opacity-100': isImageLoaded || !backgroundImageUrl,
-      'opacity-0': backgroundImageUrl && !isImageLoaded,
-    },
-  );
+  const sectionClasses = clsx('transition-opacity duration-1000', paddingY, className, {
+    'opacity-100': isImageLoaded || !backgroundImageUrl,
+    'opacity-0': backgroundImageUrl && !isImageLoaded,
+  });
 
   return (
-    <section id={id} className={sectionClasses} style={sectionStyle} data-component={dataComponent}>
+    <section id={id} className={sectionClasses} style={sectionStyle} data-component="Section">
       <div className="container mx-auto">{children}</div>
     </section>
   );
