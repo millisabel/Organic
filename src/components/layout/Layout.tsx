@@ -1,6 +1,7 @@
 import FloatingCartButton from '@/features/cart/components/buttons/FloatingCartButton';
 import { useFloatingCartButton } from '@/hooks/useFloatingCartButton';
 import { Outlet } from 'react-router-dom';
+import Footer from './Footer/Footer';
 import Header from './Header';
 
 const Layout = () => {
@@ -13,7 +14,7 @@ const Layout = () => {
         <Outlet />
         {/* <Newsletter /> */}
       </main>
-      {/* <Footer /> */}
+      <Footer />
       <FloatingCartButton
         count={count}
         price={price}
