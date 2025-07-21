@@ -1,4 +1,4 @@
-import type { CardProps } from '../card.types';
+import type { CardProps } from '../types';
 
 export interface CategoryDataProps extends CardProps {
   id: number;

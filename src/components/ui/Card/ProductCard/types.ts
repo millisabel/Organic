@@ -1,4 +1,4 @@
-import type { CardProps } from '../card.types';
+import type { CardProps } from '../types';
 
 type mode = 'shopCompact' | 'shopSingle';
 export type cardView = 'compact' | 'detailed';

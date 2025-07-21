@@ -1,5 +1,5 @@
 import type { FormatDateProps } from '@/utils/helpers';
-import type { CardProps } from '../card.types';
+import type { CardProps } from '../types';
 
 export interface NewsCardData {
   id: number;

@@ -49,6 +49,7 @@ export const buttonVariants = cva(baseClasses, {
       default: 'min-w-[200px] rounded-lg  p-4',
       compact: 'h-[30px] min-w-[100px] rounded-full',
       circle: 'h-14 w-14 rounded-full p-4',
+      social: 'h-8 w-8 rounded-full p-2',
       ellipse: 'h-14 min-w-[100px] rounded-full py-2 px-4',
       square: 'h-14 w-14 rounded-lg p-4',
     },

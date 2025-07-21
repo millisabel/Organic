@@ -1,4 +1,4 @@
-import type { CardProps } from '../card.types';
+import type { CardProps } from '../../../ui/Card/types';
 
 export interface TeamMemberData {
   id: number;

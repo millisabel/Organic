@@ -1,4 +1,4 @@
-import type { CardProps } from '@/components/ui/Card/card.types';
+import type { CardProps } from '@/components/ui/Card/types';
 
 export interface ReviewCardProps extends CardProps {
   name: string;

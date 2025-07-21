@@ -6,6 +6,7 @@ import { uiListVariants } from './variants';
 function UiList<T>({
   items,
   renderItem,
+  itemProps,
   className,
   as = 'div',
   variant = 'default',
@@ -19,7 +20,7 @@ function UiList<T>({
 
   return (
     <Tag className={cn(uiListVariants({ variant }), className)}>
-      {itemsToDisplay.map((item, idx) => renderItem(item, idx))}
+      {itemsToDisplay.map((item, idx) => renderItem(item, idx, itemProps))}
     </Tag>
   );
 }
