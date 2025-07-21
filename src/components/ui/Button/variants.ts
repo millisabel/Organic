@@ -19,28 +19,44 @@ const baseClasses = [
   'text-primary font-roboto font-bold',
   'shadow-md',
   'hover:shadow-xl transition-all duration-300',
-  'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
+  'focus:outline-none focus:ring-2 focus:ring-offset-2',
 ].join(' ');
 
 export const buttonVariants = cva(baseClasses, {
   variants: {
     variant: {
-      default: ['bg-primary text-white', 'hover:bg-accent hover:text-primary'],
-      outline: ['bg-background', 'ring-2 ring-primary', 'hover:bg-primary hover:text-white'],
-      social: ['bg-secondary/10', 'hover:bg-primary hover:text-white'],
-      accent: ['bg-accent', 'hover:bg-primary hover:text-accent'],
-      transparent: ['bg-transparent', 'shadow-none', 'hover:bg-secondary hover:text-white'],
+      default: [
+        'bg-primary text-white',
+        'hover:bg-accent hover:text-primary',
+        'focus:ring-primary',
+      ],
+      outline: [
+        'bg-background',
+        'ring-2 ring-primary',
+        'hover:bg-primary hover:text-white',
+        'focus:ring-primary',
+      ],
+      social: ['bg-secondary/10', 'hover:bg-primary hover:text-white', 'focus:ring-primary'],
+      accent: ['bg-accent', 'hover:bg-primary hover:text-accent', 'focus:ring-primary'],
+      transparent: [
+        'bg-transparent',
+        'shadow-none',
+        'hover:bg-secondary hover:text-white',
+        'focus:ring-primary',
+      ],
       transparentFull: [
         'justify-start',
         'px-0',
         'bg-transparent',
         'shadow-none',
         'hover:shadow-none hover:text-secondary',
+        'focus:ring-primary',
       ],
       close: [
         'bg-transparent',
         'shadow-none',
         'hover:text-accent-red hover:shadow-none hover:scale-110',
+        'focus:ring-primary',
       ],
       red: [
         'text-accent-red',
@@ -48,8 +64,17 @@ export const buttonVariants = cva(baseClasses, {
         'ring-2 ring-primary',
         'ring-accent-red',
         'hover:bg-red-500 hover:text-white',
+        'focus:ring-primary',
       ],
-      light: ['bg-gray-200 text-primary hover:bg-accent'],
+      light: ['bg-gray-200 text-primary hover:bg-accent', 'focus:ring-primary'],
+      clear: [
+        'bg-transparent',
+        'shadow-none focus:shadow-none active:shadow-none',
+        'hover:shadow-none hover:text-text',
+        'focus:outline-none focus:ring-0 focus:ring-offset-0 focus:ring-white',
+        'focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-white',
+        'active:outline-none active:ring-0 active:ring-offset-0 active:ring-white',
+      ],
     },
 
     size: {

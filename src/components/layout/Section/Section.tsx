@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 
-interface SectionProps {
+export interface SectionProps {
   id?: string;
   children: React.ReactNode;
   backgroundColor?: string;
@@ -13,7 +13,6 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({
-  id,
   children,
   className,
   backgroundColor,
@@ -56,7 +55,7 @@ const Section: React.FC<SectionProps> = ({
   });
 
   return (
-    <section id={id} className={sectionClasses} style={sectionStyle} data-component="Section">
+    <section className={sectionClasses} style={sectionStyle} data-component="Section">
       <div className="container mx-auto">{children}</div>
     </section>
   );

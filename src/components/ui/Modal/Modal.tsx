@@ -24,7 +24,7 @@ const Modal: FC<ModalProps> = ({
     <ModalWrap ref={modalRef} variant={variant} className={className}>
       <ModalBody variant={bodyVariant}>
         {children}
-        {showCloseButton && <CloseButton onClick={onClose} />}
+        {showCloseButton && <CloseButton onClick={onClose} className="absolute top-4 right-4" />}
       </ModalBody>
     </ModalWrap>
   );
