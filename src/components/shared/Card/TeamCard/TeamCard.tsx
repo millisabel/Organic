@@ -28,7 +28,7 @@ const TeamCard = ({ data }: TeamCardProps) => {
         <Image src={image} alt={name} folder="teams" />
       </CardHeader>
       <div className="flex flex-row justify-between py-9 px-7">
-        <CardContent className="">
+        <CardContent className="items-start">
           <Title variant="cardTitle" level={3} className="text-2xl">
             {name}
           </Title>

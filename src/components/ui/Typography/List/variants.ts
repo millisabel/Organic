@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const listVariants = cva('', {
+export const listVariants = cva('flex flex-col gap-3 items-left', {
   variants: {
     variant: {
       default: '',
@@ -9,9 +9,14 @@ export const listVariants = cva('', {
       ul: 'list-disc list-inside',
       ol: 'list-decimal list-inside',
     },
+    hasIcon: {
+      true: 'list-none', // Remove default markers when using custom icons
+      false: '',
+    },
   },
   defaultVariants: {
     variant: 'default',
+    hasIcon: false,
   },
 });
 

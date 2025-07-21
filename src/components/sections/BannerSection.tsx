@@ -1,5 +1,5 @@
-import type { BannerCardProps } from '@/components/ui/Card/BannerCard';
-import BannerCard from '@/components/ui/Card/BannerCard';
+import type { BannerCardProps } from '@/components/shared/Card/BannerCard/types';
+import BannerCard from '@/components/shared/Card/BannerCard';
 import Section from '../layout/sectionLayouts/Section';
 
 import bannerRight from '@/assets/images/banner/banner_1.webp';
