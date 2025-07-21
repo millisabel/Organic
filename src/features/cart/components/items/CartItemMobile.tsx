@@ -1,5 +1,5 @@
 import type { CartItem } from '@/features/cart/components/types';
-import RemoveButton from '../buttons/RemoveButton';
+import TrashButton from '@/features/cart/components/buttons/TrashButton';
 import CartItemSubtotal from './CartItemSubtotal';
 import CartProductInfo from './CartProductInfo';
 import CartQuantityButtons from './CartQuantityButtons';
@@ -17,7 +17,7 @@ const CartItemMobile = ({ cartItems, handleQuantityChange, handleRemove }: CartI
         <div key={item.id} className="flex flex-col gap-2 mb-4 p-4 bg-white rounded-xl shadow-sm">
           <div className="flex items-center gap-4 justify-between">
             <CartProductInfo item={item} />
-            <RemoveButton onRemove={() => handleRemove(item.id)} />
+            <TrashButton onClick={() => handleRemove(item.id)} />
           </div>
           <div className="flex items-center justify-between">
             <CartQuantityButtons

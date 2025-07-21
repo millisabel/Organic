@@ -1,4 +1,4 @@
-export { default as RemoveButton } from './buttons/RemoveButton';
+export { default as TrashButton } from './buttons/TrashButton';
 export { default as CartSummary } from './CartSummary';
 export { default as EmptyCart } from './EmptyCart';
 export { default as CartItemDesktop } from './items/CartItemDesktop';

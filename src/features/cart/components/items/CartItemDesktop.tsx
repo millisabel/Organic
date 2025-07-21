@@ -1,8 +1,8 @@
 import type { CartItem } from '@/features/cart/components/types';
-import RemoveButton from '../buttons/RemoveButton';
 import CartItemSubtotal from './CartItemSubtotal';
 import CartProductInfo from './CartProductInfo';
 import CartQuantityButtons from './CartQuantityButtons';
+import TrashButton from '@/features/cart/components/buttons/TrashButton';
 
 interface CartItemDesktopProps {
   cartItems: CartItem[];
@@ -45,7 +45,7 @@ const CartItemDesktop = ({
                 <CartItemSubtotal price={item.price} quantity={item.quantity} />
               </td>
               <td className="p-2">
-                <RemoveButton onRemove={() => handleRemove(item.id)} />
+                <TrashButton onClick={() => handleRemove(item.id)} />
               </td>
             </tr>
           ))}
