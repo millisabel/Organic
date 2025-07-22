@@ -4,8 +4,8 @@ import { Outlet } from 'react-router-dom';
 import Footer from './Footer/Footer';
 import Header from './Header';
 import Newsletter from '@/components/sections/Newsletter';
-import Modal from '@/components/ui/Modal';
 import { useState } from 'react';
+import ModalSubscribe from '../shared/Modal/ModalSubscribe';
 
 const Layout = () => {
   const { count, price, isVisible } = useFloatingCartButton();
@@ -31,16 +31,11 @@ const Layout = () => {
         isVisible={isVisible}
         className="fixed bottom-6 right-6 z-50"
       />
-      <Modal isOpen={isNewsletterModalOpen} onClose={() => setIsNewsletterModalOpen(false)}>
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-primary">Thank You!</h3>
-          <p className="mt-4 text-text">
-            You will now receive our newsletter at
-            <br />
-            <strong className="text-primary">{submittedEmail}</strong>
-          </p>
-        </div>
-      </Modal>
+      <ModalSubscribe
+        isOpen={isNewsletterModalOpen}
+        onClose={() => setIsNewsletterModalOpen(false)}
+        submittedEmail={submittedEmail}
+      />
     </div>
   );
 };
