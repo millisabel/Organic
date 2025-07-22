@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const sectionHeaderVariants = cva('flex flex-col gap-4 mb-10 text-center', {
+export const sectionHeaderVariants = cva('flex flex-col gap-4 mb-10', {
   variants: {
     variant: {
       default: '',

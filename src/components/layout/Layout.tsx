@@ -7,6 +7,8 @@ import ModalSubscribe from '../shared/Modal/ModalSubscribe';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 
+import newsletterBg from '@assets/images/backgrounds/newslatteer.webp';
+
 const Layout = () => {
   const { count, price, isVisible } = useFloatingCartButton();
   const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
@@ -22,7 +24,12 @@ const Layout = () => {
       <Header />
       <main className="flex-grow">
         <Outlet />
-        <Newsletter id="newsletter" onSubmit={handleNewsletterSubmit} />
+        <Newsletter
+          id="newsletter"
+          title="Subscribe to our Newsletter"
+          onSubmit={handleNewsletterSubmit}
+          backgroundImageUrl={newsletterBg}
+        />
       </main>
       <Footer />
       <FloatingCartButton

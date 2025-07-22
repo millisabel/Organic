@@ -5,14 +5,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import type { GoToCartButtonProps } from '.';
 
-const GoToCartButton: React.FC<GoToCartButtonProps> = ({ mode = 'shopCompact', ...props }) => {
+const GoToCartButton: React.FC<GoToCartButtonProps> = ({
+  mode = 'shopCompact',
+  variant = 'outline',
+  state = 'success',
+  children,
+  ...props
+}) => {
   return (
     <Button
       aria-label="Go to cart"
       tabIndex={0}
       asChild
-      variant="outline"
-      state="success"
+      variant={variant}
+      state={state}
       nameComponent="GoToCartButton"
       {...props}
     >
@@ -26,7 +32,7 @@ const GoToCartButton: React.FC<GoToCartButtonProps> = ({ mode = 'shopCompact', .
           {mode === 'shopSingle' && <CartIcon />}
           {mode === 'shopCompact' && (
             <>
-              <span className="ml-2">Go to Cart</span>
+              <span className="ml-2">{children}</span>
               <ArrowIcon className="w-5 h-5" />
             </>
           )}

@@ -7,8 +7,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { BannerCardProps } from './types';
 import List from '@/components/ui/Typography/List';
-import SectionHeader from '@/components/layout/Section/SectionHeader';
 import Title from '@/components/ui/Typography/Title';
+import GoToShop from '../../Button/GoToShop/GoToShop';
 
 const BannerCard = ({
   flipDirection = 'right',
@@ -104,11 +104,7 @@ const BannerCard = ({
               icon={<CheckIcon className="text-green-400 flex-shrink-0" size="sm" />}
             ></List>
           )}
-          <Button asChild variant="light" aria-label={`Show products`}>
-            <Link to={`/shop`}>
-              Shop Now <ArrowIcon className="ml-2" />
-            </Link>
-          </Button>
+          <GoToShop variant="light">Shop Now</GoToShop>
         </div>
       </div>
     </div>

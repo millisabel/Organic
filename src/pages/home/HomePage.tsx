@@ -1,7 +1,9 @@
 import HeroSection from '@/components/sections/HeroSection';
 import BannerSection from '@/components/sections/BannerSection';
+import AboutSection from '@/components/sections/AboutSection';
 
 import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
+import { features } from '@/data/featuresAboutHome.json';
 
 const HomePage = () => {
   // const isBelowLg = useIsBelowBreakpoint('lg');
@@ -15,15 +17,14 @@ const HomePage = () => {
         backgroundImageUrl={hero_bg}
       />
       <BannerSection id="banner" />
-      {/* <AboutSection
-        image={{ src: about_section_image, alt: 'About Section Image' }}
+      <AboutSection
         title="We Believe in Working Accredited Farmers"
         subtitle="About Us"
         description="Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley."
-        button={{ text: 'Shop Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
         className="bg-background"
         features={features}
-      /> */}
+        image="about_home.webp"
+      />
       {/* <ProductSection
         title="Our Products"
         subtitle="Categories"

@@ -17,7 +17,7 @@ const Image: React.FC<ImageProps> = ({
     <img
       src={imageUrl}
       alt={alt || 'Image: ' + src.split('/').pop()?.split('.')[0]}
-      className={cn('w-full h-full object-cover', className)}
+      className={cn('w-full h-full object-scale-down', className)}
       role={role}
       aria-hidden={ariaHidden}
       {...props}

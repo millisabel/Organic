@@ -1,6 +1,4 @@
-import newsletterBg from '@assets/images/backgrounds/newslatteer.webp';
-
-import type { SectionProps } from '@/components/layout/Section/Section';
+import type { SectionProps } from '@/components/layout/Section/types';
 import Section from '@/components/layout/Section/Section';
 import CloseButton from '@/components/shared/Button/CloseButton/CloseButton';
 import Button from '@/components/ui/Button';
@@ -8,25 +6,27 @@ import Title from '@/components/ui/Typography/Title';
 import Input from '@components/ui/Input';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import Layout from '@/components/patterns/ContentLayout';
 
 const NewsletterSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
 });
 
-interface NewsletterProps extends Omit<SectionProps, 'children'> {
+interface NewsletterProps extends Omit<SectionProps, 'children' | 'onSubmit'> {
+  title: string;
   onSubmit: (email: string) => void;
 }
 
-const Newsletter = ({ onSubmit, ...props }: NewsletterProps) => {
+const Newsletter = ({ title, onSubmit, ...props }: NewsletterProps) => {
   return (
-    <Section backgroundImageUrl={newsletterBg} {...props}>
-      <div className="flex flex-col items-center justify-between gap-8 rounded-lg lg:flex-row">
+    <Section {...props}>
+      <Layout variant="gridColumn_2">
         <Title
           level={2}
           variant="sectionTitle"
-          className="lg:w-1/2 text-4xl lg:text-6xl text-white text-center lg:text-left leading-relaxed lg:pr-[25%]"
+          className="text-2xl lg:text-4xl text-white text-center lg:text-left leading-relaxed lg:pr-[45%]"
         >
-          Subscribe to our Newsletter
+          {title}
         </Title>
         <Formik
           initialValues={{ email: '' }}
@@ -37,7 +37,7 @@ const Newsletter = ({ onSubmit, ...props }: NewsletterProps) => {
           }}
         >
           {({ errors, touched, values, submitCount, setFieldValue }) => (
-            <Form className="flex flex-col lg:flex-row items-center gap-4 lg:w-1/2">
+            <Form className="flex flex-col lg:flex-row items-center gap-4">
               <div className="relative w-full">
                 {errors.email && touched.email && (values.email || submitCount > 0) ? (
                   <div className="absolute bottom-full left-1/2 mb-1 w-full -translate-x-1/2 text-center text-sm text-accent-red">
@@ -70,7 +70,7 @@ const Newsletter = ({ onSubmit, ...props }: NewsletterProps) => {
             </Form>
           )}
         </Formik>
-      </div>
+      </Layout>
     </Section>
   );
 };
