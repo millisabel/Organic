@@ -4,6 +4,4 @@ import type { heroVariants } from './variants';
 
 export interface HeroProps extends SectionProps {
   variant?: VariantProps<typeof heroVariants>['variant'];
-  title?: string;
-  subtitle?: string;
 }

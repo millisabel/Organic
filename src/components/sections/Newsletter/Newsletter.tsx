@@ -1,21 +1,16 @@
-import type { SectionProps } from '@/components/layout/Section/types';
+import { Field, Form, Formik } from 'formik';
+import * as Yup from 'yup';
 import Section from '@/components/layout/Section/Section';
 import CloseButton from '@/components/shared/Button/CloseButton/CloseButton';
 import Button from '@/components/ui/Button';
 import Title from '@/components/ui/Typography/Title';
 import Input from '@components/ui/Input';
-import { Field, Form, Formik } from 'formik';
-import * as Yup from 'yup';
 import Layout from '@/components/patterns/ContentLayout';
+import type { NewsletterProps } from './types';
 
 const NewsletterSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
 });
-
-interface NewsletterProps extends Omit<SectionProps, 'children' | 'onSubmit'> {
-  title: string;
-  onSubmit: (email: string) => void;
-}
 
 const Newsletter = ({ title, onSubmit, ...props }: NewsletterProps) => {
   return (

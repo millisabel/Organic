@@ -1,23 +1,23 @@
 import AboutSection from '@/components/sections/AboutSection';
 import BannerSection from '@/components/sections/BannerSection';
-import HeroSection from '@/components/sections/HeroSection';
-import Testimonial from '@/components/sections/Testimonial';
-import WhoWe from '@/components/sections/WhoWe';
 import GallerySection from '@/components/sections/GallerySection';
+import HeroSection from '@/components/sections/HeroSection';
 import NewsSection from '@/components/sections/NewsSection';
+import Testimonial from '@/components/sections/Testimonial';
+import WhoWe from '@/components/sections/WhoWeSection/WhoWeSection';
 
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 
-import type { ArticleContentProps } from '@/components/shared/Post/Article/types';
 import type { GalleryCardData } from '@/components/shared/Card/GalleryCard/types';
 import type { NewsCardData } from '@/components/shared/Card/NewsCard/types';
+import type { ArticleContentProps } from '@/components/shared/Post/Article/types';
 
 import factsTestimonial from '@/data/factsTestimonial.json';
 import { features } from '@/data/featuresAboutHome.json';
-import reviews from '@/data/reviews.json';
-import whoWeDescription from '@/data/whoWeDescription.json';
 import galleryData from '@/data/gallery.json';
 import newsData from '@/data/news.json';
+import reviews from '@/data/reviews.json';
+import whoWeDescription from '@/data/whoWeDescription.json';
 
 import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 import testimonial_bg from '@/assets/images/backgrounds/testimonial_home.webp';

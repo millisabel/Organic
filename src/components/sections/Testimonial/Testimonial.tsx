@@ -1,13 +1,13 @@
+import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
+import { A11y, Autoplay, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
 import ReviewCard from '@/components/shared/Card/ReviewCard';
-import type { ReviewCardData } from '@/components/shared/Card/ReviewCard/types';
 import FastItem from '@/components/shared/ContentBlocks/FastItem/FastItem';
-import type { FastItemData } from '@/components/shared/ContentBlocks/FastItem/types';
 import Swiper from '@/components/ui/Swiper';
-import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
-import { A11y, Autoplay, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import type { TestimonialProps } from './types';
+import type { FastItemData } from '@/components/shared/ContentBlocks/FastItem/types';
+import type { ReviewCardData } from '@/components/shared/Card/ReviewCard/types';
 
 const Testimonial = ({
   id = 'testimonial',

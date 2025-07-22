@@ -1,5 +1,7 @@
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   id?: string;
+  title?: string;
+  subtitle?: string;
   backgroundColor?: string;
   backgroundImageUrl?: string;
   backgroundPosition?: string;

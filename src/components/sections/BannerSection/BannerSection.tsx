@@ -1,8 +1,8 @@
-import Section from '../layout/Section/Section';
-import type { SectionProps } from '../layout/Section/types';
-import ContentLayout from '../patterns/ContentLayout';
-import BannerCard from '../shared/Card/BannerCard';
-import type { BannerCardProps } from '../shared/Card/BannerCard/types';
+import Section from '@/components/layout/Section/Section';
+import ContentLayout from '@/components/patterns/ContentLayout';
+import BannerCard from '@/components/shared/Card/BannerCard';
+import type { BannerCardProps } from '@/components/shared/Card/BannerCard/types';
+import type { SectionProps } from '@/components/layout/Section/types';
 
 const banners: BannerCardProps[] = [
   {

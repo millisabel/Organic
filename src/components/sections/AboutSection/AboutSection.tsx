@@ -1,13 +1,13 @@
+import { cn } from '@/utils/helpers';
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
-import type { AboutSectionProps } from './types';
 import Layout from '@/components/patterns/ContentLayout';
 import UiList from '@/components/patterns/UiList/UiList';
 import InfoBlock from '@/components/shared/ContentBlocks/InfoBlock/InfoBlock';
 import Image from '@/components/ui/Image';
 import Paragraph from '@/components/ui/Typography/Paragraph';
-import { cn } from '@/utils/helpers';
 import GoToShop from '@/components/shared/Button/GoToShop/GoToShop';
+import type { AboutSectionProps } from './types';
 
 const AboutSection = ({
   variant = 'home',
