@@ -18,7 +18,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ data, slots = {} }) => {
 
   return (
     <Card
-      className="relative max-w-[670px] h-auto mb-[90px] md:mb-[60px] overflow-visible"
+      className="relative min-w-[300px] max-w-[670px] h-auto mb-[120px] md:mb-[170px] overflow-visible"
       nameComponent="NewsCard"
     >
       {slots.badge || <DataBadge date={date} className="absolute top-4 left-4" />}
@@ -31,7 +31,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ data, slots = {} }) => {
           className="object-cover w-full h-full rounded-xl"
         />
       </CardHeader>
-      <CardContent className="absolute -bottom-[80px] md:-bottom-[50px] z-10 lg:right-5 lg:left-5 w-full lg:w-auto p-4 md:p-10 lg:p-14 items-start bg-white  rounded-b-xl lg:rounded-xl shadow-lg">
+      <CardContent className="absolute -bottom-[100px] md:-bottom-[150px] z-10 lg:right-5 lg:left-5 w-full lg:w-auto p-4 md:p-10 lg:p-14 items-start bg-white  rounded-b-xl lg:rounded-xl shadow-lg">
         {slots.author || (
           <AuthorDisplay
             author={author}
@@ -41,10 +41,10 @@ const NewsCard: React.FC<NewsCardProps> = ({ data, slots = {} }) => {
           />
         )}
 
-        <Title level={3} variant="cardTitle" className="text-primary mb-2">
+        <Title level={3} variant="cardTitle" className="text-primary mb-2 line-clamp-1">
           {title}
         </Title>
-        <Paragraph className="items-end text-sm text-gray-600 mb-8 line-clamp-2">
+        <Paragraph className="items-end text-sm text-gray-600 mb-8 line-clamp-3">
           {description}
         </Paragraph>
 

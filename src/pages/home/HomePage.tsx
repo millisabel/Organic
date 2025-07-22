@@ -4,21 +4,24 @@ import HeroSection from '@/components/sections/HeroSection';
 import Testimonial from '@/components/sections/Testimonial';
 import WhoWe from '@/components/sections/WhoWe';
 import GallerySection from '@/components/sections/GallerySection';
+import NewsSection from '@/components/sections/NewsSection';
 
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 
 import type { ArticleContentProps } from '@/components/shared/Post/Article/types';
+import type { GalleryCardData } from '@/components/shared/Card/GalleryCard/types';
+import type { NewsCardData } from '@/components/shared/Card/NewsCard/types';
 
 import factsTestimonial from '@/data/factsTestimonial.json';
 import { features } from '@/data/featuresAboutHome.json';
 import reviews from '@/data/reviews.json';
 import whoWeDescription from '@/data/whoWeDescription.json';
 import galleryData from '@/data/gallery.json';
+import newsData from '@/data/news.json';
 
 import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 import testimonial_bg from '@/assets/images/backgrounds/testimonial_home.webp';
 import who_we_image from '@/assets/images/backgrounds/who_we_home.webp';
-import type { GalleryCardData } from '@/components/shared/Card/GalleryCard/types';
 
 const HomePage = () => {
   const isBelowLg = useIsBelowBreakpoint('lg');
@@ -76,17 +79,13 @@ const HomePage = () => {
         description={whoWeDescription as ArticleContentProps[]}
       />
       <GallerySection data={galleryData.items as GalleryCardData[]} />
-      {/* <NewsSection
+      <NewsSection
+        id="news"
         title="Discover weekly content about organic food, & more"
         subtitle="News"
-        button={{
-          text: 'More News',
-          icon: <ArrowIcon variant="arrow" size="md" />,
-          variant: 'outline',
-          to: '/blog',
-        }}
-        count={2}
-      /> */}
+        itemsDisplay={2}
+        data={newsData as NewsCardData[]}
+      />
     </>
   );
 };

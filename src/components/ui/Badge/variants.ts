@@ -7,7 +7,7 @@ export const badgeVariants = cva('flex items-center justify-center', {
     variant: {
       default: 'bg-primary text-white',
       meta: 'flex-col w-40 h-40 rounded-full text-primary bg-text-light ring-2 ring-secondary ring-offset-2',
-      data: 'flex-col w-20 h-20 rounded-full text-primary bg-white font-roboto font-extrabold text-[1.5rem] shadow-md',
+      data: 'flex-col w-20 h-20 rounded-full text-primary bg-white font-roboto font-extrabold text-[1.5rem] shadow-md leading-6',
       cartCount:
         'h-7 w-7 p-1 rounded-full bg-green-600 text-white text-[10px] text-center uppercase border-2 border-white',
       status:
