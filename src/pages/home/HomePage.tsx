@@ -1,17 +1,24 @@
-import HeroSection from '@/components/sections/HeroSection';
-import BannerSection from '@/components/sections/BannerSection';
 import AboutSection from '@/components/sections/AboutSection';
+import BannerSection from '@/components/sections/BannerSection';
+import HeroSection from '@/components/sections/HeroSection';
 import Testimonial from '@/components/sections/Testimonial';
+import WhoWe from '@/components/sections/WhoWe';
 
+import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
+
+import type { ArticleContentProps } from '@/components/shared/Post/Article/types';
+
+import factsTestimonial from '@/data/factsTestimonial.json';
 import { features } from '@/data/featuresAboutHome.json';
 import reviews from '@/data/reviews.json';
-import factsTestimonial from '@/data/factsTestimonial.json';
+import whoWeDescription from '@/data/whoWeDescription.json';
 
 import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 import testimonial_bg from '@/assets/images/backgrounds/testimonial_home.webp';
+import who_we_image from '@/assets/images/backgrounds/who_we_home.webp';
 
 const HomePage = () => {
-  // const isBelowLg = useIsBelowBreakpoint('lg');
+  const isBelowLg = useIsBelowBreakpoint('lg');
   return (
     <>
       <HeroSection
@@ -48,20 +55,23 @@ const HomePage = () => {
       {/* <OfferSection
         title="We Offer Organic For You"
         subtitle="Offers"
-        button={{
-          text: 'View All Product',
-          variant: 'accent',
-          icon: <ArrowIcon variant="arrow" size="md" />,
-        }}
+        // button={{
+        //   text: 'View All Product',
+        //   variant: 'accent',
+        //   icon: <ArrowIcon variant="arrow" size="md" />,
+        // }}
         className="bg-primary"
       /> */}
-      {/* <WhoWe
-        bgImage={who_we_image}
+      <WhoWe
+        id="who-we"
         title="Econis is a Friendly Organic Store"
         subtitle="Eco Friendly"
-        bgSize={isBelowLg ? '100% 100%' : '50% 100%'}
-        bgPosition={isBelowLg ? 'top center' : 'top left'}
-      /> */}
+        backgroundImageUrl={who_we_image}
+        backgroundSize={isBelowLg ? '100% 100%' : '50% 100%'}
+        backgroundPosition={isBelowLg ? 'top center' : 'top left'}
+        paddingY="py-[160px]"
+        description={whoWeDescription as ArticleContentProps[]}
+      />
       {/* <GallerySection /> */}
       {/* <NewsSection
         title="Discover weekly content about organic food, & more"

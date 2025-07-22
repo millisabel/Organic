@@ -1,6 +1,6 @@
 import { getStoryDescription } from '@/utils/storiesHelpers';
 import Article from '.';
-import type { ContentTypeComponent } from './types';
+import type { ArticleContentProps } from './types';
 
 export default {
   title: 'Shared/Post/Article',
@@ -16,7 +16,7 @@ export default {
   },
 };
 
-const content: ContentTypeComponent[] = [
+const content: ArticleContentProps[] = [
   {
     type: 'paragraph',
     children: 'Es ist ein Paragraph',

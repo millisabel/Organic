@@ -27,9 +27,7 @@ const OfferSection = ({ title, subtitle, button, className }: OfferSectionProps)
         <SectionHeader
           title={title}
           subtitle={subtitle}
-          titleColor="text-white"
-          marginBottom="mb-8 lg:mb-0"
-          titleAlignDesktop="text-left"
+          className="mb-8 lg:mb-0 text-left text-white"
         />
         <Button asChild variant={button.variant}>
           <Link to="/shop">
@@ -38,7 +36,7 @@ const OfferSection = ({ title, subtitle, button, className }: OfferSectionProps)
         </Button>
       </div>
       <UiList
-        variant="grid"
+        variant="gridColumn_4"
         items={productsData}
         renderItem={(item, idx) => (
           <ProductCard key={idx} data={item as unknown as ProductCardData} />

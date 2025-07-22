@@ -1,6 +1,6 @@
 import { Paragraph, Quote, Title } from '@/components/ui/Typography';
 import List from '@/components/ui/Typography/List';
-import type { ArticleProps, ContentTypeComponent } from './types';
+import type { ArticleContentProps, ArticleProps } from './types';
 
 const Article = ({ content, className }: ArticleProps) => {
   if (!content || !Array.isArray(content)) {
@@ -13,7 +13,7 @@ const Article = ({ content, className }: ArticleProps) => {
 
   return (
     <div className={className} data-component="ArticleContent">
-      {content.map((item: ContentTypeComponent, idx: number) => {
+      {content.map((item: ArticleContentProps, idx: number) => {
         switch (item.type) {
           case 'paragraph':
             return (

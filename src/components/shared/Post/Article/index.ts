@@ -1,2 +1,2 @@
 export { default } from './Article';
-export type { ArticleProps } from './types';
+export type { ArticleProps, ArticleContentProps } from './types';

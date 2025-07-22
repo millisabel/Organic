@@ -10,6 +10,7 @@ export const titleVariants = cva(titleDefault, {
       sectionTitle: 'text-3xl md:text-5xl font-extrabold',
       sectionSubTitle: 'text-secondary text-3xl md:text-4xl font-yellowtail italic font-normal',
       cardTitle: 'text-xl font-semibold',
+      articleTitle: 'text-2xl md:text-3xl font-bold text-center md:text-left',
     },
   },
   defaultVariants: {
