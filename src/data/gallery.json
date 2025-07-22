@@ -3,12 +3,12 @@
     {
       "id": 1,
       "title": "Organic Juice",
-      "image": "gallery_center.webp"
+      "image": "gallery_left.webp"
     },
     {
       "id": 2,
       "title": "Organic Food",
-      "image": "gallery_left.webp"
+      "image": "gallery_center.webp"
     },
     {
       "id": 3,

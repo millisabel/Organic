@@ -3,6 +3,7 @@ import BannerSection from '@/components/sections/BannerSection';
 import HeroSection from '@/components/sections/HeroSection';
 import Testimonial from '@/components/sections/Testimonial';
 import WhoWe from '@/components/sections/WhoWe';
+import GallerySection from '@/components/sections/GallerySection';
 
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 
@@ -12,10 +13,12 @@ import factsTestimonial from '@/data/factsTestimonial.json';
 import { features } from '@/data/featuresAboutHome.json';
 import reviews from '@/data/reviews.json';
 import whoWeDescription from '@/data/whoWeDescription.json';
+import galleryData from '@/data/gallery.json';
 
 import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 import testimonial_bg from '@/assets/images/backgrounds/testimonial_home.webp';
 import who_we_image from '@/assets/images/backgrounds/who_we_home.webp';
+import type { GalleryCardData } from '@/components/shared/Card/GalleryCard/types';
 
 const HomePage = () => {
   const isBelowLg = useIsBelowBreakpoint('lg');
@@ -72,7 +75,7 @@ const HomePage = () => {
         paddingY="py-[160px]"
         description={whoWeDescription as ArticleContentProps[]}
       />
-      {/* <GallerySection /> */}
+      <GallerySection data={galleryData.items as GalleryCardData[]} />
       {/* <NewsSection
         title="Discover weekly content about organic food, & more"
         subtitle="News"
