@@ -15,7 +15,11 @@ const MobileMenu = ({ isOpen, onClose, theme = 'light' }: MobileMenuProps) => {
           variants={mobileMenuVariants}
           className={mobileMenuStyles({ theme })}
         >
-          <CloseButton onClick={onClose} ariaLabel="Close menu" />
+          <CloseButton
+            onClick={onClose}
+            aria-label="Close menu"
+            className="absolute top-4 right-4"
+          />
           <Navigation isMobile onLinkClick={onClose} />
         </motion.div>
       )}

@@ -1,11 +1,11 @@
+import Newsletter from '@/components/sections/Newsletter';
 import FloatingCartButton from '@/features/cart/components/buttons/FloatingCartButton';
 import { useFloatingCartButton } from '@/hooks/useFloatingCartButton';
-import { Outlet } from 'react-router-dom';
-import Footer from './Footer/Footer';
-import Header from './Header';
-import Newsletter from '@/components/sections/Newsletter';
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 import ModalSubscribe from '../shared/Modal/ModalSubscribe';
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
 
 const Layout = () => {
   const { count, price, isVisible } = useFloatingCartButton();
