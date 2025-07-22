@@ -3,8 +3,12 @@ import BannerSection from '@/components/sections/BannerSection';
 import AboutSection from '@/components/sections/AboutSection';
 import Testimonial from '@/components/sections/Testimonial';
 
-import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 import { features } from '@/data/featuresAboutHome.json';
+import reviews from '@/data/reviews.json';
+import factsTestimonial from '@/data/factsTestimonial.json';
+
+import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
+import testimonial_bg from '@/assets/images/backgrounds/testimonial_home.webp';
 
 const HomePage = () => {
   // const isBelowLg = useIsBelowBreakpoint('lg');
@@ -32,7 +36,15 @@ const HomePage = () => {
         subtitle="Categories"
         button={{ text: 'Load More', icon: <ArrowIcon variant="arrow" size="md" /> }}
       /> */}
-      <Testimonial />
+      <Testimonial
+        id="testimonial"
+        title="What Our Customer Saying?"
+        subtitle="Testimonial"
+        backgroundImageUrl={testimonial_bg}
+        paddingY="py-[160px]"
+        reviews={reviews}
+        facts={factsTestimonial}
+      />
       {/* <OfferSection
         title="We Offer Organic For You"
         subtitle="Offers"

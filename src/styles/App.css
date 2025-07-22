@@ -7,6 +7,12 @@
   --swiper-theme-color: #6db193;
 }
 
+@media (max-width: 1024px) {
+  #root {
+    --swiper-navigation-top-offset: 100px;
+  }
+}
+
 .swiper-wrapper {
   padding-bottom: 40px;
 }

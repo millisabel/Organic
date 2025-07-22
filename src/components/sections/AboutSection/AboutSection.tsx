@@ -22,7 +22,7 @@ const AboutSection = ({
     <Section {...props}>
       <Layout variant="gridColumn_2">
         <div>
-          <Image src={image} folder="backgrounds" alt={title} />
+          <Image src={image} folder="backgrounds" alt={title} className="object-scale-down" />
         </div>
         <div>
           <SectionHeader title={title} subtitle={subtitle} className="text-center md:text-start" />

@@ -1,40 +1,38 @@
-import reviews from '@/data/reviews.json';
+import Section from '@/components/layout/Section/Section';
+import SectionHeader from '@/components/layout/Section/SectionHeader';
+import ReviewCard from '@/components/shared/Card/ReviewCard';
+import type { ReviewCardData } from '@/components/shared/Card/ReviewCard/types';
+import FastItem from '@/components/shared/ContentBlocks/FastItem/FastItem';
+import type { FastItemData } from '@/components/shared/ContentBlocks/FastItem/types';
+import Swiper from '@/components/ui/Swiper';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { A11y, Autoplay, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules';
-import Section from '../layout/Section/Section';
-import SectionHeader from '../layout/Section/SectionHeader';
-import type { SectionProps } from '../layout/Section/types';
-import ReviewCard from '../shared/Card/ReviewCard';
-import FastItem from '../shared/ContentBlocks/FastItem/FastItem';
-import Swiper from '../ui/Swiper';
+import type { TestimonialProps } from './types';
 
-const facts = [
-  { id: 1, value: '100%', label: 'Organic' },
-  { id: 2, value: '285', label: 'Active Product' },
-  { id: 3, value: '350+', label: 'Organic Orchads' },
-  { id: 4, value: '25+', label: 'Years of Farming' },
-];
-
-interface TestimonialProps extends SectionProps {}
-
-const Testimonial = ({}: TestimonialProps) => {
-  const isMobile = useIsBelowBreakpoint('lg');
+const Testimonial = ({
+  id = 'testimonial',
+  backgroundImageUrl,
+  paddingY = 'py-[160px]',
+  title,
+  subtitle,
+  reviews = [],
+  facts = [],
+  ...sectionProps
+}: TestimonialProps) => {
+  const isMobile = useIsBelowBreakpoint('md');
 
   return (
     <Section
-      id="testimonial"
-      backgroundImageUrl="src/assets/images/backgrounds/testimonial_home.webp"
+      id={id}
+      backgroundImageUrl={backgroundImageUrl}
+      paddingY={paddingY}
       dataComponent="TestimonialSection"
-      paddingY="py-[160px]"
+      {...sectionProps}
     >
-      <SectionHeader
-        title="What Our Customer Saying?"
-        subtitle="Testimonial"
-        className="text-center mb-16"
-      />
+      <SectionHeader title={title} subtitle={subtitle} className="text-center mb-16" />
 
       {/* Reviews Slider */}
-      <Swiper
+      <Swiper<ReviewCardData>
         items={reviews}
         renderItem={(item) => <ReviewCard data={item} />}
         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -51,7 +49,7 @@ const Testimonial = ({}: TestimonialProps) => {
 
       {/* Facts Section */}
       {isMobile ? (
-        <Swiper
+        <Swiper<FastItemData>
           items={facts}
           renderItem={(fact) => (
             <div className="flex justify-center">
@@ -71,7 +69,7 @@ const Testimonial = ({}: TestimonialProps) => {
           ariaLabel="Facts slider"
         />
       ) : (
-        <div className="grid grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="flex gap-2 items-center justify-center max-w-7xl mx-auto">
           {facts.map((fact) => (
             <div key={fact.id} className="flex justify-center">
               <FastItem value={fact.value} label={fact.label} />
