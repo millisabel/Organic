@@ -16,7 +16,7 @@ const Section: React.FC<SectionProps> = ({
   container = true,
   ...props
 }) => {
-  const { isLoaded } = useBackgroundImage(backgroundImageUrl);
+  const { isLoaded, hasError } = useBackgroundImage(backgroundImageUrl);
 
   const sectionStyle = useMemo((): React.CSSProperties => {
     const style: React.CSSProperties = {};
@@ -27,7 +27,7 @@ const Section: React.FC<SectionProps> = ({
       }
     }
 
-    if (backgroundImageUrl) {
+    if (backgroundImageUrl && isLoaded && !hasError) {
       style.backgroundImage = `url(${backgroundImageUrl})`;
       style.backgroundSize = backgroundSize;
       style.backgroundPosition = backgroundPosition;
@@ -35,7 +35,7 @@ const Section: React.FC<SectionProps> = ({
     }
 
     return style;
-  }, [backgroundColor, backgroundImageUrl, backgroundSize, backgroundPosition]);
+  }, [backgroundColor, backgroundImageUrl, backgroundSize, backgroundPosition, isLoaded, hasError]);
 
   const sectionClasses = useMemo(() => {
     return clsx(
@@ -43,11 +43,11 @@ const Section: React.FC<SectionProps> = ({
       paddingY,
       backgroundColor && backgroundColor.startsWith('bg-') ? backgroundColor : null,
       {
-        'opacity-100': isLoaded || !backgroundImageUrl,
-        'opacity-0': backgroundImageUrl && !isLoaded,
+        'opacity-100': !backgroundImageUrl || isLoaded || hasError,
+        'opacity-0': backgroundImageUrl && !isLoaded && !hasError,
       },
     );
-  }, [paddingY, backgroundColor, isLoaded, backgroundImageUrl]);
+  }, [paddingY, backgroundColor, isLoaded, hasError, backgroundImageUrl]);
 
   return (
     <section
