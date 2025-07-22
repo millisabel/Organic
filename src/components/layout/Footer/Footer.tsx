@@ -1,3 +1,4 @@
+import Layout from '@/components/patterns/ContentLayout';
 import CompanyInfo from './complnens/CompanyInfo';
 import Copyright from './complnens/Copyright';
 import Links from './complnens/Links';
@@ -51,7 +52,7 @@ const Footer = () => {
   return (
     <footer className="bg-background-secondary">
       <div className="border-b border-border mb-6">
-        <div className="container grid grid-cols-1 gap-12 text-center lg:grid-cols-3 lg:gap-8 lg:text-left py-24">
+        <Layout variant="gridColumn_3" className="container py-24 sm:grid-cols-1 gap-12 lg:gap-8">
           <Links
             title="Contact Us"
             data={CONTACTS}
@@ -59,7 +60,7 @@ const Footer = () => {
           />
           <CompanyInfo className="flex flex-col items-center gap-8 border-b-2 border-t-2 lg:border-b-0 lg:border-t-0 lg:border-l-2 lg:border-r-2 py-8 lg:py-0 lg:px-12" />
           <Links title="Pages" data={PAGES} className="lg:pl-12" />
-        </div>
+        </Layout>
       </div>
       <div className="m-auto p-4">
         <Copyright />
