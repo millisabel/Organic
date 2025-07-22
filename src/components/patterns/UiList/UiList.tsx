@@ -1,26 +1,44 @@
 import { cn } from '@/utils/helpers';
-import type { JSX } from 'react';
 import type { UiListProps } from './types';
-import { uiListVariants } from './variants';
+import { contentLayoutVariants } from '../ContentLayout/variants';
+import type { JSX } from 'react';
 
 function UiList<T>({
   items,
   renderItem,
-  itemProps,
   className,
   as = 'div',
   variant = 'default',
   itemsDisplay = 'all',
 }: UiListProps<T>) {
+  const isList = as === 'ul' || as === 'ol';
   const Tag = as as keyof JSX.IntrinsicElements;
 
   const itemsToDisplay = itemsDisplay === 'all' ? items : items.slice(0, itemsDisplay);
 
   if (itemsToDisplay.length === 0) return null;
 
+  if (isList) {
+    return (
+      <Tag className={cn(contentLayoutVariants({ variant }), className)}>
+        {itemsToDisplay.map((item, idx) => {
+          const renderedItem = renderItem(item, idx);
+          return (
+            <li key={idx} className="list-none">
+              {renderedItem}
+            </li>
+          );
+        })}
+      </Tag>
+    );
+  }
+
   return (
-    <Tag className={cn(uiListVariants({ variant }), className)}>
-      {itemsToDisplay.map((item, idx) => renderItem(item, idx, itemProps))}
+    <Tag className={cn(contentLayoutVariants({ variant }), className)}>
+      {itemsToDisplay.map((item, idx) => {
+        const renderedItem = renderItem(item, idx);
+        return renderedItem;
+      })}
     </Tag>
   );
 }

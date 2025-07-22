@@ -1,17 +1,15 @@
-import BannerCard from '@/components/shared/Card/BannerCard';
-import type { BannerCardProps } from '@/components/shared/Card/BannerCard/types';
 import Section from '../layout/Section/Section';
-
-import bannerRight from '@/assets/images/banner/banner_1.webp';
-import bannerLeft from '@/assets/images/banner/banner_2.webp';
+import type { SectionProps } from '../layout/Section/types';
+import ContentLayout from '../patterns/ContentLayout';
+import BannerCard from '../shared/Card/BannerCard';
+import type { BannerCardProps } from '../shared/Card/BannerCard/types';
 
 const banners: BannerCardProps[] = [
   {
-    imageUrl: bannerLeft,
-    accent: 'Natural!!',
+    imageUrl: 'banner_1.webp',
+    subtitle: 'Natural!!',
     title: 'Get Garden Fresh Fruits',
     flipDirection: 'left',
-    bgBackColor: 'bg-[#f1eff0]',
     backFeatures: [
       'Always fresh and juicy',
       '100% organic',
@@ -19,14 +17,12 @@ const banners: BannerCardProps[] = [
       'Packed with vitamins',
       'Fast delivery',
     ],
-    category: 'Fruits',
   },
   {
-    imageUrl: bannerRight,
-    accent: 'Offer!!',
+    imageUrl: 'banner_2.webp',
+    subtitle: 'Offer!!',
     title: 'Get 10% off on Vegetables',
     flipDirection: 'right',
-    bgBackColor: 'bg-[#f1eff0]',
     backFeatures: [
       'Locally sourced',
       'Handpicked quality',
@@ -34,18 +30,17 @@ const banners: BannerCardProps[] = [
       'Eco-friendly farming',
       'Special weekly offers',
     ],
-    category: 'Vegetable',
   },
 ];
 
-const BannerSection = () => {
+const BannerSection = ({ ...props }: SectionProps) => {
   return (
-    <Section paddingY="py-[10vw]" dataComponent="BannerSection">
-      <div className="flex flex-col gap-6 md:flex-row md:gap-8">
+    <Section paddingY="py-[10vw]" dataComponent="BannerSection" {...props}>
+      <ContentLayout variant="twoColumn">
         {banners.map((banner) => (
           <BannerCard key={banner.title} {...banner} />
         ))}
-      </div>
+      </ContentLayout>
     </Section>
   );
 };

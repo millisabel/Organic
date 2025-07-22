@@ -1,8 +1,8 @@
-import Logo from '@/components/ui/Logo';
-import Paragraph from '@/components/ui/Typography/Paragraph';
 import UIList from '@/components/patterns/UiList';
 import SocialButton from '@/components/shared/Button/SocialButton/SocialButton';
 import type { SocialButtonProps } from '@/components/shared/Button/SocialButton/types';
+import Logo from '@/components/ui/Logo';
+import Paragraph from '@/components/ui/Typography/Paragraph';
 
 interface CompanyInfoProps {
   className?: string;
@@ -40,15 +40,11 @@ const CompanyInfo = ({ className }: CompanyInfoProps) => {
         the printing.
       </Paragraph>
       <UIList
+        as="ul"
         className="flex flex-row gap-2"
         items={SOCIALS_FOOTER as unknown as SocialButtonProps[]}
         renderItem={(item) => (
-          <SocialButton
-            key={item.id}
-            socialType={item.socialType}
-            href={item.href}
-            variant="social"
-          />
+          <SocialButton socialType={item.socialType} href={item.href} variant="social" />
         )}
       />
     </div>

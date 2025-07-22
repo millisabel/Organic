@@ -16,13 +16,12 @@ const BannerCard = ({
   subtitle,
   backFeatures,
   titleColor = 'white',
-  accentColor = 'rgb(34 197 94)', // green-300
+  subtitleColor = 'rgb(34 197 94)',
 }: BannerCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const isMobile = useIsBelowBreakpoint('md');
   const image = getImageUrl('banner', imageUrl);
 
-  // Обработчики событий
   const handleMouseEnter = () => {
     if (!isMobile) setIsFlipped(true);
   };
@@ -46,7 +45,7 @@ const BannerCard = ({
       : 'rotateY(0deg)',
     transition: 'transform 0.6s ease-in-out',
     '--title-color': titleColor,
-    '--accent-color': accentColor,
+    '--accent-color': subtitleColor,
   };
 
   const faceStyle = {
@@ -65,7 +64,7 @@ const BannerCard = ({
 
   return (
     <div
-      className="w-full h-[370px] group"
+      className="w-full h-[370px] min-h-[370px] group"
       style={containerStyle}
       tabIndex={0}
       aria-label="Flip banner card"

@@ -1,15 +1,6 @@
 import PostMetaInfo from '@/components/shared/Post/postMetaInfo';
-import { createArgTypesFromArray, getStoryDescription } from '@/utils/storiesHelpers';
 import UiList from '.';
-import { uiListOptions } from './variants';
-
-const customProps = createArgTypesFromArray([
-  {
-    name: 'variant',
-    control: 'select',
-    options: uiListOptions,
-  },
-]);
+import { getStoryDescription } from '@/utils/storiesHelpers';
 
 export default {
   title: 'Patterns/UiList',
@@ -18,30 +9,83 @@ export default {
     docs: {
       description: {
         component: getStoryDescription({
-          source: 'src/components/patterns/UiList/UiList.stories.tsx',
+          source: 'src/components/patterns/UiList/UiList.tsx',
         }),
       },
     },
   },
-  argTypes: customProps,
 };
 
-const sampleData = [
+const simpleData = [
+  { id: 1, name: 'Item 1' },
+  { id: 2, name: 'Item 2' },
+  { id: 3, name: 'Item 3' },
+];
+
+const postData = [
   { author: 'John Doe', date: new Date(), format: 'short' as const },
   { author: 'Jane Doe', date: new Date(), format: 'short' as const },
   { author: 'Bob Smith', date: new Date(), format: 'short' as const },
 ];
 
-export const Template = (arg: React.ComponentProps<typeof UiList>) => <UiList {...arg} />;
-Template.args = {
-  items: sampleData,
-  renderItem: (item: (typeof sampleData)[0], idx: number) => (
-    <PostMetaInfo key={idx} author={item.author} date={item.date} format={item.format} />
-  ),
-};
+export const SimpleDiv = () => (
+  <div className="p-4 border rounded">
+    <h3>Simple Div Test</h3>
+    <p>This should work</p>
+  </div>
+);
 
-Template.argTypes = {
-  renderItem: {
-    control: false,
-  },
-};
+export const SimpleList = () => (
+  <ul className="p-4 border rounded">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+);
+
+export const UiListTest = () => (
+  <UiList
+    items={simpleData}
+    renderItem={(item) => (
+      <div key={item.id} className="p-2 border rounded">
+        {item.name}
+      </div>
+    )}
+  />
+);
+
+export const UiListWithVariant = () => (
+  <UiList
+    items={simpleData}
+    renderItem={(item) => (
+      <div key={item.id} className="p-2 border rounded">
+        {item.name}
+      </div>
+    )}
+    variant="gridColumn_2"
+  />
+);
+
+export const UiListAsList = () => (
+  <UiList
+    items={simpleData}
+    renderItem={(item) => (
+      <div key={item.id} className="p-2 border rounded">
+        {item.name}
+      </div>
+    )}
+    as="ul"
+    variant="gridColumn_2"
+  />
+);
+
+export const PostMetaInfoList = () => (
+  <UiList
+    items={postData}
+    renderItem={(item, idx) => (
+      <PostMetaInfo key={idx} author={item.author} date={item.date} format={item.format} />
+    )}
+    as="ul"
+    variant="gridColumn_3"
+  />
+);

@@ -7,5 +7,5 @@ export interface BannerCardProps extends CardProps {
   flipDirection?: 'left' | 'right';
   backFeatures?: string[];
   titleColor?: string;
-  accentColor?: string;
+  subtitleColor?: string;
 }

@@ -1,4 +1,5 @@
 import HeroSection from '@/components/sections/HeroSection';
+import BannerSection from '@/components/sections/BannerSection';
 
 import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 
@@ -13,7 +14,7 @@ const HomePage = () => {
         title="Choose the best healthier way of life"
         backgroundImageUrl={hero_bg}
       />
-      {/* <BannerSection /> */}
+      <BannerSection id="banner" />
       {/* <AboutSection
         image={{ src: about_section_image, alt: 'About Section Image' }}
         title="We Believe in Working Accredited Farmers"
