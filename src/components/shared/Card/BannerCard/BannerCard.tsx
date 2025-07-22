@@ -1,13 +1,14 @@
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import CheckIcon from '@/components/shared/Icon/CheckIcon';
 import Button from '@/components/ui/Button/Button';
-import Title from '@/components/ui/Typography/Title';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { getImageUrl } from '@/utils/helpers';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { BannerCardProps } from './types';
 import List from '@/components/ui/Typography/List';
+import SectionHeader from '@/components/layout/Section/SectionHeader';
+import Title from '@/components/ui/Typography/Title';
 
 const BannerCard = ({
   flipDirection = 'right',
@@ -15,8 +16,7 @@ const BannerCard = ({
   title,
   subtitle,
   backFeatures,
-  titleColor = 'white',
-  subtitleColor = 'rgb(34 197 94)',
+  titleColor = 'text-white',
 }: BannerCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const isMobile = useIsBelowBreakpoint('md');
@@ -44,8 +44,6 @@ const BannerCard = ({
       ? `rotateY(${flipDirection === 'left' ? '-180deg' : '180deg'})`
       : 'rotateY(0deg)',
     transition: 'transform 0.6s ease-in-out',
-    '--title-color': titleColor,
-    '--accent-color': subtitleColor,
   };
 
   const faceStyle = {
@@ -76,14 +74,18 @@ const BannerCard = ({
       {/* face front */}
       <div style={faceStyle}>
         <div
-          className="w-full h-full flex flex-col lg:flex-row items-center justify-between p-12 bg-cover bg-center rounded-[20px]"
+          className="w-full h-full flex flex-col lg:flex-row items-center justify-center p-12 bg-cover bg-center rounded-[20px]"
           style={{ backgroundImage: `url(${image})` }}
         >
-          <div className="w-full lg:w-1/3 flex flex-col gap-4">
-            <Title variant="sectionTitle" level={3} className="text-[var(--title-color)] text-4xl">
+          <div className="flex flex-col gap-4 items-center lg:items-start w-full lg:w-1/2">
+            <Title
+              variant="sectionTitle"
+              level={2}
+              className={`order-2 text-2xl md:text-4xl ${titleColor}`}
+            >
               {title}
             </Title>
-            <Title variant="sectionSubTitle" level={4} className="text-[var(--accent-color)]">
+            <Title variant="sectionSubTitle" level={3} className={`order-1`}>
               {subtitle}
             </Title>
           </div>

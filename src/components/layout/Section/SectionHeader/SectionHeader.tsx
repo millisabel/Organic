@@ -19,10 +19,10 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
       className={cn(sectionHeaderVariants({ variant }), className)}
       data-component="SectionHeader"
     >
-      <Title variant={titleVariant} level={titleLevel} className="order-2">
+      <Title variant={titleVariant} level={titleLevel} className={`order-2`}>
         {title}
       </Title>
-      <Title variant={subtitleVariant} level={subtitleLevel} className="order-1">
+      <Title variant={subtitleVariant} level={subtitleLevel} className={`order-1`}>
         {subtitle}
       </Title>
     </div>

@@ -2,11 +2,6 @@ import type { titleVariants } from '@/components/ui/Typography/Title/variants';
 import type { VariantProps } from 'class-variance-authority';
 import type { sectionHeaderVariants } from './variants';
 
-export interface SectionHeaderSlots {
-  title?: React.ReactNode;
-  subtitle?: React.ReactNode;
-}
-
 export interface SectionHeaderProps {
   title?: string;
   subtitle?: string;

@@ -7,8 +7,8 @@ import type { BannerCardProps } from '../shared/Card/BannerCard/types';
 const banners: BannerCardProps[] = [
   {
     imageUrl: 'banner_1.webp',
-    subtitle: 'Natural!!',
     title: 'Get Garden Fresh Fruits',
+    subtitle: 'Natural!!',
     flipDirection: 'left',
     backFeatures: [
       'Always fresh and juicy',
@@ -17,6 +17,7 @@ const banners: BannerCardProps[] = [
       'Packed with vitamins',
       'Fast delivery',
     ],
+    titleColor: 'text-primary',
   },
   {
     imageUrl: 'banner_2.webp',
