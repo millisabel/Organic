@@ -4,16 +4,14 @@
 @import 'swiper/css/effect-fade';
 
 #root {
-  /* --swiper-theme-color: #6db193;
-  --swiper-navigation-top-offset: 60px;
-
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 0; */
+  --swiper-theme-color: #6db193;
 }
 
-/* .swiper-button-next,
+.swiper-wrapper {
+  padding-bottom: 40px;
+}
+
+.swiper-button-next,
 .swiper-button-prev {
   transition: transform 0.2s;
 }
@@ -30,4 +28,4 @@
 .swiper-pagination-bullet-active {
   cursor: pointer;
   pointer-events: none;
-} */
+}

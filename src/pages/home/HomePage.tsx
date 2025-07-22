@@ -1,6 +1,7 @@
 import HeroSection from '@/components/sections/HeroSection';
 import BannerSection from '@/components/sections/BannerSection';
 import AboutSection from '@/components/sections/AboutSection';
+import Testimonial from '@/components/sections/Testimonial';
 
 import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 import { features } from '@/data/featuresAboutHome.json';
@@ -18,6 +19,7 @@ const HomePage = () => {
       />
       <BannerSection id="banner" />
       <AboutSection
+        id="about"
         title="We Believe in Working Accredited Farmers"
         subtitle="About Us"
         description="Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley."
@@ -30,7 +32,7 @@ const HomePage = () => {
         subtitle="Categories"
         button={{ text: 'Load More', icon: <ArrowIcon variant="arrow" size="md" /> }}
       /> */}
-      {/* <Testimonial /> */}
+      <Testimonial />
       {/* <OfferSection
         title="We Offer Organic For You"
         subtitle="Offers"

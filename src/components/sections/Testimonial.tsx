@@ -1,4 +1,3 @@
-import testimonialBg from '@/assets/images/backgrounds/testimonial_home.webp';
 import reviews from '@/data/reviews.json';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { A11y, Autoplay, EffectFade, Navigation, Pagination, Scrollbar } from 'swiper/modules';
@@ -7,6 +6,7 @@ import Section from '../layout/Section/Section';
 import SectionHeader from '../layout/Section/SectionHeader';
 import ReviewCard from '../shared/Card/ReviewCard';
 import FastItem from '../shared/ContentBlocks/FastItem/FastItem';
+import type { SectionProps } from '../layout/Section/types';
 
 const facts = [
   { id: 1, value: '100%', label: 'Organic' },
@@ -15,16 +15,23 @@ const facts = [
   { id: 4, value: '25+', label: 'Years of Farming' },
 ];
 
-const Testimonial = () => {
+interface TestimonialProps extends SectionProps {}
+
+const Testimonial = ({}: TestimonialProps) => {
   const isMobile = useIsBelowBreakpoint('lg');
 
   return (
     <Section
-      backgroundImageUrl={testimonialBg}
+      id="testimonial"
+      backgroundImageUrl="src/assets/images/backgrounds/testimonial_home.webp"
       dataComponent="TestimonialSection"
-      paddingY="py-[165px]"
+      paddingY="py-[160px]"
     >
-      <SectionHeader title="What Our Customer Saying?" subtitle="Testimonial" className="mb-16" />
+      <SectionHeader
+        title="What Our Customer Saying?"
+        subtitle="Testimonial"
+        className="text-center mb-16"
+      />
       {/* slider */}
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -35,18 +42,12 @@ const Testimonial = () => {
         pagination={{
           clickable: true,
         }}
-        className="max-w-[1000px] mb-10 lg:mb-16 pb-10"
+        className="max-w-[800px] mx-auto mb-10 lg:mb-16 pb-20"
         aria-label="Testimonial slider"
       >
         {reviews.map((item) => (
           <SwiperSlide key={item.id}>
-            <ReviewCard
-              name={item.name}
-              job={item.job}
-              text={item.text}
-              rating={item.rating}
-              image={item.image}
-            />
+            <ReviewCard data={item} />
           </SwiperSlide>
         ))}
       </Swiper>

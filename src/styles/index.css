@@ -5,23 +5,4 @@
 @tailwind utilities;
 
 @layer utilities {
-  /* For flip-effect */
-  /* .rotate-y-180 {
-    transform: rotateY(180deg);
-  }
-  .rotate-y--180 {
-    transform: rotateY(-180deg);
-  }
-  .perspective-1200 {
-    perspective: 1200px;
-  }
-  .preserve-3d {
-    transform-style: preserve-3d;
-  }
-  .backface-hidden {
-    backface-visibility: hidden;
-  }
-  .shadow-left {
-    box-shadow: -16px 0 32px -16px rgba(0, 0, 0, 0.1);
-  } */
 }

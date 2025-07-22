@@ -12,7 +12,11 @@ const ReviewCard = ({ data }: ReviewCardProps) => {
   const { name, job, text, rating, image } = data;
 
   return (
-    <Card nameComponent="ReviewCard" variant="notShadow" className="bg-white p-5 rounded-none">
+    <Card
+      nameComponent="ReviewCard"
+      variant="notShadow"
+      className="bg-transparent px-24 py-5 rounded-none"
+    >
       <CardHeader className="flex flex-col items-center gap-5 mb-6">
         <Image
           src={image}
