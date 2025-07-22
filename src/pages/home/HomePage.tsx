@@ -1,34 +1,18 @@
-// import AboutSection from '@/components/sections/AboutSection';
-// import BannerSection from '@/components/sections/BannerSection';
-// import HeroSection from '@/components/sections/HeroSection';
-// import OfferSection from '@/components/sections/OfferSection';
-// import ProductSection from '@/components/sections/ProductSection';
-// import Testimonial from '@/components/sections/Testimonial';
-// import WhoWe from '@/components/sections/WhoWe';
-// import GallerySection from '@/components/sections/GallerySection';
-// import NewsSection from '@/components/sections/NewsSection';
+import HeroSection from '@/components/sections/HeroSection';
 
-// import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
-
-// import ArrowIcon from '@/components/ui/Icon/ArrowIcon';
-
-// import { features } from '@/data/featuresAboutHome.json';
-
-// import hero_bg_page_home from '@/assets/images/backgrounds/hero_home.webp';
-// import about_section_image from '@/assets/images/backgrounds/about_home.webp';
-// import who_we_image from '@/assets/images/backgrounds/who_we_home.webp';
+import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 
 const HomePage = () => {
   // const isBelowLg = useIsBelowBreakpoint('lg');
   return (
     <>
-      {/* <HeroSection
+      <HeroSection
+        id="hero"
         variant="home"
         subtitle="100% Natural Food"
         title="Choose the best healthier way of life"
-        bgImage={hero_bg_page_home}
-        button={{ text: 'Explore Now', icon: <ArrowIcon variant="arrow" size="md" /> }}
-      /> */}
+        backgroundImageUrl={hero_bg}
+      />
       {/* <BannerSection /> */}
       {/* <AboutSection
         image={{ src: about_section_image, alt: 'About Section Image' }}

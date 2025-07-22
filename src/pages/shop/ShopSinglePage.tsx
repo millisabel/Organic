@@ -9,9 +9,9 @@ import productsData from '@/data/products.json';
 // import { useCartActions } from '@/hooks/useCartActions';
 // import { useAppSelector } from '@/store/hooks';
 import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
-import { getImageUrl } from '@/utils/helpers';
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import heroImage from '@/assets/images/backgrounds/hero_shop_single.webp';
 
 const ShopSinglePage: React.FC = () => {
   // const { handleAddToCart, handleRemove, handleCategoryClick } = useCartActions();
@@ -49,11 +49,7 @@ const ShopSinglePage: React.FC = () => {
   // .slice(0, 4);
   return (
     <>
-      <HeroSection
-        variant="banner"
-        title="Shop Single"
-        bgImage={getImageUrl('backgrounds', 'hero_shop_single.webp')}
-      />
+      <HeroSection id="hero" variant="banner" title="Shop Single" backgroundImageUrl={heroImage} />
 
       <div className="container py-10 mx-auto">
         <Breadcrumbs items={breadcrumbItems} />

@@ -2,36 +2,29 @@ import Title from '@/components/ui/Typography/Title';
 import { cn } from '@/utils/helpers';
 import React from 'react';
 import type { SectionHeaderProps } from './types';
+import { sectionHeaderVariants } from './variants';
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,
   subtitle,
   className,
-  slots = {},
+  variant,
+  titleLevel = 2,
+  subtitleLevel = 3,
+  titleVariant = 'sectionTitle',
+  subtitleVariant = 'sectionSubTitle',
 }) => {
-  const titleContent =
-    slots.title ||
-    (title && (
-      <Title variant="sectionTitle" level={2} className="order-2">
-        {title}
-      </Title>
-    ));
-
-  const subtitleContent =
-    slots.subtitle ||
-    (subtitle && (
-      <Title variant="sectionSubTitle" level={3} className="order-1">
-        {subtitle}
-      </Title>
-    ));
-
   return (
     <div
-      className={cn('flex flex-col gap-4 mb-10 text-center', className)}
+      className={cn(sectionHeaderVariants({ variant }), className)}
       data-component="SectionHeader"
     >
-      {titleContent}
-      {subtitleContent}
+      <Title variant={titleVariant} level={titleLevel} className="order-2">
+        {title}
+      </Title>
+      <Title variant={subtitleVariant} level={subtitleLevel} className="order-1">
+        {subtitle}
+      </Title>
     </div>
   );
 };

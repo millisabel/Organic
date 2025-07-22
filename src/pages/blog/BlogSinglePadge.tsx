@@ -18,7 +18,7 @@ const BlogSinglePage = () => {
 
   return (
     <>
-      <HeroSection variant="single" bgImage={heroImg} />
+      <HeroSection id="hero" variant="single" backgroundImageUrl={heroImg} />
       <Section>
         <div className="relative">
           <IntroContent

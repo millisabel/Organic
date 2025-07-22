@@ -1,62 +1,62 @@
+import { useBackgroundImage } from '@/hooks/useBackgroundImage';
+import { cn } from '@/utils/helpers';
 import clsx from 'clsx';
-import React, { useEffect, useState } from 'react';
-
-export interface SectionProps {
-  id?: string;
-  children: React.ReactNode;
-  backgroundColor?: string;
-  backgroundImageUrl?: string;
-  backgroundPosition?: string;
-  paddingY?: string;
-  className?: string;
-  backgroundSize?: string;
-}
+import React, { useMemo } from 'react';
+import type { SectionProps } from './types';
 
 const Section: React.FC<SectionProps> = ({
   children,
-  className,
-  backgroundColor,
+  backgroundColor = 'bg-inherit',
   backgroundImageUrl,
   backgroundPosition = 'center center',
   backgroundSize = 'cover',
   paddingY = 'py-20',
+  dataComponent = 'Section',
+  className,
+  container = true,
+  ...props
 }) => {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const { isLoaded } = useBackgroundImage(backgroundImageUrl);
 
-  useEffect(() => {
-    if (!backgroundImageUrl) return;
+  const sectionStyle = useMemo((): React.CSSProperties => {
+    const style: React.CSSProperties = {};
 
-    let isMounted = true;
-    setIsImageLoaded(false);
+    if (backgroundColor && backgroundColor !== 'bg-inherit') {
+      if (!backgroundColor.startsWith('bg-')) {
+        style.backgroundColor = backgroundColor;
+      }
+    }
 
-    const img = new window.Image();
-    img.src = backgroundImageUrl;
-    img.onload = () => {
-      if (isMounted) setIsImageLoaded(true);
-    };
+    if (backgroundImageUrl) {
+      style.backgroundImage = `url(${backgroundImageUrl})`;
+      style.backgroundSize = backgroundSize;
+      style.backgroundPosition = backgroundPosition;
+      style.backgroundRepeat = 'no-repeat';
+    }
 
-    return () => {
-      isMounted = false;
-    };
-  }, [backgroundImageUrl]);
+    return style;
+  }, [backgroundColor, backgroundImageUrl, backgroundSize, backgroundPosition]);
 
-  const sectionStyle: React.CSSProperties = {};
-  if (backgroundColor) sectionStyle.backgroundColor = backgroundColor;
-  if (backgroundImageUrl) {
-    sectionStyle.backgroundImage = `url(${backgroundImageUrl})`;
-    sectionStyle.backgroundSize = backgroundSize;
-    sectionStyle.backgroundPosition = backgroundPosition;
-    sectionStyle.backgroundRepeat = 'no-repeat';
-  }
-
-  const sectionClasses = clsx('transition-opacity duration-1000', paddingY, className, {
-    'opacity-100': isImageLoaded || !backgroundImageUrl,
-    'opacity-0': backgroundImageUrl && !isImageLoaded,
-  });
+  const sectionClasses = useMemo(() => {
+    return clsx(
+      'transition-opacity duration-1000',
+      paddingY,
+      backgroundColor && backgroundColor.startsWith('bg-') ? backgroundColor : null,
+      {
+        'opacity-100': isLoaded || !backgroundImageUrl,
+        'opacity-0': backgroundImageUrl && !isLoaded,
+      },
+    );
+  }, [paddingY, backgroundColor, isLoaded, backgroundImageUrl]);
 
   return (
-    <section className={sectionClasses} style={sectionStyle} data-component="Section">
-      <div className="container mx-auto">{children}</div>
+    <section
+      className={cn(sectionClasses, className)}
+      style={sectionStyle}
+      data-component={dataComponent}
+      {...props}
+    >
+      {container ? <div className="container mx-auto">{children}</div> : children}
     </section>
   );
 };
