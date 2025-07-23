@@ -11,7 +11,7 @@ import type { ContactSectionProps } from './types';
 
 const ContactSection = ({ title, description }: ContactSectionProps) => {
   const { contactLinks, socialLinks } = useContactData();
-  const clickableContactLinks = contactLinks.filter((link) => link.title !== 'Address');
+  const clickableContactLinks = contactLinks.filter(({ icon }) => icon !== 'location.svg');
 
   return (
     <Section>
