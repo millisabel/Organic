@@ -1,5 +1,6 @@
 import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
+import TeamSection from '@/components/sections/TeamSection';
 
 import heroImage from '@/assets/images/backgrounds/hero_about.webp';
 import { features } from '@/data/featuresAboutAbout.json';
@@ -20,12 +21,12 @@ const AboutPage = () => {
         features={features}
         image="about_about.webp"
       />
-      {/* <TeamSection
+      <TeamSection
         title="Our Team"
         subtitle="About Us"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
-      <CategoriesSection
+      {/* <CategoriesSection
         title="What We Offer for You"
         subtitle="About Us"
         backgroundColor="bg-primary"

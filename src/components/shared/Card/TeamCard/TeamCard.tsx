@@ -23,16 +23,16 @@ const TeamCard = ({ data }: TeamCardProps) => {
   ) => <SocialButton key={idx} {...item} {...additionalProps} />;
 
   return (
-    <Card variant="default" nameComponent="TeamCard" className="max-w-[450px] h-[615px]">
+    <Card variant="default" nameComponent="TeamCard" className="max-w-[450px] min-h-[615px]">
       <CardHeader className="h-full">
         <Image src={image} alt={name} folder="teams" />
       </CardHeader>
       <div className="flex flex-row justify-between py-9 px-7">
-        <CardContent className="items-start">
+        <CardContent className="items-start mb-10">
           <Title variant="cardTitle" level={3} className="text-2xl">
             {name}
           </Title>
-          <Title variant="sectionSubTitle" level={4} className="text-xl">
+          <Title variant="sectionSubTitle" level={4} className="text-xl md:text-2xl">
             {role}
           </Title>
         </CardContent>
@@ -40,7 +40,6 @@ const TeamCard = ({ data }: TeamCardProps) => {
           <UIList
             items={socialItems}
             renderItem={renderSocialButton}
-            itemProps={{ size: 'social' }}
             className="flex flex-row gap-1"
           />
         </CardFooter>

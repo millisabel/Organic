@@ -11,7 +11,6 @@ import HomePage from '../pages/home/HomePage';
 import ShopPage from '../pages/shop/ShopPage';
 import CartPersistence from '../store/CartPersistence';
 import TeamPage from '@/pages/team/TeamPage';
-import TeamSinglePage from '@/pages/team/TeamSinglePage';
 
 import '../styles/App.css';
 
@@ -30,7 +29,6 @@ function App() {
           <Route path="contact" element={<ContactPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="team" element={<TeamPage />} />
-          <Route path="team/:teamId" element={<TeamSinglePage />} />
         </Route>
       </Routes>
     </HashRouter>
