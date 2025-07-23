@@ -3,7 +3,7 @@ import FloatingCartButton from '@/features/cart/components/buttons/FloatingCartB
 import { useFloatingCartButton } from '@/hooks/useFloatingCartButton';
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import ModalSubscribe from '../shared/Modal/ModalSubscribe';
+import SuccessModal from '@/components/shared/Modal/SuccessModal';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 
@@ -38,10 +38,13 @@ const Layout = () => {
         isVisible={isVisible}
         className="fixed bottom-6 right-6 z-50"
       />
-      <ModalSubscribe
+      <SuccessModal
         isOpen={isNewsletterModalOpen}
         onClose={() => setIsNewsletterModalOpen(false)}
-        submittedEmail={submittedEmail}
+        title="Thank You!"
+        message="Your subscription has been confirmed"
+        details={`You will now receive our newsletter at: ${submittedEmail}`}
+        footerText="You can unsubscribe at any time from the newsletter footer."
       />
     </div>
   );

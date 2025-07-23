@@ -2,7 +2,7 @@ import { cn } from '@/utils/helpers';
 import type { ContentLayoutProps } from './types';
 import { contentLayoutVariants } from './variants';
 
-const ContentLayout = ({ children, variant, className }: ContentLayoutProps) => {
+const ContentLayout = ({ children, variant = 'default', className }: ContentLayoutProps) => {
   return <div className={cn(contentLayoutVariants({ variant }), className)}>{children}</div>;
 };
 
