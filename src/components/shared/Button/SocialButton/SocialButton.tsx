@@ -8,6 +8,7 @@ const SocialButton = ({ socialType, href, ...buttonProps }: SocialButtonProps) =
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     window.open(href, '_blank');
+    e.currentTarget.blur();
   };
 
   return (

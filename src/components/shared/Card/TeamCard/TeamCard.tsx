@@ -23,7 +23,7 @@ const TeamCard = ({ data }: TeamCardProps) => {
   ) => <SocialButton key={idx} {...item} {...additionalProps} />;
 
   return (
-    <Card variant="default" nameComponent="TeamCard" className="max-w-[450px] min-h-[615px]">
+    <Card variant="default" nameComponent="TeamCard" className="max-w-[450px] min-h-[500px]">
       <CardHeader className="h-full">
         <Image src={image} alt={name} folder="teams" />
       </CardHeader>

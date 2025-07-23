@@ -22,9 +22,11 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
       <Title variant={titleVariant} level={titleLevel} className={`order-2`}>
         {title}
       </Title>
-      <Title variant={subtitleVariant} level={subtitleLevel} className={`order-1`}>
-        {subtitle}
-      </Title>
+      {subtitle && (
+        <Title variant={subtitleVariant} level={subtitleLevel} className={`order-1`}>
+          {subtitle}
+        </Title>
+      )}
     </div>
   );
 };

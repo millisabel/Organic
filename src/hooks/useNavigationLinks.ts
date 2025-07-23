@@ -1,3 +1,4 @@
+import type { SocialType } from '@/components/shared/Button/SocialButton/types';
 import { useMemo } from 'react';
 
 /**
@@ -7,6 +8,8 @@ export interface NavigationLink {
   href: string;
   text: string;
   external?: boolean; // For external links (opens in new tab)
+  icon?: string; // Icon for contact links
+  socialType?: SocialType; // Social type for social media links
 }
 
 /**
@@ -16,6 +19,7 @@ export interface NavigationLinks {
   main: NavigationLink[]; // Main navigation (Header)
   footer: NavigationLink[]; // Footer navigation
   social: NavigationLink[]; // Social media links
+  contact: NavigationLink[]; // Contact links
 }
 
 /**
@@ -62,10 +66,30 @@ export const useNavigationLinks = (): NavigationLinks => {
       ],
       // Social media links (external)
       social: [
-        { href: 'https://facebook.com', text: 'Facebook', external: true },
-        { href: 'https://twitter.com', text: 'Twitter', external: true },
-        { href: 'https://instagram.com', text: 'Instagram', external: true },
-        { href: 'https://linkedin.com', text: 'LinkedIn', external: true },
+        { href: 'https://facebook.com', text: 'Facebook', external: true, socialType: 'facebook' },
+        { href: 'https://twitter.com', text: 'Twitter', external: true, socialType: 'twitter' },
+        {
+          href: 'https://instagram.com',
+          text: 'Instagram',
+          external: true,
+          socialType: 'instagram',
+        },
+        {
+          href: 'https://pinterest.com',
+          text: 'Pinterest',
+          external: true,
+          socialType: 'pinterest',
+        },
+      ],
+      contact: [
+        { href: 'mailto:needhelp@organia.com', text: 'Email', external: true, icon: 'email.svg' },
+        { href: 'tel:666888888', text: 'Phone', external: true, icon: 'phone.svg' },
+        {
+          href: 'https://www.google.com/maps/place/88+road,+borklyn+street,+USA/@40.7127755,-74.0059731,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2585ff9df2f6d:0xf876cceb6e3fae97!8m2!3d40.7127755!4d-74.0037844',
+          text: 'Address',
+          external: true,
+          icon: 'location.svg',
+        },
       ],
     }),
     [], // Empty dependency array ensures links are memoized

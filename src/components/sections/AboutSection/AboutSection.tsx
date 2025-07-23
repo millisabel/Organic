@@ -1,7 +1,7 @@
 import { cn } from '@/utils/helpers';
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
-import Layout from '@/components/patterns/ContentLayout';
+import ContentLayout from '@/components/patterns/ContentLayout';
 import UiList from '@/components/patterns/UiList/UiList';
 import InfoBlock from '@/components/shared/ContentBlocks/InfoBlock/InfoBlock';
 import Image from '@/components/ui/Image';
@@ -20,10 +20,8 @@ const AboutSection = ({
 }: AboutSectionProps) => {
   return (
     <Section {...props}>
-      <Layout variant="gridColumn_2">
-        <div>
-          <Image src={image} folder="backgrounds" alt={title} className="object-scale-down" />
-        </div>
+      <ContentLayout variant="gridColumn_2">
+        <Image src={image} folder="backgrounds" alt={title} />
         <div>
           <SectionHeader title={title} subtitle={subtitle} className="text-center md:text-start" />
           <UiList
@@ -47,7 +45,7 @@ const AboutSection = ({
           />
           <GoToShop className="m-auto md:m-0">Shop Now</GoToShop>
         </div>
-      </Layout>
+      </ContentLayout>
     </Section>
   );
 };
