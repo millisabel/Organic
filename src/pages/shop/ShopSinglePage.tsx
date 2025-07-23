@@ -75,7 +75,7 @@ const ShopSinglePage: React.FC = () => {
         <SectionHeader title="Related Products" />
         {relatedProducts.length > 0 ? (
           <UiList
-            variant="grid"
+            variant="gridCol_md_2"
             items={relatedProducts}
             renderItem={(item, idx) => (
               <ProductCard key={idx} data={item as unknown as ProductCardData} />

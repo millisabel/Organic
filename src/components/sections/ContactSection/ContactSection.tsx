@@ -10,12 +10,12 @@ import { useContactData } from '@/hooks/useContactData';
 import type { ContactSectionProps } from './types';
 
 const ContactSection = ({ title, description }: ContactSectionProps) => {
-  const { contactLinks, socialLinks } = useContactData();
-  const clickableContactLinks = contactLinks.filter(({ icon }) => icon !== 'location.svg');
+  const { emailItems, phoneItems, socialLinks } = useContactData();
+  const clickableContactLinks = emailItems.concat(phoneItems);
 
   return (
     <Section>
-      <ContentLayout variant="gridColumn_2_lg">
+      <ContentLayout variant="gridCol_lg_2">
         <Image
           folder="contact"
           src="contact.webp"
@@ -29,7 +29,8 @@ const ContactSection = ({ title, description }: ContactSectionProps) => {
           <address className="not-italic">
             <UiList
               items={clickableContactLinks}
-              className="gap-y-6 mb-6"
+              variant="flexCol"
+              className="gap-y-6 mb-6 items-start"
               renderItem={(item, idx) => (
                 <a
                   key={idx}
@@ -37,7 +38,7 @@ const ContactSection = ({ title, description }: ContactSectionProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${item.title} - ${item.href}`}
-                  className="block transition-transform duration-200 hover:scale-105 focus:scale-105"
+                  className="w-full block transition-transform duration-200 hover:scale-105 focus:scale-105"
                 >
                   <InfoBlock
                     iconSrc={item.icon}

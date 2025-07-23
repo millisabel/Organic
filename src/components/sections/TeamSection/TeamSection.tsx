@@ -15,7 +15,7 @@ const TeamSection = ({ title, subtitle, description }: TeamSectionProps) => {
       <SectionHeader title={title} subtitle={subtitle} className="text-center" />
       <Paragraph className="text-center w-full sm:w-1/2 mx-auto mb-10" children={description} />
       <UiList
-        variant="gridColumn_3"
+        variant="gridCol_lg_3"
         items={teams}
         renderItem={(item, idx) => <TeamCard key={idx} data={item} />}
         itemsDisplay={3}

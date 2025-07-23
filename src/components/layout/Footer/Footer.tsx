@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <footer className="bg-background-secondary">
       <div className="border-b border-border mb-6">
-        <Layout variant="gridColumn_3" className="container py-24 sm:grid-cols-1 gap-12 lg:gap-8">
+        <Layout variant="gridCol_lg_3" className="container py-24 sm:grid-cols-1 gap-12 lg:gap-8">
           <Links
             title="Contact Us"
             data={contactLinksData}

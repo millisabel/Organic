@@ -15,12 +15,7 @@ const ContactPage = () => {
   const handleFormSubmit = async (values: ContactFormData) => {
     // Simulate API call
     console.log('Form submitted:', values);
-
-    // In real app, you would make an API call here
-    // await sendContactForm(values);
-
-    // For demo purposes, we'll just simulate a delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 500));
   };
 
   const handleFormSuccess = () => {

@@ -15,7 +15,7 @@ const NewsletterSchema = Yup.object().shape({
 const Newsletter = ({ title, onSubmit, ...props }: NewsletterProps) => {
   return (
     <Section {...props}>
-      <Layout variant="gridColumn_2">
+      <Layout variant="gridCol_md_2">
         <Title
           level={2}
           variant="sectionTitle"

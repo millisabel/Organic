@@ -8,7 +8,8 @@ function UiList<T>({
   renderItem,
   className,
   as = 'div',
-  variant = 'default',
+  variant,
+  align,
   itemsDisplay = 'all',
 }: UiListProps<T>) {
   const isList = as === 'ul' || as === 'ol';
@@ -20,7 +21,7 @@ function UiList<T>({
 
   if (isList) {
     return (
-      <Tag className={cn(contentLayoutVariants({ variant }), className)}>
+      <Tag className={cn(contentLayoutVariants({ variant, align }), className)}>
         {itemsToDisplay.map((item, idx) => {
           const renderedItem = renderItem(item, idx);
           return (

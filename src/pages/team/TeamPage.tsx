@@ -11,7 +11,7 @@ const TeamPage = () => {
       <HeroSection id="hero" variant="banner" title="Our Team" backgroundImageUrl={heroImage} />
       <Section>
         <UiList
-          variant="gridColumn_3"
+          variant="gridCol_lg_3"
           items={teams}
           renderItem={(item, idx) => <TeamCard key={idx} data={item} />}
           className="gap-y-10"

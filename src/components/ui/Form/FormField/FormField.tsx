@@ -21,8 +21,13 @@ const FormField = ({
 }: FormFieldProps) => {
   const hasError = error && touched;
   return (
-    <div className={cn('space-y-6 relative', className)}>
-      <Label htmlFor={id} text={`${label}${required ? '*' : ''}`} variant="contact" />
+    <div className={cn('relative', className)}>
+      <Label
+        htmlFor={id}
+        text={`${label}${required ? '*' : ''}`}
+        variant="contact"
+        className="mb-4"
+      />
 
       {hasError && <div className="absolute top-0 right-0 z-10 text-sm text-red-500">{error}</div>}
 

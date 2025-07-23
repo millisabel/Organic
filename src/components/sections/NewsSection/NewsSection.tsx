@@ -36,7 +36,7 @@ const NewsSection = ({
         </div>
       )}
       <UiList
-        variant="gridColumn_2"
+        variant="gridCol_md_2"
         items={data}
         renderItem={(item, idx) => <NewsCard key={idx} data={item} />}
         itemsDisplay={itemsDisplay}

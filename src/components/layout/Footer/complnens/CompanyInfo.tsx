@@ -19,6 +19,7 @@ const CompanyInfo = ({ className }: CompanyInfoProps) => {
         the printing.
       </Paragraph>
       <UIList
+        variant="flexCol"
         as="ul"
         className="flex flex-row gap-2"
         items={socialLinks}

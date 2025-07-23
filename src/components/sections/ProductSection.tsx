@@ -40,7 +40,7 @@ const ProductSection = ({ title, subtitle, button, useSlots = false }: IProductS
       )}
 
       <UiList
-        variant="grid"
+        variant="gridCol_md_2"
         items={productsData}
         renderItem={(item, idx) => (
           <ProductCard key={idx} data={item as unknown as ProductCardData} />

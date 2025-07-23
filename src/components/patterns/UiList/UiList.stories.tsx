@@ -45,6 +45,7 @@ export const SimpleList = () => (
 
 export const UiListTest = () => (
   <UiList
+    variant="flexCol"
     items={simpleData}
     renderItem={(item) => (
       <div key={item.id} className="p-2 border rounded">
@@ -62,7 +63,7 @@ export const UiListWithVariant = () => (
         {item.name}
       </div>
     )}
-    variant="gridColumn_2"
+    variant="gridCol_md_2"
   />
 );
 
@@ -75,7 +76,7 @@ export const UiListAsList = () => (
       </div>
     )}
     as="ul"
-    variant="gridColumn_2"
+    variant="gridCol_md_2"
   />
 );
 
@@ -86,6 +87,6 @@ export const PostMetaInfoList = () => (
       <PostMetaInfo key={idx} author={item.author} date={item.date} format={item.format} />
     )}
     as="ul"
-    variant="gridColumn_3"
+    variant="gridCol_lg_3"
   />
 );

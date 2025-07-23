@@ -37,7 +37,7 @@ const banners: BannerCardProps[] = [
 const BannerSection = ({ ...props }: SectionProps) => {
   return (
     <Section paddingY="py-[10vw]" dataComponent="BannerSection" {...props}>
-      <ContentLayout variant="gridColumn_2">
+      <ContentLayout variant="gridCol_md_2">
         {banners.map((banner) => (
           <BannerCard key={banner.title} {...banner} />
         ))}

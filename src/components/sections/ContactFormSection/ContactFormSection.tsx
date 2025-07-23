@@ -44,7 +44,7 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
 
           return (
             <Form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <ContentLayout variant="gridColumn_2" className="justify-start gap-y-16 mb-16">
+              <ContentLayout variant="gridCol_md_2" className="mb-16 gap-y-8">
                 <FormField
                   id="fullName"
                   name="fullName"
@@ -98,7 +98,7 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
                   touched={touched.message}
                   showError={!!values.company || submitCount > 0}
                   rows={7}
-                  className="col-span-2"
+                  className="md:col-span-2"
                 />
               </ContentLayout>
 

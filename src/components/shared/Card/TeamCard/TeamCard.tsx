@@ -41,6 +41,7 @@ const TeamCard = ({ data }: TeamCardProps) => {
             items={socialItems}
             renderItem={renderSocialButton}
             className="flex flex-row gap-1"
+            variant="flexCol"
           />
         </CardFooter>
       </div>

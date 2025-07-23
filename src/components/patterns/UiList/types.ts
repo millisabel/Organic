@@ -8,7 +8,8 @@ export interface UiListProps<T> {
   items: T[];
   as?: 'ul' | 'ol' | 'div';
   renderItem: (item: T, idx: number, additionalProps?: AdditionalProps) => ReactNode;
-  variant?: VariantProps<typeof contentLayoutVariants>['variant'];
+  variant: VariantProps<typeof contentLayoutVariants>['variant'];
+  align?: VariantProps<typeof contentLayoutVariants>['align'];
   className?: string;
   itemsDisplay?: number | 'all';
 }

@@ -21,12 +21,13 @@ const LocationsSection = ({
         className="rounded-2xl px-4"
         backgroundImageUrl={backgroundImageUrl}
       >
-        <ContentLayout variant="gridColumn_2_lg" className="rounded-2xl">
+        <ContentLayout variant="gridCol_lg_2" className="rounded-2xl">
           <div className="hidden lg:block"></div>
-          <ContentLayout variant="default" className="bg-white rounded-2xl p-10 mx-4">
+          <ContentLayout variant="flexCol" className="bg-white rounded-2xl p-10 mx-4">
             <SectionHeader title={title} subtitle={subtitle} />
             <Paragraph>{description}</Paragraph>
             <UiList
+              variant="flexCol"
               items={addressItems}
               className="gap-y-6 mb-6"
               renderItem={(item, idx) => (
