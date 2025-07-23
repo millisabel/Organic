@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 const defaultVariants = [
-  'max-w-[100%] p-20 my-12',
+  'max-w-[100%] p-4 lg:p-20 my-12',
   'rounded-2xl',
   'text-roboto text-xl break-words',
   'text-primary',

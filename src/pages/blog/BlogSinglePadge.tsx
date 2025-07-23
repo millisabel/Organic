@@ -1,11 +1,12 @@
+import { useParams } from 'react-router-dom';
 import Section from '@/components/layout/Section/Section';
+import Breadcrumbs from '@/components/shared/Navigation/Breadcrumbs';
 import HeroSection from '@/components/sections/HeroSection';
 import ArticleContent from '@/components/shared/Post/Article';
-import type { ContentTypeComponent } from '@/components/shared/Post/Article/types';
 import IntroContent from '@/components/shared/Post/Intro';
-import newsData from '@/data/news.json';
 import { getImageUrl } from '@/utils/helpers';
-import { useParams } from 'react-router-dom';
+import type { ArticleContentProps } from '@/components/shared/Post/Article/types';
+import newsData from '@/data/news.json';
 
 const BlogSinglePage = () => {
   const { postId } = useParams();
@@ -17,21 +18,34 @@ const BlogSinglePage = () => {
   }
 
   return (
-    <>
-      <HeroSection id="hero" variant="single" backgroundImageUrl={heroImg} />
-      <Section>
+    <div className="relative">
+      <Section id="breadcrumbs" className="py-2">
+        <Breadcrumbs
+          items={[
+            { label: 'Home', path: '/' },
+            { label: 'Blog', path: '/blog' },
+            { label: post.title },
+          ]}
+        />
+      </Section>
+      <HeroSection id="hero" variant="single" backgroundImageUrl={heroImg} container={false} />
+      <Section id="article">
         <div className="relative">
           <IntroContent
             post={post}
-            className="absolute top-0 left-0 sm:p-4 md:p-14 lg:p-20 md:rounded-2xl md:shadow-lg"
+            className="lg:absolute lg:-top-40 left-0 p-0 md:p-14 lg:p-20 md:rounded-2xl lg:shadow-lg"
           />
           <ArticleContent
-            content={post.content as ContentTypeComponent[]}
-            className="md:pt-64 sm:px-4 md:px-14 lg:px-60"
+            content={post.content as ArticleContentProps[]}
+            className="lg:pt-40 sm:px-4 md:px-14 lg:px-60"
+            paragraphClassName="mb-4"
+            titleClassName="mb-6"
+            listClassName="my-10"
+            quoteClassName="text-center"
           />
         </div>
       </Section>
-    </>
+    </div>
   );
 };
 

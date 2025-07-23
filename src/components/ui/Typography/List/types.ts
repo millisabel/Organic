@@ -3,9 +3,10 @@ import type { ReactNode } from 'react';
 import type { listVariants } from './variants';
 
 export interface ListProps extends React.HTMLAttributes<HTMLUListElement> {
-  items: React.ReactNode[];
+  items: React.ReactNode[] | string[];
   as?: 'ul' | 'ol';
   variant?: VariantProps<typeof listVariants>['variant'];
   className?: string;
-  icon?: ReactNode; // Icon component to use instead of default list markers
+  icon?: ReactNode;
+  ordered?: boolean;
 }

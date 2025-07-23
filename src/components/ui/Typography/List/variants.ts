@@ -1,22 +1,18 @@
 import { cva } from 'class-variance-authority';
 
-export const listVariants = cva('flex flex-col gap-3 items-left', {
+export const listVariants = cva('flex flex-col gap-3 items-left text-base text-text', {
   variants: {
     variant: {
       default: '',
     },
     type: {
-      ul: 'list-disc list-inside',
-      ol: 'list-decimal list-inside',
-    },
-    hasIcon: {
-      true: 'list-none', // Remove default markers when using custom icons
-      false: '',
+      ul: 'list-disc list-inside [&>li]:pl-0',
+      ol: 'list-decimal list-inside [&>li]:pl-0',
     },
   },
   defaultVariants: {
     variant: 'default',
-    hasIcon: false,
+    type: 'ul',
   },
 });
 

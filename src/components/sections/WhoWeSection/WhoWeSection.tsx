@@ -19,7 +19,7 @@ const WhoWeSection = ({
         <div className="flex flex-col gap-4">
           <div className="relative lg:left-[-100px] bg-white p-8 rounded-xl lg:shadow-[-20px_20px_25px_-5px_rgb(0_0_0_/_0.1),_0_8px_10px_-6px_rgb(0_0_0_/_0.1)]">
             <SectionHeader title={title} subtitle={subtitle} className="text-left" />
-            <Article content={description} />
+            <Article content={description} paragraphClassName="mb-4" />
           </div>
         </div>
       </Layout>

@@ -9,4 +9,8 @@ export type ArticleContentProps =
 export interface ArticleProps {
   content: ArticleContentProps[];
   className?: string;
+  paragraphClassName?: string;
+  titleClassName?: string;
+  listClassName?: string;
+  quoteClassName?: string;
 }

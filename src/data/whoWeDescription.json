@@ -2,33 +2,31 @@
   {
     "type": "heading",
     "level": 3,
-    "children": "Start with Our Company First",
+    "text": "Start with Our Company First",
     "variant": "cardTitle"
   },
   {
     "type": "paragraph",
-    "children": "Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque laudantium. Sed ut perspiciatis.",
-    "className": "mb-4"
+    "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque laudantium. Sed ut perspiciatis."
   },
   {
     "type": "heading",
     "level": 3,
-    "children": "Learn How to Grow Yourself",
+    "text": "Learn How to Grow Yourself",
     "variant": "cardTitle"
   },
   {
     "type": "paragraph",
-    "children": "Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque laudantium. Sed ut perspiciatis.",
-    "className": "mb-4"
+    "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque laudantium. Sed ut perspiciatis."
   },
   {
     "type": "heading",
     "level": 3,
-    "children": "Farming Strategies of Today",
+    "text": "Farming Strategies of Today",
     "variant": "cardTitle"
   },
   {
     "type": "paragraph",
-    "children": "Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque laudantium. Sed ut perspiciatis."
+    "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium doloremque laudantium. Sed ut perspiciatis."
   }
 ]

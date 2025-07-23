@@ -3,12 +3,13 @@ import ListItem from './ListItem';
 import type { ListProps } from './types';
 import { listItemVariants, listVariants } from './variants';
 
-const List = ({ items, as = 'ul', variant, className, icon, ...props }: ListProps) => {
-  const ListTag = as;
+const List = ({ items, as = 'ul', variant, className, icon, ordered, ...props }: ListProps) => {
+  const listType = ordered !== undefined ? (ordered ? 'ol' : 'ul') : as;
+  const ListTag = listType;
 
   return (
     <ListTag
-      className={cn(listVariants({ variant, type: as, hasIcon: !!icon }), className)}
+      className={cn(listVariants({ variant, type: listType }), icon && 'list-none', className)}
       data-component="ListContent"
       {...props}
     >

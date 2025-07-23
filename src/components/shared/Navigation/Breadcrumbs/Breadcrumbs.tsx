@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import type { BreadcrumbsProps } from './types';
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className }) => {
   return (
-    <nav aria-label="breadcrumb" data-component="Breadcrumbs">
+    <nav aria-label="breadcrumb" data-component="Breadcrumbs" className={className}>
       <ul className="flex items-center gap-2 text-lg">
         {items.map((item, index) => (
           <li key={index} className="flex items-center gap-2">
@@ -13,7 +13,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
                 {item.label}
               </Link>
             ) : (
-              <span className="text-neutral-500">{item.label}</span>
+              <span className="text-neutral-500 line-clamp-1">{item.label}</span>
             )}
             {index < items.length - 1 && <span className="text-neutral-500">/</span>}
           </li>
