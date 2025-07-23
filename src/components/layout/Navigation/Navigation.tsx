@@ -1,19 +1,10 @@
 import { NavLink } from '@/components/shared/Navigation/NavLink';
-import { useMemo } from 'react';
+import { useNavigationLinks } from '@/hooks/useNavigationLinks';
 import { cn } from '../../../utils/helpers';
 import type { NavigationProps } from './types';
 
 const Navigation = ({ isMobile, onLinkClick, className }: NavigationProps) => {
-  const links = useMemo(
-    () => [
-      { href: '/', text: 'Home' },
-      { href: '/about', text: 'About' },
-      { href: '/shop', text: 'Shop' },
-      { href: '/blog', text: 'Blog' },
-      { href: '/contact', text: 'Contact' },
-    ],
-    [],
-  );
+  const { main: links } = useNavigationLinks();
 
   return (
     <nav className={className}>

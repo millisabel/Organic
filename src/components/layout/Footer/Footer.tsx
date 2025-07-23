@@ -1,34 +1,8 @@
 import Layout from '@/components/patterns/ContentLayout';
+import { useNavigationLinks } from '@/hooks/useNavigationLinks';
 import CompanyInfo from './complnens/CompanyInfo';
 import Copyright from './complnens/Copyright';
 import Links from './complnens/Links';
-
-const PAGES = [
-  {
-    title: 'Home',
-    href: '/',
-  },
-  {
-    title: 'About Us',
-    href: '/about',
-  },
-  {
-    title: 'Shop',
-    href: '/shop',
-  },
-  {
-    title: 'Blog',
-    href: '/blog',
-  },
-  {
-    title: 'Contact Us',
-    href: '/contact',
-  },
-  {
-    title: 'Cart',
-    href: '/cart',
-  },
-];
 
 const CONTACTS = [
   {
@@ -49,6 +23,13 @@ const CONTACTS = [
 ];
 
 const Footer = () => {
+  const { footer: pages } = useNavigationLinks();
+
+  const footerPages = pages.map(({ href, text }) => ({
+    title: text,
+    href,
+  }));
+
   return (
     <footer className="bg-background-secondary">
       <div className="border-b border-border mb-6">
@@ -61,7 +42,7 @@ const Footer = () => {
           <CompanyInfo className="flex flex-col items-center gap-8 border-b-2 border-t-2 lg:border-b-0 lg:border-t-0 lg:border-l-2 lg:border-r-2 py-8 lg:py-0 lg:px-12" />
           <Links
             title="Pages"
-            data={PAGES}
+            data={footerPages}
             className="lg:pl-12 lg:justify-self-start text-center lg:text-left"
           />
         </Layout>
