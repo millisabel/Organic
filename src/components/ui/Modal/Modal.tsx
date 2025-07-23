@@ -15,7 +15,7 @@ const Modal: FC<ModalProps> = ({
   bodyVariant = 'default',
   showCloseButton = true,
   title,
-  description,
+  message,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const previousActiveElement = useRef<HTMLElement | null>(null);
@@ -58,33 +58,21 @@ const Modal: FC<ModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <ModalWrap ref={modalRef} variant={variant} className={className}>
+    <ModalWrap ref={modalRef} variant={variant} className={className} data-component="Modal">
       <ModalBody variant={bodyVariant}>
         <div
           role="dialog"
           aria-modal="true"
           aria-labelledby={title ? 'modal-title' : undefined}
-          aria-describedby={description ? 'modal-description' : undefined}
+          aria-describedby={message ? 'modal-description' : undefined}
           tabIndex={-1}
           className="relative w-full h-full"
         >
-          {title && (
-            <h2 id="modal-title" className="sr-only">
-              {title}
-            </h2>
-          )}
-          {description && (
-            <p id="modal-description" className="sr-only">
-              {description}
-            </p>
-          )}
-
           {children}
-
           {showCloseButton && (
             <CloseButton
               onClick={onClose}
-              className="absolute top-4 right-4"
+              className="absolute top-2 right-2"
               aria-label="Close modal"
             />
           )}

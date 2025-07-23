@@ -3,7 +3,7 @@ import type { ReactNode, Ref } from 'react';
 import type { modalVariants } from './variants';
 
 export interface ModalWrapProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   variant?: VariantProps<typeof modalVariants>['variant'];
   ref?: Ref<HTMLDivElement>;
