@@ -1,11 +1,11 @@
-import { Field, Form, Formik } from 'formik';
-import * as Yup from 'yup';
 import Section from '@/components/layout/Section/Section';
+import Layout from '@/components/patterns/ContentLayout';
 import CloseButton from '@/components/shared/Button/CloseButton/CloseButton';
 import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Form/Input';
 import Title from '@/components/ui/Typography/Title';
-import Input from '@components/ui/Input';
-import Layout from '@/components/patterns/ContentLayout';
+import { Field, Form, Formik } from 'formik';
+import * as Yup from 'yup';
 import type { NewsletterProps } from './types';
 
 const NewsletterSchema = Yup.object().shape({

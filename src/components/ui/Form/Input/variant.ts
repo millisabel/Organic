@@ -33,6 +33,9 @@ const inputVariants = cva(inputBaseClasses, {
       ],
       email: ['px-7 py-8', 'rounded-2xl', 'font-italic text-size-18'],
       error: ['border-red-500'],
+      contact: [
+        'w-full p-4 border border-secondary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none',
+      ],
     },
   },
   defaultVariants: {
