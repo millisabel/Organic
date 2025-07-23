@@ -1,9 +1,10 @@
 import Newsletter from '@/components/sections/Newsletter';
+import SuccessModal from '@/components/shared/Modal/SuccessModal';
 import FloatingCartButton from '@/features/cart/components/buttons/FloatingCartButton';
+
 import { useFloatingCartButton } from '@/hooks/useFloatingCartButton';
 import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import SuccessModal from '@/components/shared/Modal/SuccessModal';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 
@@ -13,6 +14,10 @@ const Layout = () => {
   const { count, price, isVisible } = useFloatingCartButton();
   const [isNewsletterModalOpen, setIsNewsletterModalOpen] = useState(false);
   const [submittedEmail, setSubmittedEmail] = useState('');
+  const location = useLocation();
+
+  // Check if current route ends with '*' (404 page)
+  const isNotFoundPage = location.pathname.endsWith('*');
 
   const handleNewsletterSubmit = (email: string) => {
     setSubmittedEmail(email);
@@ -24,12 +29,14 @@ const Layout = () => {
       <Header />
       <main className="flex-grow">
         <Outlet />
-        <Newsletter
-          id="newsletter"
-          title="Subscribe to our Newsletter"
-          onSubmit={handleNewsletterSubmit}
-          backgroundImageUrl={newsletterBg}
-        />
+        {!isNotFoundPage && (
+          <Newsletter
+            id="newsletter"
+            title="Subscribe to our Newsletter"
+            onSubmit={handleNewsletterSubmit}
+            backgroundImageUrl={newsletterBg}
+          />
+        )}
       </main>
       <Footer />
       <FloatingCartButton
