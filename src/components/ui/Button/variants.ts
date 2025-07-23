@@ -14,7 +14,7 @@ export const buttonStateOptions = ['default', 'loading', 'success', 'disabled', 
 
 const baseClasses = [
   'group inline-flex',
-  'flex items-center justify-center whitespace-nowrap gap-2.5',
+  'flex flex-row items-center justify-center whitespace-nowrap gap-2.5 nowrap',
   'w-max px-4 py-2',
   'text-primary font-roboto font-bold',
   'shadow-md',

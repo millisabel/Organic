@@ -20,6 +20,7 @@ export const useNavigationLinks = (): NavigationLinks => {
         { href: '/team', text: 'Team' },
         { href: '/contact', text: 'Contact' },
         { href: '/cart', text: 'Cart' },
+        { href: '*', text: '404' },
       ],
       social: [
         {

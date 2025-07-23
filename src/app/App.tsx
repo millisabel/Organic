@@ -1,7 +1,9 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import BlogSinglePage from '@/pages/blog/BlogSinglePadge';
+import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 import ShopSinglePage from '@/pages/shop/ShopSinglePage';
+import TeamPage from '@/pages/team/TeamPage';
 import Layout from '../components/layout/Layout';
 import AboutPage from '../pages/about/AboutPage';
 import BlogPage from '../pages/blog/BlogPage';
@@ -10,7 +12,6 @@ import ContactPage from '../pages/contact/ContactPage';
 import HomePage from '../pages/home/HomePage';
 import ShopPage from '../pages/shop/ShopPage';
 import CartPersistence from '../store/CartPersistence';
-import TeamPage from '@/pages/team/TeamPage';
 
 import '../styles/App.css';
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="contact" element={<ContactPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="team" element={<TeamPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </HashRouter>

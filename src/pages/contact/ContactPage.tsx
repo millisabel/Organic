@@ -11,11 +11,12 @@ import locationsImage from '@/assets/images/backgrounds/locations_contact.webp';
 
 const ContactPage = () => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [submittedFormData, setSubmittedFormData] = useState<ContactFormData | null>(null);
 
   const handleFormSubmit = async (values: ContactFormData) => {
     // Simulate API call
-    console.log('Form submitted:', values);
     await new Promise((resolve) => setTimeout(resolve, 500));
+    setSubmittedFormData(values);
   };
 
   const handleFormSuccess = () => {
@@ -24,6 +25,7 @@ const ContactPage = () => {
 
   const handleCloseModal = () => {
     setIsSuccessModalOpen(false);
+    setSubmittedFormData(null);
   };
 
   return (
@@ -41,12 +43,16 @@ const ContactPage = () => {
       />
       <ContactFormSection onSubmit={handleFormSubmit} onSuccess={handleFormSuccess} />
 
-      <SuccessModal
-        isOpen={isSuccessModalOpen}
-        onClose={handleCloseModal}
-        title="Message Sent Successfully!"
-        message="Thank you for contacting us. We have received your message and will get back to you as soon as possible."
-      />
+      {submittedFormData && (
+        <SuccessModal
+          isOpen={isSuccessModalOpen}
+          onClose={handleCloseModal}
+          title="Message Sent Successfully!"
+          message={`Thank you for contacting us, ${submittedFormData.fullName}! We have received your message and will respond within 24 hours during business hours.`}
+          details={`We'll reply to: ${submittedFormData.email}${submittedFormData.company ? ` from ${submittedFormData.company}` : ''}${submittedFormData.subject ? ` regarding: "${submittedFormData.subject}"` : ''}`}
+          footerText="If you have any urgent questions, please call us at +1 (555) 123-4567"
+        />
+      )}
     </>
   );
 };

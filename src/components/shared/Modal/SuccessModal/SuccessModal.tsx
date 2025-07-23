@@ -1,11 +1,11 @@
+import ContentLayout from '@/components/patterns/ContentLayout';
 import CheckIcon from '@/components/shared/Icon/CheckIcon';
 import Button from '@/components/ui/Button';
 import Modal from '@/components/ui/Modal';
+import Paragraph from '@/components/ui/Typography/Paragraph';
+import Title from '@/components/ui/Typography/Title';
 import type { FC } from 'react';
 import type { SuccessModalProps } from './types';
-import ContentLayout from '@/components/patterns/ContentLayout';
-import Title from '@/components/ui/Typography/Title';
-import Paragraph from '@/components/ui/Typography/Paragraph';
 
 const SuccessModal: FC<SuccessModalProps> = ({
   isOpen,
@@ -26,8 +26,20 @@ const SuccessModal: FC<SuccessModalProps> = ({
         <Paragraph variant="large" className="text-center">
           {message}
         </Paragraph>
-        {details && <Paragraph variant="small">{details}</Paragraph>}
-        {footerText && <Paragraph variant="extraSmall">{footerText}</Paragraph>}
+        {details && (
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
+            <Paragraph variant="small" className="text-blue-800 font-medium">
+              📧 {details}
+            </Paragraph>
+          </div>
+        )}
+        {footerText && (
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 mt-3">
+            <Paragraph variant="extraSmall" className="text-gray-600">
+              💬 {footerText}
+            </Paragraph>
+          </div>
+        )}
         <Button onClick={onClose} variant="default" className="mt-10">
           Close
         </Button>
