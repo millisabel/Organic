@@ -37,6 +37,22 @@ export const HeaderDefault = () => {
   );
 };
 
+export const HeaderWithTextProp = () => {
+  return (
+    <div>
+      <Title text="Title using text prop" />
+    </div>
+  );
+};
+
+export const HeaderWithChildren = () => {
+  return (
+    <div>
+      <Title>Title using children</Title>
+    </div>
+  );
+};
+
 export const HeroTitle = () => {
   return (
     <div>
