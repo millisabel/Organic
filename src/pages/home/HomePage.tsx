@@ -84,6 +84,7 @@ const HomePage = () => {
         title="Discover weekly content about organic food, & more"
         subtitle="News"
         itemsDisplay={2}
+        isButton={true}
         data={newsData as NewsCardData[]}
       />
     </>

@@ -9,7 +9,7 @@ const GalleryCard = ({ data }: GalleryCardProps) => {
 
   return (
     <Card
-      className="relative min-w-[200px] max-w-[600px] w-full aspect-square rounded-none"
+      className="relative min-w-[200px]  w-full aspect-square rounded-none"
       data-component="GalleryCard"
       nameComponent="GalleryCard"
     >

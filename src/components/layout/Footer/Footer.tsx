@@ -56,10 +56,14 @@ const Footer = () => {
           <Links
             title="Contact Us"
             data={CONTACTS}
-            className="lg:pr-12 lg:justify-self-end lg:text-right"
+            className="lg:pr-12 lg:justify-self-end lg:text-right text-center"
           />
           <CompanyInfo className="flex flex-col items-center gap-8 border-b-2 border-t-2 lg:border-b-0 lg:border-t-0 lg:border-l-2 lg:border-r-2 py-8 lg:py-0 lg:px-12" />
-          <Links title="Pages" data={PAGES} className="lg:pl-12" />
+          <Links
+            title="Pages"
+            data={PAGES}
+            className="lg:pl-12 lg:justify-self-start text-center lg:text-left"
+          />
         </Layout>
       </div>
       <div className="m-auto p-4">
