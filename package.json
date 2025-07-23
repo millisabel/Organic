@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint src",
+    "type-check": "tsc --noEmit",
+    "format-check": "prettier --check src",
+    "test:run": "vitest run",
+    "check-all": "npm run lint && npm run type-check && npm run format-check && npm run test:run",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

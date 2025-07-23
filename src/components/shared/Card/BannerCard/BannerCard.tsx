@@ -1,10 +1,7 @@
-import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import CheckIcon from '@/components/shared/Icon/CheckIcon';
-import Button from '@/components/ui/Button/Button';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { getImageUrl } from '@/utils/helpers';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import type { BannerCardProps } from './types';
 import List from '@/components/ui/Typography/List';
 import Title from '@/components/ui/Typography/Title';

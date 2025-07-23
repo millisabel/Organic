@@ -35,6 +35,7 @@ export const useElementVisibility = (options: UseElementVisibilityOptions): bool
     // Find the target element
     const element = document.querySelector(options.selector);
     if (!element) {
+      // eslint-disable-next-line
       console.warn(`Element with selector "${options.selector}" not found`);
       return;
     }

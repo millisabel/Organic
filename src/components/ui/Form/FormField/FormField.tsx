@@ -14,7 +14,6 @@ const FormField = ({
   error,
   touched,
   placeholder,
-  showError = false,
   required,
   className,
   ...props

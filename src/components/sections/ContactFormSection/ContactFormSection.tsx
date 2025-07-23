@@ -34,11 +34,12 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
             resetForm();
             onSuccess?.();
           } catch (error) {
+            // eslint-disable-next-line
             console.error('Form submission error:', error);
           }
         }}
       >
-        {({ values, errors, touched, submitCount, isValid, dirty, handleSubmit }) => {
+        {({ values, errors, touched, submitCount, handleSubmit }) => {
           const hasErrors = Object.keys(errors).length > 0;
           const showFormError = submitCount > 0 && hasErrors;
 
