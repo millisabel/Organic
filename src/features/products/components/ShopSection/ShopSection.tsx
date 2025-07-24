@@ -5,24 +5,34 @@ import UiList from '@/components/patterns/UiList';
 import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 import { SearchWithFilter } from '@/components/shared/SearchWithFilter';
-import CategoryFilter from '@/features/products/components/CategoryFilter';
+import CategoryFilter from '@/features/products/components/CategoryFilter/CategoryFilter';
 import ProductSorting from '@/features/products/components/ProductSorting';
 import {
   useProductFiltering,
   type CategoryFilterOption,
 } from '@/features/products/hooks/useProductFiltering';
 import { useProductSorting, type SortOption } from '@/features/products/hooks/useProductSorting';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 interface ShopSectionProps extends SectionProps {
   products: ProductCardData[];
   itemsPerPage?: number;
+  initialCategory?: CategoryFilterOption;
 }
 
-const ShopSection = ({ products, itemsPerPage = 8, ...props }: ShopSectionProps) => {
+const ShopSection = ({
+  products,
+  itemsPerPage = 8,
+  initialCategory = 'All Categories',
+  ...props
+}: ShopSectionProps) => {
   const [currentSort, setCurrentSort] = useState<SortOption>('default');
-  const [selectedCategory, setSelectedCategory] = useState<CategoryFilterOption>('All Categories');
+  const [selectedCategory, setSelectedCategory] = useState<CategoryFilterOption>(initialCategory);
   const [searchedProducts, setSearchedProducts] = useState(products);
+
+  useEffect(() => {
+    setSelectedCategory(initialCategory);
+  }, [initialCategory]);
 
   const filteredProducts = useProductFiltering(searchedProducts, selectedCategory);
   const sortedProducts = useProductSorting(filteredProducts, currentSort);
