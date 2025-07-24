@@ -18,7 +18,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ data, slots = {} }) => {
 
   return (
     <Card
-      className="relative min-w-[300px] max-w-[670px] h-auto mb-[120px] md:mb-[170px] overflow-visible"
+      className="relative w-full max-w-[670px] h-auto mb-[120px] md:mb-[170px] overflow-visible"
       nameComponent="NewsCard"
     >
       {slots.badge || <DataBadge date={date} className="absolute top-4 left-4" />}

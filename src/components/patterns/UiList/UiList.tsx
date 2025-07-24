@@ -35,7 +35,7 @@ function UiList<T>({
   }
 
   return (
-    <Tag className={cn(contentLayoutVariants({ variant }), className)}>
+    <Tag className={cn(contentLayoutVariants({ variant, align }), className)}>
       {itemsToDisplay.map((item, idx) => {
         const renderedItem = renderItem(item, idx);
         return renderedItem;

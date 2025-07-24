@@ -36,6 +36,14 @@ export const buttonVariants = cva(baseClasses, {
         'hover:bg-primary hover:text-white',
         'focus:ring-primary',
       ],
+      select: [
+        'text-gray-500',
+        'bg-background',
+        'ring-2 ring-gray-200',
+        'shadow-none',
+        'hover:ring-secondary hover:text-secondary',
+        'focus:ring-transparent focus-visible:ring-transparent focus:bg-primary focus-visible:bg-primary focus:text-white focus-visible:text-white',
+      ],
       social: ['bg-secondary/10', 'hover:bg-primary hover:text-white', 'focus:ring-primary'],
       accent: ['bg-accent', 'hover:bg-primary hover:text-accent', 'focus:ring-primary'],
       accent_hover_white: [

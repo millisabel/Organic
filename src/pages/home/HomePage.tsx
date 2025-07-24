@@ -88,6 +88,7 @@ const HomePage = () => {
         itemsDisplay={2}
         isButton={true}
         data={newsData as NewsCardData[]}
+        isSearch={false}
       />
     </>
   );

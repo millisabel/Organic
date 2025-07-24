@@ -5,4 +5,5 @@ export interface NewsSectionProps extends SectionProps {
   itemsDisplay?: number;
   data?: NewsCardData[];
   isButton?: boolean;
+  isSearch?: boolean;
 }
