@@ -21,6 +21,7 @@ const ProductSorting = ({ onSortChange, currentSort, className = '' }: ProductSo
       value={currentSort}
       onChange={onSortChange}
       placeholder="Sort by"
+      defaultValue="default"
       className={className}
       aria-label="Sort products"
     />

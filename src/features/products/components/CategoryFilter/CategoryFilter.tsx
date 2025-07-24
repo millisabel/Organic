@@ -24,6 +24,7 @@ const CategoryFilter = ({
       value={selectedCategory}
       onChange={onCategoryChange}
       placeholder="All Categories"
+      defaultValue="All Categories"
       className={className}
       aria-label="Filter by category"
     />

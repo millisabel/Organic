@@ -11,6 +11,7 @@ export interface SelectProps<T = string> {
   placeholder?: string;
   className?: string;
   disabled?: boolean;
+  defaultValue?: T; // Value of the default option
   'aria-label'?: string;
   'aria-describedby'?: string;
 }

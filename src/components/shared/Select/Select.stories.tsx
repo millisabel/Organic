@@ -12,6 +12,11 @@ export default {
     disabled: {
       control: 'boolean',
     },
+    defaultValue: {
+      control: 'text',
+      description:
+        'Value of the default option (shows selected state when different from current value)',
+    },
   },
 };
 
@@ -26,4 +31,22 @@ export const Template = (arg: React.ComponentProps<typeof Select>) => <Select {.
 Template.args = {
   options: sampleOptions,
   placeholder: 'Select an option',
+  defaultValue: 'option1',
+};
+
+export const WithDefaultValue = {
+  args: {
+    options: sampleOptions,
+    value: 'option2',
+    placeholder: 'Select an option',
+    defaultValue: 'option1',
+  },
+};
+
+export const WithoutDefaultValue = {
+  args: {
+    options: sampleOptions,
+    value: 'option2',
+    placeholder: 'Select an option',
+  },
 };

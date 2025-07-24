@@ -3,14 +3,26 @@ import { cva } from 'class-variance-authority';
 export const buttonVariantOptions = [
   'default',
   'outline',
+  'select',
+  'social',
   'accent',
+  'accent_hover_white',
   'transparent',
+  'transparentFull',
   'close',
   'red',
   'light',
+  'clear',
 ];
 export const buttonSizeOptions = ['default', 'compact', 'circle', 'ellipse', 'square'];
-export const buttonStateOptions = ['default', 'loading', 'success', 'disabled', 'notActive'];
+export const buttonStateOptions = [
+  'default',
+  'loading',
+  'success',
+  'disabled',
+  'notActive',
+  'selected',
+];
 
 const baseClasses = [
   'group inline-flex',
@@ -121,6 +133,7 @@ export const buttonVariants = cva(baseClasses, {
         'text-neutral-500',
       ],
       notActive: ['pointer-events-none'],
+      selected: ['bg-accent text-primary'],
     },
   },
 

@@ -10,6 +10,7 @@ function Select<T = string>({
   placeholder = 'Select option',
   className = '',
   disabled = false,
+  defaultValue,
   'aria-label': ariaLabel,
   'aria-describedby': ariaDescribedby,
 }: SelectProps<T>) {
@@ -17,11 +18,13 @@ function Select<T = string>({
     useSelect(options, value, onChange, disabled);
 
   const displayValue = selectedOption?.label || placeholder;
+  const isSelected = defaultValue !== undefined && value !== defaultValue;
 
   return (
     <div className={cn('relative h-full', className)} ref={selectRef}>
       <Button
         variant="select"
+        state={isSelected ? 'selected' : 'default'}
         onClick={handleToggle}
         onKeyDown={handleKeyDown}
         className="flex items-center gap-2 w-full justify-between"
