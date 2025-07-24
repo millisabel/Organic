@@ -25,10 +25,7 @@ const ShopSection = ({ products, ...props }: ShopSectionProps) => {
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilterOption>('All Categories');
   const [searchedProducts, setSearchedProducts] = useState(products);
 
-  // Filter by category
   const filteredProducts = useProductFiltering(searchedProducts, selectedCategory);
-
-  // Sort filtered products
   const sortedProducts = useProductSorting(filteredProducts, currentSort);
 
   const handleSortChange = (sortOption: SortOption) => {
@@ -40,18 +37,12 @@ const ShopSection = ({ products, ...props }: ShopSectionProps) => {
   };
 
   const handleFilteredDataChange = useCallback((filteredData: ProductCardData[]) => {
-    // Если поиск пустой, показываем все товары (с учетом категории)
-    // Если есть поиск, показываем отфильтрованные товары
     setSearchedProducts(filteredData);
   }, []);
 
   return (
     <Section paddingY="py-2" className="mb-20" dataComponent="ShopSection" {...props}>
-      <ContentLayout
-        variant="flexRow"
-        align="end"
-        className="py-10 px-4 mb-10 rounded-3xl bg-gray-100"
-      >
+      <ContentLayout variant="flexRow" align="end" className="py-10 px-4 mb-10 rounded-3xl">
         <ProductSorting currentSort={currentSort} onSortChange={handleSortChange} />
         <CategoryFilter
           selectedCategory={selectedCategory}
@@ -73,7 +64,7 @@ const ShopSection = ({ products, ...props }: ShopSectionProps) => {
         itemsDisplay={8}
         renderItem={(item: ProductCardData) => <ProductCard key={item.id} data={item} />}
       />
-      <LoadMoreButton onLoadMore={() => {}} hasMore={true} className="mb-8" remainingCount={10} />
+      <LoadMoreButton onLoadMore={() => {}} hasMore={true} className="mb-20" remainingCount={10} />
       <Pagination currentPage={1} totalPages={4} onPageChange={() => {}} className="mb-8" />
     </Section>
   );

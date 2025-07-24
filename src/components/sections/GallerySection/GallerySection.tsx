@@ -8,6 +8,7 @@ const GallerySection = ({ data, ...props }: GallerySectionProps) => {
     <Section className="w-full py-40 bg-secondary-light" container={false} {...props}>
       <UiList
         variant="gridCol_lg_3"
+        align="center_lg_st"
         items={data}
         renderItem={(item, idx) => <GalleryCard key={idx} data={item} />}
         className="gap-6"

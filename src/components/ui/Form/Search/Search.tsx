@@ -1,19 +1,8 @@
 import Input from '@/components/ui/Form/Input';
 import Label from '@/components/ui/Form/Label';
 import { cn } from '@/utils/helpers';
-import type { VariantProps } from 'class-variance-authority';
 import { forwardRef } from 'react';
-
-export interface SearchProps {
-  id?: string;
-  placeholder?: string;
-  value: string;
-  onChange: (value: string) => void;
-  className?: string;
-  'aria-label'?: string;
-  labelVariant?: VariantProps<typeof Label>['variant'];
-  inputVariant?: VariantProps<typeof Input>['variant'];
-}
+import type { SearchProps } from './types';
 
 const Search = forwardRef<HTMLInputElement, SearchProps>(
   (

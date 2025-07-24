@@ -19,9 +19,9 @@ function Select<T = string>({
   const displayValue = selectedOption?.label || placeholder;
 
   return (
-    <div className={cn('relative', className)} ref={selectRef}>
+    <div className={cn('relative h-full', className)} ref={selectRef}>
       <Button
-        variant="outline"
+        variant="select"
         onClick={handleToggle}
         onKeyDown={handleKeyDown}
         className="flex items-center gap-2 w-full justify-between"

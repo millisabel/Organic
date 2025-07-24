@@ -1,12 +1,7 @@
-import { Search, type SearchProps } from '@/components/ui/Form/Search';
+import { Search } from '@/components/ui/Form/Search';
 import { useDataFilter } from '@/hooks/useDataFilter';
 import { useCallback, useEffect } from 'react';
-
-export interface SearchWithFilterProps<T> extends Omit<SearchProps, 'value' | 'onChange'> {
-  data: T[];
-  searchFields: (keyof T)[];
-  onFilteredDataChange?: (filteredData: T[]) => void;
-}
+import type { SearchWithFilterProps } from './types';
 
 const SearchWithFilter = <T extends Record<string, unknown>>({
   data,
@@ -31,7 +26,6 @@ const SearchWithFilter = <T extends Record<string, unknown>>({
     [updateSearchTerm],
   );
 
-  // Notify parent when filtered data changes
   const handleFilteredDataChange = useCallback(
     (newFilteredData: T[]) => {
       if (onFilteredDataChange) {
@@ -41,7 +35,6 @@ const SearchWithFilter = <T extends Record<string, unknown>>({
     [onFilteredDataChange],
   );
 
-  // Effect to notify parent when filtered data changes
   useEffect(() => {
     handleFilteredDataChange(filteredData);
   }, [filteredData, handleFilteredDataChange]);

@@ -38,7 +38,7 @@ const Image: React.FC<ImageProps> = ({
     onError?.(event);
   };
   return (
-    <div className="flex justify-center items-center overflow-hidden">
+    <div className="flex justify-center items-center w-full h-full overflow-hidden">
       <img
         src={displaySrc}
         alt={alt || 'Image: ' + src.split('/').pop()?.split('.')[0]}

@@ -1,6 +1,6 @@
 import type { FormatDateProps } from '@/utils/helpers';
 import type { ReactNode } from 'react';
-import type { CardProps } from '../../../ui/Card/types';
+import type { CardProps } from '@/components/ui/Card/types';
 
 export interface NewsCardData {
   id: number;
@@ -10,6 +10,7 @@ export interface NewsCardData {
   title: string;
   description: string;
   imageUrl: string;
+  [key: string]: unknown;
 }
 
 export interface NewsCardSlots {

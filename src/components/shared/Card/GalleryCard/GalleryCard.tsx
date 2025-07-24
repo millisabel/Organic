@@ -9,7 +9,7 @@ const GalleryCard = ({ data }: GalleryCardProps) => {
 
   return (
     <Card
-      className="relative min-w-[200px]  w-full aspect-square rounded-none"
+      className="relative min-w-[200px] max-w-[500px] w-full aspect-square rounded-none mx-auto"
       data-component="GalleryCard"
       nameComponent="GalleryCard"
     >
@@ -19,8 +19,10 @@ const GalleryCard = ({ data }: GalleryCardProps) => {
         folder="gallery"
         className="absolute top-0 left-0 z-0 w-full h-full object-cover"
       />
-      <CardContent className="relative z-10 m-auto bg-white/90 px-10 py-3 shadow rounded-lg">
-        <Title variant="cardTitle">{title}</Title>
+      <CardContent className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-10 m-auto bg-white/90 px-10 py-3 shadow rounded-lg">
+        <Title variant="cardTitle" className="line-clamp-1">
+          {title}
+        </Title>
       </CardContent>
     </Card>
   );

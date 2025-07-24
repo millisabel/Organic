@@ -11,6 +11,7 @@ export interface ProductCardData {
   rating: number;
   isOutOfStock?: boolean;
   isNew?: boolean;
+  [key: string]: unknown;
 }
 
 export interface ProductCardProps extends CardProps {
