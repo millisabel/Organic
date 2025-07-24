@@ -8,6 +8,10 @@ import type { ProductCardData } from '@/components/shared/Card/ProductCard/types
 import Pagination from '@/components/shared/Navigation/Pagination';
 import CategoryFilter from '@/features/products/components/CategoryFilter';
 import ProductSorting from '@/features/products/components/ProductSorting';
+import {
+  useProductFiltering,
+  type CategoryFilterOption,
+} from '@/features/products/hooks/useProductFiltering';
 import { useProductSorting, type SortOption } from '@/features/products/hooks/useProductSorting';
 import SearchBar from '@/features/search/components/SearchBar';
 import { useState } from 'react';
@@ -18,9 +22,17 @@ interface ShopSectionProps extends SectionProps {
 
 const ShopSection = ({ products, ...props }: ShopSectionProps) => {
   const [currentSort, setCurrentSort] = useState<SortOption>('default');
-  const sortedProducts = useProductSorting(products, currentSort);
-  const handleSortChange = (sortOption: typeof currentSort) => {
+
+  const [selectedCategory, setSelectedCategory] = useState<CategoryFilterOption>('All Categories');
+  const filteredProducts = useProductFiltering(products, selectedCategory);
+  const sortedProducts = useProductSorting(filteredProducts, currentSort);
+
+  const handleSortChange = (sortOption: SortOption) => {
     setCurrentSort(sortOption);
+  };
+
+  const handleCategoryChange = (category: CategoryFilterOption) => {
+    setSelectedCategory(category);
   };
 
   return (
@@ -31,7 +43,10 @@ const ShopSection = ({ products, ...props }: ShopSectionProps) => {
         className="py-10 px-4 mb-10 rounded-3xl bg-gray-100"
       >
         <ProductSorting currentSort={currentSort} onSortChange={handleSortChange} />
-        <CategoryFilter selectedCategory="All Categories" onCategoryChange={() => {}} />
+        <CategoryFilter
+          selectedCategory={selectedCategory}
+          onCategoryChange={handleCategoryChange}
+        />
         <SearchBar id="shop-search" placeholder="Search products" />
       </ContentLayout>
 
@@ -39,7 +54,7 @@ const ShopSection = ({ products, ...props }: ShopSectionProps) => {
         variant="gridCol_sm_2_lg_4"
         items={sortedProducts}
         className="gap-6 mb-20"
-        // itemsDisplay={8}
+        itemsDisplay={8}
         renderItem={(item: ProductCardData) => <ProductCard key={item.id} data={item} />}
       />
       <LoadMoreButton onLoadMore={() => {}} hasMore={true} className="mb-8" remainingCount={10} />

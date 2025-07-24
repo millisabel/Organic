@@ -22,7 +22,6 @@ const searchSlice = createSlice({
       const query = action.payload.trim();
       if (query && !state.searchHistory.includes(query)) {
         state.searchHistory.unshift(query);
-        // Ограничиваем историю 10 запросами
         if (state.searchHistory.length > 10) {
           state.searchHistory = state.searchHistory.slice(0, 10);
         }
