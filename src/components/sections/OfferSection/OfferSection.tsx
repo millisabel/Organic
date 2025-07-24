@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
 import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
@@ -24,9 +23,7 @@ const OfferSection = ({ title, subtitle, products, className }: OfferSectionProp
         items={products}
         className="gap-6"
         renderItem={(item, idx) => (
-          <Link to={`/product/${item.id}`} key={idx}>
-            <ProductCard data={item as unknown as ProductCardData} />
-          </Link>
+          <ProductCard key={idx} data={item as unknown as ProductCardData} />
         )}
         itemsDisplay={4}
       />

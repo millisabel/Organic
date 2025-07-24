@@ -2,7 +2,7 @@ import Newsletter from '@/components/sections/Newsletter';
 import SuccessModal from '@/components/shared/Modal/SuccessModal';
 import FloatingCartButton from '@/features/cart/components/buttons/FloatingCartButton';
 
-import { useFloatingCartButton } from '@/hooks/useFloatingCartButton';
+import { useFloatingCartButton } from '@/features/cart';
 import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Footer from './Footer/Footer';

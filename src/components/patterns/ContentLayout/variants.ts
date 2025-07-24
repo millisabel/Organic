@@ -15,6 +15,7 @@ export const contentLayoutVariants = cva('', {
       default: '',
       center_lg_st: 'items-center justify-center lg:items-start',
       start: 'items-start',
+      end: 'items-center justify-end',
     },
   },
   defaultVariants: {
