@@ -19,7 +19,10 @@ const LoadMoreButton: React.FC<LoadMoreButtonProps> = ({
       <Button
         variant="outline"
         size="default"
-        onClick={onLoadMore}
+        onClick={(e) => {
+          e.preventDefault();
+          onLoadMore();
+        }}
         disabled={isLoading}
         aria-label={isLoading ? 'Loading more items' : 'Load more items'}
         className="flex items-center gap-2"

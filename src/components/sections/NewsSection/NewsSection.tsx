@@ -1,12 +1,14 @@
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
 import UiList from '@/components/patterns/UiList';
+import LoadMoreButton from '@/components/shared/Button/LoadMoreButton';
 import NewsCard from '@/components/shared/Card/NewsCard';
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import { SearchWithFilter } from '@/components/shared/SearchWithFilter';
 import Button from '@/components/ui/Button/Button';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
-import { useCallback, useState } from 'react';
+import { useLoadMore } from '@/hooks/useLoadMore';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { NewsSectionProps } from './type';
 
@@ -22,9 +24,19 @@ const NewsSection = ({
   const isBelowLg = useIsBelowBreakpoint('lg');
   const [filteredNews, setFilteredNews] = useState(data);
 
+  const { displayedItems, hasMore, isLoading, remainingCount, loadMore, reset } = useLoadMore({
+    data: filteredNews,
+    itemsPerPage: itemsDisplay || 2,
+    initialItems: itemsDisplay || 2,
+  });
+
   const handleFilteredDataChange = useCallback((filteredData: typeof data) => {
     setFilteredNews(filteredData);
   }, []);
+
+  useEffect(() => {
+    reset();
+  }, [filteredNews, reset]);
 
   return (
     <Section id={id} dataComponent="NewsSection">
@@ -64,9 +76,23 @@ const NewsSection = ({
         align="between"
         items={filteredNews}
         renderItem={(item, idx) => <NewsCard key={idx} data={item} />}
-        itemsDisplay={itemsDisplay}
+        itemsDisplay={displayedItems.length}
       />
-      {isBelowLg && isButton && (
+
+      {/* Load More Button */}
+      {hasMore && (
+        <LoadMoreButton
+          onLoadMore={loadMore}
+          hasMore={hasMore}
+          isLoading={isLoading}
+          remainingCount={remainingCount}
+          className="mt-10"
+          children="Load More News"
+        />
+      )}
+
+      {/* Fallback button for mobile when no more items */}
+      {!hasMore && isBelowLg && isButton && (
         <Button asChild className="mt-10 mx-auto lg:mx-0">
           <Link to="/blog">
             More News <ArrowIcon variant="arrow" size="md" />

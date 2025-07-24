@@ -8,7 +8,7 @@ const BlogPage = () => {
   return (
     <>
       <HeroSection id="hero" variant="banner" title="Recent  News" backgroundImageUrl={blogImage} />
-      <NewsSection id="news" data={newsData as NewsCardData[]} isButton={false} />
+      <NewsSection id="news" data={newsData as NewsCardData[]} isButton={false} itemsDisplay={4} />
     </>
   );
 };

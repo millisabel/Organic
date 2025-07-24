@@ -7,6 +7,7 @@ export { useCurrentPage } from './useCurrentPage';
 export { useElementVisibility } from './useElementVisibility';
 export { useEscapeKey } from './useEscapeKey';
 export { useIsBelowBreakpoint } from './useIsBelowBreakpoint';
+export { useLoadMore } from './useLoadMore';
 export { useMobileMenu } from './useMobileMenu';
 export { useNavigationLinks } from './useNavigationLinks';
 export { useOnClickOutside } from './useOnClickOutside';
