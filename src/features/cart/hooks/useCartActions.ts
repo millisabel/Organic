@@ -1,5 +1,11 @@
-import type { IProduct } from '@/components/ui/Card/ProductCard/types';
-import { addItem, removeItem, startLoading, stopLoading } from '@/store/cartSlice';
+import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+import {
+  addItem,
+  removeItem,
+  selectLoadingItems,
+  startLoading,
+  stopLoading,
+} from '@/features/cart/model';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,10 +15,10 @@ import { useNavigate } from 'react-router-dom';
  */
 export function useCartActions() {
   const dispatch = useAppDispatch();
-  const { loadingItems } = useAppSelector((state) => state.cart);
+  const loadingItems = useAppSelector(selectLoadingItems);
   const navigate = useNavigate();
 
-  const handleAddToCart = (product: IProduct, quantity: number = 1) => {
+  const handleAddToCart = (product: ProductCardData, quantity: number = 1) => {
     if (loadingItems.includes(product.id)) return;
     dispatch(startLoading(product.id));
     setTimeout(() => {
@@ -21,7 +27,7 @@ export function useCartActions() {
     }, 1500);
   };
 
-  const handleRemove = (product: IProduct) => {
+  const handleRemove = (product: ProductCardData) => {
     dispatch(removeItem(product.id));
   };
 

@@ -1,3 +1,4 @@
+import { selectCartItemsCount, selectCartTotalPrice } from '@/features/cart/model';
 import { useElementVisibility } from '@/hooks/useElementVisibility';
 import { useAppSelector } from '@/store/hooks';
 
@@ -6,11 +7,9 @@ import { useAppSelector } from '@/store/hooks';
  * @returns Object with cart data and visibility state
  */
 export const useFloatingCartButton = () => {
-  const cartItems = useAppSelector((state) => state.cart.items);
+  const totalCount = useAppSelector(selectCartItemsCount);
+  const totalPrice = useAppSelector(selectCartTotalPrice);
   const headerVisible = useElementVisibility({ selector: 'header' });
-
-  const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const isVisible = totalCount > 0 && !headerVisible;
 
