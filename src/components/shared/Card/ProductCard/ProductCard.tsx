@@ -6,13 +6,25 @@ import CardHeader from '@/components/ui/Card/components/CardHeader';
 import Image from '@/components/ui/Image';
 import Rating from '@/components/ui/Rating';
 import Title from '@/components/ui/Typography/Title';
+import { useNavigate } from 'react-router-dom';
 import StatusBlock from './components/StatusBlock';
 import type { ProductCardProps } from './types';
 
 const ProductCard = ({ data }: ProductCardProps) => {
   const { isOutOfStock, isNew } = data;
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/product/${data.id}`);
+  };
+
   return (
-    <Card variant="product" state={isOutOfStock ? 'outOfStock' : isNew ? 'new' : 'default'}>
+    <Card
+      variant="product"
+      state={isOutOfStock ? 'outOfStock' : isNew ? 'new' : 'default'}
+      onClick={handleCardClick}
+      className="cursor-pointer"
+    >
       <CardHeader className="flex-1">
         <BadgeButton children={data.category} className="absolute top-4 left-4" />
         <Image src={data.imageName} alt={data.title} folder="products" />
