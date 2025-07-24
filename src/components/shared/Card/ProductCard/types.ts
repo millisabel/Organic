@@ -3,12 +3,12 @@ import type { CardProps } from '@/components/ui/Card/types';
 export interface ProductCardData {
   id: string;
   title: string;
-  description: string;
-  image: string;
+  imageName: string;
+  category: string;
   price: number;
   oldPrice: number;
+  description: string;
   rating: number;
-  category: string;
   isOutOfStock?: boolean;
   isNew?: boolean;
 }

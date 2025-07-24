@@ -8,18 +8,17 @@ import Button from '@/components/ui/Button/Button';
 import productsData from '@/data/products.json';
 // import { useCartActions } from '@/hooks/useCartActions';
 // import { useAppSelector } from '@/store/hooks';
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+import heroImage from '@/assets/images/backgrounds/hero_shop_single.webp';
+import { adaptProductData, adaptProductsData } from '@/utils/productAdapter';
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import heroImage from '@/assets/images/backgrounds/hero_shop_single.webp';
 
 const ShopSinglePage: React.FC = () => {
   // const { handleAddToCart, handleRemove, handleCategoryClick } = useCartActions();
   // const { items: cartItems, loadingItems } = useAppSelector((state) => state.cart);
   const { productId } = useParams<{ productId: string }>();
-  const product = productsData.find(
-    (p) => p.id.toString() === productId,
-  ) as unknown as ProductCardData;
+  const rawProduct = productsData.find((p) => p.id.toString() === productId);
+  const product = rawProduct ? adaptProductData(rawProduct) : null;
   // const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
@@ -44,7 +43,7 @@ const ShopSinglePage: React.FC = () => {
     // { label: product.name },
   ];
 
-  const relatedProducts = productsData;
+  const relatedProducts = adaptProductsData(productsData);
   // .filter((p) => p.category === product.category && p.id !== product.id)
   // .slice(0, 4);
   return (
@@ -77,9 +76,7 @@ const ShopSinglePage: React.FC = () => {
           <UiList
             variant="gridCol_md_2"
             items={relatedProducts}
-            renderItem={(item, idx) => (
-              <ProductCard key={idx} data={item as unknown as ProductCardData} />
-            )}
+            renderItem={(item, idx) => <ProductCard key={idx} data={item} />}
           />
         ) : (
           <p className="text-text-light text-center">

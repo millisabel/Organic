@@ -38,6 +38,11 @@ export const buttonVariants = cva(baseClasses, {
       ],
       social: ['bg-secondary/10', 'hover:bg-primary hover:text-white', 'focus:ring-primary'],
       accent: ['bg-accent', 'hover:bg-primary hover:text-accent', 'focus:ring-primary'],
+      accent_hover_white: [
+        'bg-accent text-primary',
+        'hover:bg-white hover:text-primary',
+        'focus:ring-primary',
+      ],
       transparent: [
         'bg-transparent',
         'shadow-none',

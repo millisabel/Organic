@@ -6,15 +6,16 @@ import CardHeader from '@/components/ui/Card/components/CardHeader';
 import Image from '@/components/ui/Image';
 import Rating from '@/components/ui/Rating';
 import Title from '@/components/ui/Typography/Title';
-import type { ProductCardProps } from './types';
 import StatusBlock from './components/StatusBlock';
+import type { ProductCardProps } from './types';
 
 const ProductCard = ({ data }: ProductCardProps) => {
+  const { isOutOfStock, isNew } = data;
   return (
-    <Card className="relative max-w-[335px] h-[500px]">
+    <Card variant="product" state={isOutOfStock ? 'outOfStock' : isNew ? 'new' : 'default'}>
       <CardHeader className="flex-1">
         <BadgeButton children={data.category} className="absolute top-4 left-4" />
-        <Image src={data.image} alt={data.title} folder="products" />
+        <Image src={data.imageName} alt={data.title} folder="products" />
         <StatusBlock product={data} isInCart={false} className="absolute top-4 right-4" />
       </CardHeader>
       <CardFooter className="flex-col justify-between items-start p-5">

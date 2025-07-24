@@ -37,7 +37,6 @@ const Image: React.FC<ImageProps> = ({
     setIsLoaded(false);
     onError?.(event);
   };
-
   return (
     <div className="flex justify-center items-center overflow-hidden">
       <img

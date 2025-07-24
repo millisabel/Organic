@@ -17,13 +17,17 @@ export const cardVariants = cva(cardBaseClasses, {
     variant: {
       default: [''],
       notShadow: ['shadow-none hover:shadow-none'],
+      product: ['h-full', 'hover:shadow-xl hover:translate-y-[-10px]'],
     },
-    size: {
+    state: {
       default: '',
+      inCart: 'ring-2 ring-secondary',
+      outOfStock: 'opacity-50 cursor-not-allowed hover:shadow-none hover:translate-y-0',
+      new: '',
     },
   },
   defaultVariants: {
     variant: 'default',
-    size: 'default',
+    state: 'default',
   },
 });

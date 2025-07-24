@@ -1,0 +1,37 @@
+import { Link } from 'react-router-dom';
+import Section from '@/components/layout/Section/Section';
+import SectionHeader from '@/components/layout/Section/SectionHeader';
+import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
+import GoToShop from '@/components/shared/Button/GoToShop';
+import UiList from '@/components/patterns/UiList';
+import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+import type { OfferSectionProps } from './types';
+
+const OfferSection = ({ title, subtitle, products, className }: OfferSectionProps) => {
+  return (
+    <Section paddingY="py-[8vw]" dataComponent="OfferSection" className={className}>
+      <div className="flex flex-col lg:flex-row items-end justify-between mb-16">
+        <SectionHeader
+          title={title}
+          subtitle={subtitle}
+          className="mb-8 lg:mb-0 text-left text-white"
+          titleVariant="white"
+        />
+        <GoToShop variant="accent_hover_white" />
+      </div>
+      <UiList
+        variant="gridCol_sm_2_lg_4"
+        items={products}
+        className="gap-6"
+        renderItem={(item, idx) => (
+          <Link to={`/product/${item.id}`} key={idx}>
+            <ProductCard data={item as unknown as ProductCardData} />
+          </Link>
+        )}
+        itemsDisplay={4}
+      />
+    </Section>
+  );
+};
+
+export default OfferSection;

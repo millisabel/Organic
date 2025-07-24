@@ -4,6 +4,7 @@ import GallerySection from '@/components/sections/GallerySection';
 import HeroSection from '@/components/sections/HeroSection';
 import NewsSection from '@/components/sections/NewsSection';
 import Testimonial from '@/components/sections/Testimonial';
+import OfferSection from '@/components/sections/OfferSection';
 import WhoWe from '@/components/sections/WhoWeSection/WhoWeSection';
 
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
@@ -18,13 +19,16 @@ import galleryData from '@/data/gallery.json';
 import newsData from '@/data/news.json';
 import reviews from '@/data/reviews.json';
 import whoWeDescription from '@/data/whoWeDescription.json';
+import productsData from '@/data/products.json';
 
 import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 import testimonial_bg from '@/assets/images/backgrounds/testimonial_home.webp';
 import who_we_image from '@/assets/images/backgrounds/who_we_home.webp';
+import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 
 const HomePage = () => {
   const isBelowLg = useIsBelowBreakpoint('lg');
+  const filteredProducts = productsData.filter((product) => product.isOutOfStock !== true);
   return (
     <>
       <HeroSection
@@ -47,7 +51,6 @@ const HomePage = () => {
       {/* <ProductSection
         title="Our Products"
         subtitle="Categories"
-        button={{ text: 'Load More', icon: <ArrowIcon variant="arrow" size="md" /> }}
       /> */}
       <Testimonial
         id="testimonial"
@@ -58,16 +61,13 @@ const HomePage = () => {
         reviews={reviews}
         facts={factsTestimonial}
       />
-      {/* <OfferSection
+      <OfferSection
+        id="offer"
         title="We Offer Organic For You"
         subtitle="Offers"
-        // button={{
-        //   text: 'View All Product',
-        //   variant: 'accent',
-        //   icon: <ArrowIcon variant="arrow" size="md" />,
-        // }}
+        products={filteredProducts as unknown as ProductCardData[]}
         className="bg-primary"
-      /> */}
+      />
       <WhoWe
         id="who-we"
         title="Econis is a Friendly Organic Store"
