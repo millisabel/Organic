@@ -11,5 +11,7 @@ export { useLoadMore } from './useLoadMore';
 export { useMobileMenu } from './useMobileMenu';
 export { useNavigationLinks } from './useNavigationLinks';
 export { useOnClickOutside } from './useOnClickOutside';
+export { usePagination } from './usePagination';
+export { useScrollToTop } from './useScrollToTop';
 export { useTextAnimation } from './useTextAnimation';
 export { useWindowWidth } from './useWindowWidth';

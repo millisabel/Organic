@@ -1,14 +1,15 @@
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
 import UiList from '@/components/patterns/UiList';
-import LoadMoreButton from '@/components/shared/Button/LoadMoreButton';
 import NewsCard from '@/components/shared/Card/NewsCard';
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
+import Pagination from '@/components/shared/Navigation/Pagination';
 import { SearchWithFilter } from '@/components/shared/SearchWithFilter';
 import Button from '@/components/ui/Button/Button';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
-import { useLoadMore } from '@/hooks/useLoadMore';
-import { useCallback, useEffect, useState } from 'react';
+import { usePagination } from '@/hooks/usePagination';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { NewsSectionProps } from './type';
 
@@ -23,12 +24,23 @@ const NewsSection = ({
 }: NewsSectionProps) => {
   const isBelowLg = useIsBelowBreakpoint('lg');
   const [filteredNews, setFilteredNews] = useState(data);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const { displayedItems, hasMore, isLoading, remainingCount, loadMore, reset } = useLoadMore({
+  const { displayedItems, currentPage, totalPages, goToPage, reset } = usePagination({
     data: filteredNews,
     itemsPerPage: itemsDisplay || 2,
-    initialItems: itemsDisplay || 2,
   });
+
+  const { scrollToTop } = useScrollToTop(sectionRef);
+
+  // Custom page change handler with scroll to top
+  const handlePageChange = useCallback(
+    (page: number) => {
+      goToPage(page);
+      scrollToTop();
+    },
+    [goToPage, scrollToTop],
+  );
 
   const handleFilteredDataChange = useCallback((filteredData: typeof data) => {
     setFilteredNews(filteredData);
@@ -39,7 +51,7 @@ const NewsSection = ({
   }, [filteredNews, reset]);
 
   return (
-    <Section id={id} dataComponent="NewsSection">
+    <Section ref={sectionRef} id={id} dataComponent="NewsSection">
       {(title || subtitle) && (
         <div className="flex flex-row justify-between items-end mb-4 lg:mb-16">
           <SectionHeader
@@ -74,25 +86,25 @@ const NewsSection = ({
       <UiList
         variant="gridCol_md_2"
         align="between"
-        items={filteredNews}
+        items={displayedItems}
         renderItem={(item, idx) => <NewsCard key={idx} data={item} />}
-        itemsDisplay={displayedItems.length}
+        itemsDisplay="all"
       />
 
-      {/* Load More Button */}
-      {hasMore && (
-        <LoadMoreButton
-          onLoadMore={loadMore}
-          hasMore={hasMore}
-          isLoading={isLoading}
-          remainingCount={remainingCount}
-          className="mt-10"
-          children="Load More News"
-        />
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="mt-10">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            className="justify-center"
+          />
+        </div>
       )}
 
-      {/* Fallback button for mobile when no more items */}
-      {!hasMore && isBelowLg && isButton && (
+      {/* Fallback button for mobile when no pagination */}
+      {totalPages <= 1 && isBelowLg && isButton && (
         <Button asChild className="mt-10 mx-auto lg:mx-0">
           <Link to="/blog">
             More News <ArrowIcon variant="arrow" size="md" />
