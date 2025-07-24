@@ -7,6 +7,7 @@ const Image: React.FC<ImageProps> = ({
   folder,
   alt = '',
   className,
+  imageClassName,
   role = 'img',
   'aria-hidden': ariaHidden,
   fallbackSrc,
@@ -38,7 +39,9 @@ const Image: React.FC<ImageProps> = ({
     onError?.(event);
   };
   return (
-    <div className="flex justify-center items-center w-full h-full overflow-hidden">
+    <div
+      className={cn('flex justify-center items-center w-full h-full overflow-hidden', className)}
+    >
       <img
         src={displaySrc}
         alt={alt || 'Image: ' + src.split('/').pop()?.split('.')[0]}
@@ -48,7 +51,7 @@ const Image: React.FC<ImageProps> = ({
             'opacity-0': !isLoaded && !hasError,
             'opacity-100': isLoaded || hasError,
           },
-          className,
+          imageClassName,
         )}
         role={role}
         aria-hidden={ariaHidden}
