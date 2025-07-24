@@ -1,13 +1,18 @@
-// import Section from '@/components/layout/sectionLayouts/Section';
-// import { CartItemDesktop, CartItemMobile } from '@/features/cart/components/CartItem';
-// import CartSummary from '@/features/cart/components/CartItem/CartSummary';
-// import EmptyCart from '@/features/cart/components/CartItem/EmptyCart';
-// import { removeItem, updateQuantity } from '@/store/cartSlice';
-// import { useAppDispatch, useAppSelector } from '@/store/hooks';
-// import SectionHeader from '@/components/layout/sectionLayouts/SectionHeader';
+import Title from '@/components/ui/Typography/Title';
+import EmptyCart from '@/features/cart/components/EmptyCart';
 
 const CartPage = () => {
-  return <></>;
+  return (
+    <>
+      <Title
+        children="Shopping Cart"
+        variant="sectionTitle"
+        className="text-center my-10"
+        level={1}
+      />
+      <EmptyCart />
+    </>
+  );
   // const dispatch = useAppDispatch();
   // const cartItems = useAppSelector((state) => state.cart.items);
   // const isEmpty = cartItems.length === 0;
@@ -21,7 +26,7 @@ const CartPage = () => {
   // };
   // return (
   // <Section>
-  //   <SectionHeader title="Shopping Cart" />
+
   //   {isEmpty ? (
   //     <EmptyCart />
   //   ) : (

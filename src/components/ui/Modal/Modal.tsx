@@ -1,5 +1,5 @@
 import CloseButton from '@/components/shared/Button/CloseButton/CloseButton';
-import { useOnClickOutside } from '@hooks/useOnClickOutside';
+import { useEscapeKey, useOnClickOutside } from '@/hooks';
 import type { FC } from 'react';
 import { useEffect, useRef } from 'react';
 import ModalBody from './components/ModalBody/ModalBody';
@@ -21,27 +21,20 @@ const Modal: FC<ModalProps> = ({
   const previousActiveElement = useRef<HTMLElement | null>(null);
 
   useOnClickOutside(modalRef, onClose);
+  useEscapeKey(() => onClose(), isOpen);
 
   useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && isOpen) {
-        onClose();
-      }
-    };
-
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
       previousActiveElement.current = document.activeElement as HTMLElement;
       modalRef.current?.focus();
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
       if (!isOpen && previousActiveElement.current) {
         previousActiveElement.current.focus();
       }
     };
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   useEffect(() => {
     if (isOpen) {
