@@ -11,6 +11,22 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 /**
+ * Combines multiple refs into a single ref function
+ * Useful when you need to forward a ref and also use it locally
+ */
+export function combineRefs<T>(...refs: Array<React.Ref<T> | undefined | null>) {
+  return (node: T | null) => {
+    refs.forEach((ref) => {
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref) {
+        ref.current = node;
+      }
+    });
+  };
+}
+
+/**
  * Dynamically resolves the full URL for an asset located in the assets/images folder.
  * This is the correct way to handle dynamic image paths in Vite.
  * @param folder - The subfolder within 'assets/images' (e.g., 'products', 'teams').

@@ -12,69 +12,99 @@ import {
   type CategoryFilterOption,
 } from '@/features/products/hooks/useProductFiltering';
 import { useProductSorting, type SortOption } from '@/features/products/hooks/useProductSorting';
-import { useCallback, useEffect, useState } from 'react';
+import { usePageScroll } from '@/hooks/usePageScroll';
+import { forwardRef, useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 interface ShopSectionProps extends SectionProps {
   products: ProductCardData[];
   itemsPerPage?: number;
-  initialCategory?: CategoryFilterOption;
 }
 
-const ShopSection = ({
-  products,
-  itemsPerPage = 8,
-  initialCategory = 'All Categories',
-  ...props
-}: ShopSectionProps) => {
-  const [currentSort, setCurrentSort] = useState<SortOption>('default');
-  const [selectedCategory, setSelectedCategory] = useState<CategoryFilterOption>(initialCategory);
-  const [searchedProducts, setSearchedProducts] = useState(products);
+const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
+  ({ products, itemsPerPage = 8, ...props }, ref) => {
+    const [currentSort, setCurrentSort] = useState<SortOption>('default');
+    const [searchedProducts, setSearchedProducts] = useState(products);
 
-  useEffect(() => {
-    setSelectedCategory(initialCategory);
-  }, [initialCategory]);
+    // Get category from URL and handle auto-scroll
+    const [searchParams] = useSearchParams();
+    const categoryFromUrl = searchParams.get('category');
+    const initialCategory = categoryFromUrl || 'All Categories';
 
-  const filteredProducts = useProductFiltering(searchedProducts, selectedCategory);
-  const sortedProducts = useProductSorting(filteredProducts, currentSort);
+    const [selectedCategory, setSelectedCategory] = useState<CategoryFilterOption>(initialCategory);
 
-  const handleSortChange = (sortOption: SortOption) => {
-    setCurrentSort(sortOption);
-  };
+    // Auto-scroll when category parameter changes in URL
+    const { sectionRef } = usePageScroll({
+      paramName: 'category',
+      scrollOptions: { behavior: 'smooth', block: 'start' },
+      delay: 100,
+    });
 
-  const handleCategoryChange = (category: CategoryFilterOption) => {
-    setSelectedCategory(category);
-  };
+    // Combine refs: forward the ref and use local ref for scroll
+    const combinedRef = (node: HTMLElement | null) => {
+      sectionRef.current = node;
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref) {
+        ref.current = node;
+      }
+    };
 
-  const handleFilteredDataChange = useCallback((filteredData: ProductCardData[]) => {
-    setSearchedProducts(filteredData);
-  }, []);
+    // Update selected category when URL parameter changes
+    useEffect(() => {
+      setSelectedCategory(initialCategory);
+    }, [initialCategory]);
 
-  return (
-    <Section paddingY="py-2" className="mb-20" dataComponent="ShopSection" {...props}>
-      <ContentLayout variant="flexRow" align="end" className="py-10 px-4 mb-10 rounded-3xl">
-        <ProductSorting currentSort={currentSort} onSortChange={handleSortChange} />
-        <CategoryFilter
-          selectedCategory={selectedCategory}
-          onCategoryChange={handleCategoryChange}
+    const filteredProducts = useProductFiltering(searchedProducts, selectedCategory);
+    const sortedProducts = useProductSorting(filteredProducts, currentSort);
+
+    const handleSortChange = (sortOption: SortOption) => {
+      setCurrentSort(sortOption);
+    };
+
+    const handleCategoryChange = (category: CategoryFilterOption) => {
+      setSelectedCategory(category);
+    };
+
+    const handleFilteredDataChange = useCallback((filteredData: ProductCardData[]) => {
+      setSearchedProducts(filteredData);
+    }, []);
+
+    return (
+      <Section
+        ref={combinedRef}
+        paddingY="py-2"
+        className="mb-20"
+        dataComponent="ShopSection"
+        {...props}
+      >
+        <ContentLayout variant="flexRow" align="end" className="py-10 px-4 mb-10 rounded-3xl">
+          <ProductSorting currentSort={currentSort} onSortChange={handleSortChange} />
+          <CategoryFilter
+            selectedCategory={selectedCategory}
+            onCategoryChange={handleCategoryChange}
+          />
+          <SearchWithFilter
+            data={products}
+            searchFields={['title', 'description']}
+            placeholder="Search products"
+            aria-label="Search products by title or description"
+            onFilteredDataChange={handleFilteredDataChange}
+          />
+        </ContentLayout>
+
+        <UiList
+          variant="gridCol_sm_2_lg_4"
+          items={sortedProducts}
+          className="gap-6 mb-20"
+          renderItem={(item: ProductCardData) => <ProductCard key={item.id} data={item} />}
+          itemsDisplay={itemsPerPage}
         />
-        <SearchWithFilter
-          data={products}
-          searchFields={['title', 'description']}
-          placeholder="Search products"
-          aria-label="Search products by title or description"
-          onFilteredDataChange={handleFilteredDataChange}
-        />
-      </ContentLayout>
+      </Section>
+    );
+  },
+);
 
-      <UiList
-        variant="gridCol_sm_2_lg_4"
-        items={sortedProducts}
-        className="gap-6 mb-20"
-        renderItem={(item: ProductCardData) => <ProductCard key={item.id} data={item} />}
-        itemsDisplay={itemsPerPage}
-      />
-    </Section>
-  );
-};
+ShopSection.displayName = 'ShopSection';
 
 export default ShopSection;
