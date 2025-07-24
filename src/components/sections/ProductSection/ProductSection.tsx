@@ -1,15 +1,10 @@
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
-import type { SectionProps } from '@/components/layout/Section/types';
 import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
+import UiList from '@/components/patterns/UiList';
+import GoToShop from '@/components/shared/Button/GoToShop';
 import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
-import UiList from '../patterns/UiList';
-import GoToShop from '../shared/Button/GoToShop';
-
-interface ProductSectionProps extends SectionProps {
-  products: ProductCardData[];
-  itemsDisplay?: number;
-}
+import type { ProductSectionProps } from './types';
 
 const ProductSection = ({ title, subtitle, products, itemsDisplay = 8 }: ProductSectionProps) => {
   const displayedProducts = products.slice(0, itemsDisplay);
