@@ -6,6 +6,7 @@ import LoadMoreButton from '@/components/shared/Button/LoadMoreButton';
 import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 import Pagination from '@/components/shared/Navigation/Pagination';
+import { SearchWithFilter } from '@/components/shared/SearchWithFilter';
 import CategoryFilter from '@/features/products/components/CategoryFilter';
 import ProductSorting from '@/features/products/components/ProductSorting';
 import {
@@ -13,8 +14,7 @@ import {
   type CategoryFilterOption,
 } from '@/features/products/hooks/useProductFiltering';
 import { useProductSorting, type SortOption } from '@/features/products/hooks/useProductSorting';
-import SearchBar from '@/features/search/components/SearchBar';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 interface ShopSectionProps extends SectionProps {
   products: ProductCardData[];
@@ -22,9 +22,13 @@ interface ShopSectionProps extends SectionProps {
 
 const ShopSection = ({ products, ...props }: ShopSectionProps) => {
   const [currentSort, setCurrentSort] = useState<SortOption>('default');
-
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilterOption>('All Categories');
-  const filteredProducts = useProductFiltering(products, selectedCategory);
+  const [searchedProducts, setSearchedProducts] = useState(products);
+
+  // Filter by category
+  const filteredProducts = useProductFiltering(searchedProducts, selectedCategory);
+
+  // Sort filtered products
   const sortedProducts = useProductSorting(filteredProducts, currentSort);
 
   const handleSortChange = (sortOption: SortOption) => {
@@ -34,6 +38,12 @@ const ShopSection = ({ products, ...props }: ShopSectionProps) => {
   const handleCategoryChange = (category: CategoryFilterOption) => {
     setSelectedCategory(category);
   };
+
+  const handleFilteredDataChange = useCallback((filteredData: ProductCardData[]) => {
+    // Если поиск пустой, показываем все товары (с учетом категории)
+    // Если есть поиск, показываем отфильтрованные товары
+    setSearchedProducts(filteredData);
+  }, []);
 
   return (
     <Section paddingY="py-2" className="mb-20" dataComponent="ShopSection" {...props}>
@@ -47,7 +57,13 @@ const ShopSection = ({ products, ...props }: ShopSectionProps) => {
           selectedCategory={selectedCategory}
           onCategoryChange={handleCategoryChange}
         />
-        <SearchBar id="shop-search" placeholder="Search products" />
+        <SearchWithFilter
+          data={products}
+          searchFields={['title', 'description']}
+          placeholder="Search products"
+          aria-label="Search products by title or description"
+          onFilteredDataChange={handleFilteredDataChange}
+        />
       </ContentLayout>
 
       <UiList
