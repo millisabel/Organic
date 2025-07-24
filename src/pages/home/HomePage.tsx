@@ -1,4 +1,5 @@
 import AboutSection from '@/components/sections/AboutSection';
+import ProductSection from '@/components/sections/ProductSection';
 import BannerSection from '@/components/sections/BannerSection';
 import GallerySection from '@/components/sections/GallerySection';
 import HeroSection from '@/components/sections/HeroSection';
@@ -48,10 +49,11 @@ const HomePage = () => {
         features={features}
         image="about_home.webp"
       />
-      {/* <ProductSection
+      <ProductSection
         title="Our Products"
         subtitle="Categories"
-      /> */}
+        products={filteredProducts as unknown as ProductCardData[]}
+      />
       <Testimonial
         id="testimonial"
         title="What Our Customer Saying?"

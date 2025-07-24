@@ -1,60 +1,30 @@
-import { Link } from 'react-router-dom';
-import Section from '../layout/Section/Section';
-import SectionHeader from '../layout/Section/SectionHeader';
-import Badge from '../ui/Badge/Badge';
-import Button from '../ui/Button/Button';
-
+import Section from '@/components/layout/Section/Section';
+import SectionHeader from '@/components/layout/Section/SectionHeader';
 import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
-import productsData from '@/data/products.json';
+import type { SectionProps } from '@/components/layout/Section/types';
 import UiList from '../patterns/UiList';
+import GoToShop from '../shared/Button/GoToShop';
 
-interface IProductSectionProps {
-  title: string;
-  subtitle: string;
-  button?: { text: string; onClick?: () => void; icon?: React.ReactNode };
-  useSlots?: boolean; // New prop to demonstrate slots
+interface ProductSectionProps extends SectionProps {
+  products: ProductCardData[];
 }
 
-const ProductSection = ({ title, subtitle, button, useSlots = false }: IProductSectionProps) => {
+const ProductSection = ({ title, subtitle, products }: ProductSectionProps) => {
   return (
     <Section dataComponent="ProductSection">
-      {useSlots ? (
-        // Example with slots
-        <SectionHeader
-          slots={{
-            title: <h2 className="text-4xl font-bold text-blue-600 order-2">🍎 {title}</h2>,
-            subtitle: (
-              <div className="order-1">
-                <Badge variant="default" className="mb-2 bg-yellow-500">
-                  Featured
-                </Badge>
-                <h3 className="text-xl text-gray-600">{subtitle}</h3>
-              </div>
-            ),
-          }}
-        />
-      ) : (
-        // Default usage
-        <SectionHeader title={title} subtitle={subtitle} />
-      )}
-
+      <SectionHeader title={title} subtitle={subtitle} className="text-center mb-20" />
       <UiList
-        variant="gridCol_md_2"
-        items={productsData}
+        variant="gridCol_sm_2_lg_4"
+        items={products}
+        className="gap-6 mb-20"
         renderItem={(item, idx) => (
           <ProductCard key={idx} data={item as unknown as ProductCardData} />
         )}
         itemsDisplay={8}
       />
 
-      {button && (
-        <Button asChild className="mt-[100px]" variant="default">
-          <Link to="/shop">
-            {button.text} {button.icon}
-          </Link>
-        </Button>
-      )}
+      <GoToShop variant="default" className="mx-auto" />
     </Section>
   );
 };
