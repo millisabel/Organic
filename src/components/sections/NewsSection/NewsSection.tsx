@@ -3,13 +3,10 @@ import SectionHeader from '@/components/layout/Section/SectionHeader';
 import UiList from '@/components/patterns/UiList';
 import NewsCard from '@/components/shared/Card/NewsCard';
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
-import Pagination from '@/components/shared/Navigation/Pagination';
 import { SearchWithFilter } from '@/components/shared/SearchWithFilter';
 import Button from '@/components/ui/Button/Button';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
-import { usePagination } from '@/hooks/usePagination';
-import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { NewsSectionProps } from './type';
 
@@ -26,29 +23,9 @@ const NewsSection = ({
   const [filteredNews, setFilteredNews] = useState(data);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const { displayedItems, currentPage, totalPages, goToPage, reset } = usePagination({
-    data: filteredNews,
-    itemsPerPage: itemsDisplay || 2,
-  });
-
-  const { scrollToTop } = useScrollToTop(sectionRef);
-
-  // Custom page change handler with scroll to top
-  const handlePageChange = useCallback(
-    (page: number) => {
-      goToPage(page);
-      scrollToTop();
-    },
-    [goToPage, scrollToTop],
-  );
-
   const handleFilteredDataChange = useCallback((filteredData: typeof data) => {
     setFilteredNews(filteredData);
   }, []);
-
-  useEffect(() => {
-    reset();
-  }, [filteredNews, reset]);
 
   return (
     <Section ref={sectionRef} id={id} dataComponent="NewsSection">
@@ -86,31 +63,10 @@ const NewsSection = ({
       <UiList
         variant="gridCol_md_2"
         align="between"
-        items={displayedItems}
+        items={filteredNews}
         renderItem={(item, idx) => <NewsCard key={idx} data={item} />}
-        itemsDisplay="all"
+        itemsDisplay={itemsDisplay}
       />
-
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="mt-10">
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-            className="justify-center"
-          />
-        </div>
-      )}
-
-      {/* Fallback button for mobile when no pagination */}
-      {totalPages <= 1 && isBelowLg && isButton && (
-        <Button asChild className="mt-10 mx-auto lg:mx-0">
-          <Link to="/blog">
-            More News <ArrowIcon variant="arrow" size="md" />
-          </Link>
-        </Button>
-      )}
     </Section>
   );
 };
