@@ -76,3 +76,14 @@ export function formatDate({ date, format = 'long' }: FormatDateProps) {
   }
   return d.toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' });
 }
+
+/**
+ * Creates a category click handler for navigation
+ * @param navigateToCategory - Function from useCategoryNavigation hook
+ * @param category - Category name
+ * @returns Click handler function
+ */
+export const createCategoryClickHandler =
+  (navigateToCategory: (category: string) => void, category: string) => () => {
+    navigateToCategory(category);
+  };

@@ -1,5 +1,6 @@
 // Utility hooks
 export { useBackgroundImage } from './useBackgroundImage';
+export { useCategoryNavigation } from './useCategoryNavigation';
 export { useClickOutside } from './useClickOutside';
 export { useComponentState } from './useComponentState';
 export { useContactData } from './useContactData';

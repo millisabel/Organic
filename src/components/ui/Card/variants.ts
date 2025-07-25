@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const cardVariantsOptions = ['default', 'small'];
+export const cardVariantsOptions = ['default', 'notShadow', 'product', 'productDetailed'];
 
 const cardBaseClasses = [
   'relative overflow-hidden',
@@ -18,6 +18,7 @@ export const cardVariants = cva(cardBaseClasses, {
       default: [''],
       notShadow: ['shadow-none hover:shadow-none'],
       product: ['h-full', 'hover:shadow-xl hover:translate-y-[-10px]'],
+      productDetailed: ['bg-transparent', 'shadow-none', 'hover:shadow-none'],
     },
     state: {
       default: '',

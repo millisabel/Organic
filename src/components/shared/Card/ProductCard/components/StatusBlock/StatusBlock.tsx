@@ -1,9 +1,10 @@
+import { cn } from '@/utils/helpers';
 import StatusBadge from '../StatusBadge';
 import type { StatusBlockProps } from './types';
 
 const StatusBlock = ({ product, isInCart, className }: StatusBlockProps) => {
   return (
-    <div className={`flex flex-col items-center gap-2 ${className}`}>
+    <div className={cn('flex flex-col items-center gap-2', className)}>
       {product.isOutOfStock ? (
         <StatusBadge variant="status" text="Out of Stock" />
       ) : (

@@ -1,20 +1,20 @@
-import heroImage from '@/assets/images/backgrounds/hero_shop_single.webp';
+import React, { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
 import UiList from '@/components/patterns/UiList';
 import HeroSection from '@/components/sections/HeroSection';
 import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 import Breadcrumbs from '@/components/shared/Navigation/Breadcrumbs/Breadcrumbs';
 import Button from '@/components/ui/Button/Button';
+import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 import productsData from '@/data/products.json';
-import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import heroImage from '@/assets/images/backgrounds/hero_shop_single.webp';
+import ProductCardDetailed from '@/components/shared/Card/ProductCard/ProductCardDetailed';
 
 const ShopSinglePage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
 
-  // Find product by ID
   const product = productsData.find((p) => p.id.toString() === productId) as
     | ProductCardData
     | undefined;
@@ -48,16 +48,17 @@ const ShopSinglePage: React.FC = () => {
         <Breadcrumbs items={breadcrumbItems} />
       </div>
 
-      <Section className="pt-10">
-        <ProductCard data={product} />
+      <Section id="product" className="pt-10">
+        <ProductCardDetailed data={product} />
       </Section>
 
-      <Section>
-        <SectionHeader title="Related Products" />
+      <Section id="related-products">
+        <SectionHeader title="Related Products" className="text-center" />
         {relatedProducts.length > 0 ? (
           <UiList
-            variant="gridCol_md_2"
+            variant="gridCol_sm_2_lg_4"
             items={relatedProducts}
+            className="gap-6"
             renderItem={(item, idx) => <ProductCard key={idx} data={item} />}
           />
         ) : (
@@ -66,7 +67,7 @@ const ShopSinglePage: React.FC = () => {
           </p>
         )}
         <div className="text-center mt-10">
-          <Button asChild variant="default">
+          <Button asChild variant="default" className="mx-auto">
             <Link to="/shop">Go to Shop</Link>
           </Button>
         </div>

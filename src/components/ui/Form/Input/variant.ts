@@ -27,7 +27,7 @@ const inputVariants = cva(inputBaseClasses, {
         'focus:ring-primary focus-visible:ring-primary',
       ],
       quantity: [
-        'w-max p-8',
+        'w-max p-2',
         'text-center',
         'border-2 border-primary',
         'rounded-xl',
