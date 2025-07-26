@@ -7,10 +7,10 @@ import HeroSection from '@/components/sections/HeroSection';
 import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import Breadcrumbs from '@/components/shared/Navigation/Breadcrumbs/Breadcrumbs';
 import Button from '@/components/ui/Button/Button';
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 import productsData from '@/data/products.json';
 import heroImage from '@/assets/images/backgrounds/hero_shop_single.webp';
 import ProductCardDetailed from '@/components/shared/Card/ProductCard/ProductCardDetailed';
+import type { ProductCardData } from '@/features/products/model';
 
 const ShopSinglePage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();

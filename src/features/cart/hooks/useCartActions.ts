@@ -1,4 +1,4 @@
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+import type { ProductCardData } from '@/features/products/model';
 import {
   addItem,
   removeItem,

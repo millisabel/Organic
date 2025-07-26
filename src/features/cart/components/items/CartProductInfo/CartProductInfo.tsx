@@ -1,9 +1,8 @@
+import { getImageUrl } from '@/utils/helpers';
 import { Link } from 'react-router-dom';
 import type { CartProductInfoProps } from './types';
-import { getImageUrl } from '@/utils/helpers';
 
 const CartProductInfo = ({ item }: CartProductInfoProps) => {
-  console.log(item);
   const imageUrl = getImageUrl('products', item.imageName as string);
 
   return (

@@ -1,5 +1,5 @@
-import Button from '@/components/ui/Button';
 import SpinnerIcon from '@/components/shared/Icon/SpinnerIcon';
+import Button from '@/components/ui/Button';
 import type { AddToCartButtonProps } from '.';
 
 const AddToCartButton = ({ isInCart, isLoading, isOutOfStock, ...props }: AddToCartButtonProps) => {

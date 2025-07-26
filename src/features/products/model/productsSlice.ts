@@ -1,6 +1,5 @@
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+import type { ProductCardData, ProductFilters, ProductsState } from './types';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { ProductFilters, ProductsState } from './types';
 
 const initialState: ProductsState = {
   items: [],

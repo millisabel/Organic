@@ -3,7 +3,6 @@ import type { SectionProps } from '@/components/layout/Section/types';
 import ContentLayout from '@/components/patterns/ContentLayout';
 import UiList from '@/components/patterns/UiList';
 import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 import { SearchWithFilter } from '@/components/shared/SearchWithFilter';
 import CategoryFilter from '@/features/products/components/CategoryFilter/CategoryFilter';
 import ProductSorting from '@/features/products/components/ProductSorting';
@@ -12,6 +11,7 @@ import {
   type CategoryFilterOption,
 } from '@/features/products/hooks/useProductFiltering';
 import { useProductSorting, type SortOption } from '@/features/products/hooks/useProductSorting';
+import type { ProductCardData } from '@/features/products/model';
 import { usePageScroll } from '@/hooks/usePageScroll';
 import { forwardRef, useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';

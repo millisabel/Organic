@@ -1,32 +1,32 @@
 // Redux slice
-export { default as productsReducer } from './productsSlice';
 export {
-  setProducts,
-  setCategory,
-  setSearchQuery,
-  setCurrentPage,
-  setLoading,
-  setError,
   applyFilters,
+  default as productsReducer,
+  setCategory,
+  setCurrentPage,
+  setError,
+  setLoading,
+  setProducts,
+  setSearchQuery,
 } from './productsSlice';
 
 // Types
-export type { ProductsState, ProductFilters } from './types';
+export type { ProductCardData, ProductFilters, ProductsState } from './types';
 
 // Selectors
 export {
-  selectProductsItems,
-  selectFilteredProducts,
   selectCategories,
-  selectSelectedCategory,
-  selectSearchQuery,
   selectCurrentPage,
-  selectItemsPerPage,
-  selectIsLoading,
-  selectError,
-  selectTotalPages,
   selectCurrentPageProducts,
+  selectError,
+  selectFilteredProducts,
   selectHasMoreProducts,
+  selectIsLoading,
+  selectItemsPerPage,
   selectProductById,
+  selectProductsItems,
   selectRelatedProducts,
+  selectSearchQuery,
+  selectSelectedCategory,
+  selectTotalPages,
 } from './selectors';

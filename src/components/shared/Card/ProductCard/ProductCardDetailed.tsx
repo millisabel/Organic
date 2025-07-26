@@ -1,24 +1,37 @@
+import AddToCartButton from '@/components/shared/Button/AddToCartButton';
 import Card from '@/components/ui/Card';
 import CardContent from '@/components/ui/Card/components/CardContent';
 import CardFooter from '@/components/ui/Card/components/CardFooter';
 import CardHeader from '@/components/ui/Card/components/CardHeader';
 import Input from '@/components/ui/Form/Input';
+import Label from '@/components/ui/Form/Label';
 import Image from '@/components/ui/Image';
 import Rating from '@/components/ui/Rating';
 import Title from '@/components/ui/Typography/Title';
-import AddToCartButton from '@/features/cart/components/buttons/AddToCartButton';
+import { useCartActions } from '@/features/cart/hooks';
+import { selectIsItemInCart, selectIsItemLoading } from '@/features/cart/model';
 import { useCategoryNavigation } from '@/hooks/useCategoryNavigation';
+import { useAppSelector } from '@/store/hooks';
+import { useState } from 'react';
 import BadgeButton from './components/BadgeButton';
 import Price from './components/Price';
 import StatusBlock from './components/StatusBlock';
 import type { ProductCardProps } from './types';
-import Label from '@/components/ui/Form/Label';
 
 const ProductCardDetailed = ({ data }: ProductCardProps) => {
+  const [quantity, setQuantity] = useState(1);
   const { navigateToCategory } = useCategoryNavigation();
+  const { handleAddToCart } = useCartActions();
+
+  const isInCart = useAppSelector((state) => selectIsItemInCart(state, data.id));
+  const isLoading = useAppSelector((state) => selectIsItemLoading(state, data.id));
 
   const handleCategoryClick = () => {
     navigateToCategory(data.category);
+  };
+
+  const handleAddToCartClick = () => {
+    handleAddToCart(data, quantity);
   };
 
   return (
@@ -38,7 +51,7 @@ const ProductCardDetailed = ({ data }: ProductCardProps) => {
       <div className="lg:col-span-2 flex-1 flex flex-col gap-10 justify-between items-start p-5">
         <CardHeader className="w-full items-start">
           <div className="flex lg:flex-row items-center justify-end gap-2 w-full mb-8">
-            <StatusBlock product={data} isInCart={false} className="lg:flex-row mr-auto" />
+            <StatusBlock product={data} isInCart={isInCart} className="lg:flex-row mr-auto" />
             <div className="flex flex-col items-center justify-center gap-2">
               <span className="text-lg text-primary font-bold">Category:</span>
               <BadgeButton children={data.category} className="" onClick={handleCategoryClick} />
@@ -68,21 +81,22 @@ const ProductCardDetailed = ({ data }: ProductCardProps) => {
             <Input
               id="quantity"
               type="number"
-              value={1} // {quantity}
+              value={quantity}
               min={1}
-              onChange={(e) => {}} // {setQuantity(Math.max(1, parseInt(e.target.value, 10)))}
-              disabled={false} // {isLoading}
+              onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1))}
+              disabled={isLoading}
               variant="quantity"
               className="h-[56px] w-min max-w-[100px]"
             />
           </form>
 
           <AddToCartButton
-            isInCart={false}
-            isLoading={false}
+            isInCart={isInCart}
+            isLoading={isLoading}
             isOutOfStock={!!data.isOutOfStock}
             variant="default"
             className="w-full md:w-min mx-auto md:mx-0"
+            onClick={handleAddToCartClick}
           />
         </CardFooter>
       </div>
