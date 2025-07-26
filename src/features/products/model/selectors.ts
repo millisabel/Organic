@@ -1,6 +1,6 @@
 import type { RootState } from '@/store/store';
 
-// Базовые селекторы
+// Base selectors
 export const selectProductsItems = (state: RootState) => state.products.items;
 export const selectFilteredProducts = (state: RootState) => state.products.filteredItems;
 export const selectCategories = (state: RootState) => state.products.categories;
@@ -11,7 +11,7 @@ export const selectItemsPerPage = (state: RootState) => state.products.itemsPerP
 export const selectIsLoading = (state: RootState) => state.products.isLoading;
 export const selectError = (state: RootState) => state.products.error;
 
-// Вычисляемые селекторы
+// Calculated selectors
 export const selectTotalPages = (state: RootState) => {
   const { filteredItems, itemsPerPage } = state.products;
   return Math.ceil(filteredItems.length / itemsPerPage);

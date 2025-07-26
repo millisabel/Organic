@@ -1,7 +1,7 @@
 // Components exports
 export { default as CategoryFilter } from './components/CategoryFilter/CategoryFilter';
 export { default as ProductSorting } from './components/ProductSorting';
-export { default as ShopSection } from './components/ShopSection/ShopSection';
+export { default as ShopSection } from '../../components/sections/ShopSection/ShopSection';
 
 // Hooks exports
 export { useProductFiltering } from './hooks/useProductFiltering';
