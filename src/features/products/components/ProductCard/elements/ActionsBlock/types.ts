@@ -1,4 +1,5 @@
 export interface ActionsBlockProps {
+  mode?: 'compact' | 'detailed';
   id?: number;
   quantity?: number;
   handleQuantityChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;

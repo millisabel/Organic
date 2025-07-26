@@ -1,6 +1,3 @@
-import BadgeButton from '@/features/products/components/ProductCard/elements/BadgeButton';
-import Price from '@/features/products/components/ProductCard/elements/Price';
-import StatusBlock from '@/features/products/components/ProductCard/elements/StatusBlock';
 import Card from '@/components/ui/Card';
 import CardContent from '@/components/ui/Card/components/CardContent';
 import CardFooter from '@/components/ui/Card/components/CardFooter';
@@ -8,8 +5,11 @@ import CardHeader from '@/components/ui/Card/components/CardHeader';
 import Image from '@/components/ui/Image';
 import Rating from '@/components/ui/Rating';
 import Title from '@/components/ui/Typography/Title';
+import BadgeButton from '@/features/products/components/ProductCard/elements/BadgeButton';
+import Price from '@/features/products/components/ProductCard/elements/Price';
+import StatusBlock from '@/features/products/components/ProductCard/elements/StatusBlock';
+import ActionsBlock from '../elements/ActionsBlock';
 import type { ProductCardDetailedProps } from '../types';
-import { ActionsBlockDetailed } from '../elements/ActionsBlock/ActionsBlock';
 
 const ProductCardDetailed = ({
   data,
@@ -68,34 +68,8 @@ const ProductCardDetailed = ({
           <p>{data.description}</p>
         </CardContent>
         <CardFooter className="flex-col md:flex-row justify-end items-center gap-8 md:ml-auto w-full">
-          {/* <form
-            name="quantity"
-            className="flex flex-row justify-between md:justify-start items-center gap-4 w-full"
-          >
-            <Label htmlFor="quantity" className="text-lg text-primary font-bold">
-              Quantity:
-            </Label>
-            <Input
-              id="quantity"
-              type="number"
-              value={quantity}
-              min={1}
-              onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1))}
-              disabled={isLoading}
-              variant="quantity"
-              className="h-[56px] w-min max-w-[100px]"
-            />
-          </form>
-
-          <AddToCartButton
-            isInCart={isInCart}
-            isLoading={isLoading}
-            isOutOfStock={!!data.isOutOfStock}
-            variant="default"
-            className="w-full md:w-min mx-auto md:mx-0"
-            onClick={handleAddToCartClick}
-          /> */}
-          <ActionsBlockDetailed
+          <ActionsBlock
+            mode="detailed"
             quantity={quantity}
             isInCart={isInCart}
             isLoading={isLoading}

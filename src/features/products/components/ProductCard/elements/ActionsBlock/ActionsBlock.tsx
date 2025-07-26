@@ -1,17 +1,19 @@
 import AddToCartButton from '@/components/shared/Button/AddToCartButton';
 import GoToCartButton from '@/components/shared/Button/GoToCartButton';
 import TrashButton from '@/components/shared/Button/TrashButton';
+import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
+import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Form/Input';
 import Label from '@/components/ui/Form/Label';
-import type { ActionsBlockProps } from './types';
-import Button from '@/components/ui/Button';
-import { Link } from 'react-router-dom';
-import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import { cn } from '@/utils/helpers';
-import CartIcon from '@/components/shared/Icon/CartIcon';
+import { Link } from 'react-router-dom';
+import type { ActionsBlockProps } from './types';
 
-export const ActionsBlockCompact = ({
+const ActionsBlock = ({
+  mode = 'compact',
   id,
+  quantity,
+  handleQuantityChange,
   handleAddToCartClick,
   isOutOfStock,
   isInCart,
@@ -19,43 +21,37 @@ export const ActionsBlockCompact = ({
   handleRemoveClick,
   className,
 }: ActionsBlockProps) => {
-  return (
-    <div className={cn('flex gap-2 flex-row justify-center items-center w-full mx-2', className)}>
-      {!isInCart && (
-        <AddToCartButton
-          isInCart={isInCart}
-          isLoading={isLoading}
-          isOutOfStock={isOutOfStock}
-          variant="outline"
-          className="w-full mx-auto md:mx-0"
-          onClick={handleAddToCartClick}
-        />
-      )}
-      {isInCart && (
-        <Button asChild variant="outline" className="flex-1 min-w-[100px] mx-auto md:mx-0">
-          <Link to={`/shop/${id}`}>
-            <span>buy more</span>
-            <ArrowIcon className="w-5 h-5" />
-          </Link>
-        </Button>
-      )}
-      {isInCart && <GoToCartButton mode="compact" size="square" />}
-      {isInCart && <TrashButton onClick={handleRemoveClick} />}
-    </div>
-  );
-};
+  // Compact mode
+  if (mode === 'compact') {
+    return (
+      <div className={cn('flex flex-row gap-2 justify-center items-center w-full mx-2', className)}>
+        {!isInCart && (
+          <AddToCartButton
+            isInCart={isInCart}
+            isLoading={isLoading}
+            isOutOfStock={isOutOfStock}
+            variant="outline"
+            className="w-full mx-auto md:mx-0"
+            onClick={handleAddToCartClick}
+          />
+        )}
+        {isInCart && (
+          <Button asChild variant="outline" className="flex-1 min-w-[100px] mx-auto md:mx-0">
+            <Link to={`/shop/${id}`}>
+              <span>buy more</span>
+              <ArrowIcon className="w-5 h-5" />
+            </Link>
+          </Button>
+        )}
+        {isInCart && <GoToCartButton mode="compact" size="square" />}
+        {isInCart && <TrashButton onClick={handleRemoveClick} />}
+      </div>
+    );
+  }
 
-export const ActionsBlockDetailed = ({
-  quantity,
-  handleQuantityChange,
-  isInCart,
-  isLoading,
-  isOutOfStock,
-  handleAddToCartClick,
-  handleRemoveClick,
-}: ActionsBlockProps) => {
+  // Detailed mode
   return (
-    <div className="flex flex-col gap-4 md:flex-row md:justify-end items-center md:ml-auto">
+    <div className="flex flex-col gap-2 md:flex-row md:justify-end items-center md:ml-auto">
       <form
         name="quantity"
         className="flex flex-row justify-between md:justify-start items-center gap-4 w-full"
@@ -79,7 +75,7 @@ export const ActionsBlockDetailed = ({
           isLoading={isLoading}
           isOutOfStock={isOutOfStock}
           variant="default"
-          className="w-full min-w-[100px] mx-auto md:mx-0"
+          className="w-full min-w-[100px] md:min-w-[200px] mx-auto md:mx-0"
           onClick={handleAddToCartClick}
           aria-label="Add to Cart"
           title="Add to Cart"
@@ -99,3 +95,5 @@ export const ActionsBlockDetailed = ({
     </div>
   );
 };
+
+export default ActionsBlock;

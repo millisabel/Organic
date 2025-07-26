@@ -115,7 +115,7 @@ export const buttonVariants = cva(baseClasses, {
       loading: [
         'cursor-wait',
         'bg-background',
-        'ring-2 ring-background',
+        'ring-2 ring-gray-300',
         'text-gray-500',
         'shadow-none',
         'hover:shadow-none hover:bg-background hover:text-gray-500',
@@ -123,7 +123,7 @@ export const buttonVariants = cva(baseClasses, {
       success: [
         'bg-transparent ring-2 ring-secondary-dark',
         'text-secondary-dark',
-        'hover:border-bg-green-600 hover:bg-green-600 hover:secondary-dark hover:text-white',
+        'hover:border-bg-secondary hover:bg-secondary hover:secondary-dark hover:text-white',
       ],
       disabled: [
         'pointer-events-none',

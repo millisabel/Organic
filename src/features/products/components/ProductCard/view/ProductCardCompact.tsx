@@ -1,4 +1,5 @@
 import Card from '@/components/ui/Card';
+import CardContent from '@/components/ui/Card/components/CardContent';
 import CardFooter from '@/components/ui/Card/components/CardFooter';
 import CardHeader from '@/components/ui/Card/components/CardHeader';
 import Image from '@/components/ui/Image';
@@ -8,9 +9,8 @@ import BadgeButton from '@/features/products/components/ProductCard/elements/Bad
 import Price from '@/features/products/components/ProductCard/elements/Price';
 import StatusBlock from '@/features/products/components/ProductCard/elements/StatusBlock';
 import { useNavigate } from 'react-router-dom';
-import { ActionsBlockCompact } from '../elements/ActionsBlock/ActionsBlock';
+import ActionsBlock from '../elements/ActionsBlock';
 import type { ProductCardCompactProps } from '../types';
-import CardContent from '@/components/ui/Card/components/CardContent';
 
 const ProductCardCompact = ({
   data,
@@ -35,6 +35,7 @@ const ProductCardCompact = ({
       variant="product"
       state={isOutOfStock ? 'outOfStock' : isNew ? 'new' : isSale ? 'sale' : 'default'}
       onClick={handleCardClick}
+      className="cursor-pointer"
       data-component="ProductCard"
     >
       <CardHeader className="flex-1">
@@ -72,8 +73,9 @@ const ProductCardCompact = ({
           <Rating rating={data.rating} />
         </div>
       </CardContent>
-      <CardFooter className="flex-col justify-between items-start p-5">
-        <ActionsBlockCompact
+      <CardFooter className="p-5">
+        <ActionsBlock
+          mode="compact"
           id={data.id}
           isInCart={isInCart}
           isLoading={isLoading}

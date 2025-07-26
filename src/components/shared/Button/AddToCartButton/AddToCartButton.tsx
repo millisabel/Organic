@@ -22,7 +22,7 @@ const AddToCartButton = ({ isInCart, isLoading, isOutOfStock, ...props }: AddToC
       nameComponent="AddToCartButton"
       {...props}
     >
-      {isLoading ? <SpinnerIcon /> : buttonText}
+      {isLoading ? <SpinnerIcon size="md" /> : buttonText}
     </Button>
   );
 };
