@@ -1,5 +1,5 @@
 import type { SectionProps } from '@/components/layout/Section/types';
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+import type { ProductCardData } from '@/features/products/model';
 
 export interface ProductSectionProps extends SectionProps {
   products: ProductCardData[];

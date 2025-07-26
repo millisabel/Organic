@@ -1,11 +1,11 @@
 import AboutSection from '@/components/sections/AboutSection';
-import ProductSection from '@/components/sections/ProductSection';
 import BannerSection from '@/components/sections/BannerSection';
 import GallerySection from '@/components/sections/GallerySection';
 import HeroSection from '@/components/sections/HeroSection';
 import NewsSection from '@/components/sections/NewsSection';
-import Testimonial from '@/components/sections/Testimonial';
 import OfferSection from '@/components/sections/OfferSection';
+import ProductSection from '@/components/sections/ProductSection';
+import Testimonial from '@/components/sections/Testimonial';
 import WhoWe from '@/components/sections/WhoWeSection/WhoWeSection';
 
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
@@ -18,14 +18,14 @@ import factsTestimonial from '@/data/factsTestimonial.json';
 import { features } from '@/data/featuresAboutHome.json';
 import galleryData from '@/data/gallery.json';
 import newsData from '@/data/news.json';
+import productsData from '@/data/products.json';
 import reviews from '@/data/reviews.json';
 import whoWeDescription from '@/data/whoWeDescription.json';
-import productsData from '@/data/products.json';
 
 import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 import testimonial_bg from '@/assets/images/backgrounds/testimonial_home.webp';
 import who_we_image from '@/assets/images/backgrounds/who_we_home.webp';
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+import type { ProductCardData } from '@/features/products/model';
 
 const HomePage = () => {
   const isBelowLg = useIsBelowBreakpoint('lg');

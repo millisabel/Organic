@@ -11,4 +11,10 @@ export interface SectionHeaderProps {
   titleVariant?: VariantProps<typeof titleVariants>['variant'];
   subtitleVariant?: VariantProps<typeof titleVariants>['variant'];
   className?: string;
+  slots?: SectionHeaderSlots;
+}
+
+export interface SectionHeaderSlots {
+  title?: React.ReactNode;
+  subtitle?: React.ReactNode;
 }

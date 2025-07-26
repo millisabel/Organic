@@ -1,10 +1,9 @@
 import Section from '@/components/layout/Section/Section';
-import type { SectionProps } from '@/components/layout/Section/types';
 import ContentLayout from '@/components/patterns/ContentLayout';
 import UiList from '@/components/patterns/UiList';
-import ProductCard from '@/features/products/components/ProductCard';
 import { SearchWithFilter } from '@/components/shared/SearchWithFilter';
 import CategoryFilter from '@/features/products/components/CategoryFilter/CategoryFilter';
+import ProductCard from '@/features/products/components/ProductCard';
 import ProductSorting from '@/features/products/components/ProductSorting';
 import {
   useProductFiltering,
@@ -15,11 +14,7 @@ import type { ProductCardData } from '@/features/products/model';
 import { usePageScroll } from '@/hooks/usePageScroll';
 import { forwardRef, useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
-interface ShopSectionProps extends SectionProps {
-  products: ProductCardData[];
-  itemsPerPage?: number;
-}
+import type { ShopSectionProps } from './types';
 
 const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
   ({ products, itemsPerPage = 8, ...props }, ref) => {
@@ -84,7 +79,7 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
             selectedCategory={selectedCategory}
             onCategoryChange={handleCategoryChange}
           />
-          <SearchWithFilter
+          <SearchWithFilter<ProductCardData>
             data={products}
             searchFields={['title', 'description']}
             placeholder="Search products"

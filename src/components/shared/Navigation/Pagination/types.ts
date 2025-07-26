@@ -5,4 +5,6 @@ export interface PaginationProps {
   className?: string;
   maxVisiblePages?: number;
   showFirstLast?: boolean;
+  showPrevNext?: boolean;
+  showEllipsis?: boolean;
 }

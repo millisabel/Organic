@@ -1,4 +1,4 @@
-import type { CartItem } from '@/features/cart/components/types';
+import type { CartItem } from '@/features/cart/model';
 
 export interface CartItemDesktopProps {
   cartItems: CartItem[];
