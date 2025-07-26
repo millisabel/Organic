@@ -17,8 +17,10 @@ const GalleryCard = ({ data }: GalleryCardProps) => {
         src={image}
         alt={title}
         folder="gallery"
-        className="absolute top-0 left-0 z-0 w-full h-full object-cover"
+        className="h-full w-full"
+        imageClassName="h-full w-full"
       />
+
       <CardContent className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-10 m-auto bg-white/90 px-10 py-3 shadow rounded-lg">
         <Title variant="cardTitle" className="line-clamp-1">
           {title}

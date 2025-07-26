@@ -5,7 +5,7 @@ import type { GallerySectionProps } from './types';
 
 const GallerySection = ({ data, ...props }: GallerySectionProps) => {
   return (
-    <Section className="w-full py-40 bg-secondary-light" container={false} {...props}>
+    <Section className="w-full py-40 bg-secondary-light" {...props}>
       <UiList
         variant="gridCol_lg_3"
         align="center_lg_st"
