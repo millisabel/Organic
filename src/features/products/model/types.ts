@@ -9,7 +9,6 @@ export interface ProductCardData {
   rating: number;
   isOutOfStock?: boolean;
   isNew?: boolean;
-  [key: string]: unknown;
 }
 
 export interface ProductsState {
@@ -27,6 +26,6 @@ export interface ProductsState {
 export interface ProductFilters {
   category?: string;
   search?: string;
-  sortBy?: 'name' | 'price-asc' | 'price-desc' | 'rating' | 'newest';
+  sortBy?: string;
   inStockOnly?: boolean;
 }

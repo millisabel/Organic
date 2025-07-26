@@ -2,7 +2,7 @@ import Section from '@/components/layout/Section/Section';
 import type { SectionProps } from '@/components/layout/Section/types';
 import ContentLayout from '@/components/patterns/ContentLayout';
 import UiList from '@/components/patterns/UiList';
-import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
+import ProductCard from '@/features/products/components/ProductCard';
 import { SearchWithFilter } from '@/components/shared/SearchWithFilter';
 import CategoryFilter from '@/features/products/components/CategoryFilter/CategoryFilter';
 import ProductSorting from '@/features/products/components/ProductSorting';

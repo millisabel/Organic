@@ -4,12 +4,11 @@ import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
 import UiList from '@/components/patterns/UiList';
 import HeroSection from '@/components/sections/HeroSection';
-import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
 import Breadcrumbs from '@/components/shared/Navigation/Breadcrumbs/Breadcrumbs';
 import Button from '@/components/ui/Button/Button';
 import productsData from '@/data/products.json';
 import heroImage from '@/assets/images/backgrounds/hero_shop_single.webp';
-import ProductCardDetailed from '@/components/shared/Card/ProductCard/ProductCardDetailed';
+import ProductCard from '@/features/products/components/ProductCard/ProductCard';
 import type { ProductCardData } from '@/features/products/model';
 
 const ShopSinglePage: React.FC = () => {
@@ -49,7 +48,7 @@ const ShopSinglePage: React.FC = () => {
       </div>
 
       <Section id="product" className="pt-10">
-        <ProductCardDetailed data={product} />
+        <ProductCard data={product} view="detailed" />
       </Section>
 
       <Section id="related-products">

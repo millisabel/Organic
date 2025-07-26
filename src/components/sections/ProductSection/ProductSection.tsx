@@ -1,9 +1,9 @@
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
-import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
+import ProductCard from '@/features/products/components/ProductCard/ProductCard';
 import UiList from '@/components/patterns/UiList';
 import GoToShop from '@/components/shared/Button/GoToShop';
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+import type { ProductCardData } from '@/features/products/model';
 import type { ProductSectionProps } from './types';
 
 const ProductSection = ({ title, subtitle, products, itemsDisplay = 8 }: ProductSectionProps) => {

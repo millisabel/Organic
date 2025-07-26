@@ -1,9 +1,9 @@
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
-import ProductCard from '@/components/shared/Card/ProductCard/ProductCard';
+import ProductCard from '@/features/products/components/ProductCard/ProductCard';
 import GoToShop from '@/components/shared/Button/GoToShop';
 import UiList from '@/components/patterns/UiList';
-import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+import type { ProductCardData } from '@/features/products/model';
 import type { OfferSectionProps } from './types';
 
 const OfferSection = ({ title, subtitle, products, className }: OfferSectionProps) => {

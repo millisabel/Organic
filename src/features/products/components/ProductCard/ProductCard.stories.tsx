@@ -17,9 +17,10 @@ export default {
 };
 
 const data = {
+  id: 1,
   title: 'Product Title',
   description: 'Product Description',
-  image: 'Banana.webp',
+  imageName: 'Banana.webp',
   price: 100,
   oldPrice: 110,
   rating: 4.5,
