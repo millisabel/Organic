@@ -1,14 +1,8 @@
-import type { CartItem } from '@/features/cart/components/types';
 import CartItemSubtotal from './CartItemSubtotal';
 import CartProductInfo from './CartProductInfo';
 import CartQuantityButtons from './CartQuantityButtons';
 import TrashButton from '@/features/cart/components/buttons/TrashButton';
-
-interface CartItemDesktopProps {
-  cartItems: CartItem[];
-  handleQuantityChange: (id: string | number, quantity: number) => void;
-  handleRemove: (id: string | number) => void;
-}
+import type { CartItemDesktopProps } from './CartItemDesktop/types';
 
 const CartItemDesktop = ({
   cartItems,

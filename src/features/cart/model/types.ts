@@ -1,7 +1,6 @@
-export interface CartItem {
-  id: number | string;
-  title: string;
-  price: number;
+import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
+
+export interface CartItem extends ProductCardData {
   quantity: number;
 }
 
