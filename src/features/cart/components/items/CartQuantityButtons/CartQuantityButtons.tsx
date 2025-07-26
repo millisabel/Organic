@@ -1,12 +1,7 @@
 import Button from '@/components/ui/Button/Button';
+import type { CartQuantityButtonsProps } from './types';
 
-interface Props {
-  quantity: number;
-  onDecrease: () => void;
-  onIncrease: () => void;
-}
-
-const CartQuantityButtons = ({ quantity, onDecrease, onIncrease }: Props) => (
+const CartQuantityButtons = ({ quantity, onDecrease, onIncrease }: CartQuantityButtonsProps) => (
   <div className="flex items-center gap-2">
     <Button
       variant="outline"

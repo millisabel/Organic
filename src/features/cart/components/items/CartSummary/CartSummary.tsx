@@ -1,8 +1,5 @@
 import Button from '@/components/ui/Button/Button';
-
-interface CartSummaryProps {
-  total: number;
-}
+import type { CartSummaryProps } from '.';
 
 const CartSummary = ({ total }: CartSummaryProps) => (
   <div className="flex flex-col md:flex-row items-center justify-between mt-8 gap-4">

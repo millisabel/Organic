@@ -1,8 +1,8 @@
-import type { CartItem } from '@/features/cart/components/types';
-import TrashButton from '@/features/cart/components/buttons/TrashButton';
-import CartItemSubtotal from './CartItemSubtotal';
-import CartProductInfo from './CartProductInfo';
-import CartQuantityButtons from './CartQuantityButtons';
+import TrashButton from '@/components/shared/Button/TrashButton';
+import type { CartItem } from '@/features/cart/model';
+import CartItemSubtotal from '../../components/items/CartItemSubtotal';
+import CartProductInfo from '../../components/items/CartProductInfo';
+import CartQuantityButtons from '../../components/items/CartQuantityButtons';
 
 interface CartItemMobileProps {
   cartItems: CartItem[];
@@ -14,7 +14,7 @@ const CartItemMobile = ({ cartItems, handleQuantityChange, handleRemove }: CartI
   return (
     <div className="block md:hidden">
       {cartItems.map((item) => (
-        <div key={item.id} className="flex flex-col gap-2 mb-4 p-4 bg-white rounded-xl shadow-sm">
+        <div key={item.id} className="flex flex-col gap-2 mb-6 p-4 bg-white rounded-xl shadow-sm">
           <div className="flex items-center gap-4 justify-between">
             <CartProductInfo item={item} />
             <TrashButton onClick={() => handleRemove(item.id)} />

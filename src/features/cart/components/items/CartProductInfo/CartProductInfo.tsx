@@ -7,7 +7,7 @@ const CartProductInfo = ({ item }: CartProductInfoProps) => {
 
   return (
     <Link
-      to={`/product/${item.id}`}
+      to={`product/${item.id}`}
       className="flex items-center gap-4 group"
       tabIndex={0}
       aria-label={`Go to ${item.title} page`}

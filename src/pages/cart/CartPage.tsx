@@ -1,11 +1,11 @@
 import Section from '@/components/layout/Section/Section';
 import Title from '@/components/ui/Typography/Title';
-import EmptyCart from '@/features/cart/components/EmptyCart';
-import CartItemDesktop from '@/features/cart/components/items/CartItemDesktop';
-import CartItemMobile from '@/features/cart/components/items/CartItemMobile';
-import CartSummary from '@/features/cart/components/CartSummary';
-import { useAppDispatch, useAppSelector, type RootState } from '@/store';
+import EmptyCart from '@/features/cart/layouts/EmptyCart';
+import CartItemDesktop from '@/features/cart/layouts/CartItemDesktop';
+import CartItemMobile from '@/features/cart/layouts/CartItemMobile';
+import CartSummary from '@/features/cart/components/items/CartSummary';
 import { removeItem, updateQuantity } from '@/features/cart/model';
+import { useAppDispatch, useAppSelector, type RootState } from '@/store';
 
 const CartPage = () => {
   const dispatch = useAppDispatch();

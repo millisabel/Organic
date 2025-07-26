@@ -1,11 +1,14 @@
 // Model
 export * from './model';
 
+// Layouts
+export * from './layouts';
+
 // Components
 export * from './components';
 
 // Hooks
 export * from './hooks';
 
-// Types exports
-export type { CartItem } from './components/types';
+// Types
+export type { CartItem, CartState } from './model/types';

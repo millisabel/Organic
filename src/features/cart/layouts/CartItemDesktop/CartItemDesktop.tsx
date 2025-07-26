@@ -1,8 +1,8 @@
-import CartItemSubtotal from './CartItemSubtotal';
-import CartProductInfo from './CartProductInfo';
-import CartQuantityButtons from './CartQuantityButtons';
-import TrashButton from '@/features/cart/components/buttons/TrashButton';
-import type { CartItemDesktopProps } from './CartItemDesktop/types';
+import TrashButton from '@/components/shared/Button/TrashButton';
+import CartItemSubtotal from '../../components/items/CartItemSubtotal';
+import CartProductInfo from '../../components/items/CartProductInfo';
+import CartQuantityButtons from '../../components/items/CartQuantityButtons';
+import type { CartItemDesktopProps } from './types';
 
 const CartItemDesktop = ({
   cartItems,

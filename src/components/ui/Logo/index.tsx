@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-import { motion, useAnimation, useInView, type Variants } from 'framer-motion';
+import LogoIcon from '@/components/shared/Icon/LogoIcon';
 import { useCurrentPage } from '@/hooks/useCurrentPage';
 import { cn } from '@/utils/helpers';
-import LogoIcon from '@/components/shared/Icon/LogoIcon';
+import { motion, useAnimation, useInView, type Variants } from 'framer-motion';
 
 interface LogoProps {
   /**
@@ -71,7 +71,7 @@ const Logo = ({ speed = 1 }: LogoProps) => {
 
   return (
     <Link
-      to="/"
+      to=""
       className={cn('group flex items-center gap-x-[10px]', isHomePage && 'pointer-events-none')}
       onMouseEnter={handleMouseEnter}
       ref={ref}

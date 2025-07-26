@@ -32,7 +32,7 @@ const NotFoundenSection = ({
         </Title>
         {text ? <Paragraph className="mb-10 text-center lg:text-start"> {text} </Paragraph> : null}
         <Button asChild className="">
-          <Link to="/" className="flex flex-row items-center justify-center gap-4">
+          <Link to="" className="flex flex-row items-center justify-center gap-4">
             Go to Homepage
             <ArrowIcon />
           </Link>

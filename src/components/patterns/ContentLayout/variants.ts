@@ -13,7 +13,8 @@ export const contentLayoutVariants = cva('', {
     },
     align: {
       default: '',
-      center_lg_st: 'items-center justify-center',
+      center: 'items-center justify-center',
+      center_lg_st: 'items-center justify-center lg:justify-start ',
       start: 'items-start',
       end: 'items-center justify-end',
       between: 'items-center justify-between',
