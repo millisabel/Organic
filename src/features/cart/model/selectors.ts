@@ -1,10 +1,10 @@
 import type { RootState } from '@/store/store';
 
-// Базовые селекторы
+// Base selectors
 export const selectCartItems = (state: RootState) => state.cart.items;
 export const selectLoadingItems = (state: RootState) => state.cart.loadingItems;
 
-// Вычисляемые селекторы
+// Calculated selectors
 export const selectCartItemsCount = (state: RootState) =>
   state.cart.items.reduce((total, item) => total + item.quantity, 0);
 

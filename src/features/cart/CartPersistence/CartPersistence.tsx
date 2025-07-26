@@ -1,6 +1,6 @@
 import { selectCartItems } from '@/features/cart/model';
 import { useEffect } from 'react';
-import { useAppSelector } from './hooks';
+import { useAppSelector } from '../../../store/hooks';
 
 const CartPersistence = () => {
   const cartItems = useAppSelector(selectCartItems);

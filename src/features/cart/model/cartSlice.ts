@@ -1,6 +1,6 @@
 import type { ProductCardData } from '@/components/shared/Card/ProductCard/types';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { CartItem, CartState } from './types';
+import type { CartItem, CartState } from '.';
 
 const getInitialCart = (): CartItem[] => {
   try {

@@ -1,19 +1,26 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
-import BlogSinglePage from '@/pages/blog/BlogSinglePadge';
-import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
-import ShopSinglePage from '@/pages/shop/ShopSinglePage';
-import TeamPage from '@/pages/team/TeamPage';
-import Layout from '../components/layout/Layout';
-import AboutPage from '../pages/about/AboutPage';
-import BlogPage from '../pages/blog/BlogPage';
-import CartPage from '../pages/cart/CartPage';
-import ContactPage from '../pages/contact/ContactPage';
-import HomePage from '../pages/home/HomePage';
-import ShopPage from '../pages/shop/ShopPage';
-import CartPersistence from '../store/CartPersistence';
-
 import '../styles/App.css';
+
+// Pages
+import HomePage from '../pages/home/HomePage';
+import AboutPage from '../pages/about/AboutPage';
+import ShopPage from '../pages/shop/ShopPage';
+import BlogPage from '../pages/blog/BlogPage';
+import ContactPage from '../pages/contact/ContactPage';
+import TeamPage from '../pages/team/TeamPage';
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
+
+// Single pages
+import BlogSinglePage from '../pages/blog/BlogSinglePadge';
+import ShopSinglePage from '../pages/shop/ShopSinglePage';
+
+// Components
+import Layout from '../components/layout/Layout';
+
+// Cart
+import CartPage from '../pages/cart/CartPage';
+import CartPersistence from '../features/cart/CartPersistence/CartPersistence';
 
 function App() {
   return (
