@@ -16,6 +16,7 @@ const FormField = ({
   placeholder,
   required,
   className,
+  showError,
   ...props
 }: FormFieldProps) => {
   const hasError = error && touched;

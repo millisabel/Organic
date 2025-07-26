@@ -3,4 +3,6 @@ import { inputVariants } from './variant';
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof inputVariants> {}
+    VariantProps<typeof inputVariants> {
+  showError?: boolean;
+}
