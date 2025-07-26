@@ -10,10 +10,13 @@ export interface ProductCardCommonProps {
   data: ProductCardData;
   isInCart: boolean;
   isLoading: boolean;
-  isOutOfStock?: boolean;
-  isNew?: boolean;
-  handleAddToCartClick: () => void;
+  isOutOfStock: boolean;
+  isSale: boolean;
+  isNew: boolean;
+  handleAddToCartClick: (e: React.MouseEvent) => void;
+  handleRemoveClick: (e: React.MouseEvent) => void;
   handleCategoryClick: () => void;
+  handleQuantityChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface ProductCardCompactProps extends ProductCardCommonProps {}

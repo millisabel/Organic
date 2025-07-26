@@ -11,7 +11,7 @@ const AddToCartButton = ({ isInCart, isLoading, isOutOfStock, ...props }: AddToC
         ? 'success'
         : undefined;
 
-  const buttonText = isInCart ? 'Added to Cart' : isOutOfStock ? 'Out of Stock' : 'Add to Cart';
+  const buttonText = isInCart ? 'Add more' : isOutOfStock ? 'Out of Stock' : 'Add to Cart';
 
   return (
     <Button

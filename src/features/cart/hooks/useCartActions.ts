@@ -27,7 +27,7 @@ export function useCartActions() {
     }, 1500);
   };
 
-  const handleRemove = (product: ProductCardData) => {
+  const handleRemoveFromCart = (product: ProductCardData) => {
     dispatch(removeItem(product.id));
   };
 
@@ -35,5 +35,5 @@ export function useCartActions() {
     navigate(`/shop?category=${category}`);
   };
 
-  return { handleAddToCart, handleRemove, handleCategoryClick };
+  return { handleAddToCart, handleRemoveFromCart, handleCategoryClick };
 }

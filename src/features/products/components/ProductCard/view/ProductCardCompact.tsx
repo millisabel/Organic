@@ -1,23 +1,28 @@
-import BadgeButton from '@/components/shared/Card/ProductCard/components/BadgeButton';
-import Price from '@/components/shared/Card/ProductCard/components/Price';
-import StatusBlock from '@/components/shared/Card/ProductCard/components/StatusBlock';
 import Card from '@/components/ui/Card';
 import CardFooter from '@/components/ui/Card/components/CardFooter';
 import CardHeader from '@/components/ui/Card/components/CardHeader';
 import Image from '@/components/ui/Image';
 import Rating from '@/components/ui/Rating';
 import Title from '@/components/ui/Typography/Title';
+import BadgeButton from '@/features/products/components/ProductCard/elements/BadgeButton';
+import Price from '@/features/products/components/ProductCard/elements/Price';
+import StatusBlock from '@/features/products/components/ProductCard/elements/StatusBlock';
 import { useNavigate } from 'react-router-dom';
+import { ActionsBlockCompact } from '../elements/ActionsBlock/ActionsBlock';
 import type { ProductCardCompactProps } from '../types';
+import CardContent from '@/components/ui/Card/components/CardContent';
 
 const ProductCardCompact = ({
   data,
   isInCart,
   isLoading,
+  isSale,
   isOutOfStock,
   isNew,
+  handleRemoveClick,
   handleAddToCartClick,
   handleCategoryClick,
+  handleQuantityChange,
 }: ProductCardCompactProps) => {
   const navigate = useNavigate();
 
@@ -28,9 +33,8 @@ const ProductCardCompact = ({
   return (
     <Card
       variant="product"
-      state={isOutOfStock ? 'outOfStock' : isNew ? 'new' : 'default'}
+      state={isOutOfStock ? 'outOfStock' : isNew ? 'new' : isSale ? 'sale' : 'default'}
       onClick={handleCardClick}
-      className="cursor-pointer"
       data-component="ProductCard"
     >
       <CardHeader className="flex-1">
@@ -46,9 +50,16 @@ const ProductCardCompact = ({
           className="max-h-[350px]"
           imageClassName="object-scale-down"
         />
-        <StatusBlock product={data} isInCart={isInCart} className="absolute top-4 right-4" />
+        <StatusBlock
+          product={data}
+          isInCart={isInCart}
+          isOutOfStock={isOutOfStock}
+          isSale={isSale}
+          isNew={isNew}
+          className="absolute top-4 right-4"
+        />
       </CardHeader>
-      <CardFooter className="flex-col justify-between items-start p-5">
+      <CardContent className="p-5">
         <Title
           variant="cardTitle"
           level={3}
@@ -60,6 +71,17 @@ const ProductCardCompact = ({
           <Price price={data.price} oldPrice={data.oldPrice} />
           <Rating rating={data.rating} />
         </div>
+      </CardContent>
+      <CardFooter className="flex-col justify-between items-start p-5">
+        <ActionsBlockCompact
+          id={data.id}
+          isInCart={isInCart}
+          isLoading={isLoading}
+          isOutOfStock={isOutOfStock}
+          handleAddToCartClick={handleAddToCartClick}
+          handleRemoveClick={handleRemoveClick}
+          handleQuantityChange={handleQuantityChange}
+        />
       </CardFooter>
     </Card>
   );

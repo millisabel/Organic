@@ -1,28 +1,28 @@
-import AddToCartButton from '@/components/shared/Button/AddToCartButton';
-import BadgeButton from '@/components/shared/Card/ProductCard/components/BadgeButton';
-import Price from '@/components/shared/Card/ProductCard/components/Price';
-import StatusBlock from '@/components/shared/Card/ProductCard/components/StatusBlock';
+import BadgeButton from '@/features/products/components/ProductCard/elements/BadgeButton';
+import Price from '@/features/products/components/ProductCard/elements/Price';
+import StatusBlock from '@/features/products/components/ProductCard/elements/StatusBlock';
 import Card from '@/components/ui/Card';
 import CardContent from '@/components/ui/Card/components/CardContent';
 import CardFooter from '@/components/ui/Card/components/CardFooter';
 import CardHeader from '@/components/ui/Card/components/CardHeader';
-import Input from '@/components/ui/Form/Input';
-import Label from '@/components/ui/Form/Label';
 import Image from '@/components/ui/Image';
 import Rating from '@/components/ui/Rating';
 import Title from '@/components/ui/Typography/Title';
 import type { ProductCardDetailedProps } from '../types';
+import { ActionsBlockDetailed } from '../elements/ActionsBlock/ActionsBlock';
 
 const ProductCardDetailed = ({
   data,
-  isInCart,
-  isLoading,
+  isSale,
   isOutOfStock,
   isNew,
+  isInCart,
+  isLoading,
   quantity,
   setQuantity,
   handleAddToCartClick,
   handleCategoryClick,
+  handleRemoveClick,
 }: ProductCardDetailedProps) => {
   return (
     <Card
@@ -41,7 +41,14 @@ const ProductCardDetailed = ({
       <div className="lg:col-span-2 flex-1 flex flex-col gap-10 justify-between items-start p-5">
         <CardHeader className="w-full items-start">
           <div className="flex lg:flex-row items-center justify-end gap-2 w-full mb-8">
-            <StatusBlock product={data} isInCart={isInCart} className="lg:flex-row mr-auto" />
+            <StatusBlock
+              product={data}
+              isInCart={isInCart}
+              isOutOfStock={isOutOfStock}
+              isNew={isNew}
+              isSale={isSale}
+              className="lg:flex-row mr-auto"
+            />
             <div className="flex flex-col items-center justify-center gap-2">
               <span className="text-lg text-primary font-bold">Category:</span>
               <BadgeButton children={data.category} className="" onClick={handleCategoryClick} />
@@ -61,7 +68,7 @@ const ProductCardDetailed = ({
           <p>{data.description}</p>
         </CardContent>
         <CardFooter className="flex-col md:flex-row justify-end items-center gap-8 md:ml-auto w-full">
-          <form
+          {/* <form
             name="quantity"
             className="flex flex-row justify-between md:justify-start items-center gap-4 w-full"
           >
@@ -83,10 +90,21 @@ const ProductCardDetailed = ({
           <AddToCartButton
             isInCart={isInCart}
             isLoading={isLoading}
-            isOutOfStock={!!isOutOfStock}
+            isOutOfStock={!!data.isOutOfStock}
             variant="default"
             className="w-full md:w-min mx-auto md:mx-0"
             onClick={handleAddToCartClick}
+          /> */}
+          <ActionsBlockDetailed
+            quantity={quantity}
+            isInCart={isInCart}
+            isLoading={isLoading}
+            isOutOfStock={isOutOfStock}
+            handleAddToCartClick={handleAddToCartClick}
+            handleRemoveClick={handleRemoveClick}
+            handleQuantityChange={(e) =>
+              setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1))
+            }
           />
         </CardFooter>
       </div>

@@ -9,15 +9,18 @@ import ProductCardDetailed from './view/ProductCardDetailed';
 
 const ProductCard = ({ data, view = 'compact' }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
-  const { handleAddToCart } = useCartActions();
+  const { handleAddToCart, handleRemoveFromCart } = useCartActions();
   const { navigateToCategory } = useCategoryNavigation();
 
   const isInCart = useAppSelector((state) => selectIsItemInCart(state, data.id));
   const isLoading = useAppSelector((state) => selectIsItemLoading(state, data.id));
 
   const { isOutOfStock, isNew } = data;
+  const isSale = data.oldPrice && data.oldPrice > data.price;
 
-  const handleAddToCartClick = () => {
+  const handleAddToCartClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     handleAddToCart(data, quantity);
   };
 
@@ -25,14 +28,27 @@ const ProductCard = ({ data, view = 'compact' }: ProductCardProps) => {
     navigateToCategory(data.category);
   };
 
+  const handleRemoveClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    handleRemoveFromCart(data);
+  };
+
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1));
+  };
+
   const commonProps = {
     data,
     isInCart,
     isLoading,
-    isOutOfStock,
-    isNew,
+    isOutOfStock: !!isOutOfStock,
+    isNew: !!isNew,
+    isSale: !!isSale,
     handleAddToCartClick,
     handleCategoryClick,
+    handleRemoveClick,
+    handleQuantityChange,
   };
 
   return view === 'compact' ? (

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import type { GoToCartButtonProps } from '.';
 
 const GoToCartButton: React.FC<GoToCartButtonProps> = ({
-  mode = 'shopCompact',
+  mode = 'default',
   variant = 'outline',
   state = 'success',
   children,
@@ -29,8 +29,8 @@ const GoToCartButton: React.FC<GoToCartButtonProps> = ({
         }}
       >
         <>
-          {mode === 'shopSingle' && <CartIcon />}
-          {mode === 'shopCompact' && (
+          {mode === 'compact' && <CartIcon />}
+          {mode === 'default' && (
             <>
               <span className="ml-2">{children}</span>
               <ArrowIcon className="w-5 h-5" />

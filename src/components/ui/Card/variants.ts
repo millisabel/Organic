@@ -25,6 +25,7 @@ export const cardVariants = cva(cardBaseClasses, {
       inCart: 'ring-2 ring-secondary',
       outOfStock: 'opacity-50 cursor-not-allowed hover:shadow-none hover:translate-y-0',
       new: '',
+      sale: '',
     },
   },
   defaultVariants: {
