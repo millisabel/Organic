@@ -75,7 +75,9 @@ const Pagination: React.FC<PaginationProps> = ({
           size="circle"
           onClick={() => onPageChange(1)}
           aria-label="Go to first page"
-          className={showFirstLast && currentPage > 2 ? 'opacity-40' : 'opacity-100'}
+          className={
+            showFirstLast && currentPage > 2 ? 'opacity-100' : 'opacity-20 cursor-not-allowed'
+          }
         >
           1
         </Button>
@@ -132,7 +134,11 @@ const Pagination: React.FC<PaginationProps> = ({
           size="circle"
           onClick={() => onPageChange(totalPages)}
           aria-label="Go to last page"
-          className={showFirstLast && currentPage < totalPages - 1 ? 'opacity-40' : 'opacity-100'}
+          className={
+            showFirstLast && currentPage < totalPages - 1
+              ? 'opacity-100'
+              : 'opacity-20 cursor-not-allowed'
+          }
         >
           {totalPages}
         </Button>

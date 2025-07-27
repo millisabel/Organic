@@ -1,6 +1,6 @@
+import GoToShop from '@/components/shared/Button/GoToShop/GoToShop';
 import Section from '../../layout/Section/Section';
 import SectionHeader from '../../layout/Section/SectionHeader';
-import GoToShop from '@/components/shared/Button/GoToShop/GoToShop';
 import type { HeroProps } from './types';
 import { heroVariants } from './variants';
 

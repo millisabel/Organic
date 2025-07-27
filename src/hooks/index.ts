@@ -5,6 +5,7 @@ export { useClickOutside } from './useClickOutside';
 export { useComponentState } from './useComponentState';
 export { useContactData } from './useContactData';
 export { useCurrentPage } from './useCurrentPage';
+export { useDataFilter } from './useDataFilter';
 export { useElementVisibility } from './useElementVisibility';
 export { useEscapeKey } from './useEscapeKey';
 export { useIsBelowBreakpoint } from './useIsBelowBreakpoint';
