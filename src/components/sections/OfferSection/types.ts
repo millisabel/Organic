@@ -3,4 +3,5 @@ import type { ProductCardData } from '@/features/products/model';
 
 export interface OfferSectionProps extends SectionProps {
   products: ProductCardData[];
+  itemsDisplay?: number | 'all';
 }

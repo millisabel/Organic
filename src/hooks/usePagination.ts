@@ -1,25 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
-interface UsePaginationOptions<T> {
-  /**
-   * Array of items to paginate
-   */
-  items: T[];
-
-  /**
-   * Number of items per page
-   * @default 8
-   */
-  itemsPerPage?: number;
-
-  /**
-   * Initial page number
-   * @default 1
-   */
-  initialPage?: number;
-}
-
-interface UsePaginationReturn<T> {
+interface UsePaginationDisplayOptions {
   /**
    * Current page number
    */
@@ -31,85 +12,111 @@ interface UsePaginationReturn<T> {
   totalPages: number;
 
   /**
-   * Items for current page
+   * Maximum number of visible page buttons
+   * @default 3
    */
-  paginatedItems: T[];
+  maxVisiblePages?: number;
+}
+
+interface UsePaginationDisplayReturn {
+  /**
+   * Array of visible pages with ellipsis
+   */
+  visiblePages: (number | string)[];
 
   /**
-   * Function to change page
+   * Whether to show start ellipsis
    */
-  setCurrentPage: (page: number) => void;
+  shouldShowStartEllipsis: boolean;
 
   /**
-   * Function to handle page change with optional scroll callback
+   * Whether to show end ellipsis
    */
-  handlePageChange: (page: number, onScroll?: () => void) => void;
+  shouldShowEndEllipsis: boolean;
 
   /**
-   * Function to reset to first page
+   * Whether to show first page button
    */
-  resetToFirstPage: () => void;
+  shouldShowFirstPage: boolean;
 
   /**
-   * Whether pagination is needed (more than one page)
+   * Whether to show last page button
    */
-  hasPagination: boolean;
+  shouldShowLastPage: boolean;
 }
 
 /**
- * Hook for managing pagination logic
- *
- * @example
- * ```tsx
- * const { currentPage, totalPages, paginatedItems, handlePageChange, resetToFirstPage, hasPagination } = usePagination({
- *   items: sortedProducts,
- *   itemsPerPage: 8
- * });
- *
- * // Reset to first page when filters change
- * useEffect(() => {
- *   resetToFirstPage();
- * }, [selectedCategory, currentSort]);
- * ```
+ * Hook for pagination display logic only (without data pagination)
  */
-export function usePagination<T>({
-  items,
-  itemsPerPage = 8,
-  initialPage = 1,
-}: UsePaginationOptions<T>): UsePaginationReturn<T> {
-  const [currentPage, setCurrentPage] = useState(initialPage);
+export function usePaginationDisplay({
+  currentPage,
+  totalPages,
+  maxVisiblePages = 3,
+}: UsePaginationDisplayOptions): UsePaginationDisplayReturn {
+  // Calculate visible pages
+  const visiblePages = useMemo(() => {
+    if (totalPages <= 1) return [];
 
-  // Calculate total pages
-  const totalPages = Math.ceil(items.length / itemsPerPage);
+    const pages: (number | string)[] = [];
 
-  // Calculate paginated items
-  const paginatedItems = useMemo(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    return items.slice(startIndex, endIndex);
-  }, [items, currentPage, itemsPerPage]);
+    // Calculate how many pages to show on each side of current page
+    const sidePages = Math.floor((maxVisiblePages - 1) / 2);
 
-  // Handle page change with optional scroll callback
-  const handlePageChange = (page: number, onScroll?: () => void) => {
-    setCurrentPage(page);
-    onScroll?.();
-  };
+    let startPage = Math.max(1, currentPage - sidePages);
+    let endPage = Math.min(totalPages, currentPage + sidePages);
 
-  // Reset to first page
-  const resetToFirstPage = () => {
-    setCurrentPage(1);
-  };
+    // Adjust if we're out of bounds
+    if (endPage - startPage + 1 < maxVisiblePages) {
+      if (startPage === 1) {
+        // If at the beginning, show more pages on the right
+        endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+      } else {
+        // If at the end, show more pages on the left
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+    }
 
-  // Check if pagination is needed
-  const hasPagination = totalPages > 1;
+    // Always add ellipsis at the beginning (transparent if not needed)
+    pages.push('...');
+
+    // Add only visible pages (without first and last)
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
+
+    // Always add ellipsis at the end (transparent if not needed)
+    pages.push('...');
+
+    return pages;
+  }, [currentPage, totalPages, maxVisiblePages]);
+
+  // Calculate ellipsis visibility
+  const shouldShowStartEllipsis = useMemo(() => {
+    // Show start ellipsis if there are pages between 1 and the first visible page
+    const firstVisiblePage = visiblePages.find((page) => typeof page === 'number') as number;
+    return firstVisiblePage > 2;
+  }, [visiblePages]);
+
+  const shouldShowEndEllipsis = useMemo(() => {
+    // Show end ellipsis if there are pages between the last visible page and totalPages
+    const lastVisiblePage = visiblePages.filter((page) => typeof page === 'number').pop() as number;
+    return lastVisiblePage < totalPages - 1;
+  }, [visiblePages, totalPages]);
+
+  // Calculate first/last page button visibility
+  const shouldShowFirstPage = useMemo(() => {
+    return maxVisiblePages === 1 ? currentPage > 1 : currentPage > 2;
+  }, [currentPage, maxVisiblePages]);
+
+  const shouldShowLastPage = useMemo(() => {
+    return maxVisiblePages === 1 ? currentPage < totalPages : currentPage < totalPages - 1;
+  }, [currentPage, totalPages, maxVisiblePages]);
 
   return {
-    currentPage,
-    totalPages,
-    paginatedItems,
-    setCurrentPage,
-    handlePageChange,
-    resetToFirstPage,
-    hasPagination,
+    visiblePages,
+    shouldShowStartEllipsis,
+    shouldShowEndEllipsis,
+    shouldShowFirstPage,
+    shouldShowLastPage,
   };
 }

@@ -13,7 +13,7 @@ export { useLoadMore } from './useLoadMore';
 export { useMobileMenu } from './useMobileMenu';
 export { useNavigationLinks } from './useNavigationLinks';
 export { useOnClickOutside } from './useOnClickOutside';
-export { usePagination } from './usePagination';
+export { usePaginationDisplay } from './usePagination';
 export { usePaginationWithLoadMore } from './usePaginationWithLoadMore';
 export { useScrollToElement } from './useScrollToElement';
 export { useTextAnimation } from './useTextAnimation';

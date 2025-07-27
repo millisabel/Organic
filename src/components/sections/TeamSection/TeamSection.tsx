@@ -27,10 +27,11 @@ const TeamSection = ({
       <Paragraph className="text-center w-full sm:w-1/2 mx-auto mb-10" children={description} />
       <UiList
         variant="gridCol_lg_3"
+        align="center"
         items={teams}
-        renderItem={(item, idx) => <TeamCard key={idx} data={item} />}
+        renderItem={(item, idx) => <TeamCard key={idx} data={item} className="mx-auto" />}
         itemsDisplay={itemsDisplay}
-        className="mb-20"
+        className="mb-20 mx-auto"
       />
       {isButton && (
         <Button asChild variant="default" size="default" className="mx-auto" onClick={handleClick}>

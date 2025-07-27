@@ -25,6 +25,7 @@ const BuyMoreButton = ({
       state={state}
       nameComponent="BuyMoreButton"
       className={className}
+      title="Buy more"
       {...props}
     >
       <Link to={`/shop/${productId}`} onClick={handleClick} className="flex items-center gap-2">

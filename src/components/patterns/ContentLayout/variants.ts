@@ -10,6 +10,7 @@ export const contentLayoutVariants = cva('', {
       gridCol_lg_2: 'grid grid-cols-1 lg:grid-cols-2 gap-4',
       gridCol_lg_3: 'grid grid-cols-1 lg:grid-cols-3 gap-4',
       gridCol_sm_2_lg_4: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2',
+      gridCol_sm_2_lg_3_xl_4: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2',
     },
     align: {
       default: '',

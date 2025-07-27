@@ -32,7 +32,7 @@ const AboutSection = ({
           />
           <UiList
             items={features}
-            variant={variant === 'about' ? 'gridCol_md_2' : 'flexCol'}
+            variant={variant === 'about' ? 'gridCol_lg_2' : 'flexCol'}
             className="mb-14"
             renderItem={(feature) => (
               <InfoBlock

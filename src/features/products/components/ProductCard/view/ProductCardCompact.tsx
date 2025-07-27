@@ -45,7 +45,7 @@ const ProductCardCompact = ({
       <CardHeader className="flex-1">
         <BadgeButton
           children={data.category}
-          className="absolute top-4 left-4"
+          className="absolute top-4 left-4 lg:left-2"
           onClick={handleCategoryClick}
         />
         <Image
@@ -61,7 +61,7 @@ const ProductCardCompact = ({
           isOutOfStock={isOutOfStock}
           isSale={isSale}
           isNew={isNew}
-          className="absolute top-4 right-4"
+          className="absolute top-4 right-4 lg:right-2"
         />
       </CardHeader>
       <CardContent className="p-5">

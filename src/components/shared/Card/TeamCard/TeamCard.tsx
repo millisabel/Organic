@@ -8,8 +8,9 @@ import CardHeader from '@/components/ui/Card/components/CardHeader';
 import Image from '@/components/ui/Image';
 import Title from '@/components/ui/Typography/Title';
 import type { TeamCardProps } from './types';
+import { cn } from '@/utils/helpers';
 
-const TeamCard = ({ data }: TeamCardProps) => {
+const TeamCard = ({ data, className }: TeamCardProps) => {
   const { name, role, image, socials } = data;
   const socialItems = Object.entries(socials).map(([socialType, href]) => ({
     socialType: socialType as SocialType,
@@ -23,7 +24,11 @@ const TeamCard = ({ data }: TeamCardProps) => {
   ) => <SocialButton key={idx} {...item} {...additionalProps} />;
 
   return (
-    <Card variant="default" nameComponent="TeamCard" className="max-w-[450px] min-h-[500px]">
+    <Card
+      variant="default"
+      nameComponent="TeamCard"
+      className={cn('max-w-[450px] min-h-[500px]', className)}
+    >
       <CardHeader className="h-full">
         <Image src={image} alt={name} folder="teams" />
       </CardHeader>

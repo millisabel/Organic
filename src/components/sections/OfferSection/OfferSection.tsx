@@ -6,7 +6,13 @@ import UiList from '@/components/patterns/UiList';
 import type { ProductCardData } from '@/features/products/model';
 import type { OfferSectionProps } from './types';
 
-const OfferSection = ({ title, subtitle, products, className }: OfferSectionProps) => {
+const OfferSection = ({
+  title,
+  subtitle,
+  products,
+  className,
+  itemsDisplay = 4,
+}: OfferSectionProps) => {
   return (
     <Section paddingY="py-[8vw]" dataComponent="OfferSection" className={className}>
       <div className="flex flex-col lg:flex-row items-end justify-between mb-16">
@@ -19,13 +25,13 @@ const OfferSection = ({ title, subtitle, products, className }: OfferSectionProp
         <GoToShop variant="accent_hover_white" />
       </div>
       <UiList
-        variant="gridCol_sm_2_lg_4"
+        variant="gridCol_sm_2_lg_3_xl_4"
         items={products}
         className="gap-6"
         renderItem={(item, idx) => (
           <ProductCard key={idx} data={item as unknown as ProductCardData} isAction={false} />
         )}
-        itemsDisplay={4}
+        itemsDisplay={itemsDisplay}
       />
     </Section>
   );

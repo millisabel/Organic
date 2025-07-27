@@ -37,7 +37,7 @@ const ActionsBlock = ({
           <BuyMoreButton
             productId={id!}
             variant="outline"
-            className="flex-1 min-w-[100px] mx-auto md:mx-0"
+            className="flex-1 min-w-[60px] min-h-[56px] mx-auto md:mx-0"
           />
         )}
         {isInCart && <GoToCartButton mode="compact" size="square" />}

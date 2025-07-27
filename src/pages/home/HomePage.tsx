@@ -29,6 +29,7 @@ import type { ProductCardData } from '@/features/products/model';
 
 const HomePage = () => {
   const isBelowLg = useIsBelowBreakpoint('lg');
+  const isBelowXl = useIsBelowBreakpoint('xl');
   const filteredProducts = productsData.filter((product) => product.isOutOfStock !== true);
   return (
     <>
@@ -53,6 +54,7 @@ const HomePage = () => {
         title="Our Products"
         subtitle="Categories"
         products={filteredProducts as unknown as ProductCardData[]}
+        itemsDisplay={isBelowLg ? 6 : isBelowXl ? 9 : 8}
       />
       <Testimonial
         id="testimonial"
@@ -69,6 +71,7 @@ const HomePage = () => {
         subtitle="Offers"
         products={filteredProducts as unknown as ProductCardData[]}
         className="bg-primary"
+        itemsDisplay={isBelowLg ? 2 : isBelowXl ? 3 : 4}
       />
       <WhoWe
         id="who-we"

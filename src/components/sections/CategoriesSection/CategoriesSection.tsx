@@ -13,7 +13,7 @@ const CategoriesSection = ({
   ...props
 }: CategoriesSectionProps) => {
   return (
-    <Section className={cn(backgroundColor, 'text-white py-[190px] my-60')} {...props}>
+    <Section className={cn(backgroundColor, 'text-white py-[190px] my-0 lg:my-60')} {...props}>
       <SectionHeader
         title={title}
         subtitle={subtitle}

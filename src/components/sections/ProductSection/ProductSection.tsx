@@ -14,13 +14,13 @@ const ProductSection = ({ title, subtitle, products, itemsDisplay = 8 }: Product
       <SectionHeader title={title} subtitle={subtitle} className="text-center mb-20" />
       {products.length > 0 ? (
         <UiList
-          variant="gridCol_sm_2_lg_4"
+          variant="gridCol_sm_2_lg_3_xl_4"
           items={displayedProducts}
           className="gap-6 mb-20"
           renderItem={(item, idx) => (
             <ProductCard key={idx} data={item as unknown as ProductCardData} />
           )}
-          itemsDisplay="all"
+          itemsDisplay={itemsDisplay}
         />
       ) : (
         <p className="text-text-light text-center mb-20">

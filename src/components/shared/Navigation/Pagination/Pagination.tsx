@@ -1,5 +1,6 @@
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import Button from '@/components/ui/Button/Button';
+import { useIsBelowBreakpoint, usePaginationDisplay } from '@/hooks';
 import React from 'react';
 import type { PaginationProps } from './types';
 
@@ -9,58 +10,31 @@ const Pagination: React.FC<PaginationProps> = ({
   onPageChange,
   className,
   showFirstLast = true,
-  maxVisiblePages = 5,
+  maxVisiblePages = 3,
 }) => {
+  const isBelowSm = useIsBelowBreakpoint('sm');
+  const isBelowLg = useIsBelowBreakpoint('lg');
+  const buttonSize = isBelowSm ? 'social' : 'circle';
+  const adjustedMaxVisiblePages = isBelowLg ? 1 : maxVisiblePages;
+  const {
+    visiblePages,
+    shouldShowStartEllipsis,
+    shouldShowEndEllipsis,
+    shouldShowFirstPage,
+    shouldShowLastPage,
+  } = usePaginationDisplay({
+    currentPage,
+    totalPages,
+    maxVisiblePages: adjustedMaxVisiblePages,
+  });
+
   if (totalPages <= 1) return null;
-
-  const getVisiblePages = () => {
-    const pages: (number | string)[] = [];
-    const halfVisible = Math.floor(maxVisiblePages / 2);
-
-    let startPage = Math.max(1, currentPage - halfVisible);
-    let endPage = Math.min(totalPages, currentPage + halfVisible);
-
-    // Adjust if we're near the beginning
-    if (currentPage <= halfVisible + 1) {
-      endPage = Math.min(totalPages, maxVisiblePages);
-    }
-
-    // Adjust if we're near the end
-    if (currentPage >= totalPages - halfVisible) {
-      startPage = Math.max(1, totalPages - maxVisiblePages + 1);
-    }
-
-    // Add first page and ellipsis if needed
-    if (startPage > 1) {
-      pages.push(1);
-      if (startPage > 2) {
-        pages.push('...');
-      }
-    }
-
-    // Add visible pages
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i);
-    }
-
-    // Add last page and ellipsis if needed
-    if (endPage < totalPages) {
-      if (endPage < totalPages - 1) {
-        pages.push('...');
-      }
-      pages.push(totalPages);
-    }
-
-    return pages;
-  };
 
   const handlePageClick = (page: number | string) => {
     if (typeof page === 'number') {
       onPageChange(page);
     }
   };
-
-  const visiblePages = getVisiblePages();
 
   return (
     <nav
@@ -69,23 +43,22 @@ const Pagination: React.FC<PaginationProps> = ({
       aria-label="Pagination Navigation"
     >
       {/* First page button */}
-      {
-        <Button
-          variant="outline"
-          size="circle"
-          onClick={() => onPageChange(1)}
-          aria-label="Go to first page"
-          className={
-            showFirstLast && currentPage > 2 ? 'opacity-100' : 'opacity-20 cursor-not-allowed'
-          }
-        >
-          1
-        </Button>
-      }
+      <Button
+        variant="outline"
+        size={buttonSize}
+        onClick={() => onPageChange(1)}
+        aria-label="Go to first page"
+        className={
+          showFirstLast && shouldShowFirstPage ? 'opacity-100' : 'opacity-20 cursor-not-allowed'
+        }
+      >
+        1
+      </Button>
+
       {/* Previous button */}
       <Button
         variant="outline"
-        size="circle"
+        size={buttonSize}
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage <= 1}
         aria-label="Go to previous page"
@@ -99,11 +72,20 @@ const Pagination: React.FC<PaginationProps> = ({
       {visiblePages.map((page, index) => (
         <React.Fragment key={index}>
           {page === '...' ? (
-            <span className="px-3 py-2 text-gray-500">...</span>
+            <span
+              className={`px-1 py-2 text-gray-500 transition-opacity duration-200 ${
+                (index === 0 && shouldShowStartEllipsis) ||
+                (index === visiblePages.length - 1 && shouldShowEndEllipsis)
+                  ? 'opacity-100'
+                  : 'opacity-0'
+              }`}
+            >
+              ...
+            </span>
           ) : (
             <Button
               variant={currentPage === page ? 'default' : 'outline'}
-              size="circle"
+              size={buttonSize}
               onClick={() => handlePageClick(page)}
               aria-label={`Go to page ${page}`}
               aria-current={currentPage === page ? 'page' : undefined}
@@ -117,7 +99,7 @@ const Pagination: React.FC<PaginationProps> = ({
       {/* Next button */}
       <Button
         variant="outline"
-        size="circle"
+        size={buttonSize}
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage >= totalPages}
         aria-label="Go to next page"
@@ -128,21 +110,17 @@ const Pagination: React.FC<PaginationProps> = ({
       </Button>
 
       {/* Last page button */}
-      {
-        <Button
-          variant="outline"
-          size="circle"
-          onClick={() => onPageChange(totalPages)}
-          aria-label="Go to last page"
-          className={
-            showFirstLast && currentPage < totalPages - 1
-              ? 'opacity-100'
-              : 'opacity-20 cursor-not-allowed'
-          }
-        >
-          {totalPages}
-        </Button>
-      }
+      <Button
+        variant="outline"
+        size={buttonSize}
+        onClick={() => onPageChange(totalPages)}
+        aria-label="Go to last page"
+        className={
+          showFirstLast && shouldShowLastPage ? 'opacity-100' : 'opacity-20 cursor-not-allowed'
+        }
+      >
+        {totalPages}
+      </Button>
     </nav>
   );
 };
