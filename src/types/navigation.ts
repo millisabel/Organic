@@ -11,7 +11,7 @@ export interface NavigationLink {
   external?: boolean;
   icon?: string;
   socialType?: SocialType;
-  title?: string; // For addresses: "New York, USA"
+  title?: string;
   type?: ContactLinkType;
 }
 

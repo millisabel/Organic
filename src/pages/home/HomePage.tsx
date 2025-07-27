@@ -44,7 +44,7 @@ const HomePage = () => {
         id="about"
         title="We Believe in Working Accredited Farmers"
         subtitle="About Us"
-        description="Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley."
+        description="We partner with certified organic farmers who share our commitment to sustainable agriculture and environmental stewardship. Our direct relationships with farmers ensure fair compensation and support for eco-friendly farming practices that benefit both people and the planet."
         className="bg-background"
         features={features}
         image="about_home.webp"

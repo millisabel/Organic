@@ -6,8 +6,8 @@ import React from 'react';
 import type { InfoBlockProps } from './types';
 
 const baseStyles = {
-  container: 'flex flex-col sm:flex-row items-center gap-4 mb-6 sm:mb-0 last:sm-0',
-  icon: 'flex items-center justify-center w-[100px] h-[100px] p-[5px] lg:p-[25px] rounded-[20px]',
+  container: 'flex flex-col sm:flex-row items-center gap-6 last:sm-0',
+  icon: 'flex items-center justify-center w-[100px] h-[100px] aspect-square p-[5px] lg:p-[25px] rounded-[20px]',
   title: 'text-center sm:text-left text-xl text-primary font-roboto font-extrabold',
   description: 'text-center sm:text-left font-opensans text-base text-text',
 };

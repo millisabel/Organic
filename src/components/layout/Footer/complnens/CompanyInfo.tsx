@@ -15,8 +15,9 @@ const CompanyInfo = ({ className }: CompanyInfoProps) => {
     <div className={className}>
       <Logo />
       <Paragraph className="my-6 text-center text-text">
-        Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of
-        the printing.
+        We are committed to providing the highest quality organic products while supporting
+        sustainable farming practices and promoting a healthier lifestyle for our customers and the
+        planet.
       </Paragraph>
       <UIList
         variant="flexCol"

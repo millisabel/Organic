@@ -33,7 +33,7 @@ const AboutSection = ({
           <UiList
             items={features}
             variant={variant === 'about' ? 'gridCol_md_2' : 'flexCol'}
-            className="mb-6"
+            className="mb-14"
             renderItem={(feature) => (
               <InfoBlock
                 key={feature.title}

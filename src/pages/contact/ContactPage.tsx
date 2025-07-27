@@ -33,13 +33,13 @@ const ContactPage = () => {
       <HeroSection variant="banner" title="Contact Us" backgroundImageUrl={contactImage} />
       <ContactSection
         title="We'd love to talk about how we can work together."
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        description="Have questions about our organic products, sustainable farming practices, or want to learn more about our mission? We're here to help and would love to hear from you. Our team is ready to assist with any inquiries about our products, partnerships, or how we can support your healthy lifestyle."
       />
       <LocationsSection
         title="Our Farms"
         subtitle="Location"
         backgroundImageUrl={locationsImage}
-        description="Established fact that a reader will be distracted by the readable content of a page when looking a layout. The point of using."
+        description="Our network of certified organic farms spans across the country, each carefully selected for their commitment to sustainable agriculture and environmental stewardship. Visit our locations to see firsthand how we grow and harvest the finest organic produce."
       />
       <ContactFormSection onSubmit={handleFormSubmit} onSuccess={handleFormSuccess} />
 

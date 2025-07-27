@@ -12,8 +12,8 @@ const Footer = () => {
     href,
   }));
 
-  const contactLinksData = contactLinks.map(({ href, text }) => ({
-    title: text,
+  const contactLinksData = contactLinks.map(({ href, title }) => ({
+    title: title || '',
     href,
   }));
 
