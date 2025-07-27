@@ -16,5 +16,6 @@ export { usePageScroll } from './usePageScroll';
 export { usePagination } from './usePagination';
 export { usePaginationWithLoadMore } from './usePaginationWithLoadMore';
 export { useScrollToTop } from './useScrollToTop';
+export { useSectionWithScroll } from './useSectionWithScroll';
 export { useTextAnimation } from './useTextAnimation';
 export { useWindowWidth } from './useWindowWidth';

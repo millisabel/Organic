@@ -11,26 +11,17 @@ import { useProductFiltering } from '@/features/products/hooks/useProductFilteri
 import { useProductSorting } from '@/features/products/hooks/useProductSorting';
 import { useShopSection } from '@/features/products/hooks/useShopSection';
 import type { ProductCardData } from '@/features/products/model';
-import { usePaginationWithLoadMore, useScrollToTop } from '@/hooks';
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react';
+import { usePaginationWithLoadMore, useSectionWithScroll } from '@/hooks';
+import { forwardRef, useCallback, useEffect } from 'react';
 import type { ShopSectionProps } from './types';
 
 const ShopSection = forwardRef<HTMLElement, ShopSectionProps>((props, ref) => {
   const { products, itemsPerPage, loadMoreItems, ...restProps } = props;
 
-  // Create local ref for useScrollToTop
-  const localRef = useRef<HTMLElement>(null);
+  // Pass ref directly to the hook - it handles everything!
+  const { sectionRef, scrollToTop } = useSectionWithScroll(ref);
 
-  // Sync local ref with forwarded ref
-  useImperativeHandle(ref, () => localRef.current!, []);
-
-  // Use scrollToTop with the local ref
-  const { scrollToTop } = useScrollToTop(localRef, {
-    behavior: 'smooth',
-    block: 'start',
-  });
-
-  // Use custom hooks for state management
+  // State management hooks
   const {
     currentSort,
     searchedProducts,
@@ -40,11 +31,9 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>((props, ref) => {
     handleFilteredDataChange,
   } = useShopSection({ products });
 
-  // Apply filtering and sorting
   const filteredProducts = useProductFiltering(searchedProducts, selectedCategory);
   const sortedProducts = useProductSorting(filteredProducts, currentSort);
 
-  // Use pagination hook with sorted products
   const {
     displayedItems: displayedProducts,
     currentPage,
@@ -61,28 +50,21 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>((props, ref) => {
     loadMoreItems,
   });
 
-  // Reset pagination when sorted products change
   useEffect(() => {
     resetPagination();
   }, [sortedProducts, resetPagination]);
 
-  // Enhanced handlers with scroll functionality
-  const handleLoadMoreWithScroll = useCallback(() => {
-    handleLoadMore();
-  }, [handleLoadMore]);
-
   const handlePageChangeWithScroll = useCallback(
     (pageNumber: number) => {
       handlePageChange(pageNumber);
-      // Scroll to top of section using our custom hook
-      scrollToTop();
+      scrollToTop(); // Hook handles scrolling
     },
     [handlePageChange, scrollToTop],
   );
 
   return (
     <Section
-      ref={localRef}
+      ref={sectionRef}
       paddingY="py-2"
       className="mb-20"
       dataComponent="ShopSection"
@@ -111,19 +93,12 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>((props, ref) => {
       />
 
       <div className="mt-12 flex flex-col items-center gap-8">
-        {/* Load More Button */}
         {hasMoreProducts && (
-          <Button
-            variant="outline"
-            size="default"
-            onClick={handleLoadMoreWithScroll}
-            className="px-8 py-3"
-          >
+          <Button variant="outline" size="default" onClick={handleLoadMore} className="px-8 py-3">
             Load More ({totalDisplayedCount} of {sortedProducts.length})
           </Button>
         )}
 
-        {/* Pagination */}
         {totalPages > 1 && (
           <Pagination
             currentPage={currentPage}
@@ -134,7 +109,6 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>((props, ref) => {
           />
         )}
 
-        {/* Info about remaining products */}
         {hasMoreProducts && (
           <div className="text-sm text-gray-600">{remainingProducts} more products available</div>
         )}
