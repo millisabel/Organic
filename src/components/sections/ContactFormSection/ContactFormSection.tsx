@@ -75,7 +75,6 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
                   required
                   error={errors.company}
                   touched={touched.company}
-                  showError={!!values.company || submitCount > 0}
                 />
                 <FormField
                   id="subject"
@@ -86,7 +85,6 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
                   required
                   error={errors.subject}
                   touched={touched.subject}
-                  showError={!!values.company || submitCount > 0}
                 />
                 <FormField
                   id="message"
@@ -97,7 +95,6 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
                   required
                   error={errors.message}
                   touched={touched.message}
-                  showError={!!values.company || submitCount > 0}
                   rows={7}
                   className="md:col-span-2"
                 />
@@ -112,7 +109,11 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
                 </div>
               )}
 
-              <Button type="submit" variant="default">
+              <Button
+                type="submit"
+                variant="default"
+                className="w-full md:w-auto mx-auto lg:ml-auto"
+              >
                 Send Message
               </Button>
             </Form>

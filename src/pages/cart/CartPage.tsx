@@ -6,6 +6,7 @@ import CartItemMobile from '@/features/cart/layouts/CartItemMobile';
 import CartSummary from '@/features/cart/components/items/CartSummary';
 import { removeItem, updateQuantity } from '@/features/cart/model';
 import { useAppDispatch, useAppSelector, type RootState } from '@/store';
+import GoToShop from '@/components/shared/Button/GoToShop';
 
 const CartPage = () => {
   const dispatch = useAppDispatch();
@@ -42,9 +43,10 @@ const CartPage = () => {
             handleQuantityChange={handleQuantityChange}
             handleRemove={handleRemove}
           />
-          <CartSummary total={total} />
+          <CartSummary total={total} className="my-20" />
         </>
       )}
+      <GoToShop className="w-full md:w-auto mx-auto lg:ml-auto" />
     </Section>
   );
 };

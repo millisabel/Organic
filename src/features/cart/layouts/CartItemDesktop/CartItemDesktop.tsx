@@ -23,7 +23,10 @@ const CartItemDesktop = ({
         </thead>
         <tbody>
           {cartItems.map((item) => (
-            <tr key={item.id} className="bg-white rounded-xl shadow-sm">
+            <tr
+              key={item.id}
+              className="bg-white rounded-xl shadow-sm hover:bg-secondary/10 transition-all duration-300"
+            >
               <td className="p-2 flex items-center gap-4">
                 <CartProductInfo item={item} />
               </td>

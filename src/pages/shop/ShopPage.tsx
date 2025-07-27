@@ -7,7 +7,7 @@ const ShopPage = () => {
   return (
     <>
       <HeroSection variant="banner" title="Shop" backgroundImageUrl={hero_bg_page_shop} />
-      <ShopSection products={productsData} itemsPerPage={2} loadMoreItems={4} />
+      <ShopSection products={productsData} itemsPerPage={8} loadMoreItems={8} />
     </>
   );
 };

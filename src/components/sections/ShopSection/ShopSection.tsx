@@ -84,7 +84,7 @@ const ShopSection = ({ products, itemsPerPage, loadMoreItems, ...restProps }: Sh
 
       <div className="mt-12 flex flex-col items-center gap-8">
         {hasMoreProducts && (
-          <Button variant="outline" size="default" onClick={handleLoadMore} className="px-8 py-3">
+          <Button variant="default" size="default" onClick={handleLoadMore} className="px-8 py-3">
             Load More ({totalDisplayedCount} of {sortedProducts.length})
           </Button>
         )}

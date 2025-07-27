@@ -1,8 +1,9 @@
 import Button from '@/components/ui/Button/Button';
 import type { CartSummaryProps } from '.';
+import { cn } from '@/utils/helpers';
 
-const CartSummary = ({ total }: CartSummaryProps) => (
-  <div className="flex flex-col md:flex-row items-center justify-between mt-8 gap-4">
+const CartSummary = ({ total, className }: CartSummaryProps) => (
+  <div className={cn('flex flex-col md:flex-row items-center justify-between gap-4', className)}>
     <div className="text-xl font-bold">
       Total: <span className="text-primary">${total.toFixed(2)}</span>
     </div>

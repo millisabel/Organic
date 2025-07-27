@@ -14,8 +14,11 @@ const CartItemMobile = ({ cartItems, handleQuantityChange, handleRemove }: CartI
   return (
     <div className="block md:hidden">
       {cartItems.map((item) => (
-        <div key={item.id} className="flex flex-col gap-2 mb-6 p-4 bg-white rounded-xl shadow-sm">
-          <div className="flex items-center gap-4 justify-between">
+        <div
+          key={item.id}
+          className="flex flex-col gap-6 mb-6 p-4 bg-white rounded-xl shadow-sm hover:bg-secondary/10 transition-all duration-300"
+        >
+          <div className="flex items-center gap-6 justify-between">
             <CartProductInfo item={item} />
             <TrashButton onClick={() => handleRemove(item.id)} />
           </div>

@@ -18,12 +18,13 @@ const LocationsSection = ({
     <div className="container flex flex-col gap-4">
       <Section
         container={false}
-        className="rounded-2xl px-4"
+        className="rounded-2xl px-0 lg:px-4"
         backgroundImageUrl={backgroundImageUrl}
+        dataComponent="LocationsSection"
       >
         <ContentLayout variant="gridCol_lg_2" className="rounded-2xl">
           <div className="hidden lg:block"></div>
-          <ContentLayout variant="flexCol" className="bg-white rounded-2xl p-10 mx-4">
+          <ContentLayout variant="flexCol" className="bg-white rounded-2xl p-4 lg:p-10 mx-4">
             <SectionHeader title={title} subtitle={subtitle} />
             <Paragraph>{description}</Paragraph>
             <UiList
