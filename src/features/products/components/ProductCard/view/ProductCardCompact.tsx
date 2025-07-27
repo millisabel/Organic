@@ -8,6 +8,7 @@ import Title from '@/components/ui/Typography/Title';
 import BadgeButton from '@/features/products/components/ProductCard/elements/BadgeButton';
 import Price from '@/features/products/components/ProductCard/elements/Price';
 import StatusBlock from '@/features/products/components/ProductCard/elements/StatusBlock';
+import { useSectionWithScroll } from '@/hooks';
 import { useNavigate } from 'react-router-dom';
 import ActionsBlock from '../elements/ActionsBlock';
 import type { ProductCardCompactProps } from '../types';
@@ -25,9 +26,19 @@ const ProductCardCompact = ({
   handleQuantityChange,
 }: ProductCardCompactProps) => {
   const navigate = useNavigate();
+  const { sectionRef, scrollToTop } = useSectionWithScroll(null);
 
   const handleCardClick = () => {
     navigate(`/shop/${data.id}`);
+
+    // Прокручиваем к ProductSingleSection после навигации
+    setTimeout(() => {
+      const productSection = document.querySelector('[id="product"]') as HTMLElement;
+      if (productSection) {
+        sectionRef.current = productSection;
+        scrollToTop();
+      }
+    }, 100);
   };
 
   return (
