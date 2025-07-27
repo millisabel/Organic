@@ -9,13 +9,16 @@ A responsive e-commerce app for organic products, built with React, TypeScript, 
 ## 🚀 Technologies Used
 
 - **Vite** (build tool, dev server, fast HMR)
-- **React** (with hooks)
+- **React 19** (with hooks)
 - **TypeScript**
 - **Redux Toolkit** (global cart state)
 - **React Router DOM** (SPA routing, HashRouter for GitHub Pages)
-- **TailwindCSS v4** (utility-first styling)
+- **TailwindCSS v3.4** (utility-first styling)
 - **Formik + Yup** (forms and validation)
-- **JSON Server** (for local API, optional)
+- **Framer Motion** (animations)
+- **Swiper** (carousel/slider)
+- **Class Variance Authority** (component variants)
+- **Radix UI** (accessible primitives)
 
 ---
 
@@ -29,45 +32,36 @@ A responsive e-commerce app for organic products, built with React, TypeScript, 
 - Newsletter subscription form
 - Contact and About pages
 - Modern UI/UX (Figma-based design)
-- Dark mode (planned)
-- Product search (planned)
-- Blog and team sections (planned)
+- Product search
+- Pagination with "Load More" functionality
+- Smooth scrolling navigation
+- Component-based architecture
+- Animations and transitions
+- Storybook for component documentation
 
 ---
 
-## 📁 Project Structure
+## 🎯 Key Features & Architecture
 
-```
-src/
-│
-├── app/
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── store.ts
-│
-├── pages/
-│   ├── HomePage.tsx
-│   ├── ShopPage.tsx
-│   ├── ShopSinglePage.tsx
-│   ├── AboutPage.tsx
-│   ├── BlogPage.tsx
-│   ├── ContactPage.tsx
-│   ├── ProjectsPage.tsx
-│   └── CartPage.tsx
-│
-├── components/
-│   ├── layout/
-│   ├── shared/
-│   ├── ui/
-│   └── icons/
-│
-├── store/
-├── hooks/
-├── utils/
-├── assets/
-├── styles/
-└── data/
-```
+### **Custom Hooks**
+
+- **`useScrollToElement`** - Universal hook for scrolling to any element by selector
+- **`usePaginationWithLoadMore`** - Generic pagination with "Load More" functionality
+- **`useProductFiltering`** - Product filtering by category
+- **`useProductSorting`** - Product sorting by various criteria
+
+### **Component Architecture**
+
+- **Feature-based organization** - Products and Cart features separated
+- **Reusable UI components** - Button, Card, Form, Modal, etc.
+- **Section components** - Each page section is a separate component
+- **Pattern components** - ContentLayout, UiList for consistent layouts
+
+### **Navigation & Scrolling**
+
+- **Smooth scrolling** - Universal scroll hook for all navigation
+- **Cross-page navigation** - Buttons and cards navigate with scroll to target
+- **Responsive navigation** - Mobile menu with hamburger button
 
 ---
 
@@ -100,6 +94,24 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 npm run build
 ```
 
+### 5. Run tests
+
+```bash
+npm test
+```
+
+### 6. Lint code
+
+```bash
+npm run lint
+```
+
+### 7. Run Storybook
+
+```bash
+npm run storybook
+```
+
 ---
 
 ## 🚀 Deploying to GitHub Pages
@@ -112,8 +124,27 @@ npm run build
 
 ## 📌 Best Practices
 
-- Clean, modular code (DRY, KISS, SOLID)
-- Semantic HTML and accessibility
-- Mobile-first and responsive
-- Consistent naming and formatting
-- Comments and documentation
+- **Clean, modular code** (DRY, KISS, SOLID principles)
+- **Semantic HTML and accessibility** (ARIA attributes, keyboard navigation)
+- **Mobile-first and responsive design**
+- **Consistent naming and formatting**
+- **TypeScript for type safety**
+- **Custom hooks for reusable logic**
+- **Component composition over inheritance**
+- **Feature-based folder structure**
+- **Storybook for component documentation**
+
+---
+
+## 🔧 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm test` - Run tests
+- `npm run test:coverage` - Run tests with coverage
+- `npm run storybook` - Start Storybook
+- `npm run build-storybook` - Build Storybook
+- `npm run type-check` - Run TypeScript type checking
+- `npm run format-check` - Check code formatting
