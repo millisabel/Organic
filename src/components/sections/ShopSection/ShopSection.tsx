@@ -64,6 +64,7 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>((props, ref) => {
 
   return (
     <Section
+      id="shop"
       ref={sectionRef}
       paddingY="py-2"
       className="mb-20"

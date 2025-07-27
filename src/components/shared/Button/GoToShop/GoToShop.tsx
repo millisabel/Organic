@@ -1,6 +1,6 @@
 import Button from '@/components/ui/Button/Button';
-import { useSectionWithScroll } from '@/hooks';
-import { Link } from 'react-router-dom';
+import { useScrollToSection } from '@/hooks';
+import { Link, useNavigate } from 'react-router-dom';
 import type { GoToShopProps } from '.';
 import ArrowIcon from '../../Icon/ArrowIcon';
 
@@ -9,24 +9,13 @@ const GoToShop = ({
   state = 'default',
   children,
   isArrow = true,
-  onShopClick,
   ...props
 }: GoToShopProps) => {
-  const { sectionRef, scrollToTop } = useSectionWithScroll(null);
-
-  const handleClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (onShopClick) {
-      onShopClick();
-    }
-
-    setTimeout(() => {
-      const shopSection = document.querySelector('[data-component="ShopSection"]') as HTMLElement;
-      if (shopSection) {
-        sectionRef.current = shopSection;
-        scrollToTop();
-      }
-    }, 100);
+  const { scrollToSection } = useScrollToSection();
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/shop`);
+    scrollToSection('shop');
   };
 
   return (

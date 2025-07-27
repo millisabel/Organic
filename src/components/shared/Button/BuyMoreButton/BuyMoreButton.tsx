@@ -1,6 +1,6 @@
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import Button from '@/components/ui/Button/Button';
-import { useSectionWithScroll } from '@/hooks';
+import { useScrollToSection } from '@/hooks';
 import { Link } from 'react-router-dom';
 import type { BuyMoreButtonProps } from './types';
 
@@ -13,7 +13,7 @@ const BuyMoreButton = ({
   className,
   ...props
 }: BuyMoreButtonProps) => {
-  const { sectionRef, scrollToTop } = useSectionWithScroll(null);
+  const { scrollToSection } = useScrollToSection();
 
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -22,13 +22,7 @@ const BuyMoreButton = ({
       onBuyMoreClick();
     }
 
-    setTimeout(() => {
-      const shopSection = document.querySelector('[id="product"]') as HTMLElement;
-      if (shopSection) {
-        sectionRef.current = shopSection;
-        scrollToTop();
-      }
-    }, 100);
+    scrollToSection('product');
   };
 
   return (

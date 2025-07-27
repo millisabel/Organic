@@ -16,6 +16,7 @@ export { useOnClickOutside } from './useOnClickOutside';
 export { usePageScroll } from './usePageScroll';
 export { usePagination } from './usePagination';
 export { usePaginationWithLoadMore } from './usePaginationWithLoadMore';
+export { useScrollToSection } from './useScrollToSection';
 export { useScrollToTop } from './useScrollToTop';
 export { useSectionWithScroll } from './useSectionWithScroll';
 export { useTextAnimation } from './useTextAnimation';
