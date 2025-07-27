@@ -68,31 +68,30 @@ const Pagination: React.FC<PaginationProps> = ({
       role="navigation"
       aria-label="Pagination Navigation"
     >
+      {/* First page button */}
+      {
+        <Button
+          variant="outline"
+          size="circle"
+          onClick={() => onPageChange(1)}
+          aria-label="Go to first page"
+          className={showFirstLast && currentPage > 2 ? 'opacity-40' : 'opacity-100'}
+        >
+          1
+        </Button>
+      }
       {/* Previous button */}
       <Button
         variant="outline"
-        size="compact"
+        size="circle"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage <= 1}
         aria-label="Go to previous page"
         className="flex items-center gap-1"
       >
         <ArrowIcon direction="left" className="w-4 h-4" />
-        <span className="hidden sm:inline">Previous</span>
+        <span className="hidden">Previous</span>
       </Button>
-
-      {/* First page button */}
-      {showFirstLast && currentPage > 2 && (
-        <Button
-          variant="outline"
-          size="compact"
-          onClick={() => onPageChange(1)}
-          aria-label="Go to first page"
-          className="hidden sm:flex"
-        >
-          1
-        </Button>
-      )}
 
       {/* Page numbers */}
       {visiblePages.map((page, index) => (
@@ -102,7 +101,7 @@ const Pagination: React.FC<PaginationProps> = ({
           ) : (
             <Button
               variant={currentPage === page ? 'default' : 'outline'}
-              size="compact"
+              size="circle"
               onClick={() => handlePageClick(page)}
               aria-label={`Go to page ${page}`}
               aria-current={currentPage === page ? 'page' : undefined}
@@ -113,31 +112,31 @@ const Pagination: React.FC<PaginationProps> = ({
         </React.Fragment>
       ))}
 
-      {/* Last page button */}
-      {showFirstLast && currentPage < totalPages - 1 && (
-        <Button
-          variant="outline"
-          size="compact"
-          onClick={() => onPageChange(totalPages)}
-          aria-label="Go to last page"
-          className="hidden sm:flex"
-        >
-          {totalPages}
-        </Button>
-      )}
-
       {/* Next button */}
       <Button
         variant="outline"
-        size="compact"
+        size="circle"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage >= totalPages}
         aria-label="Go to next page"
         className="flex items-center gap-1"
       >
-        <span className="hidden sm:inline">Next</span>
+        <span className="hidden">Next</span>
         <ArrowIcon direction="right" className="w-4 h-4" />
       </Button>
+
+      {/* Last page button */}
+      {
+        <Button
+          variant="outline"
+          size="circle"
+          onClick={() => onPageChange(totalPages)}
+          aria-label="Go to last page"
+          className={showFirstLast && currentPage < totalPages - 1 ? 'opacity-40' : 'opacity-100'}
+        >
+          {totalPages}
+        </Button>
+      }
     </nav>
   );
 };

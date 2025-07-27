@@ -10,74 +10,6 @@
     "description": "Fresh Calabrese broccoli, rich in vitamins and fiber. Perfect for healthy meals and salads. Grown organically for maximum nutrition and taste. Try it steamed, roasted, or raw for a crunchy snack."
   },
   {
-    "id": 5,
-    "category": "Fruits",
-    "title": "Banana",
-    "price": 14.0,
-    "oldPrice": 20.0,
-    "imageName": "Banana.webp",
-    "isOutOfStock": false,
-    "rating": 5,
-    "description": "Sweet organic bananas, full of potassium and energy. Great for snacks, smoothies, or baking. A favorite for kids and adults alike!",
-    "isNew": true
-  },
-  {
-    "id": 15,
-    "category": "Nuts",
-    "title": "White Hazelnut",
-    "price": 18.0,
-    "imageName": "White_Hazelnut.webp",
-    "rating": 5,
-    "description": "Delicate white hazelnuts, perfect for baking or healthy snacking. Enjoy their subtle flavor and crunch in your favorite recipes or as a nutritious snack on the go.",
-    "isNew": true
-  },
-  {
-    "id": 14,
-    "category": "Vegetable",
-    "title": "Tomato",
-    "price": 9.5,
-    "imageName": "Tomato.webp",
-    "rating": 4,
-    "description": "Juicy organic tomatoes, ideal for salads, sauces, and sandwiches. Sun-ripened for maximum flavor and freshness."
-  },
-  {
-    "id": 10,
-    "category": "Vegetable",
-    "title": "Mung Bean",
-    "price": 11.0,
-    "imageName": "Mung_Bean.webp",
-    "rating": 4,
-    "description": "Nutritious mung beans, high in protein and fiber. Great for soups, curries, and healthy sprouts. A staple in many Asian cuisines."
-  },
-  {
-    "id": 7,
-    "category": "Nuts",
-    "title": "Brown Hazelnut",
-    "price": 12.0,
-    "imageName": "Brown_Hazelnut.webp",
-    "rating": 5,
-    "description": "Crunchy brown hazelnuts, a tasty and healthy snack for any time of day. Add them to your granola, desserts, or enjoy straight from the bag.",
-    "isNew": true
-  },
-  {
-    "id": 8,
-    "category": "Fresh",
-    "title": "Eggs",
-    "price": 17.0,
-    "imageName": "Eggs.webp",
-    "rating": 4,
-    "description": "Farm-fresh organic eggs, rich in protein and essential nutrients. Perfect for breakfast, baking, or any meal. Taste the difference of free-range quality!"
-  },
-  {
-    "id": 13,
-    "category": "Bakery",
-    "title": "Rusk",
-    "price": 10.0,
-    "imageName": "Rusk.webp",
-    "rating": 4,
-    "description": "Crispy bakery rusks, perfect for breakfast or as a crunchy snack. Enjoy with tea, coffee, or as a base for creative appetizers."
-  },
-  {
     "id": 2,
     "category": "Fresh",
     "title": "Fresh",
@@ -109,6 +41,18 @@
     "description": "Crisp green cabbage, great for salads, slaws, and stir-fries. A classic ingredient for coleslaw and fermented dishes like sauerkraut."
   },
   {
+    "id": 5,
+    "category": "Fruits",
+    "title": "Banana",
+    "price": 14.0,
+    "oldPrice": 20.0,
+    "imageName": "Banana.webp",
+    "isOutOfStock": false,
+    "rating": 5,
+    "description": "Sweet organic bananas, full of potassium and energy. Great for snacks, smoothies, or baking. A favorite for kids and adults alike!",
+    "isNew": true
+  },
+  {
     "id": 6,
     "category": "Vegetable",
     "title": "Bean",
@@ -118,6 +62,25 @@
     "description": "Tender green beans, full of flavor and nutrients. Steam, sauté, or roast for a delicious side dish."
   },
   {
+    "id": 7,
+    "category": "Nuts",
+    "title": "Brown Hazelnut",
+    "price": 12.0,
+    "imageName": "Brown_Hazelnut.webp",
+    "rating": 5,
+    "description": "Crunchy brown hazelnuts, a tasty and healthy snack for any time of day. Add them to your granola, desserts, or enjoy straight from the bag.",
+    "isNew": true
+  },
+  {
+    "id": 8,
+    "category": "Fresh",
+    "title": "Eggs",
+    "price": 17.0,
+    "imageName": "Eggs.webp",
+    "rating": 4,
+    "description": "Farm-fresh organic eggs, rich in protein and essential nutrients. Perfect for breakfast, baking, or any meal. Taste the difference of free-range quality!"
+  },
+  {
     "id": 9,
     "category": "Nuts",
     "title": "Hazelnut",
@@ -125,6 +88,15 @@
     "imageName": "Hazelnut.webp",
     "rating": 4,
     "description": "Classic hazelnuts, delicious in desserts or as a wholesome snack. Try them in chocolate spreads, pastries, or enjoy on their own."
+  },
+  {
+    "id": 10,
+    "category": "Vegetable",
+    "title": "Mung Bean",
+    "price": 11.0,
+    "imageName": "Mung_Bean.webp",
+    "rating": 4,
+    "description": "Nutritious mung beans, high in protein and fiber. Great for soups, curries, and healthy sprouts. A staple in many Asian cuisines."
   },
   {
     "id": 11,
@@ -143,5 +115,33 @@
     "imageName": "Onion.webp",
     "rating": 3,
     "description": "Fresh organic onions, essential for adding flavor to any dish. Mild and sweet, they are perfect for salads, soups, and sautés."
+  },
+  {
+    "id": 13,
+    "category": "Bakery",
+    "title": "Rusk",
+    "price": 10.0,
+    "imageName": "Rusk.webp",
+    "rating": 4,
+    "description": "Crispy bakery rusks, perfect for breakfast or as a crunchy snack. Enjoy with tea, coffee, or as a base for creative appetizers."
+  },
+  {
+    "id": 14,
+    "category": "Vegetable",
+    "title": "Tomato",
+    "price": 9.5,
+    "imageName": "Tomato.webp",
+    "rating": 4,
+    "description": "Juicy organic tomatoes, ideal for salads, sauces, and sandwiches. Sun-ripened for maximum flavor and freshness."
+  },
+  {
+    "id": 15,
+    "category": "Nuts",
+    "title": "White Hazelnut",
+    "price": 18.0,
+    "imageName": "White_Hazelnut.webp",
+    "rating": 5,
+    "description": "Delicate white hazelnuts, perfect for baking or healthy snacking. Enjoy their subtle flavor and crunch in your favorite recipes or as a nutritious snack on the go.",
+    "isNew": true
   }
 ]

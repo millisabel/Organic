@@ -18,7 +18,7 @@ import { forwardRef, useCallback, useEffect, useState } from 'react';
 import type { ShopSectionProps } from './types';
 
 const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
-  ({ products, itemsPerPage = 8, loadMoreItems = 8, ...props }) => {
+  ({ products, itemsPerPage = 4, loadMoreItems = 4, ...props }) => {
     // All hooks must be at the top - no regular variables between hooks
     const { sectionRef, paramValue } = usePageScroll({
       paramName: 'category',
@@ -71,6 +71,7 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
     };
 
     const handlePageChange = (pageNumber: number) => {
+      console.log('currentPage', currentPage);
       const newProducts = sortedProducts.slice(
         (pageNumber - 1) * itemsPerPage,
         pageNumber * itemsPerPage,
