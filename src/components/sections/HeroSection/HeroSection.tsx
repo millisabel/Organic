@@ -6,7 +6,7 @@ import { heroVariants } from './variants';
 
 const HeroSection = ({ variant = 'home', title, subtitle, ...props }: HeroProps) => {
   return (
-    <Section dataComponent="HeroSection" className={heroVariants({ variant })} {...props}>
+    <Section dataComponent="hero" className={heroVariants({ variant })} {...props}>
       {(title || subtitle) && (
         <SectionHeader
           title={title}
