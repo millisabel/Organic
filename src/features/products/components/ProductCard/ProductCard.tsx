@@ -7,7 +7,7 @@ import type { ProductCardProps } from './types';
 import ProductCardCompact from './view/ProductCardCompact';
 import ProductCardDetailed from './view/ProductCardDetailed';
 
-const ProductCard = ({ data, view = 'compact' }: ProductCardProps) => {
+const ProductCard = ({ data, view = 'compact', isAction = true }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const { handleAddToCart, handleRemoveFromCart } = useCartActions();
   const { navigateToCategory } = useCategoryNavigation();
@@ -52,7 +52,7 @@ const ProductCard = ({ data, view = 'compact' }: ProductCardProps) => {
   };
 
   return view === 'compact' ? (
-    <ProductCardCompact {...commonProps} />
+    <ProductCardCompact {...commonProps} isAction={isAction} />
   ) : (
     <ProductCardDetailed {...commonProps} quantity={quantity} setQuantity={setQuantity} />
   );

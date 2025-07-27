@@ -24,6 +24,7 @@ const ReviewCard = ({ data }: ReviewCardProps) => {
           alt={name}
           folder="customers"
           className="w-[115px] h-[115px] rounded-full"
+          imageClassName="h-full w-full object-cover"
         />
         <Rating rating={rating} />
       </CardHeader>

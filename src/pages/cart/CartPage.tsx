@@ -21,7 +21,7 @@ const CartPage = () => {
     dispatch(removeItem(id));
   };
   return (
-    <Section>
+    <Section id="cart" dataComponent="CartPage">
       <Title
         children="Shopping Cart"
         variant="sectionTitle"

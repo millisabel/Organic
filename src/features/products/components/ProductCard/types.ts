@@ -4,6 +4,7 @@ import type { ProductCardData } from '@/features/products/model';
 export interface ProductCardProps extends CardProps {
   data: ProductCardData;
   view?: 'compact' | 'detailed';
+  isAction?: boolean;
 }
 
 export interface ProductCardCommonProps {
@@ -19,7 +20,9 @@ export interface ProductCardCommonProps {
   handleQuantityChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export interface ProductCardCompactProps extends ProductCardCommonProps {}
+export interface ProductCardCompactProps extends ProductCardCommonProps {
+  isAction: boolean;
+}
 
 export interface ProductCardDetailedProps extends ProductCardCommonProps {
   quantity: number;

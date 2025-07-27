@@ -1,16 +1,22 @@
 import { getImageUrl } from '@/utils/helpers';
 import { Link } from 'react-router-dom';
 import type { CartProductInfoProps } from './types';
+import { useScrollToElement } from '@/hooks';
 
 const CartProductInfo = ({ item }: CartProductInfoProps) => {
+  const { scrollToElement } = useScrollToElement({ delay: 300 });
+  const handleClick = () => {
+    scrollToElement('[id="product"]');
+  };
   const imageUrl = getImageUrl('products', item.imageName as string);
 
   return (
     <Link
-      to={`product/${item.id}`}
+      to={`/shop/${item.id}`}
       className="flex items-center gap-4 group"
       tabIndex={0}
       aria-label={`Go to ${item.title} page`}
+      onClick={handleClick}
     >
       <img
         src={imageUrl}

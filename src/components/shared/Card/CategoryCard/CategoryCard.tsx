@@ -6,11 +6,21 @@ import CardHeader from '@/components/ui/Card/components/CardHeader';
 import CardContent from '@/components/ui/Card/components/CardContent';
 import Image from '@/components/ui/Image';
 import Title from '@/components/ui/Typography/Title';
+import { useScrollToElement } from '@/hooks';
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ data }) => {
+  const { scrollToElement } = useScrollToElement({ delay: 300 });
+  const handleClick = () => {
+    scrollToElement('[id="shop"]');
+  };
   const { name, imageUrl } = data;
   return (
-    <Link to={`/shop?category=${name}`} data-component="CategoryCard" className="w-full">
+    <Link
+      to={`/shop?category=${name}`}
+      data-component="CategoryCard"
+      className="w-full"
+      onClick={handleClick}
+    >
       <Card nameComponent="CategoryCard" variant="notShadow" className="group bg-transparent">
         <CardHeader className="overflow-hidden p-2 group-hover:rounded-[150px] transition-all duration-500 will-change-rounded">
           <Image

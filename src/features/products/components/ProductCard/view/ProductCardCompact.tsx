@@ -20,13 +20,14 @@ const ProductCardCompact = ({
   isSale,
   isOutOfStock,
   isNew,
+  isAction,
   handleRemoveClick,
   handleAddToCartClick,
   handleCategoryClick,
   handleQuantityChange,
 }: ProductCardCompactProps) => {
   const navigate = useNavigate();
-  const { scrollToElement } = useScrollToElement({ delay: 100 });
+  const { scrollToElement } = useScrollToElement({ delay: 300 });
 
   const handleCardClick = () => {
     navigate(`/shop/${data.id}`);
@@ -76,18 +77,20 @@ const ProductCardCompact = ({
           <Rating rating={data.rating} />
         </div>
       </CardContent>
-      <CardFooter className="p-5">
-        <ActionsBlock
-          mode="compact"
-          id={data.id}
-          isInCart={isInCart}
-          isLoading={isLoading}
-          isOutOfStock={isOutOfStock}
-          handleAddToCartClick={handleAddToCartClick}
-          handleRemoveClick={handleRemoveClick}
-          handleQuantityChange={handleQuantityChange}
-        />
-      </CardFooter>
+      {isAction && (
+        <CardFooter className="p-5">
+          <ActionsBlock
+            mode="compact"
+            id={data.id}
+            isInCart={isInCart}
+            isLoading={isLoading}
+            isOutOfStock={isOutOfStock}
+            handleAddToCartClick={handleAddToCartClick}
+            handleRemoveClick={handleRemoveClick}
+            handleQuantityChange={handleQuantityChange}
+          />
+        </CardFooter>
+      )}
     </Card>
   );
 };

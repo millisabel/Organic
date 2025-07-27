@@ -12,7 +12,7 @@ const BuyMoreButton = ({
   className,
   ...props
 }: BuyMoreButtonProps) => {
-  const { scrollToElement } = useScrollToElement({ delay: 200 });
+  const { scrollToElement } = useScrollToElement({ delay: 300 });
 
   const handleClick = () => {
     scrollToElement('[id="product"]');

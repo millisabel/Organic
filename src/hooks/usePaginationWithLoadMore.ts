@@ -1,16 +1,12 @@
-import type { ProductCardData } from '@/features/products/model';
 import { useCallback, useEffect, useState } from 'react';
 
-// Generic type for any data that can be paginated
-type PaginatableData = ProductCardData | any;
-
-interface UsePaginationWithLoadMoreProps<T extends PaginatableData> {
+interface UsePaginationWithLoadMoreProps<T> {
   items: T[];
   itemsPerPage: number;
   loadMoreItems: number;
 }
 
-interface UsePaginationWithLoadMoreReturn<T extends PaginatableData> {
+interface UsePaginationWithLoadMoreReturn<T> {
   displayedItems: T[];
   currentPage: number;
   totalDisplayedCount: number;
@@ -22,7 +18,7 @@ interface UsePaginationWithLoadMoreReturn<T extends PaginatableData> {
   resetPagination: () => void;
 }
 
-export const usePaginationWithLoadMore = <T extends PaginatableData>({
+export const usePaginationWithLoadMore = <T>({
   items,
   itemsPerPage,
   loadMoreItems,

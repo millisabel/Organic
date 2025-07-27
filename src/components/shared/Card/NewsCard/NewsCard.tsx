@@ -12,9 +12,15 @@ import Title from '@/components/ui/Typography/Title';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { NewsCardProps } from './types';
+import { useScrollToElement } from '@/hooks';
 
 const NewsCard: React.FC<NewsCardProps> = ({ data, slots = {} }) => {
   const { title, imageUrl, author, date, description, id } = data;
+
+  const { scrollToElement } = useScrollToElement({ delay: 300 });
+  const handleClick = () => {
+    scrollToElement('[data-component="ArticleSection"]');
+  };
 
   return (
     <Card
@@ -49,7 +55,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ data, slots = {} }) => {
         </Paragraph>
 
         {slots.button || (
-          <Button asChild variant="accent" className="w-auto">
+          <Button asChild variant="accent" className="w-auto" onClick={handleClick}>
             <Link to={`/blog/${id}`}>
               Read More <ArrowIcon variant="arrow" size="md" />
             </Link>

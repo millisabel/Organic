@@ -9,6 +9,7 @@ import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { NewsSectionProps } from './type';
+import { useScrollToElement } from '@/hooks';
 
 const NewsSection = ({
   title,
@@ -22,6 +23,11 @@ const NewsSection = ({
   const isBelowLg = useIsBelowBreakpoint('lg');
   const [filteredNews, setFilteredNews] = useState(data);
   const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollToElement } = useScrollToElement({ delay: 300 });
+  const handleClick = () => {
+    scrollToElement('[data-component="NewsSection"]');
+  };
 
   const handleFilteredDataChange = useCallback((filteredData: typeof data) => {
     setFilteredNews(filteredData);
@@ -37,7 +43,7 @@ const NewsSection = ({
             className="lg:w-1/2 text-center lg:text-left"
           />
           {!isBelowLg && isButton && (
-            <Button asChild>
+            <Button asChild onClick={handleClick}>
               <Link to="/blog">
                 More News <ArrowIcon variant="arrow" size="md" />
               </Link>

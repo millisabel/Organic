@@ -8,25 +8,38 @@ import Button from '@/components/ui/Button';
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import teams from '@/data/teams.json';
 import type { TeamSectionProps } from './types';
+import { useScrollToElement } from '@/hooks';
 
-const TeamSection = ({ title, subtitle, description }: TeamSectionProps) => {
+const TeamSection = ({
+  title,
+  subtitle,
+  description,
+  isButton = true,
+  itemsDisplay,
+}: TeamSectionProps) => {
+  const { scrollToElement } = useScrollToElement({ delay: 300 });
+  const handleClick = () => {
+    scrollToElement('[id="team"]');
+  };
   return (
-    <Section>
+    <Section id="team" dataComponent="TeamSection">
       <SectionHeader title={title} subtitle={subtitle} className="text-center" />
       <Paragraph className="text-center w-full sm:w-1/2 mx-auto mb-10" children={description} />
       <UiList
         variant="gridCol_lg_3"
         items={teams}
         renderItem={(item, idx) => <TeamCard key={idx} data={item} />}
-        itemsDisplay={3}
+        itemsDisplay={itemsDisplay}
         className="mb-20"
       />
-      <Button asChild variant="default" size="default" className="mx-auto">
-        <Link to="/team">
-          Out Team{' '}
-          <ArrowIcon className="w-4 h-4" direction="right" variant="default" size="default" />
-        </Link>
-      </Button>
+      {isButton && (
+        <Button asChild variant="default" size="default" className="mx-auto" onClick={handleClick}>
+          <Link to="/team">
+            Out Team{' '}
+            <ArrowIcon className="w-4 h-4" direction="right" variant="default" size="default" />
+          </Link>
+        </Button>
+      )}
     </Section>
   );
 };

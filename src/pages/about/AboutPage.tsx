@@ -26,6 +26,7 @@ const AboutPage = () => {
         title="Our Team"
         subtitle="About Us"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        itemsDisplay={3}
       />
       <CategoriesSection
         title="What We Offer for You"

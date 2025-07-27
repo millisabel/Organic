@@ -23,7 +23,7 @@ const OfferSection = ({ title, subtitle, products, className }: OfferSectionProp
         items={products}
         className="gap-6"
         renderItem={(item, idx) => (
-          <ProductCard key={idx} data={item as unknown as ProductCardData} />
+          <ProductCard key={idx} data={item as unknown as ProductCardData} isAction={false} />
         )}
         itemsDisplay={4}
       />

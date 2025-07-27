@@ -12,19 +12,14 @@ export const useScrollToElement = (options: UseScrollToElementOptions = {}) => {
 
   const scrollToElement = useCallback(
     (selector: string) => {
-      console.log(`Attempting to scroll to element: ${selector}`);
       setTimeout(() => {
         const element = document.querySelector(selector) as HTMLElement;
-        console.log(`Found element:`, element);
         if (element) {
           element.scrollIntoView({
             behavior,
             block,
             inline,
           });
-          console.log(`Scrolled to element: ${selector}`);
-        } else {
-          console.warn(`Element not found: ${selector}`);
         }
       }, delay);
     },

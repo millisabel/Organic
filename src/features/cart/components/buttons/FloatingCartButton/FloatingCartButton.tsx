@@ -5,8 +5,13 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { FloatingCartButtonProps } from './types';
+import { useScrollToElement } from '@/hooks';
 
 const FloatingCartButton = ({ count, price, isVisible, ...props }: FloatingCartButtonProps) => {
+  const { scrollToElement } = useScrollToElement({ delay: 300 });
+  const handleClick = () => {
+    scrollToElement('[id="cart"]');
+  };
   // Track when items are added to cart for pulse animation
   const [justAdded, setJustAdded] = useState(false);
   const [prevCount, setPrevCount] = useState(count);
@@ -47,6 +52,7 @@ const FloatingCartButton = ({ count, price, isVisible, ...props }: FloatingCartB
               to="cart"
               className="flex items-center"
               style={{ textDecoration: 'none', color: 'inherit' }}
+              onClick={handleClick}
             >
               <span className="relative flex items-center justify-center">
                 <motion.div

@@ -4,6 +4,7 @@ import Button from '@/components/ui/Button/Button';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { GoToCartButtonProps } from '.';
+import { useScrollToElement } from '@/hooks';
 
 const GoToCartButton: React.FC<GoToCartButtonProps> = ({
   mode = 'default',
@@ -12,6 +13,12 @@ const GoToCartButton: React.FC<GoToCartButtonProps> = ({
   children,
   ...props
 }) => {
+  const { scrollToElement } = useScrollToElement({ delay: 300 });
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.stopPropagation();
+    scrollToElement('[id="cart"]');
+  };
+
   return (
     <Button
       aria-label="Go to cart"
@@ -20,14 +27,10 @@ const GoToCartButton: React.FC<GoToCartButtonProps> = ({
       variant={variant}
       state={state}
       nameComponent="GoToCartButton"
+      title="Go to cart"
       {...props}
     >
-      <Link
-        to="/cart"
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-      >
+      <Link to="/cart" onClick={handleClick}>
         <>
           {mode === 'compact' && <CartIcon />}
           {mode === 'default' && (
