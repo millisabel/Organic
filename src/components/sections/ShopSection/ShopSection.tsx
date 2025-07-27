@@ -32,7 +32,7 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
     );
     const [displayedProducts, setDisplayedProducts] = useState<ProductCardData[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [isPaginationVisible, setIsPaginationVisible] = useState(true);
+    const [totalDisplayedCount, setTotalDisplayedCount] = useState(0);
 
     const filteredProducts = useProductFiltering(searchedProducts, selectedCategory);
     const sortedProducts = useProductSorting(filteredProducts, currentSort);
@@ -41,7 +41,7 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
     useEffect(() => {
       setDisplayedProducts(sortedProducts.slice(0, itemsPerPage));
       setCurrentPage(1);
-      setIsPaginationVisible(true);
+      setTotalDisplayedCount(itemsPerPage);
     }, [sortedProducts, itemsPerPage]);
 
     // Update selected category when URL parameter changes
@@ -63,28 +63,29 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
 
     const handleLoadMore = () => {
       const newProducts = sortedProducts.slice(
-        displayedProducts.length,
-        displayedProducts.length + loadMoreItems,
+        totalDisplayedCount,
+        totalDisplayedCount + loadMoreItems,
       );
       setDisplayedProducts((prev) => [...prev, ...newProducts]);
-      setIsPaginationVisible(false);
+      setTotalDisplayedCount(totalDisplayedCount + loadMoreItems);
+      setCurrentPage(Math.ceil((totalDisplayedCount + loadMoreItems) / itemsPerPage));
     };
 
     const handlePageChange = (pageNumber: number) => {
-      console.log('currentPage', currentPage);
       const newProducts = sortedProducts.slice(
         (pageNumber - 1) * itemsPerPage,
         pageNumber * itemsPerPage,
       );
       setDisplayedProducts(newProducts);
       setCurrentPage(pageNumber);
-      setIsPaginationVisible(true);
+      setTotalDisplayedCount(pageNumber * itemsPerPage);
       // Scroll to top of section
       sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    const hasMoreProducts = displayedProducts.length < sortedProducts.length;
+    const hasMoreProducts = totalDisplayedCount < sortedProducts.length;
     const totalPages = Math.ceil(sortedProducts.length / itemsPerPage);
+    const remainingProducts = sortedProducts.length - totalDisplayedCount;
 
     return (
       <Section
@@ -120,12 +121,12 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
           {/* Load More Button */}
           {hasMoreProducts && (
             <Button variant="outline" size="default" onClick={handleLoadMore} className="px-8 py-3">
-              Load More ({displayedProducts.length} of {sortedProducts.length})
+              Load More ({totalDisplayedCount} of {sortedProducts.length})
             </Button>
           )}
 
           {/* Pagination */}
-          {isPaginationVisible && totalPages > 1 && (
+          {totalPages > 1 && (
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
@@ -133,6 +134,11 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
               maxVisiblePages={5}
               showFirstLast={true}
             />
+          )}
+
+          {/* Info about remaining products */}
+          {hasMoreProducts && (
+            <div className="text-sm text-gray-600">{remainingProducts} more products available</div>
           )}
         </div>
       </Section>
