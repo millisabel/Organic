@@ -3,8 +3,7 @@ import ContentLayout from '@/components/patterns/ContentLayout';
 import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
 import Button from '@/components/ui/Button';
 import { Paragraph, Title } from '@/components/ui/Typography';
-import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { useRef } from 'react';
+import { useScrollToElement } from '@/hooks';
 import { Link } from 'react-router-dom';
 import type { NotFoundenSectionProps } from '.';
 
@@ -15,23 +14,14 @@ const NotFoundenSection = ({
   text,
   ...props
 }: NotFoundenSectionProps) => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollToTop } = useScrollToTop(sectionRef, {
-    behavior: 'smooth',
-    block: 'start',
-  });
+  const { scrollToElement } = useScrollToElement();
 
   const handleGoToHome = () => {
-    scrollToTop();
+    scrollToElement('[id="hero"]');
   };
 
   return (
-    <Section
-      ref={sectionRef}
-      id="NotFoondenSection"
-      backgroundImageUrl={backgroundImageUrl}
-      {...props}
-    >
+    <Section id="notFoundenSection" backgroundImageUrl={backgroundImageUrl} {...props}>
       <ContentLayout
         variant="flexCol"
         align="center_lg_st"

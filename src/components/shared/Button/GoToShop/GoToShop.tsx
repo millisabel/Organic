@@ -1,5 +1,5 @@
 import Button from '@/components/ui/Button/Button';
-import { useScrollToSection } from '@/hooks';
+import { useScrollToElement } from '@/hooks';
 import { Link, useNavigate } from 'react-router-dom';
 import type { GoToShopProps } from '.';
 import ArrowIcon from '../../Icon/ArrowIcon';
@@ -11,11 +11,12 @@ const GoToShop = ({
   isArrow = true,
   ...props
 }: GoToShopProps) => {
-  const { scrollToSection } = useScrollToSection();
+  const { scrollToElement } = useScrollToElement({ delay: 100 });
   const navigate = useNavigate();
+
   const handleClick = () => {
     navigate(`/shop`);
-    scrollToSection('shop');
+    scrollToElement('[data-component="ShopSection"]');
   };
 
   return (

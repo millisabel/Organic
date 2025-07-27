@@ -11,15 +11,12 @@ import { useProductFiltering } from '@/features/products/hooks/useProductFilteri
 import { useProductSorting } from '@/features/products/hooks/useProductSorting';
 import { useShopSection } from '@/features/products/hooks/useShopSection';
 import type { ProductCardData } from '@/features/products/model';
-import { usePaginationWithLoadMore, useSectionWithScroll } from '@/hooks';
-import { forwardRef, useCallback, useEffect } from 'react';
+import { usePaginationWithLoadMore, useScrollToElement } from '@/hooks';
+import { useCallback, useEffect } from 'react';
 import type { ShopSectionProps } from './types';
 
-const ShopSection = forwardRef<HTMLElement, ShopSectionProps>((props, ref) => {
-  const { products, itemsPerPage, loadMoreItems, ...restProps } = props;
-
-  // Pass ref directly to the hook - it handles everything!
-  const { sectionRef, scrollToTop } = useSectionWithScroll(ref);
+const ShopSection = ({ products, itemsPerPage, loadMoreItems, ...restProps }: ShopSectionProps) => {
+  const { scrollToElement } = useScrollToElement();
 
   // State management hooks
   const {
@@ -40,7 +37,6 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>((props, ref) => {
     totalDisplayedCount,
     hasMoreItems: hasMoreProducts,
     totalPages,
-    remainingItems: remainingProducts,
     handleLoadMore,
     handlePageChange,
     resetPagination,
@@ -57,20 +53,13 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>((props, ref) => {
   const handlePageChangeWithScroll = useCallback(
     (pageNumber: number) => {
       handlePageChange(pageNumber);
-      scrollToTop(); // Hook handles scrolling
+      scrollToElement('[data-component="ShopSection"]');
     },
-    [handlePageChange, scrollToTop],
+    [handlePageChange, scrollToElement],
   );
 
   return (
-    <Section
-      id="shop"
-      ref={sectionRef}
-      paddingY="py-2"
-      className="mb-20"
-      dataComponent="ShopSection"
-      {...restProps}
-    >
+    <Section id="shop" paddingY="py-2" className="mb-20" dataComponent="ShopSection" {...restProps}>
       <ContentLayout variant="flexRow" align="end" className="py-10 px-4 mb-10 rounded-3xl">
         <ProductSorting currentSort={currentSort} onSortChange={handleSortChange} />
         <CategoryFilter
@@ -99,25 +88,16 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>((props, ref) => {
             Load More ({totalDisplayedCount} of {sortedProducts.length})
           </Button>
         )}
-
         {totalPages > 1 && (
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChangeWithScroll}
-            maxVisiblePages={5}
-            showFirstLast={true}
           />
-        )}
-
-        {hasMoreProducts && (
-          <div className="text-sm text-gray-600">{remainingProducts} more products available</div>
         )}
       </div>
     </Section>
   );
-});
-
-ShopSection.displayName = 'ShopSection';
+};
 
 export default ShopSection;
