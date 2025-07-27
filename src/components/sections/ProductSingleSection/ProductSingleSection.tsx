@@ -4,7 +4,7 @@ import type { ProductSingleSectionProps } from './types';
 
 const ProductSingleSection = ({ product, ...props }: ProductSingleSectionProps) => {
   return (
-    <Section id="product" className="pt-10" {...props}>
+    <Section id="product" className="pt-10" {...props} dataComponent="ProductSingleSection">
       <ProductCard data={product} view="detailed" />
     </Section>
   );

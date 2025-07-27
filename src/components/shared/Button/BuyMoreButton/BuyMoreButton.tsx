@@ -9,19 +9,12 @@ const BuyMoreButton = ({
   state = 'default',
   children,
   productId,
-  onBuyMoreClick,
   className,
   ...props
 }: BuyMoreButtonProps) => {
-  const { scrollToElement } = useScrollToElement({ delay: 100 });
+  const { scrollToElement } = useScrollToElement({ delay: 200 });
 
-  const handleClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-
-    if (onBuyMoreClick) {
-      onBuyMoreClick();
-    }
-
+  const handleClick = () => {
     scrollToElement('[id="product"]');
   };
 
