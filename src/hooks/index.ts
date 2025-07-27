@@ -14,6 +14,7 @@ export { useNavigationLinks } from './useNavigationLinks';
 export { useOnClickOutside } from './useOnClickOutside';
 export { usePageScroll } from './usePageScroll';
 export { usePagination } from './usePagination';
+export { usePaginationWithLoadMore } from './usePaginationWithLoadMore';
 export { useScrollToTop } from './useScrollToTop';
 export { useTextAnimation } from './useTextAnimation';
 export { useWindowWidth } from './useWindowWidth';

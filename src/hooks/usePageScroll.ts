@@ -35,7 +35,7 @@ interface UsePageScrollReturn {
   /**
    * Ref to attach to the target section
    */
-  sectionRef: React.RefObject<HTMLElement | null>;
+  sectionRef: React.RefObject<HTMLDivElement | null>;
 
   /**
    * Manual scroll function
@@ -71,7 +71,7 @@ export function usePageScroll({
   scrollOnInitial = true,
 }: UsePageScrollOptions): UsePageScrollReturn {
   const [searchParams] = useSearchParams();
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const paramValue = searchParams.get(paramName);
 
   const { scrollToTop } = useScrollToTop(sectionRef, scrollOptions);
