@@ -1,9 +1,22 @@
+import { store } from '@/store';
 import { getStoryDescription } from '@/utils/storiesHelpers';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import ProductCard from './ProductCard';
 
 export default {
   title: 'Components/Card/Shared/ProductCard',
   component: ProductCard,
+  decorators: [
+    (Story: React.ComponentType) => (
+      <BrowserRouter>
+        <Provider store={store}>
+          <Story />
+        </Provider>
+      </BrowserRouter>
+    ),
+  ],
   parameters: {
     docs: {
       description: {
@@ -30,3 +43,4 @@ const data = {
 };
 
 export const Default = () => <ProductCard data={data} />;
+export const OutOfStock = () => <ProductCard data={data} view="detailed" />;
