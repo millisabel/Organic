@@ -13,6 +13,7 @@ export { useMobileMenu } from './useMobileMenu';
 export { useNavigationLinks } from './useNavigationLinks';
 export { useOnClickOutside } from './useOnClickOutside';
 export { usePageScroll } from './usePageScroll';
+export { usePagination } from './usePagination';
 export { useScrollToTop } from './useScrollToTop';
 export { useTextAnimation } from './useTextAnimation';
 export { useWindowWidth } from './useWindowWidth';

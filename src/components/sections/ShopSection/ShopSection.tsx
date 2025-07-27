@@ -1,6 +1,7 @@
 import Section from '@/components/layout/Section/Section';
 import ContentLayout from '@/components/patterns/ContentLayout';
 import UiList from '@/components/patterns/UiList';
+import Pagination from '@/components/shared/Navigation/Pagination';
 import { SearchWithFilter } from '@/components/shared/SearchWithFilter';
 import CategoryFilter from '@/features/products/components/CategoryFilter/CategoryFilter';
 import ProductCard from '@/features/products/components/ProductCard';
@@ -11,47 +12,47 @@ import {
 } from '@/features/products/hooks/useProductFiltering';
 import { useProductSorting, type SortOption } from '@/features/products/hooks/useProductSorting';
 import type { ProductCardData } from '@/features/products/model';
-import { usePageScroll } from '@/hooks/usePageScroll';
+import { usePageScroll, usePagination } from '@/hooks';
 import { forwardRef, useCallback, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import type { ShopSectionProps } from './types';
 
 const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
-  ({ products, itemsPerPage = 8, ...props }, ref) => {
-    const [currentSort, setCurrentSort] = useState<SortOption>('default');
-    const [searchedProducts, setSearchedProducts] = useState(products);
-
-    // Get category from URL and handle auto-scroll
-    const [searchParams] = useSearchParams();
-    const categoryFromUrl = searchParams.get('category');
-    const initialCategory = categoryFromUrl || 'All Categories';
-
-    const [selectedCategory, setSelectedCategory] = useState<CategoryFilterOption>(initialCategory);
-
-    // Auto-scroll when category parameter changes in URL
-    const { sectionRef } = usePageScroll({
+  ({ products, itemsPerPage = 8, ...props }) => {
+    // All hooks must be at the top - no regular variables between hooks
+    const { sectionRef, paramValue } = usePageScroll({
       paramName: 'category',
       scrollOptions: { behavior: 'smooth', block: 'start' },
       delay: 100,
     });
+    const [currentSort, setCurrentSort] = useState<SortOption>('default');
+    const [searchedProducts, setSearchedProducts] = useState(products);
+    const [selectedCategory, setSelectedCategory] = useState<CategoryFilterOption>(
+      paramValue || 'All Categories',
+    );
+    const filteredProducts = useProductFiltering(searchedProducts, selectedCategory);
+    const sortedProducts = useProductSorting(filteredProducts, currentSort);
+    // Use pagination hook
+    const {
+      currentPage,
+      totalPages,
+      paginatedItems: paginatedProducts,
+      handlePageChange,
+      resetToFirstPage,
+      hasPagination,
+    } = usePagination({
+      items: sortedProducts,
+      itemsPerPage,
+    });
 
-    // Combine refs: forward the ref and use local ref for scroll
-    const combinedRef = (node: HTMLElement | null) => {
-      sectionRef.current = node;
-      if (typeof ref === 'function') {
-        ref(node);
-      } else if (ref) {
-        ref.current = node;
-      }
-    };
+    // Reset to first page when filters change
+    useEffect(() => {
+      resetToFirstPage();
+    }, [selectedCategory, currentSort, searchedProducts, resetToFirstPage]);
 
     // Update selected category when URL parameter changes
     useEffect(() => {
-      setSelectedCategory(initialCategory);
-    }, [initialCategory]);
-
-    const filteredProducts = useProductFiltering(searchedProducts, selectedCategory);
-    const sortedProducts = useProductSorting(filteredProducts, currentSort);
+      setSelectedCategory(paramValue || 'All Categories');
+    }, [paramValue]);
 
     const handleSortChange = (sortOption: SortOption) => {
       setCurrentSort(sortOption);
@@ -65,9 +66,16 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
       setSearchedProducts(filteredData);
     }, []);
 
+    const handlePageChangeWithScroll = (page: number) => {
+      handlePageChange(page, () => {
+        // Scroll to top of section when page changes
+        sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    };
+
     return (
       <Section
-        ref={combinedRef}
+        ref={sectionRef}
         paddingY="py-2"
         className="mb-20"
         dataComponent="ShopSection"
@@ -90,11 +98,23 @@ const ShopSection = forwardRef<HTMLElement, ShopSectionProps>(
 
         <UiList
           variant="gridCol_sm_2_lg_4"
-          items={sortedProducts}
-          className="gap-6 mb-20"
+          items={paginatedProducts}
+          className="gap-6 mb-10"
           renderItem={(item: ProductCardData) => <ProductCard key={item.id} data={item} />}
-          itemsDisplay={itemsPerPage}
         />
+
+        {/* Pagination */}
+        {hasPagination && (
+          <div className="flex justify-center mt-10">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChangeWithScroll}
+              maxVisiblePages={5}
+              showFirstLast={true}
+            />
+          </div>
+        )}
       </Section>
     );
   },
