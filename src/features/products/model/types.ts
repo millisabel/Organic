@@ -9,6 +9,10 @@ export interface ProductCardData {
   rating: number;
   isOutOfStock?: boolean;
   isNew?: boolean;
+  imageSize: {
+    width: number;
+    height: number;
+  };
   [key: string]: unknown;
 }
 

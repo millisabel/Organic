@@ -21,6 +21,10 @@ const AboutPage = () => {
         className="bg-background"
         features={features}
         image="about_about.webp"
+        imageSize={{
+          width: 978,
+          height: 675,
+        }}
       />
       <TeamSection
         title="Our Team"

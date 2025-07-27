@@ -10,7 +10,7 @@ import Title from '@/components/ui/Typography/Title';
 import { cn } from '@/utils/helpers';
 
 const ReviewCard = ({ data }: ReviewCardProps) => {
-  const { name, job, text, rating, image } = data;
+  const { name, job, text, rating, image, imageSize } = data;
 
   return (
     <Card
@@ -25,6 +25,8 @@ const ReviewCard = ({ data }: ReviewCardProps) => {
           folder="customers"
           className="w-[115px] h-[115px] rounded-full"
           imageClassName="h-full w-full object-cover"
+          width={imageSize?.width || 200}
+          height={imageSize?.height || 200}
         />
         <Rating rating={rating} />
       </CardHeader>

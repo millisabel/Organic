@@ -19,10 +19,10 @@ const ProductCardDetailed = ({
   isInCart,
   isLoading,
   quantity,
-  setQuantity,
   handleAddToCartClick,
   handleCategoryClick,
   handleRemoveClick,
+  handleQuantityChange,
 }: ProductCardDetailedProps) => {
   return (
     <Card
@@ -36,6 +36,8 @@ const ProductCardDetailed = ({
         folder="products"
         className="bg-background rounded-3xl p-6 m-auto h-auto max-w-[300px] lg:max-w-none"
         imageClassName="object-scale-down aspect-square"
+        width={data.imageSize?.width || 300}
+        height={data.imageSize?.height || 300}
       />
 
       <div className="lg:col-span-2 flex-1 flex flex-col gap-10 justify-between items-start p-5">
@@ -67,18 +69,16 @@ const ProductCardDetailed = ({
         <CardContent className="items-start justify-start mb-10">
           <p>{data.description}</p>
         </CardContent>
-        <CardFooter className="flex-col md:flex-row justify-end items-center gap-8 md:ml-auto w-full">
+        <CardFooter className="w-full">
           <ActionsBlock
-            mode="detailed"
-            quantity={quantity}
             isInCart={isInCart}
             isLoading={isLoading}
             isOutOfStock={isOutOfStock}
+            quantity={quantity}
+            handleQuantityChange={handleQuantityChange}
             handleAddToCartClick={handleAddToCartClick}
             handleRemoveClick={handleRemoveClick}
-            handleQuantityChange={(e) =>
-              setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1))
-            }
+            mode="detailed"
           />
         </CardFooter>
       </div>

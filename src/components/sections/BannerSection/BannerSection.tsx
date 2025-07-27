@@ -18,6 +18,10 @@ const banners: BannerCardProps[] = [
       'Fast delivery',
     ],
     titleColor: 'text-primary',
+    imageSize: {
+      width: 683,
+      height: 367,
+    },
   },
   {
     imageUrl: 'banner_2.webp',
@@ -31,6 +35,10 @@ const banners: BannerCardProps[] = [
       'Eco-friendly farming',
       'Special weekly offers',
     ],
+    imageSize: {
+      width: 683,
+      height: 367,
+    },
   },
 ];
 

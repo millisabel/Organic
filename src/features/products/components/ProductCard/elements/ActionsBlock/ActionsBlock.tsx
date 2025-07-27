@@ -11,13 +11,13 @@ const ActionsBlock = ({
   mode = 'compact',
   id,
   quantity,
-  handleQuantityChange,
-  handleAddToCartClick,
   isOutOfStock,
   isInCart,
   isLoading,
-  handleRemoveClick,
   className,
+  handleQuantityChange,
+  handleAddToCartClick,
+  handleRemoveClick,
 }: ActionsBlockProps) => {
   // Compact mode
   if (mode === 'compact') {
@@ -53,11 +53,12 @@ const ActionsBlock = ({
         name="quantity"
         className="flex flex-row justify-between md:justify-start items-center gap-4 w-full"
       >
-        <Label htmlFor="quantity" className="text-lg text-primary font-bold">
+        <Label htmlFor={`quantity-${id}`} className="text-lg text-primary font-bold">
           Quantity:
         </Label>
         <Input
-          id="quantity"
+          id={`quantity-${id}`}
+          name={`quantity-${id}`}
           type="number"
           value={quantity}
           min={1}

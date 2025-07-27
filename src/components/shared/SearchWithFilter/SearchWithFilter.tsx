@@ -39,9 +39,11 @@ const SearchWithFilter = <T extends Record<string, unknown>>({
     handleFilteredDataChange(filteredData);
   }, [filteredData, handleFilteredDataChange]);
 
+  const searchId = id || `search-${Math.random().toString(36).substr(2, 9)}`;
+
   return (
     <Search
-      id={id}
+      id={searchId}
       placeholder={placeholder}
       value={searchTerm}
       onChange={handleSearchChange}

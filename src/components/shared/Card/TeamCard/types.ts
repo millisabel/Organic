@@ -6,6 +6,10 @@ export interface TeamMemberData {
   role: string;
   image: string;
   socials: { facebook?: string; instagram?: string; twitter?: string };
+  imageSize: {
+    width: number;
+    height: number;
+  };
 }
 
 export interface TeamCardProps extends CardProps {

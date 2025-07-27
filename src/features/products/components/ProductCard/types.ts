@@ -17,7 +17,6 @@ export interface ProductCardCommonProps {
   handleAddToCartClick: (e: React.MouseEvent) => void;
   handleRemoveClick: (e: React.MouseEvent) => void;
   handleCategoryClick: () => void;
-  handleQuantityChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface ProductCardCompactProps extends ProductCardCommonProps {
@@ -26,5 +25,5 @@ export interface ProductCardCompactProps extends ProductCardCommonProps {
 
 export interface ProductCardDetailedProps extends ProductCardCommonProps {
   quantity: number;
-  setQuantity: (quantity: number) => void;
+  handleQuantityChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

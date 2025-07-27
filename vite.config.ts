@@ -4,8 +4,8 @@ import path from 'path';
 import { defineConfig } from 'vitest/config';
 
 // https://vitejs.dev/config/
-import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+import { fileURLToPath } from 'node:url';
 const dirname =
   typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
@@ -13,6 +13,26 @@ const dirname =
 export default defineConfig({
   base: process.env.VITE_BASENAME ? `${process.env.VITE_BASENAME}/` : '/',
   plugins: [react()],
+  build: {
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          redux: ['@reduxjs/toolkit', 'react-redux'],
+          ui: ['framer-motion', 'swiper'],
+        },
+      },
+    },
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

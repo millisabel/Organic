@@ -5,7 +5,7 @@ import { useState } from 'react';
 import type { BannerCardProps } from './types';
 import List from '@/components/ui/Typography/List';
 import Title from '@/components/ui/Typography/Title';
-import GoToShop from '../../Button/GoToShop/GoToShop';
+import GoToShop from '@/components/shared/Button/GoToShop/GoToShop';
 
 const BannerCard = ({
   flipDirection = 'right',
@@ -14,6 +14,7 @@ const BannerCard = ({
   subtitle,
   backFeatures,
   titleColor = 'text-white',
+  imageSize,
 }: BannerCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const isMobile = useIsBelowBreakpoint('md');
@@ -72,7 +73,9 @@ const BannerCard = ({
       <div style={faceStyle}>
         <div
           className="w-full h-full flex flex-col lg:flex-row items-center justify-center p-12 bg-cover bg-center rounded-[20px]"
-          style={{ backgroundImage: `url(${image})` }}
+          style={{
+            backgroundImage: `url(${image})`,
+          }}
         >
           <div className="flex flex-col gap-4 items-center lg:items-start w-full lg:w-1/2">
             <Title

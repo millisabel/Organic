@@ -1,14 +1,13 @@
 import type { SectionProps } from '@/components/layout/Section/types';
+import type { FeatureDataProps } from '@/components/shared/ContentBlocks/InfoBlock/types';
 
 export interface AboutSectionProps extends Omit<SectionProps, 'children'> {
   variant?: 'home' | 'about';
   description: string | string[];
-  features: FeatureProps[];
+  features: FeatureDataProps[];
   image: string;
-}
-
-export interface FeatureProps {
-  title: string;
-  description: string;
-  icon: string;
+  imageSize?: {
+    width: number;
+    height: number;
+  };
 }

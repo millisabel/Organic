@@ -35,6 +35,7 @@ const Search = forwardRef<HTMLInputElement, SearchProps>(
           value={value}
           onChange={handleChange}
           ref={ref}
+          autoComplete="off"
           aria-label={ariaLabel || 'Search'}
         />
       </div>

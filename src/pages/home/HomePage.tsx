@@ -26,11 +26,26 @@ import hero_bg from '@/assets/images/backgrounds/hero_home.webp';
 import testimonial_bg from '@/assets/images/backgrounds/testimonial_home.webp';
 import who_we_image from '@/assets/images/backgrounds/who_we_home.webp';
 import type { ProductCardData } from '@/features/products/model';
+import { useEffect } from 'react';
 
 const HomePage = () => {
   const isBelowLg = useIsBelowBreakpoint('lg');
   const isBelowXl = useIsBelowBreakpoint('xl');
   const filteredProducts = productsData.filter((product) => product.isOutOfStock !== true);
+
+  // Preload hero image for home page
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = hero_bg;
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+
   return (
     <>
       <HeroSection
@@ -49,6 +64,10 @@ const HomePage = () => {
         className="bg-background"
         features={features}
         image="about_home.webp"
+        imageSize={{
+          width: 911,
+          height: 867,
+        }}
       />
       <ProductSection
         title="Our Products"

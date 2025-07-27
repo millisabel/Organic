@@ -11,7 +11,7 @@ import type { TeamCardProps } from './types';
 import { cn } from '@/utils/helpers';
 
 const TeamCard = ({ data, className }: TeamCardProps) => {
-  const { name, role, image, socials } = data;
+  const { name, role, image, socials, imageSize } = data;
   const socialItems = Object.entries(socials).map(([socialType, href]) => ({
     socialType: socialType as SocialType,
     href,
@@ -30,7 +30,13 @@ const TeamCard = ({ data, className }: TeamCardProps) => {
       className={cn('max-w-[450px] min-h-[500px]', className)}
     >
       <CardHeader className="h-full">
-        <Image src={image} alt={name} folder="teams" />
+        <Image
+          src={image}
+          alt={name}
+          folder="teams"
+          width={imageSize?.width || 450}
+          height={imageSize?.height || 485}
+        />
       </CardHeader>
       <div className="flex flex-row justify-between py-9 px-7">
         <CardContent className="items-start mb-10">

@@ -5,7 +5,11 @@
     "text": "I've been shopping here for over a year now and I'm absolutely in love with their organic fruits! The strawberries are always sweet and juicy, and the avocados are perfectly ripe. The delivery is always on time and the packaging is eco-friendly. Highly recommend!",
     "image": "Sara_Taylor.webp",
     "job": "Nutritionist",
-    "rating": 5
+    "rating": 5,
+    "imageSize": {
+      "width": 300,
+      "height": 300
+    }
   },
   {
     "id": 2,
@@ -13,7 +17,11 @@
     "text": "As someone who's very conscious about what I eat, this store has been a game-changer. Their organic vegetables are fresh, pesticide-free, and taste amazing. The prices are reasonable for organic produce, and the customer service is exceptional.",
     "image": "Jane_Doe.webp",
     "job": "Fitness Trainer",
-    "rating": 5
+    "rating": 5,
+    "imageSize": {
+      "width": 300,
+      "height": 300
+    }
   },
   {
     "id": 3,
@@ -21,7 +29,11 @@
     "text": "I was skeptical about organic food being worth the extra cost, but after trying their products, I'm a believer! The difference in taste is incredible. My kids actually eat vegetables now because they taste so much better. The quality is consistently excellent.",
     "image": "Sarah_Johnson.webp",
     "job": "Stay-at-Home Mom",
-    "rating": 4
+    "rating": 4,
+    "imageSize": {
+      "width": 300,
+      "height": 300
+    }
   },
   {
     "id": 4,
@@ -29,7 +41,11 @@
     "text": "Great selection of organic products, but sometimes the delivery takes longer than expected. The fruits and vegetables are always fresh and the meat products are high quality. Would give 5 stars if delivery was more reliable.",
     "image": "Michael_Brown.webp",
     "job": "Chef",
-    "rating": 4
+    "rating": 4,
+    "imageSize": {
+      "width": 300,
+      "height": 300
+    }
   },
   {
     "id": 5,
@@ -37,7 +53,11 @@
     "text": "I love how transparent this store is about their sourcing. You can trace every product back to its farm. The organic nuts and dried fruits are my favorite - they're so much better than conventional ones. The website is easy to navigate too!",
     "image": "Emily_Davis.webp",
     "job": "Health Coach",
-    "rating": 5
+    "rating": 5,
+    "imageSize": {
+      "width": 300,
+      "height": 300
+    }
   },
   {
     "id": 6,
@@ -45,7 +65,11 @@
     "text": "Been ordering from here for 6 months and I'm impressed with the consistency. The organic milk and eggs are always fresh, and the bread selection is fantastic. The only downside is that some items sell out quickly, but that's a good sign of quality!",
     "image": "Sara_Taylor.webp",
     "job": "Retired Teacher",
-    "rating": 4
+    "rating": 4,
+    "imageSize": {
+      "width": 300,
+      "height": 300
+    }
   },
   {
     "id": 7,
@@ -53,7 +77,11 @@
     "text": "This store has completely changed my approach to cooking. The organic herbs and spices are incredibly flavorful, and the seasonal produce is always at its peak. The staff is knowledgeable and helpful with recipe suggestions.",
     "image": "Jane_Doe.webp",
     "job": "Food Blogger",
-    "rating": 5
+    "rating": 5,
+    "imageSize": {
+      "width": 300,
+      "height": 300
+    }
   },
   {
     "id": 8,
@@ -61,6 +89,10 @@
     "text": "I appreciate that they support local farmers and have a good variety of seasonal products. The organic honey is amazing, and the fresh juices are delicious. However, I wish they had more international organic products.",
     "image": "Sarah_Johnson.webp",
     "job": "Restaurant Owner",
-    "rating": 4
+    "rating": 4,
+    "imageSize": {
+      "width": 300,
+      "height": 300
+    }
   }
 ]

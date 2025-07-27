@@ -7,6 +7,10 @@ export interface ReviewCardData {
   text: string;
   rating: number;
   image: string;
+  imageSize: {
+    width: number;
+    height: number;
+  };
   [key: string]: unknown;
 }
 

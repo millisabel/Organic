@@ -7,6 +7,7 @@ import InfoBlock from '@/components/shared/ContentBlocks/InfoBlock/InfoBlock';
 import Image from '@/components/ui/Image';
 import { Paragraph } from '@/components/ui/Typography';
 import { useContactData } from '@/hooks/useContactData';
+import type { FeatureDataProps } from '@/components/shared/ContentBlocks/InfoBlock/types';
 import type { ContactSectionProps } from './types';
 
 const ContactSection = ({ title, description }: ContactSectionProps) => {
@@ -21,6 +22,8 @@ const ContactSection = ({ title, description }: ContactSectionProps) => {
           src="contact.webp"
           alt={title}
           className="flex justify-center rounded-2xl overflow-hidden"
+          width={623}
+          height={640}
         />
         <div className="flex flex-col items-center lg:items-start gap-y-6 lg:pl-4">
           <SectionHeader title={title} className="mb-2 text-center lg:text-left" />
@@ -41,9 +44,7 @@ const ContactSection = ({ title, description }: ContactSectionProps) => {
                   className="w-full block transition-transform duration-200 hover:scale-105 focus:scale-105"
                 >
                   <InfoBlock
-                    iconSrc={item.icon}
-                    title={item.title}
-                    description={item.href}
+                    item={item as unknown as FeatureDataProps}
                     className="rounded-2xl px-4 py-2 shadow-lg border border-gray-200 hover:border-primary hover:shadow-2xl transition-all duration-300"
                   />
                 </a>

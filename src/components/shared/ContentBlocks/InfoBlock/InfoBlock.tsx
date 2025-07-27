@@ -12,17 +12,15 @@ const baseStyles = {
   description: 'text-center sm:text-left font-opensans text-base text-text',
 };
 
-const InfoBlock: React.FC<InfoBlockProps> = ({ iconSrc, title, description, className }) => {
-  if (!iconSrc && !title && !description) {
-    return null;
-  }
+const InfoBlock: React.FC<InfoBlockProps> = ({ item, className }) => {
+  const { icon, title, description } = item;
 
   return (
     <div className={cn(baseStyles.container, className)} data-component="InfoBlock">
-      {iconSrc && (
+      {icon && (
         <div className={baseStyles.icon} role="presentation">
           <Image
-            src={iconSrc}
+            src={icon}
             folder="ico"
             alt=""
             aria-hidden={true}

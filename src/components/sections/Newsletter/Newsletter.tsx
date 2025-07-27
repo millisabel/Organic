@@ -3,6 +3,7 @@ import Layout from '@/components/patterns/ContentLayout';
 import CloseButton from '@/components/shared/Button/CloseButton/CloseButton';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Form/Input';
+import Label from '@/components/ui/Form/Label';
 import Title from '@/components/ui/Typography/Title';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
@@ -40,12 +41,16 @@ const Newsletter = ({ title, onSubmit, ...props }: NewsletterProps) => {
                   </div>
                 ) : null}
                 <div className="relative">
+                  <Label htmlFor="email-newsletter" variant="hidden">
+                    Email Address
+                  </Label>
                   <Field
                     as={Input}
                     id="email-newsletter"
                     name="email"
                     type="email"
                     placeholder="Your Email Address"
+                    autoComplete="email"
                     className="p-4 rounded-xl text-2xl placeholder:italic placeholder:text-2xl pr-12"
                   />
                   {values.email && (

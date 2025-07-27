@@ -1,11 +1,11 @@
 import Section from '@/components/layout/Section/Section';
 import SectionHeader from '@/components/layout/Section/SectionHeader';
 import ContentLayout from '@/components/patterns/ContentLayout';
-import { Paragraph } from '@/components/ui/Typography';
-import type { LocationsSectionProps } from './types';
-import { useContactData } from '@/hooks/useContactData';
 import UiList from '@/components/patterns/UiList';
 import InfoBlock from '@/components/shared/ContentBlocks/InfoBlock/InfoBlock';
+import { Paragraph } from '@/components/ui/Typography';
+import { useContactData } from '@/hooks/useContactData';
+import type { LocationsSectionProps } from './types';
 
 const LocationsSection = ({
   title,
@@ -41,9 +41,11 @@ const LocationsSection = ({
                   className="block transition-transform duration-200 hover:scale-105 focus:scale-105"
                 >
                   <InfoBlock
-                    iconSrc={item.icon}
-                    title={item.title}
-                    description={item.text}
+                    item={{
+                      icon: item.icon || '',
+                      title: item.title || item.text || '',
+                      description: item.text || '',
+                    }}
                     className="rounded-2xl px-4 py-2 hover:outline hover:outline-secondary hover:shadow-2xl transition-all duration-300"
                   />
                 </a>

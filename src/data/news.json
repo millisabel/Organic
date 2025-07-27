@@ -7,6 +7,10 @@
     "description": "Learn why vitamin D is essential for your health and discover natural ways to increase your daily intake.",
     "imageUrl": "news_1.webp",
     "intro": "Vitamin D plays a crucial role in maintaining healthy bones and supporting your immune system. Many people are unaware of how to naturally boost their vitamin D levels.",
+    "imageSize": {
+      "width": 677,
+      "height": 524
+    },
     "content": [
       {
         "type": "paragraph",
@@ -45,6 +49,10 @@
     "description": "Find out what makes summertime tomatoes so special and how to enjoy them in your seasonal recipes.",
     "imageUrl": "news_2.webp",
     "intro": "Summertime tomatoes are bursting with flavor and nutrients, making them a staple in many fresh and healthy recipes.",
+    "imageSize": {
+      "width": 677,
+      "height": 524
+    },
     "content": [
       {
         "type": "paragraph",
@@ -82,6 +90,10 @@
     "description": "Explore the key roles of vitamin C in your body and the best organic sources to include in your diet.",
     "imageUrl": "news_3.webp",
     "intro": "Vitamin C is a powerful antioxidant that supports your immune system, helps your body absorb iron, and promotes healthy skin. Learn how to naturally boost your vitamin C intake with fresh, organic foods.",
+    "imageSize": {
+      "width": 677,
+      "height": 524
+    },
     "content": [
       {
         "type": "paragraph",
@@ -120,6 +132,10 @@
     "description": "Discover the latest research on organic foods and how they can benefit your health and the environment.",
     "imageUrl": "news_4.webp",
     "intro": "Organic foods are gaining popularity as more research highlights their health and environmental benefits. Learn what recent studies say about choosing organic and how it can impact your well-being.",
+    "imageSize": {
+      "width": 677,
+      "height": 524
+    },
     "content": [
       {
         "type": "paragraph",
@@ -177,6 +193,10 @@
     "description": "Get tips on choosing and storing fresh fruits to enjoy their full flavor and nutritional value every day.",
     "imageUrl": "news_5.webp",
     "intro": "Fresh fruits are a delicious and essential part of a healthy diet. Discover how to select the best fruits, keep them fresh longer, and make the most of their nutritional benefits.",
+    "imageSize": {
+      "width": 677,
+      "height": 524
+    },
     "content": [
       {
         "type": "paragraph",
@@ -234,6 +254,10 @@
     "description": "Learn about the harmful effects of plastic on the environment and discover eco-friendly alternatives for everyday use.",
     "imageUrl": "news_6.webp",
     "intro": "Plastic pollution is one of the biggest threats to our planet. Find out how plastic products harm nature and what simple changes you can make to reduce your plastic footprint.",
+    "imageSize": {
+      "width": 677,
+      "height": 524
+    },
     "content": [
       {
         "type": "paragraph",

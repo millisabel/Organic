@@ -4,6 +4,10 @@ export interface GalleryCardData {
   id: number;
   title: string;
   image: string;
+  imageSize: {
+    width: number;
+    height: number;
+  };
 }
 
 export interface GalleryCardProps extends CardProps {

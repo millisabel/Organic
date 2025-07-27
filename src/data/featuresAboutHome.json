@@ -3,12 +3,20 @@
     {
       "icon": "about_1.svg",
       "title": "Organic Foods Only",
-      "description": "We source only certified organic products from trusted farmers who follow sustainable practices. Every item in our store meets strict organic standards, ensuring you get the purest, healthiest food for your family."
+      "description": "We source only certified organic products from trusted farmers who follow sustainable practices. Every item in our store meets strict organic standards, ensuring you get the purest, healthiest food for your family.",
+      "iconSize": {
+        "width": 53,
+        "height": 46
+      }
     },
     {
       "icon": "about_2.svg",
       "title": "Quality Standards",
-      "description": "Our quality control process ensures that every product meets the highest standards. From farm to table, we maintain rigorous quality checks to guarantee freshness, safety, and nutritional value in every item we offer."
+      "description": "Our quality control process ensures that every product meets the highest standards. From farm to table, we maintain rigorous quality checks to guarantee freshness, safety, and nutritional value in every item we offer.",
+      "iconSize": {
+        "width": 56,
+        "height": 62
+      }
     }
   ]
 }

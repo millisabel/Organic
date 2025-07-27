@@ -13,6 +13,8 @@ const Image: React.FC<ImageProps> = ({
   fallbackSrc,
   onError,
   onLoad,
+  width,
+  height,
   ...props
 }) => {
   const [hasError, setHasError] = useState(false);
@@ -45,6 +47,9 @@ const Image: React.FC<ImageProps> = ({
       <img
         src={displaySrc}
         alt={alt || 'Image: ' + src.split('/').pop()?.split('.')[0]}
+        width={width}
+        height={height}
+        loading="lazy"
         className={cn(
           'w-full h-auto object-cover transition-opacity duration-300',
           {

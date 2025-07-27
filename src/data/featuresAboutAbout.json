@@ -3,12 +3,20 @@
     {
       "icon": "tractor.svg",
       "title": "Modern Agriculture Equipment",
-      "description": ""
+      "description": "",
+      "iconSize": {
+        "width": 46,
+        "height": 46
+      }
     },
     {
       "icon": "chemical_plant.svg",
       "title": "No growth hormones are used",
-      "description": ""
+      "description": "",
+      "iconSize": {
+        "width": 56,
+        "height": 57
+      }
     }
   ]
 }

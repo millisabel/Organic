@@ -7,7 +7,11 @@
     "oldPrice": 20.0,
     "imageName": "Calabrese_Broccoli.webp",
     "rating": 5,
-    "description": "Fresh Calabrese broccoli, rich in vitamins and fiber. Perfect for healthy meals and salads. Grown organically for maximum nutrition and taste. Try it steamed, roasted, or raw for a crunchy snack."
+    "description": "Fresh Calabrese broccoli, rich in vitamins and fiber. Perfect for healthy meals and salads. Grown organically for maximum nutrition and taste. Try it steamed, roasted, or raw for a crunchy snack.",
+    "imageSize": {
+      "width": 335,
+      "height": 334
+    }
   },
   {
     "id": 2,
@@ -17,7 +21,11 @@
     "oldPrice": 20.0,
     "imageName": "Fresh.webp",
     "rating": 5,
-    "description": "Fresh organic produce, handpicked for quality and taste. Experience the vibrant flavors and natural goodness in every bite."
+    "description": "Fresh organic produce, handpicked for quality and taste. Experience the vibrant flavors and natural goodness in every bite.",
+    "imageSize": {
+      "width": 289,
+      "height": 384
+    }
   },
   {
     "id": 3,
@@ -28,7 +36,11 @@
     "imageName": "Organic_Almonds.webp",
     "rating": 5,
     "isOutOfStock": true,
-    "description": "Premium organic almonds, perfect for healthy snacking or baking. Packed with protein, fiber, and healthy fats. Enjoy them raw, roasted, or in your favorite recipes."
+    "description": "Premium organic almonds, perfect for healthy snacking or baking. Packed with protein, fiber, and healthy fats. Enjoy them raw, roasted, or in your favorite recipes.",
+    "imageSize": {
+      "width": 288,
+      "height": 383
+    }
   },
   {
     "id": 4,
@@ -38,7 +50,11 @@
     "oldPrice": 20.0,
     "imageName": "Cabbage.webp",
     "rating": 3,
-    "description": "Crisp green cabbage, great for salads, slaws, and stir-fries. A classic ingredient for coleslaw and fermented dishes like sauerkraut."
+    "description": "Crisp green cabbage, great for salads, slaws, and stir-fries. A classic ingredient for coleslaw and fermented dishes like sauerkraut.",
+    "imageSize": {
+      "width": 321,
+      "height": 320
+    }
   },
   {
     "id": 5,
@@ -50,7 +66,11 @@
     "isOutOfStock": false,
     "rating": 5,
     "description": "Sweet organic bananas, full of potassium and energy. Great for snacks, smoothies, or baking. A favorite for kids and adults alike!",
-    "isNew": true
+    "isNew": true,
+    "imageSize": {
+      "width": 376,
+      "height": 375
+    }
   },
   {
     "id": 6,
@@ -59,7 +79,11 @@
     "price": 11.0,
     "imageName": "Bean.webp",
     "rating": 4,
-    "description": "Tender green beans, full of flavor and nutrients. Steam, sauté, or roast for a delicious side dish."
+    "description": "Tender green beans, full of flavor and nutrients. Steam, sauté, or roast for a delicious side dish.",
+    "imageSize": {
+      "width": 335,
+      "height": 359
+    }
   },
   {
     "id": 7,
@@ -69,7 +93,11 @@
     "imageName": "Brown_Hazelnut.webp",
     "rating": 5,
     "description": "Crunchy brown hazelnuts, a tasty and healthy snack for any time of day. Add them to your granola, desserts, or enjoy straight from the bag.",
-    "isNew": true
+    "isNew": true,
+    "imageSize": {
+      "width": 199,
+      "height": 298
+    }
   },
   {
     "id": 8,
@@ -78,7 +106,11 @@
     "price": 17.0,
     "imageName": "Eggs.webp",
     "rating": 4,
-    "description": "Farm-fresh organic eggs, rich in protein and essential nutrients. Perfect for breakfast, baking, or any meal. Taste the difference of free-range quality!"
+    "description": "Farm-fresh organic eggs, rich in protein and essential nutrients. Perfect for breakfast, baking, or any meal. Taste the difference of free-range quality!",
+    "imageSize": {
+      "width": 336,
+      "height": 392
+    }
   },
   {
     "id": 9,
@@ -87,7 +119,11 @@
     "price": 15.0,
     "imageName": "Hazelnut.webp",
     "rating": 4,
-    "description": "Classic hazelnuts, delicious in desserts or as a wholesome snack. Try them in chocolate spreads, pastries, or enjoy on their own."
+    "description": "Classic hazelnuts, delicious in desserts or as a wholesome snack. Try them in chocolate spreads, pastries, or enjoy on their own.",
+    "imageSize": {
+      "width": 251,
+      "height": 334
+    }
   },
   {
     "id": 10,
@@ -96,7 +132,11 @@
     "price": 11.0,
     "imageName": "Mung_Bean.webp",
     "rating": 4,
-    "description": "Nutritious mung beans, high in protein and fiber. Great for soups, curries, and healthy sprouts. A staple in many Asian cuisines."
+    "description": "Nutritious mung beans, high in protein and fiber. Great for soups, curries, and healthy sprouts. A staple in many Asian cuisines.",
+    "imageSize": {
+      "width": 335,
+      "height": 310
+    }
   },
   {
     "id": 11,
@@ -105,7 +145,11 @@
     "price": 15.0,
     "imageName": "Nuts.webp",
     "rating": 5,
-    "description": "A mix of premium organic nuts for a nutritious and satisfying snack. Perfect for sharing, parties, or a quick energy boost during the day."
+    "description": "A mix of premium organic nuts for a nutritious and satisfying snack. Perfect for sharing, parties, or a quick energy boost during the day.",
+    "imageSize": {
+      "width": 328,
+      "height": 328
+    }
   },
   {
     "id": 12,
@@ -114,7 +158,11 @@
     "price": 8.0,
     "imageName": "Onion.webp",
     "rating": 3,
-    "description": "Fresh organic onions, essential for adding flavor to any dish. Mild and sweet, they are perfect for salads, soups, and sautés."
+    "description": "Fresh organic onions, essential for adding flavor to any dish. Mild and sweet, they are perfect for salads, soups, and sautés.",
+    "imageSize": {
+      "width": 311,
+      "height": 310
+    }
   },
   {
     "id": 13,
@@ -123,7 +171,11 @@
     "price": 10.0,
     "imageName": "Rusk.webp",
     "rating": 4,
-    "description": "Crispy bakery rusks, perfect for breakfast or as a crunchy snack. Enjoy with tea, coffee, or as a base for creative appetizers."
+    "description": "Crispy bakery rusks, perfect for breakfast or as a crunchy snack. Enjoy with tea, coffee, or as a base for creative appetizers.",
+    "imageSize": {
+      "width": 336,
+      "height": 362
+    }
   },
   {
     "id": 14,
@@ -132,7 +184,11 @@
     "price": 9.5,
     "imageName": "Tomato.webp",
     "rating": 4,
-    "description": "Juicy organic tomatoes, ideal for salads, sauces, and sandwiches. Sun-ripened for maximum flavor and freshness."
+    "description": "Juicy organic tomatoes, ideal for salads, sauces, and sandwiches. Sun-ripened for maximum flavor and freshness.",
+    "imageSize": {
+      "width": 331,
+      "height": 330
+    }
   },
   {
     "id": 15,
@@ -142,6 +198,10 @@
     "imageName": "White_Hazelnut.webp",
     "rating": 5,
     "description": "Delicate white hazelnuts, perfect for baking or healthy snacking. Enjoy their subtle flavor and crunch in your favorite recipes or as a nutritious snack on the go.",
-    "isNew": true
+    "isNew": true,
+    "imageSize": {
+      "width": 376,
+      "height": 379
+    }
   }
 ]

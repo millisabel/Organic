@@ -4,6 +4,10 @@ export interface CategoryDataProps extends CardProps {
   id: number;
   name: string;
   imageUrl: string;
+  imageSize?: {
+    width: number;
+    height: number;
+  };
 }
 
 export interface CategoryCardProps {

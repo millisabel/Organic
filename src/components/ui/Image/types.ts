@@ -7,4 +7,6 @@ export interface ImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 's
   onError?: (event: SyntheticEvent<HTMLImageElement, Event>) => void;
   onLoad?: () => void;
   imageClassName?: string;
+  width?: number | string;
+  height?: number | string;
 }

@@ -1,7 +1,7 @@
+import { useScrollToElement } from '@/hooks';
 import { getImageUrl } from '@/utils/helpers';
 import { Link } from 'react-router-dom';
 import type { CartProductInfoProps } from './types';
-import { useScrollToElement } from '@/hooks';
 
 const CartProductInfo = ({ item }: CartProductInfoProps) => {
   const { scrollToElement } = useScrollToElement({ delay: 300 });

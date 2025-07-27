@@ -2,21 +2,37 @@
   {
     "id": 1,
     "name": "Vegetable",
-    "imageUrl": "Vegetable.webp"
+    "imageUrl": "Vegetable.webp",
+    "imageSize": {
+      "width": 244,
+      "height": 314
+    }
   },
   {
     "id": 2,
     "name": "Fruits",
-    "imageUrl": "Fruits.webp"
+    "imageUrl": "Fruits.webp",
+    "imageSize": {
+      "width": 315,
+      "height": 314
+    }
   },
   {
     "id": 3,
     "name": "Nuts",
-    "imageUrl": "Nuts_Feesd.webp"
+    "imageUrl": "Nuts_Feesd.webp",
+    "imageSize": {
+      "width": 335,
+      "height": 314
+    }
   },
   {
     "id": 4,
     "name": "Spicy",
-    "imageUrl": "Spicy.webp"
+    "imageUrl": "Spicy.webp",
+    "imageSize": {
+      "width": 335,
+      "height": 314
+    }
   }
 ]

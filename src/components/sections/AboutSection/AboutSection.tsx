@@ -8,6 +8,7 @@ import Image from '@/components/ui/Image';
 import Paragraph from '@/components/ui/Typography/Paragraph';
 import { cn } from '@/utils/helpers';
 import type { AboutSectionProps } from './types';
+import type { FeatureDataProps } from '@/components/shared/ContentBlocks/InfoBlock/types';
 
 const AboutSection = ({
   variant = 'home',
@@ -16,12 +17,18 @@ const AboutSection = ({
   description,
   features,
   image,
+  imageSize,
   ...props
 }: AboutSectionProps) => {
   return (
     <Section {...props}>
       <ContentLayout variant="gridCol_md_2">
-        <Image src={image} folder="backgrounds" alt={title} />
+        <Image
+          src={image}
+          folder="backgrounds"
+          width={imageSize?.width}
+          height={imageSize?.height}
+        />
         <div>
           <SectionHeader title={title} subtitle={subtitle} className="text-center md:text-start" />
           <UiList
@@ -37,9 +44,7 @@ const AboutSection = ({
             renderItem={(feature) => (
               <InfoBlock
                 key={feature.title}
-                iconSrc={feature.icon}
-                title={feature.title}
-                description={feature.description}
+                item={feature as unknown as FeatureDataProps}
                 className={cn(variant === 'about' ? 'flex-row ' : '')}
               />
             )}

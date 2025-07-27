@@ -15,7 +15,7 @@ import type { NewsCardProps } from './types';
 import { useScrollToElement } from '@/hooks';
 
 const NewsCard: React.FC<NewsCardProps> = ({ data, slots = {} }) => {
-  const { title, imageUrl, author, date, description, id } = data;
+  const { title, imageUrl, author, date, description, id, imageSize } = data;
 
   const { scrollToElement } = useScrollToElement({ delay: 300 });
   const handleClick = () => {
@@ -35,6 +35,8 @@ const NewsCard: React.FC<NewsCardProps> = ({ data, slots = {} }) => {
           alt={title}
           folder="news"
           className="object-cover w-full h-full rounded-xl"
+          width={imageSize?.width || 670}
+          height={imageSize?.height || 520}
         />
       </CardHeader>
       <CardContent className="absolute -bottom-[100px] md:-bottom-[150px] z-10 lg:right-5 lg:left-5 w-full lg:w-auto p-4 md:p-10 lg:p-14 items-start bg-white  rounded-b-xl lg:rounded-xl shadow-lg">

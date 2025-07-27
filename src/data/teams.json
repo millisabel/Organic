@@ -7,6 +7,10 @@
     "socials": {
       "facebook": "https://facebook.com/",
       "twitter": "https://twitter.com/"
+    },
+    "imageSize": {
+      "width": 450,
+      "height": 485
     }
   },
   {
@@ -17,6 +21,10 @@
     "socials": {
       "facebook": "https://facebook.com/",
       "instagram": "https://instagram.com/"
+    },
+    "imageSize": {
+      "width": 450,
+      "height": 485
     }
   },
   {
@@ -28,6 +36,10 @@
       "facebook": "https://facebook.com/",
       "instagram": "https://instagram.com/",
       "twitter": "https://twitter.com/"
+    },
+    "imageSize": {
+      "width": 450,
+      "height": 485
     }
   },
   {
@@ -38,6 +50,10 @@
     "socials": {
       "facebook": "https://facebook.com/",
       "twitter": "https://twitter.com/"
+    },
+    "imageSize": {
+      "width": 450,
+      "height": 485
     }
   },
   {
@@ -48,6 +64,10 @@
     "socials": {
       "facebook": "https://facebook.com/",
       "instagram": "https://instagram.com/"
+    },
+    "imageSize": {
+      "width": 450,
+      "height": 485
     }
   },
   {
@@ -59,6 +79,10 @@
       "facebook": "https://facebook.com/",
       "instagram": "https://instagram.com/",
       "twitter": "https://twitter.com/"
+    },
+    "imageSize": {
+      "width": 450,
+      "height": 485
     }
   }
 ]

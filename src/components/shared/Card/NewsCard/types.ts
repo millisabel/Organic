@@ -10,6 +10,10 @@ export interface NewsCardData {
   title: string;
   description: string;
   imageUrl: string;
+  imageSize: {
+    width: number;
+    height: number;
+  };
   [key: string]: unknown;
 }
 

@@ -1,19 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import Card from '@/components/ui/Card';
-import type { CategoryCardProps } from './types';
-import CardHeader from '@/components/ui/Card/components/CardHeader';
 import CardContent from '@/components/ui/Card/components/CardContent';
+import CardHeader from '@/components/ui/Card/components/CardHeader';
 import Image from '@/components/ui/Image';
 import Title from '@/components/ui/Typography/Title';
 import { useScrollToElement } from '@/hooks';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import type { CategoryCardProps } from './types';
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ data }) => {
   const { scrollToElement } = useScrollToElement({ delay: 300 });
   const handleClick = () => {
     scrollToElement('[id="shop"]');
   };
-  const { name, imageUrl } = data;
+  const { name, imageUrl, imageSize } = data;
+
   return (
     <Link
       to={`/shop?category=${name}`}
@@ -29,6 +30,8 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ data }) => {
             folder="categories"
             className="rounded-[30px] aspect-square bg-white overflow-hidden group-hover:scale-110 transition-all duration-1000"
             imageClassName="object-scale-down"
+            width={imageSize?.width || 300}
+            height={imageSize?.height || 300}
           />
         </CardHeader>
         <CardContent className="p-4">

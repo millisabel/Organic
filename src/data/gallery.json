@@ -3,17 +3,29 @@
     {
       "id": 1,
       "title": "Organic Juice",
-      "image": "gallery_left.webp"
+      "image": "gallery_left.webp",
+      "imageSize": {
+        "width": 612,
+        "height": 583
+      }
     },
     {
       "id": 2,
       "title": "Organic Food",
-      "image": "gallery_center.webp"
+      "image": "gallery_center.webp",
+      "imageSize": {
+        "width": 612,
+        "height": 583
+      }
     },
     {
       "id": 3,
       "title": "Nuts Cookies",
-      "image": "gallery_right.webp"
+      "image": "gallery_right.webp",
+      "imageSize": {
+        "width": 612,
+        "height": 583
+      }
     }
   ]
 }

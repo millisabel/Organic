@@ -53,6 +53,7 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
                   type="text"
                   placeholder="Your Email Address"
                   required
+                  autoComplete="name"
                   error={errors.fullName}
                   touched={touched.fullName}
                 />
@@ -63,6 +64,7 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
                   type="email"
                   placeholder="example@yourmail.com"
                   required
+                  autoComplete="email"
                   error={errors.email}
                   touched={touched.email}
                 />
@@ -73,6 +75,7 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
                   type="text"
                   placeholder="yourcompany name here"
                   required
+                  autoComplete="organization"
                   error={errors.company}
                   touched={touched.company}
                 />
@@ -83,6 +86,7 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
                   type="text"
                   placeholder="how can we help"
                   required
+                  autoComplete="off"
                   error={errors.subject}
                   touched={touched.subject}
                 />

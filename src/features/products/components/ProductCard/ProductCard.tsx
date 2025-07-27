@@ -45,16 +45,20 @@ const ProductCard = ({ data, view = 'compact', isAction = true }: ProductCardPro
     isOutOfStock: !!isOutOfStock,
     isNew: !!isNew,
     isSale: !!isSale,
+    isAction,
     handleAddToCartClick,
     handleCategoryClick,
     handleRemoveClick,
-    handleQuantityChange,
   };
 
   return view === 'compact' ? (
-    <ProductCardCompact {...commonProps} isAction={isAction} />
+    <ProductCardCompact {...commonProps} />
   ) : (
-    <ProductCardDetailed {...commonProps} quantity={quantity} setQuantity={setQuantity} />
+    <ProductCardDetailed
+      {...commonProps}
+      quantity={quantity}
+      handleQuantityChange={handleQuantityChange}
+    />
   );
 };
 
