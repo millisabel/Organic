@@ -1,12 +1,10 @@
 import AddToCartButton from '@/components/shared/Button/AddToCartButton';
+import BuyMoreButton from '@/components/shared/Button/BuyMoreButton';
 import GoToCartButton from '@/components/shared/Button/GoToCartButton';
 import TrashButton from '@/components/shared/Button/TrashButton';
-import ArrowIcon from '@/components/shared/Icon/ArrowIcon';
-import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Form/Input';
 import Label from '@/components/ui/Form/Label';
 import { cn } from '@/utils/helpers';
-import { Link } from 'react-router-dom';
 import type { ActionsBlockProps } from './types';
 
 const ActionsBlock = ({
@@ -36,12 +34,11 @@ const ActionsBlock = ({
           />
         )}
         {isInCart && (
-          <Button asChild variant="outline" className="flex-1 min-w-[100px] mx-auto md:mx-0">
-            <Link to={`/shop/${id}`}>
-              <span>buy more</span>
-              <ArrowIcon className="w-5 h-5" />
-            </Link>
-          </Button>
+          <BuyMoreButton
+            productId={id!}
+            variant="outline"
+            className="flex-1 min-w-[100px] mx-auto md:mx-0"
+          />
         )}
         {isInCart && <GoToCartButton mode="compact" size="square" />}
         {isInCart && <TrashButton onClick={handleRemoveClick} />}

@@ -12,15 +12,21 @@ const ProductSection = ({ title, subtitle, products, itemsDisplay = 8 }: Product
   return (
     <Section dataComponent="ProductSection">
       <SectionHeader title={title} subtitle={subtitle} className="text-center mb-20" />
-      <UiList
-        variant="gridCol_sm_2_lg_4"
-        items={displayedProducts}
-        className="gap-6 mb-20"
-        renderItem={(item, idx) => (
-          <ProductCard key={idx} data={item as unknown as ProductCardData} />
-        )}
-        itemsDisplay="all"
-      />
+      {products.length > 0 ? (
+        <UiList
+          variant="gridCol_sm_2_lg_4"
+          items={displayedProducts}
+          className="gap-6 mb-20"
+          renderItem={(item, idx) => (
+            <ProductCard key={idx} data={item as unknown as ProductCardData} />
+          )}
+          itemsDisplay="all"
+        />
+      ) : (
+        <p className="text-text-light text-center mb-20">
+          There are no matching products, but we plan to have them soon.
+        </p>
+      )}
 
       <GoToShop variant="default" className="mx-auto" />
     </Section>

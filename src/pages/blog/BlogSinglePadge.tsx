@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
 import Section from '@/components/layout/Section/Section';
-import Breadcrumbs from '@/components/shared/Navigation/Breadcrumbs';
 import HeroSection from '@/components/sections/HeroSection';
 import ArticleContent from '@/components/shared/Post/Article';
 import IntroContent from '@/components/shared/Post/Intro';
 import { getImageUrl } from '@/utils/helpers';
 import type { ArticleContentProps } from '@/components/shared/Post/Article/types';
 import newsData from '@/data/news.json';
+import BreadcrumbsSection from '@/components/sections/BreadcrumbsSection/BreadcrumbsSection';
 
 const BlogSinglePage = () => {
   const { postId } = useParams();
@@ -17,17 +17,15 @@ const BlogSinglePage = () => {
     return <div className="text-center text-red-500">Post not found</div>;
   }
 
+  const breadcrumbItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Blog', path: '/blog' },
+    { label: post.title },
+  ];
+
   return (
     <div className="relative">
-      <Section id="breadcrumbs" className="py-2">
-        <Breadcrumbs
-          items={[
-            { label: 'Home', path: '/' },
-            { label: 'Blog', path: '/blog' },
-            { label: post.title },
-          ]}
-        />
-      </Section>
+      <BreadcrumbsSection items={breadcrumbItems} />
       <HeroSection id="hero" variant="single" backgroundImageUrl={heroImg} container={false} />
       <Section id="article">
         <div className="relative">
