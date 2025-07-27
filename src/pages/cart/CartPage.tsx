@@ -46,7 +46,7 @@ const CartPage = () => {
           <CartSummary total={total} className="my-20" />
         </>
       )}
-      <GoToShop className="w-full md:w-auto mx-auto lg:ml-auto" />
+      <GoToShop className="w-full md:w-min mx-auto lg:ml-auto" />
     </Section>
   );
 };

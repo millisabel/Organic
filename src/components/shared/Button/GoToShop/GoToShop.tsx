@@ -21,7 +21,7 @@ const GoToShop = ({
     <Button
       aria-label="Go to shop"
       tabIndex={0}
-      asChild={!isArrow}
+      asChild={true}
       variant={variant}
       state={state}
       nameComponent="GoToShop"

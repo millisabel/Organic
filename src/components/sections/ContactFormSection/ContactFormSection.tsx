@@ -39,7 +39,7 @@ const ContactFormSection = ({ onSubmit, onSuccess }: ContactFormSectionProps) =>
           }
         }}
       >
-        {({ values, errors, touched, submitCount, handleSubmit }) => {
+        {({ errors, touched, submitCount, handleSubmit }) => {
           const hasErrors = Object.keys(errors).length > 0;
           const showFormError = submitCount > 0 && hasErrors;
 
