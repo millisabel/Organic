@@ -40,6 +40,10 @@ const data = {
   category: 'Fruits',
   isOutOfStock: false,
   isNew: true,
+  imageSize: {
+    width: 300,
+    height: 300,
+  },
 };
 
 export const Default = () => <ProductCard data={data} />;

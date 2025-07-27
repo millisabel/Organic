@@ -1,11 +1,11 @@
+import GoToShop from '@/components/shared/Button/GoToShop/GoToShop';
 import CheckIcon from '@/components/shared/Icon/CheckIcon';
+import List from '@/components/ui/Typography/List';
+import Title from '@/components/ui/Typography/Title';
 import { useIsBelowBreakpoint } from '@/hooks/useIsBelowBreakpoint';
 import { getImageUrl } from '@/utils/helpers';
 import { useState } from 'react';
 import type { BannerCardProps } from './types';
-import List from '@/components/ui/Typography/List';
-import Title from '@/components/ui/Typography/Title';
-import GoToShop from '@/components/shared/Button/GoToShop/GoToShop';
 
 const BannerCard = ({
   flipDirection = 'right',
@@ -14,7 +14,6 @@ const BannerCard = ({
   subtitle,
   backFeatures,
   titleColor = 'text-white',
-  imageSize,
 }: BannerCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const isMobile = useIsBelowBreakpoint('md');

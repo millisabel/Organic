@@ -20,6 +20,10 @@ const data = {
   id: 1,
   title: 'Gallery Card',
   image: 'gallery_center.webp',
+  imageSize: {
+    width: 400,
+    height: 400,
+  },
 };
 
 export const Default = (args: React.ComponentProps<typeof GalleryCard>) => (
@@ -31,5 +35,9 @@ Default.args = {
     id: 1,
     title: 'Gallery Card',
     image: 'gallery/gallery-1.jpg',
+    imageSize: {
+      width: 400,
+      height: 400,
+    },
   },
 };

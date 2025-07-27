@@ -32,6 +32,10 @@ const sampleData: TeamMemberData = {
   name: 'Giovani Bacardo',
   role: 'Farmer',
   image: 'Giovani_Bacardo.webp',
+  imageSize: {
+    width: 300,
+    height: 300,
+  },
   socials: {
     facebook: 'https://www.facebook.com/giovani.bacardo',
     instagram: 'https://www.instagram.com/giovani.bacardo',
